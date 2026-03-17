@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="darklight matter" nameDescription="a darklight matter" race="venom" experience="22250" speed="230" manacost="0">
+	<health now="30150" max="30150" />
+	<look type="1624" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1100" />
+		<attack name="energy" interval="2500" chance="15" radius="5" target="1" min="-1400" max="-1800">
+			<attribute key="areaEffect" value="purplesmoke" />
+		</attack>
+		<attack name="physical" interval="2500" chance="20" radius="5" target="1" min="-1500" max="-1600">
+			<attribute key="areaEffect" value="ghostlybite" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" length="8" spread="3" target="0" min="-1400" max="-1650">
+			<attribute key="areaEffect" value="electricalspark" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" min="-800" max="-1500" />
+	</attacks>
+	<defenses armor="98" defense="98" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="40" />
+		<element earthPercent="-10" />
+		<element firePercent="-25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*twiggle*" />
+		<voice sentence="SSSSHRRR..." />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="11755" />
+<item name="ultimate health potion" chance="6553" countmax="6" />
+		<item name="red gem" chance="1430" />
+<item name="rubber cap" chance="7180" />
+		<item name="collar of red plasma" chance="3500" />
+		<item name="green gem" chance="3500" />
+		<item name="shadow sceptre" chance="3500" />
+	</loot>
+</monster>

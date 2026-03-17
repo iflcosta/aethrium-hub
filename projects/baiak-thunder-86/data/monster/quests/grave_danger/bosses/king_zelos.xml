@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="King Zelos" nameDescription="a king zelos" race="venom" experience="75000" speed="212" manacost="0">
+	<health now="480000" max="480000" />
+	<look type="1224" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-900" max="-2700" />
+		<attack name="fire" interval="2000" chance="15" length="8" spread="0" min="-1200" max="-3200">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-600" max="-1600">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="death" interval="2000" chance="30" radius="6" target="0" min="-1200" max="-1500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" length="8" target="0" min="-1700" max="-2000">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="130" defense="130">
+		<defense name="healing" interval="2000" chance="15" min="1450" max="5350">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="3" />
+		<element earthPercent="0" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="5" />
+		<item name="crystal coin" chance="50000" countmax="5" />
+		<item name="supreme health potion" chance="45000" countmax="20" />
+		<item name="ultimate mana potion" chance="42000" countmax="6" />
+		<item name="ultimate spirit potion" chance="42000" countmax="14" />
+		<item name="bullseye potion" chance="22000" countmax="10" />
+		<item name="berserk potion" chance="22000" countmax="10" />
+		<item name="gold token" chance="18000" countmax="3" />
+		<item name="silver token" chance="25000" countmax="3" />
+		<item name="green gem" chance="19000" />
+		<item name="red gem" chance="18500" />
+		<item name="yellow gem" chance="18500" />
+		<item name="giant sapphire" chance="16800" />
+		<item name="collar of green plasma" chance="15200" />
+		<item name="magma coat" chance="15200" />
+		<item name="gold ingot" chance="18000" />
+		<item name="red tome" chance="18200" />
+		<item name="ring of blue plasma" chance="12000" />
+		<item name="ring of red plasma" chance="12000" />
+		<item name="young lich worm" chance="5500" />
+		<item name="mortal mace" chance="1300" />
+<item name="bow of cataclysm" chance="600" />
+		<item name="galea mortis" chance="550" />
+		<item name="shadow cowl" chance="530" />
+		<item name="toga mortis" chance="500" />
+</loot>
+</monster>

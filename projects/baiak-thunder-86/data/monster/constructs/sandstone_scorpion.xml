@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="sandstone scorpion" nameDescription="a sandstone scorpion" race="undead" experience="680" speed="110" manacost="0">
+	<health now="900" max="900" />
+	<look type="398" head="0" body="0" legs="0" feet="0" addons="0" corpse="13501" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+	</attacks>
+	<defenses armor="42" defense="0">
+		<defense name="healing" interval="2000" chance="10" min="60" max="100">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="90" />
+		<element firePercent="40" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*rattle*" />
+		<voice sentence="*tak tak*" />
+		<voice sentence="*tak tak tak*" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="92590" countmax="100" />
+		<item name="small emerald" chance="1100" countmax="2" />
+		<item name="platinum coin" chance="10750" countmax="2" />
+		<item name="daramian mace" chance="5100" />
+		<item name="steel helmet" chance="4620" />
+		<item name="black shield" chance="1820" />
+		<item name="fist on a stick" chance="220" />
+	</loot>
+</monster>

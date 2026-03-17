@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lizard templar" nameDescription="a lizard templar" race="blood" experience="155" speed="87" manacost="0">
+	<health now="410" max="410" />
+	<look type="113" head="0" body="0" legs="0" feet="0" addons="0" corpse="4251" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-70" />
+	</attacks>
+	<defenses armor="26" defense="20" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hissss!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="84000" countmax="60" />
+		<item name="small emerald" chance="250" />
+		<item name="sword" chance="4000" />
+		<item name="morning star" chance="1990" />
+		<item name="short sword" chance="9500" />
+		<item name="steel helmet" chance="2000" />
+		<item name="plate armor" chance="1000" />
+		<item name="templar scytheblade" chance="500" />
+		<item name="salamander shield" chance="110" />
+<item name="lizard leather" chance="880" />
+		<item name="lizard scale" chance="990" />
+		<item name="health potion" chance="890" />
+	</loot>
+</monster>

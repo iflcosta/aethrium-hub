@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="quara mantassin" nameDescription="a quara mantassin" race="blood" experience="600" speed="295" manacost="1600">
+	<health now="800" max="800" />
+	<look type="72" head="0" body="0" legs="0" feet="0" addons="0" corpse="6064" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="40" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-138">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="16" defense="15">
+		<defense name="invisible" interval="2000" chance="20">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="400" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-25" />
+		<element earthPercent="-10" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Shrrrr" />
+		<voice sentence="Zuerk Pachak!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="5000" countmax="100" />
+		<item name="gold coin" chance="29000" countmax="29" />
+		<item name="mantassin tail" chance="12600" />
+		<item name="shrimp" chance="5170" countmax="5" />
+		<item name="halberd" chance="4970" />
+		<item name="small sapphire" chance="1130" />
+		<item name="cape" chance="1090" />
+		<item name="stealth ring" chance="1050" />
+		<item name="two handed sword" chance="990" />
+		<item name="fish fin" chance="610" />
+		<item name="strange helmet" chance="100" />
+		<item name="blue robe" chance="60" />
+	</loot>
+</monster>

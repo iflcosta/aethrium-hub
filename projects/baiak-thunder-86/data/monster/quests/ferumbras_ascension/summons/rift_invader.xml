@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="rift invader" nameDescription="a rift invader" race="venom" experience="100" speed="128" manacost="0">
+  <health now="6250" max="6250" />
+  <look type="290" head="0" body="0" legs="0" feet="0" addons="0" />
+  <targetchange interval="2000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" skill="70" attack="130" />
+    <attack name="energy" interval="2000" chance="33" radius="5" range="7" target="0" min="-450" max="-550">
+      <attribute key="areaEffect" value="energyarea" />
+    </attack>
+    <attack name="energy" interval="2000" chance="7" radius="2" range="1" target="1" min="-210" max="-300">
+      <attribute key="areaEffect" value="energy" />
+      <attribute key="shootEffect" value="energy" />
+    </attack>
+    <attack name="death" interval="2000" chance="14" radius="3" range="7" target="1" min="-200" max="-300">
+      <attribute key="areaEffect" value="mortarea" />
+      <attribute key="shootEffect" value="fire" />
+    </attack>
+    <attack name="manadrain" interval="2000" chance="10" target="1" min="-180" max="-280" />
+  </attacks>
+  <defenses armor="35" defense="65">
+    <defense name="healing" interval="2000" chance="14" min="150" max="250">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+    <defense name="speed" interval="2000" chance="10" speedchange="388" duration="4000">
+      <attribute key="areaEffect" value="redshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="0" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="10" />
+    <element holyPercent="-15" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

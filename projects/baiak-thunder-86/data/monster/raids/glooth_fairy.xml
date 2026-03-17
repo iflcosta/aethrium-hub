@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Fairy" nameDescription="a glooth fairy" race="blood" experience="19000" speed="130" manacost="0">
+	<health now="59000" max="59000" />
+	<look type="600" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="80" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1900" />
+		<attack name="energy" interval="1000" chance="7" radius="6" target="0" min="-300" max="-4000">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" target="0" />
+		<attack name="physical" interval="2000" chance="5" target="0" />
+		<attack name="speed" interval="2000" chance="20" radius="6" target="1" speedchange="-400" duration="60000">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="165" defense="150">
+		<defense name="healing" interval="1000" chance="10" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="1" min="7500" max="8000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="5" />
+		<element earthPercent="100" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="15" />
+		<element deathPercent="30" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="37170" countmax="14" />
+		<item name="glooth injection tube" chance="14630" />
+		<item name="great mana potion" chance="11270" />
+		<item name="glooth sandwich" chance="10550" />
+		<item name="small topaz" chance="4320" countmax="2" />
+		<item name="small emerald" chance="3600" countmax="2" />
+		<item name="glooth amulet" chance="2400" />
+		<item name="gear wheel" chance="1920" />
+		<item name="glooth axe" chance="1200" />
+		<item name="glooth spear" chance="1200" />
+		<item name="heat core" chance="1200" />
+		<item name="yellow gem" chance="960" />
+		<item name="glooth blade" chance="720" />
+		<item name="glooth club" chance="480" />
+		<item name="rubber cap" chance="480" />
+		<item name="red gem" chance="980" />
+		<item name="feedbag" chance="480" />
+		<item name="iron ore" chance="980" />
+		<item name="bowl of glooth soup" chance="280" />
+	</loot>
+</monster>

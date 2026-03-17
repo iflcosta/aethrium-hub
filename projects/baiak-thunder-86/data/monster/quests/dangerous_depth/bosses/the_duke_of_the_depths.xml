@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Duke Of The Depths" nameDescription="a the duke of the depths" race="blood" experience="300000" speed="135" manacost="0">
+	<health now="350000" max="350000" />
+	<look type="1047" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="50" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-800" />
+		<attack name="fire" interval="2000" chance="15" length="6" spread="8" range="3" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="9" spread="4" range="3" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="2" target="0" min="-135" max="-1000">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="8" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="160" defense="160" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="SzzzSzzz!" />
+		<voice sentence="Chhhhhh!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="63" />
+		<item name="mastermind potion" chance="100000" />
+		<item name="stone skin amulet" chance="100000" />
+		<item name="heavy crystal fragment" chance="100000" />
+		<item name="wand of inferno" chance="75000" />
+		<item name="great mana potion" chance="64580" countmax="18" />
+		<item name="blue crystal shard" chance="60420" />
+		<item name="fire axe" chance="58330" />
+		<item name="ultimate health potion" chance="52080" countmax="18" />
+		<item name="fire sword" chance="52080" />
+		<item name="great spirit potion" chance="45830" countmax="18" />
+		<item name="luminous orb" chance="37500" />
+		<item name="damaged worm head" chance="27080" />
+		<item name="small amethyst" chance="25000" />
+		<item name="small diamond" chance="20830" />
+		<item name="slightly rusted helmet" chance="20830" />
+		<item name="green gem" chance="18750" />
+		<item name="slightly rusted shield" chance="18750" />
+		<item name="silver token" chance="16670" />
+		<item name="giant tentacle" chance="16670" />
+		<item name="yellow gem" chance="16670" />
+		<item name="blue gem" chance="16670" />
+		<item name="small ruby" chance="14580" />
+		<item name="giant shimmering pearl" chance="14580" />
+		<item name="magic sulphur" chance="14580" />
+		<item name="huge chunk of crude iron" chance="12500" />
+		<item name="red gem" chance="12500" />
+		<item name="small topaz" chance="10420" />
+		<item name="small emerald" chance="10420" />
+		<item name="muck rod" chance="10420" />
+		<item name="gold token" chance="10420" />
+		<item name="crystal coin" chance="6250" />
+		<item name="gnome shield" chance="4170" />
+		<item name="crystalline armor" chance="4170" />
+		<item name="gnome sword" chance="4170" />
+		<item name="terra mantle" chance="2080" />
+		<item name="violet gem" chance="2080" />
+		<item name="gnome legs" chance="3390" />
+</loot>
+</monster>

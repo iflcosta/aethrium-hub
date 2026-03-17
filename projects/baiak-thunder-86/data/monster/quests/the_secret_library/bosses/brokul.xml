@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Brokul" nameDescription="a brokul" race="blood" experience="23000" speed="105" manacost="0">
+	<health now="50000" max="50000" />
+	<look type="1076" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="1000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="60" />
+		<flag runonhealth="60" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-500" />
+		<attack name="holy" interval="2000" chance="14" length="8" spread="3" target="0" min="-100" max="-700">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="18" radius="4" target="0" min="-300" max="-700">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="14" length="8" spread="3" target="0" min="-300" max="-840">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+		<attack name="holy" interval="2000" chance="14" length="8" spread="3" target="0" min="-300" max="-700">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="ice" interval="2000" chance="29" radius="4" range="7" target="1" min="-300" max="-840">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="86" defense="60">
+		<defense name="healing" interval="1000" chance="20" min="200" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="3000" chance="20" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-15" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="small sapphire" chance="2854" countmax="10" />
+		<item name="gold coin" chance="70000" countmax="60" />
+		<item name="platinum coin" chance="80000" countmax="10" />
+		<item name="gold ingot" chance="3448" countmax="10" />
+		<item name="broccoli" chance="2439" countmax="10" />
+		<item name="small diamond" chance="498" countmax="10" />
+		<item name="blue gem" chance="2500" />
+		<item name="red gem" chance="2000" />
+		<item name="deepling ceremonial dagger" chance="200" />
+		<item name="deepling fork" chance="200" />
+</loot>
+</monster>

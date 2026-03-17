@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="renegade knight" nameDescription="a renegade knight" race="blood" experience="1200" speed="135" manacost="0">
+	<health now="1450" max="1450" />
+	<look type="268" head="97" body="113" legs="76" feet="98" addons="2" corpse="24671" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="10" max="-175" />
+	</attacks>
+	<defenses armor="38" defense="50">
+		<defense name="healing" interval="4000" chance="25" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="15" />
+		<element energyPercent="35" />
+		<element earthPercent="20" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="50" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I'll teach you a lesson!" />
+		<voice sentence="Feel my steel!" />
+		<voice sentence="Take this!" />
+		<voice sentence="Let's see how good you are!" />
+		<voice sentence="A challenge at last!" />
+	</voices>
+	<loot>
+		<item name="arrow" chance="90450" countmax="10" />
+		<item name="gold coin" chance="75410" countmax="30" />
+		<item name="grapes" chance="1210" />
+		<item name="great health potion" chance="1210" />
+		<item name="meat" chance="1210" countmax="2" />
+		<item name="sniper arrow" chance="1210" countmax="4" />
+		<item name="crown armor" chance="210" />
+		<item name="crown helmet" chance="310" />
+		<item name="crown shield" chance="210" />
+		<item name="crown legs" chance="110" />
+		<item name="fire sword" chance="310" />
+		<item name="halberd" chance="1610" />
+		<item name="red rose" chance="510" />
+		<item name="rope" chance="1510" />
+		<item name="scroll" chance="910" />
+		<item name="scroll of heroic deeds" chance="910" />
+		<item name="small notebook" chance="910" />
+		<item name="wedding ring" chance="510" />
+	</loot>
+</monster>

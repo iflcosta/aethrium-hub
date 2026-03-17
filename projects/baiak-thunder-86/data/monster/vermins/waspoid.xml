@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Waspoid" nameDescription="a waspoid" race="venom" experience="830" speed="155" manacost="0">
+	<health now="1100" max="1100" />
+	<look type="462" head="0" body="0" legs="0" feet="0" addons="0" corpse="15396" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="15" radius="3" target="1" min="-110" max="-180">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="15" range="7" target="0" min="-80" max="-100">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="36" defense="25" />
+	<elements>
+		<element physicalPercent="-2" />
+		<element energyPercent="25" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-7" />
+		<element deathPercent="5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Peeex!" />
+		<voice sentence="Bzzzzzzzrrrrzzzzzzrrrrr!" />
+	</voices>
+	<loot>
+		<item name="emerald bangle" chance="2040" />
+		<item name="black pearl" chance="4230" />
+		<item name="gold coin" chance="40000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="35" />
+		<item name="platinum coin" chance="40430" />
+		<item name="yellow gem" chance="1040" />
+		<item name="waspoid claw" chance="9096" />
+		<item name="waspoid wing" chance="13890" />
+		<item name="compound eye" chance="6060" />
+		<item name="grasshopper legs" chance="230" />
+		<item name="carapace shield" chance="120" />
+		<item name="hive scythe" chance="330" />
+	</loot>
+</monster>

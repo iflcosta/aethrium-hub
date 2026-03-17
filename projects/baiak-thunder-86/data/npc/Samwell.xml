@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Samwell" script="default.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="130" head="78" body="88" legs="0" feet="0" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="exercise sword,31208,1000;exercise axe,31209,1000;exercise club,31210,1000;exercise bow,31211,1000;exercise rod,31212,1000;exercise wand,31213,1000;durable exercise sword,37935,5000;durable exercise axe,37936,5000;durable exercise club,37937,5000;durable exercise bow,37938,5000;durable exercise rod,37939,5000;durable exercise wand,37940,5000;lasting exercise sword,37941,10000;lasting exercise axe,37942,10000;lasting exercise club,37943,10000;lasting exercise bow,37944,10000;lasting exercise rod,37945,10000;lasting exercise wand,37946,10000" />
+		<parameter key="message_greet" value="Hello |PLAYERNAME|. I sell exercise weapons. Say {trade} to see my list."/>
+		<parameter key="message_farewell" value="Good luck with your training."/>
+		<parameter key="message_walkaway" value="See you later."/>
+	</parameters>
+</npc>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Arbaziloth" nameDescription="a arbaziloth" race="fire" experience="500000" speed="160" manacost="0">
+	<health now="360000" max="360000" />
+	<look type="1802" head="0" body="0" legs="0" feet="0" addons="0" corpse="2869" />
+	<targetchange interval="5000" chance="40" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-1520" max="-2000" />
+	</attacks>
+	<defenses armor="80" defense="145">
+		<defense name="healing" interval="2000" chance="5" min="200" max="600">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element drownPercent="0" />
+		<element firePercent="15" />
+		<element deathPercent="20" />
+		<element icePercent="20" />
+		<element physicalPercent="30" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I am superior!" />
+		<voice sentence="You are mad to challange a demon prince!" />
+		<voice sentence="You can't stop me or my plans!" />
+		<voice sentence="Pesky humans!" />
+		<voice sentence="This insolence!" />
+		<voice sentence="Nobody can stop me!" />
+		<voice sentence="All will have to bow to me!" />
+		<voice sentence="With this power I can crush everyone!" />
+		<voice sentence="All that energy is mine!" />
+		<voice sentence="Face the power of hell!" />
+		<voice sentence="AHHH! THE POWER!!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="5000" countmax="3" />
+		<item name="platinum coin" chance="5000" countmax="100" />
+		<item name="strong mana potion" chance="3500" countmax="20" />
+		<item name="great mana potion" chance="3000" countmax="15" />
+		<item name="great spirit potion" chance="2900" countmax="6" />
+		<item name="ultimate mana potion" chance="3000" countmax="40" />
+		<item name="ultimate health potion" chance="3500" countmax="20" />
+		<item name="supreme health potion" chance="2900" countmax="10" />
+		<item name="ultimate spirit potion" chance="3500" countmax="14" />
+		<item name="blue gem" chance="2900" countmax="2" />
+		<item name="red gem" chance="2500" countmax="2" />
+		<item name="yellow gem" chance="2000" countmax="2" />
+		<item name="death ring" chance="1900" />
+		<item name="devil helmet" chance="1800" />
+		<item name="fire axe" chance="1700" />
+		<item name="fire sword" chance="1600" />
+		<item name="giant sword" chance="1500" />
+		<item name="gold ring" chance="1400" />
+		<item name="golden sickle" chance="1300" />
+		<item name="ice rapier" chance="1200" />
+		<item name="life ring" chance="1150" />
+		<item name="magma amulet" chance="1100" />
+		<item name="magma legs" chance="1050" />
+		<item name="might ring" chance="1890" />
+		<item name="platinum amulet" chance="1000" />
+		<item name="purple tome" chance="1000" />
+		<item name="ring of healing" chance="1300" />
+		<item name="silver amulet" chance="1000" />
+		<item name="skull staff" chance="1000" />
+		<item name="spellweaver's robe" chance="1300" />
+		<item name="stone skin amulet" chance="900" />
+		<item name="strange helmet" chance="1000" />
+		<item name="underworld rod" chance="1600" />
+		<item name="wand of inferno" chance="1600" />
+<item name="demon shield" chance="900" />
+		<item name="demonbone amulet" chance="900" />
+		<item name="demonrage sword" chance="900" />
+		<item name="giant amethyst" chance="900" />
+		<item name="giant emerald" chance="900" />
+		<item name="giant ruby" chance="900" />
+		<item name="giant sapphire" chance="900" />
+		<item name="golden legs" chance="900" />
+		<item name="magic plate armor" chance="900" />
+</loot>
+</monster>

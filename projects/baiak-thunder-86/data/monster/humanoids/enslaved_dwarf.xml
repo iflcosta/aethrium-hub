@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="enslaved dwarf" nameDescription="a enslaved dwarf" race="blood" experience="2700" speed="135" manacost="0">
+	<health now="3800" max="3800" />
+	<look type="494" head="0" body="0" legs="0" feet="0" addons="0" corpse="17407" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-501" />
+		<attack name="physical" interval="2000" chance="15" range="7" target="0" min="0" max="-340">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="3" range="7" target="1" min="0" max="-250">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="explosion" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="20" radius="5" target="0" duration="6000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" target="0" />
+		<attack name="physical" interval="2000" chance="5" target="0" />
+	</attacks>
+	<defenses armor="60" defense="30">
+		<defense name="healing" interval="2000" chance="10" min="396" max="478">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-3" />
+		<element energyPercent="5" />
+		<element earthPercent="30" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Bark!" />
+		<voice sentence="Blood!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="50000" countmax="99" />
+		<item name="gold coin" chance="50000" countmax="50" />
+		<item name="small emerald" chance="10290" countmax="2" />
+		<item name="small amethyst" chance="10680" countmax="2" />
+		<item name="platinum coin" chance="100000" countmax="6" />
+		<item name="axe ring" chance="1550" />
+		<item name="war hammer" chance="5050" />
+		<item name="warrior helmet" chance="580" />
+		<item name="guardian shield" chance="2300" />
+		<item name="tower shield" chance="190" />
+		<item name="ancient shield" chance="3690" />
+		<item name="brown mushroom" chance="15150" countmax="2" />
+		<item name="iron ore" chance="11070" />
+		<item name="titan axe" chance="1170" />
+		<item name="sapphire hammer" chance="80" />
+		<item name="spiked squelcher" chance="80" />
+		<item name="glorious axe" chance="1940" />
+		<item name="great mana potion" chance="6660" countmax="2" />
+		<item name="great health potion" chance="7960" />
+		<item name="shiny stone" chance="4660" />
+		<item name="coal" chance="780" />
+		<item name="green crystal shard" chance="1750" />
+		<item name="green crystal splinter" chance="3110" />
+		<item name="brown crystal splinter" chance="5630" countmax="2" />
+		<item name="red crystal fragment" chance="3690" />
+		<item name="drill bolt" chance="3690" countmax="5" />
+	</loot>
+</monster>

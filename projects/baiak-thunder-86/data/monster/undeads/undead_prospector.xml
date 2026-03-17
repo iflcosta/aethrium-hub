@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="undead prospector" nameDescription="a undead prospector" race="blood" experience="85" speed="72" manacost="200">
+	<health now="100" max="100" />
+	<look type="18" head="0" body="0" legs="0" feet="0" addons="0" corpse="5976" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-50" />
+	</attacks>
+	<defenses armor="8" defense="0">
+		<defense name="healing" interval="2000" chance="15" min="5" max="15">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="30" />
+		<element earthPercent="20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="10" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Our mine... leave us alone." />
+		<voice sentence="Turn back..." />
+		<voice sentence="These mine is ours... you shall not pass." />
+	</voices>
+	<loot>
+		<item name="torch" chance="46150" />
+		<item name="gold coin" chance="53850" countmax="30" />
+		<item name="life ring" chance="200" />
+		<item name="skull" chance="240" />
+		<item name="knife" chance="15380" />
+		<item name="brass helmet" chance="23000" />
+		<item name="viking helmet" chance="1000" />
+		<item name="scale armor" chance="1000" />
+		<item name="worm" chance="92310" countmax="6" />
+		<item name="brown piece of cloth" chance="1000" />
+	</loot>
+</monster>

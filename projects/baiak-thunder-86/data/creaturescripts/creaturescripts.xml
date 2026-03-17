@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creaturescripts>
+
+	<!-- Others -->
+	<event type="login" name="PlayerLogin" script="others/login.lua" />
+	<event type="logout" name="PlayerLogout" script="others/logout.lua" />
+	<event type="login" name="RegenerateStamina" script="others/regeneratestamina.lua" />
+	<event type="login" name="OfflineTrainLogin" script="others/offlineTrainLogin.lua" />
+	<event type="logout" name="OfflineTrainLogout" script="others/offlineTrainLogout.lua" />
+	<event type="modalwindow" name="OfflineTrainModal" script="others/offlineTrainModal.lua" />
+	<event type="death" name="PlayerDeath" script="others/playerdeath.lua" />
+	<event type="death" name="DropLoot" script="others/droploot.lua" />
+	
+		<!-- Modal Helper -->
+	<event type="modalwindow" name="ModalWindowHelper" script="custom/modalwindowhelper.lua" />
+	<event type="login" name="TitleLogin" script="custom/titles_unlock.lua" />
+	
+	
+	<event type="modalwindow" name="TaskSystemWindow" script="TaskSystemWindow.lua" />
+	<!-- <event type="kill" name="TaskSystemKill" script="TaskSystemKill.lua" /> -->
+
+<event type="modalwindow" name="ExerciseShop" script="exercise_shop.lua"/>
+
+
+
+	<!-- Custom -->
+	<event type="login" name="VipSystemLogin" script="custom/vipLogin.lua" />
+	<event type="modalwindow" name="HouseFurnitureModal" script="custom/houseFurnitureModal.lua" />
+	<event type="login" name="FreeBless" script="custom/freeBless.lua" />
+	<event type="login" name="OnlineBonus" script="custom/onlineBonus.lua" />
+	<event type="logout" name="OnlineBonusLogout" script="custom/onlineBonus.lua" />
+	<event type="advance" name="RewardLevel" script="custom/rewardLevel.lua" />
+	<event type="advance" name="AnimationUp" script="custom/animationUp.lua" />
+	<event type="kill" name="AutoLoot" script="custom/autoLoot.lua" />
+	<event type="kill" name="Exiva" script="custom/exiva.lua" />
+	<event type="kill" name="Tasks" script="custom/task.lua" />
+	<event type="login" name="FirstItems" script="custom/firstitems.lua" />
+	<event type="think" name="SuperUP" script="custom/superup.lua" />
+	<event type="kill" name="GuildLevel" script="custom/guildLevel.lua" />
+	<event type="kill" name="MonsterHunt" script="custom/monsterHunt.lua" />
+	<event type="healthchange" name="PvpBalance" script="custom/pvpBalance.lua" />
+	<event type="manachange" name="PvpBalanceMA" script="custom/pvpBalance.lua" />
+	<event type="advance" name="NexusAutoPromo" script="custom/promotion.lua" />
+	
+	<!-- Boss Room -->
+	<event type="death" name="BossRoomKill" script="custom/bossRoomKill.lua" />
+	
+    <!-- GameShop is the central hub for multiple opcodes (Shop, Market, Bank, AutoLoot, Furniture) -->
+    <event type="extendedopcode" name="GameShop" script="others/extendedopcode.lua" />
+    <!-- Titles etc -->
+
+	<!-- Reward Chest -->
+	<event type="login" name="LoginBossPlayer" script="custom/reward/reward.lua" />
+    <event type="death" name="BossDeath" script="custom/reward/reward.lua" />
+    <event type="healthchange" name="BossParticipation" script="custom/reward/reward.lua" />
+    <event type="think" name="BossThink" script="custom/reward/reward.lua" />
+	
+	<!-- Events -->
+	<event type="preparedeath" name="Events" script="custom/events/events.lua" />
+	<event type="kill" name="Events" script="custom/events/events.lua" />
+
+	<!-- Monsters -->
+	<event type="death" name="MerlinDeath" script="monsters/merlin.lua" />
+	<event type="healthchange" name="MerlinLife" script="monsters/merlin.lua" />
+
+	<event type="advance" name="TitleAdvance" script="custom/title_advance.lua" />
+    <event type="kill" name="TitleKill" script="custom/title_kill.lua" />
+    <event type="think" name="PotionCheck" script="custom/potion_check.lua" />
+    <event type="think" name="UpgradeSystemUpdate" script="custom/upgrade_recalculate.lua" />
+    <event type="healthchange" name="ElementalReduction" script="custom/elemental_reduction.lua" />
+
+</creaturescripts>

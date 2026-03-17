@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="blood priest" nameDescription="a blood priest" race="blood" experience="900" speed="99" manacost="0">
+	<health now="820" max="820" />
+	<look type="553" head="0" body="0" legs="0" feet="0" addons="0" corpse="21265" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="death" interval="2000" chance="20" range="7" target="1" min="-60" max="-100">
+			<attribute key="areaEffect" value="smallclouds" />
+			<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" radius="4" target="0" min="-40" max="-60">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="manadrain" interval="3000" chance="10" length="7" spread="0" range="1" target="1" min="-80" max="-130">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" radius="1" range="1" target="1" min="-160" max="-290" />
+	</attacks>
+	<defenses armor="55" defense="30">
+		<defense name="healing" interval="2000" chance="20" min="80" max="120">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-8" />
+		<element energyPercent="15" />
+		<element earthPercent="100" />
+		<element firePercent="-8" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="15" />
+		<element holyPercent="-8" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="The Blood God is thirsty!" />
+		<voice sentence="Give your blood to the Dark God!" />
+	</voices>
+	<loot>
+		<item name="small ruby" chance="3510" countmax="2" />
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="71" />
+		<item name="boots of haste" chance="120" />
+		<item name="skull staff" chance="180" />
+		<item name="mystic turban" chance="2170" />
+		<item name="white piece of cloth" chance="3040" />
+		<item name="red piece of cloth" chance="640" />
+		<item name="strong mana potion" chance="6000" />
+		<item name="spellbook of warding" chance="290" />
+		<item name="spellbook of mind control" chance="180" />
+		<item name="underworld rod" chance="470" />
+		<item name="book of necromantic rituals" chance="13550" />
+		<item name="red gem" chance="880" />
+		<item name="lancet" chance="14410" />
+		<item name="horoscope" chance="9270" />
+		<item name="blood tincture in a vial" chance="14460" />
+		<item name="incantation notes" chance="14660" />
+		<item name="pieces of magic chalk" chance="7770" />
+	</loot>
+</monster>

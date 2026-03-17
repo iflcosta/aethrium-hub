@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="undead mine worker" nameDescription="a undead mine worker" race="undead" experience="45" speed="77" manacost="200">
+	<health now="65" max="65" />
+	<look type="33" head="0" body="0" legs="0" feet="0" addons="0" corpse="5972" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-30" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" target="0" min="-7" max="-13">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="5" defense="15" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ahrrr... uhmmm... hmm..." />
+		<voice sentence="Grrr..." />
+		<voice sentence="Urrrgh... gnarrr..." />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="73000" countmax="10" />
+		<item name="bone" chance="42000" />
+		<item name="sword" chance="3850" />
+		<item name="mace" chance="26900" />
+		<item name="white mushroom" chance="15400" countmax="3" />
+		<item name="brown mushroom" chance="3850" />
+	</loot>
+</monster>

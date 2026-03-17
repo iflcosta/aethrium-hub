@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="bandit" nameDescription="a bandit" race="blood" experience="65" speed="90" manacost="490">
+	<health now="245" max="245" />
+	<look type="129" head="58" body="40" legs="24" feet="95" addons="0" corpse="20331" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="25" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-45" />
+	</attacks>
+	<defenses armor="11" defense="15" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hand me your purse!" />
+		<voice sentence="Your money or your life!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="49000" countmax="30" />
+		<item name="axe" chance="29900" />
+		<item name="mace" chance="10100" />
+		<item name="chain helmet" chance="5000" />
+		<item name="iron helmet" chance="520" />
+		<item name="brass armor" chance="2500" />
+		<item name="brass shield" chance="16800" />
+		<item name="leather legs" chance="15500" />
+		<item name="tomato" chance="7630" countmax="2" />
+	</loot>
+</monster>

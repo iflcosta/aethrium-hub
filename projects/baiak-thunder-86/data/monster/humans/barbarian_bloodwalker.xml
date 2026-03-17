@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="barbarian bloodwalker" nameDescription="a barbarian bloodwalker" race="blood" experience="195" speed="118" manacost="610">
+	<health now="305" max="305" />
+	<look type="255" head="114" body="113" legs="132" feet="94" addons="0" corpse="20335" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-240" />
+	</attacks>
+	<defenses armor="9" defense="0">
+		<defense name="speed" interval="2000" chance="15" speedchange="240" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="-5" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="20" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="YAAAHEEE!" />
+		<voice sentence="SLAUGHTER!" />
+		<voice sentence="CARNAGE!" />
+		<voice sentence="You can run but you can't hide" />
+	</voices>
+	<loot>
+		<item name="lamp" chance="8280" />
+		<item name="gold coin" chance="55310" countmax="12" />
+		<item name="battle axe" chance="5910" />
+		<item name="halberd" chance="6740" />
+		<item name="chain helmet" chance="10520" />
+		<item name="chain armor" chance="10420" />
+		<item name="ham" chance="4900" />
+		<item name="beastslayer axe" chance="380" />
+		<item name="red piece of cloth" chance="540" />
+		<item name="shard" chance="300" />
+		<item name="fur boots" chance="100" />
+		<item name="health potion" chance="980" />
+	</loot>
+</monster>

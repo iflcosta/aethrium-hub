@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cult believer" nameDescription="a cult believer" race="blood" experience="850" speed="130" manacost="0">
+	<health now="975" max="975" />
+	<look type="132" head="98" body="96" legs="39" feet="38" addons="1" corpse="3128" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="10" max="-250" />
+	</attacks>
+	<defenses armor="30" defense="50">
+		<defense name="healing" interval="4000" chance="25" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Death to the unbelievers!" />
+	</voices>
+	<loot>
+		<item name="bolt" chance="90450" countmax="10" />
+		<item name="gold coin" chance="75410" countmax="30" />
+		<item name="grapes" chance="15400" />
+		<item name="great health potion" chance="12340" countmax="2" />
+		<item name="meat" chance="5000" />
+		<item name="crossbow" chance="830" />
+		<item name="green tunic" chance="760" />
+		<item name="might ring" chance="700" countmax="2" />
+		<item name="rope" chance="1000" />
+		<item name="scarf" chance="1000" />
+		<item name="scroll" chance="830" />
+		<item name="small diamond" chance="830" />
+		<item name="war hammer" chance="130" />
+		<item name="halberd" chance="830" />
+		<item name="guardian shield" chance="330" />
+		<item name="knight legs" chance="230" />
+		<item name="warrior helmet" chance="200" />
+	</loot>
+</monster>

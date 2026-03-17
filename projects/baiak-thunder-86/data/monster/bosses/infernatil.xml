@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Infernatil" nameDescription="a infernatil" race="fire" experience="30000" speed="330" manacost="0">
+	<health now="110000" max="110000" />
+	<look type="35" head="0" body="0" legs="0" feet="0" addons="0" corpse="2916" />
+	<targetchange interval="2000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="3000" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="210" attack="260" />
+		<attack name="physical" interval="1000" chance="7" range="2" target="0" min="-800" max="-1200">
+			<attribute key="areaEffect" value="poff" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="1000" chance="7" radius="6" target="0" min="-250" max="-750">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="50" radius="5" target="0" min="-200" max="-500">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="1000" chance="4" radius="8" target="0">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="34" radius="7" range="7" target="1" min="-350" max="-850">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="1000" chance="13" length="8" spread="3" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="10" length="8" spread="3" target="0" min="-300" max="-1500">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="165" defense="150">
+		<defense name="healing" interval="1000" chance="15" min="5000" max="10000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="25" min="2000" max="3000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="1800" duration="4000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-5" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Worship Zathroth pathetic mortal!" />
+		<voice sentence="Your soul will be mine!" />
+		<voice sentence="ASHES TO ASHES!" />
+		<voice sentence="YOU WILL ALL BURN!" />
+		<voice sentence="THE DAY OF RECKONING IS AT HAND!" />
+		<voice sentence="BOW TO THE POWER OF THE RUTHLESS SEVEN!" />
+	</voices>
+	<loot>
+		<item name="ancient amulet" chance="3500" />
+		<item name="big bone" chance="9000" />
+		<item name="black pearl" chance="15000" countmax="15" />
+		<item name="blue gem" chance="1500" />
+		<item name="boots of haste" chance="4000" />
+		<item name="crystal ball" chance="2500" />
+		<item name="crystal necklace" chance="1500" />
+		<item name="crystal ring" chance="5500" />
+		<item name="demon shield" chance="15500" />
+		<item name="devil helmet" chance="11000" />
+		<item name="double axe" chance="20000" />
+		<item name="dragon hammer" chance="4500" />
+		<item name="energy ring" chance="13500" />
+		<item name="fire axe" chance="17000" />
+		<item name="giant sword" chance="12500" />
+		<item name="gold coin" chance="99900" countmax="100" />
+		<item name="gold coin" chance="88800" countmax="100" />
+		<item name="gold coin" chance="77700" countmax="100" />
+		<item name="gold coin" chance="66600" countmax="100" />
+		<item name="gold ring" chance="8000" />
+		<item name="golden legs" chance="5000" />
+		<item name="golden mug" chance="7500" />
+		<item name="golden sickle" chance="4500" />
+		<item name="green gem" chance="1500" />
+		<item name="ice rapier" chance="7500" />
+		<item name="life crystal" chance="1000" />
+		<item name="magic light wand" chance="11500" />
+		<item name="magic plate armor" chance="3000" />
+		<item name="mastermind shield" chance="7500" />
+		<item name="might ring" chance="5000" />
+		<item name="mind stone" chance="4000" />
+		<item name="moonlight rod" chance="3500" />
+		<item name="orb" chance="12000" />
+		<item name="platinum amulet" chance="4500" />
+		<item name="protection amulet" chance="4500" />
+		<item name="purple tome" chance="2600" />
+		<item name="ring of healing" chance="13000" />
+		<item name="ring of the sky" chance="3500" />
+		<item name="silver amulet" chance="13000" />
+		<item name="silver dagger" chance="15500" />
+		<item name="skull staff" chance="5000" />
+		<item name="small amethyst" chance="13500" countmax="20" />
+		<item name="small diamond" chance="9500" countmax="5" />
+		<item name="small emerald" chance="15500" countmax="10" />
+		<item name="small sapphire" chance="13500" countmax="10" />
+		<item name="snakebite rod" chance="3500" />
+		<item name="stealth ring" chance="9500" />
+		<item name="stone skin amulet" chance="4000" />
+		<item name="strange symbol" chance="2500" />
+		<item name="talon" chance="14000" countmax="7" />
+		<item name="teddy bear" chance="14500" />
+		<item name="thunder hammer" chance="13500" />
+		<item name="two handed sword" chance="20000" />
+		<item name="necrotic rod" chance="3500" />
+		<item name="voodoo doll" chance="100" />
+		<item name="wand of decay" chance="2500" />
+		<item name="white pearl" chance="12500" countmax="15" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Shard of Corruption" nameDescription="a shard of corruption" race="undead" experience="5" speed="90" manacost="0">
+	<health now="600" max="600" />
+	<look type="67" head="0" body="0" legs="0" feet="0" addons="0" corpse="6005" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-150" />
+		<attack name="earth" interval="2000" chance="10" range="7" target="1" min="0" max="-115">
+			<attribute key="areaEffect" value="greenenergy" />
+			<attribute key="shootEffect" value="smallearth" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20" />
+	<elements>
+		<element physicalPercent="60" />
+		<element energyPercent="25" />
+		<element earthPercent="100" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="15" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+</monster>

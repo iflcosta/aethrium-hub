@@ -1,0 +1,2 @@
+-- Arquivo desativado: O sistema agora usa UpgradeSystemUpdate (Think) no creaturescripts.xml para detecção em tempo real, 
+-- já que o MoveEvent em RevScript não é suportado nesta versão do servidor.

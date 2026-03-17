@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="frost giant" nameDescription="a frost giant" race="blood" experience="150" speed="95" manacost="540">
+	<health now="270" max="270" />
+	<look type="257" head="0" body="0" legs="0" feet="0" addons="0" corpse="7330" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-110" />
+		<attack name="physical" interval="2000" chance="15" range="7" target="0" min="0" max="-90">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="22" defense="20">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hmm Humansoup!" />
+		<voice sentence="Stand still ya tasy snack!" />
+		<voice sentence="Joh Thun!" />
+		<voice sentence="HÃ¶rre Sjan Flan!" />
+		<voice sentence="BrÃ¶re SmÃ¶de!" />
+		<voice sentence="Forle Bramma" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="82000" countmax="40" />
+		<item name="club ring" chance="130" />
+		<item name="halberd" chance="560" />
+		<item name="short sword" chance="8140" />
+		<item name="dark helmet" chance="180" />
+		<item name="battle shield" chance="1350" />
+		<item name="meat" chance="4970" countmax="2" />
+		<item name="shard" chance="60" />
+		<item name="ice cube" chance="2180" />
+		<item name="norse shield" chance="250" />
+		<item name="health potion" chance="819" />
+		<item name="frost giant pelt" chance="5000" />
+	</loot>
+</monster>

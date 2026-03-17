@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monsters>
+	<monster name=" an energy pulse" file="quests/hero_of_rathleton/energy_pulse.xml"/>
+	<monster name="Abyssador" file="quests/bigfoots_burden/bosses/abyssador.xml"/>
+	<monster name="abyssal calamary" file="aquatics/abyssal_calamary.xml"/>
+	<monster name="Achad" file="quests/svargrond_arena/greenhorn/achad.xml"/>
+	<monster name="acid blob" file="slimes/acid_blob.xml"/>
+	<monster name="acolyte of darkness" file="humans/acolyte_of_darkness.xml"/>
+	<monster name="acolyte of the cult" file="humans/acolyte_of_the_cult.xml"/>
+	<monster name="adept of the cult" file="humans/adept_of_the_cult.xml"/>
+	<monster name="adult goanna" file="reptiles/adult_goanna.xml"/>
+	<monster name="adventurer" file="humans/adventurer.xml"/>
+	<monster name="afflicted strider" file="vermins/afflicted_strider.xml"/>
+	<monster name="Aftershock" file="quests/heart_of_destruction/aftershock.xml"/>
+	<monster name="aggressive lava" file="quests/dangerous_depth/aggressive_lava.xml"/>
+	<monster name="aggressive matter" file="quests/dangerous_depth/aggressive_matter.xml"/>
+	<monster name="agressive chicken" file="birds/agressive_chicken.xml"/>
+	<monster name="agrestic chicken" file="birds/agrestic_chicken.xml"/>
+	<monster name="Ahau" file="undeads/ahau.xml"/>
+	<monster name="Alchemist Container" file="bosses/alchemist_container.xml"/>
+	<monster name="Alptramun" file="quests/the_dream_courts/bosses/alptramun.xml"/>
+	<monster name="amazon" file="humans/amazon.xml"/>
+	<monster name="Amenef the Burning" file="quests/kilmaresh/amenef_the_burning.xml"/>
+	<monster name="ancient lion archer" file="quests/the_order_of_lion/bosses/ancient_lion_archer.xml"/>
+	<monster name="ancient lion knight" file="quests/the_order_of_lion/bosses/ancient_lion_knight.xml"/>
+	<monster name="ancient lion warlock" file="quests/the_order_of_lion/bosses/ancient_lion_warlock.xml"/>
+	<monster name="ancient scarab" file="vermins/ancient_scarab.xml"/>
+	<monster name="Ancient Spawn Of Morgathla" file="quests/dangerous_depth/bosses/ancient_spawn_of_morgathla.xml"/>
+	<monster name="angry adventurer" file="humans/angry_adventurer.xml"/>
+	<monster name="angry demon" file="quests/annihilator/angry_demon.xml"/>
+	<monster name="angry plant" file="quests/the_first_dragon/angry_plant.xml"/>
+	<monster name="angry sugar fairy" file="fey/angry_sugar_fairy.xml"/>
+	<monster name="animated clomp" file="quests/cults_of_tibia/animated_clomp.xml"/>
+	<monster name="animated cyclops" file="quests/cults_of_tibia/animated_cyclops.xml"/>
+	<monster name="animated feather" file="magicals/animated_feather.xml"/>
+	<monster name="animated guzzlemaw" file="quests/cults_of_tibia/animated_guzzlemaw.xml"/>
+	<monster name="animated moohtant" file="quests/cults_of_tibia/animated_moohtant.xml"/>
+	<monster name="animated mummy" file="quests/cults_of_tibia/animated_mummy.xml"/>
+	<monster name="animated ogre brute" file="quests/cults_of_tibia/animated_ogre_brute.xml"/>
+	<monster name="animated ogre savage" file="quests/cults_of_tibia/animated_ogre_savage.xml"/>
+	<monster name="animated ogre shaman" file="quests/cults_of_tibia/animated_ogre_shaman.xml"/>
+	<monster name="animated rotworm" file="quests/cults_of_tibia/animated_rotworm.xml"/>
+	<monster name="animated skunk" file="quests/cults_of_tibia/animated_skunk.xml"/>
+	<monster name="animated snowman" file="constructs/animated_snowman.xml"/>
+	<monster name="animated stone golem" file="quests/cults_of_tibia/animated_stone_golem.xml"/>
+	<monster name="animated stone rhino" file="quests/cults_of_tibia/animated_rhino.xml"/>
+	<monster name="animated sword" file="quests/forgotten_knowledge/animated_sword.xml"/>
+	<monster name="Annihilon" file="quests/the_inquisition/annihilon.xml"/>
+	<monster name="anomaly" file="quests/heart_of_destruction/anomaly.xml"/>
+	<monster name="Antenna" file="bosses/antenna.xml"/>
+	<monster name="Apocalypse" file="bosses/apocalypse.xml"/>
+	<monster name="Apprentice Sheng" file="bosses/apprentice_sheng.xml"/>
+	<monster name="Arachir the Ancient One" file="raids/arachir_the_ancient_one.xml"/>
+	<monster name="arachnophobica" file="magicals/arachnophobica.xml"/>
+	<monster name="Arbaziloth" file="quests/no_rest_for_the_wicked/bosses/arbaziloth.xml"/>
+	<monster name="arctic faun" file="fey/arctic_faun.xml"/>
+	<monster name="armadile" file="magicals/armadile.xml"/>
+	<monster name="Armenius" file="bosses/armenius.xml"/>
+	<monster name="Ascending Ferumbras" file="quests/ferumbras_ascension/bosses/ascending_ferumbras.xml"/>
+	<monster name="ashes of burning hatred" file="quests/soul_war/normal_monsters/burning_hatred/ashes_of_burning_hatred.xml"/>
+	<monster name="Ashmunrah" file="quests/ancient_tombs/ashmunrah.xml"/>
+	<monster name="askarak demon" file="demons/askarak_demon.xml"/>
+	<monster name="askarak lord" file="demons/askarak_lord.xml"/>
+	<monster name="askarak prince" file="demons/askarak_prince.xml"/>
+	<monster name="aspect of power" file="quests/soul_war/aspect_of_power.xml"/>
+	<monster name="assassin" file="humans/assassin.xml"/>
+	<monster name="astral glyph" file="quests/kilmaresh/an_astral_glyph.xml"/>
+	<monster name="Avalanche" file="quests/svargrond_arena/scrapper/avalanche.xml"/>
+	<monster name="Axeitus Headbanger" file="quests/svargrond_arena/greenhorn/axeitus_headbanger.xml"/>
+	<monster name="azaram's soul" file="quests/grave_danger/azarams_soul.xml"/>
+	<monster name="Azerus" file="quests/in_service_of_yalahar/azerus2.xml"/>
+	<monster name="Azerus" file="quests/in_service_of_yalahar/azerus.xml"/>
+	<monster name="azure frog" file="amphibics/azure_frog.xml"/>
+	<monster name="baby dragon" file="quests/forgotten_knowledge/baby_dragon.xml"/>
+	<monster name="bad dream" file="quests/roshamuul/bad_dream.xml"/>
+	<monster name="badger" file="mammals/badger.xml"/>
+	<monster name="Bakragore" file="bosses/bakragore.xml"/>
+	<monster name="baleful bunny" file="quests/the_percht_queens_island/baleful_bunny.xml"/>
+	<monster name="bandit" file="humans/bandit.xml"/>
+	<monster name="bane bringer" file="plants/bane_bringer.xml"/>
+	<monster name="bane of light" file="undeads/bane_of_light.xml"/>
+	<monster name="banshee" file="undeads/banshee.xml"/>
+	<monster name="Barbaria" file="raids/barbaria.xml"/>
+	<monster name="barbarian bloodwalker" file="humans/barbarian_bloodwalker.xml"/>
+	<monster name="barbarian brutetamer" file="humans/barbarian_brutetamer.xml"/>
+	<monster name="barbarian headsplitter" file="humans/barbarian_headsplitter.xml"/>
+	<monster name="barbarian skullhunter" file="humans/barbarian_skullhunter.xml"/>
+	<monster name="barkless devotee" file="quests/cults_of_tibia/barkless_devotee.xml"/>
+	<monster name="barkless fanatic" file="quests/cults_of_tibia/barkless_fanatic.xml"/>
+	<monster name="Baron Brute" file="quests/the_new_frontier/baron_brute.xml"/>
+	<monster name="bashmu" file="magicals/bashmu.xml"/>
+	<monster name="bat" file="mammals/bat.xml"/>
+	<monster name="Battlemaster Zunzu" file="raids/battlemaster_zunzu.xml"/>
+	<monster name="Bazir" file="bosses/bazir.xml"/>
+	<monster name="bear" file="mammals/bear.xml"/>
+	<monster name="bear" file="nostalgia/old_bear.xml"/>
+	<monster name="beast hulking prehemoth" file="giants/beast_hulking_prehemoth.xml"/>
+	<monster name="behemoth" file="giants/behemoth.xml"/>
+	<monster name="beholder" file="nostalgia/old_bonelord.xml"/>
+	<monster name="berserker chicken" file="birds/berserker_chicken.xml"/>
+	<monster name="betrayed wraith" file="undeads/betrayed_wraith.xml"/>
+	<monster name="Bibby Bloodbath" file="bosses/bibby_bloodbath.xml"/>
+	<monster name="Big Boss Trolliver" file="bosses/big_boss_trolliver.xml"/>
+	<monster name="biting book" file="constructs/biting_book.xml"/>
+	<monster name="Biting Cold" file="quests/the_secret_library/biting_cold.xml"/>
+	<monster name="black cobra" file="quests/grave_danger/black_cobra.xml"/>
+	<monster name="Black Knight" file="bosses/black_knight.xml"/>
+	<monster name="black sheep" file="mammals/black_sheep.xml"/>
+	<monster name="black sphinx acolyte" file="humans/black_sphinx_acolyte.xml"/>
+	<monster name="black vixen" file="quests/the_curse_spreads/black_vixen.xml"/>
+	<monster name="blaze of burning hatred" file="quests/soul_war/normal_monsters/burning_hatred/blaze_of_burning_hatred.xml"/>
+	<monster name="blazing fire elemental" file="quests/the_elemental_spheres/blazing_fire_elemental.xml"/>
+	<monster name="blemished spawn" file="vermins/blemished_spawn.xml"/>
+	<monster name="blightwalker" file="undeads/blightwalker.xml"/>
+	<monster name="blistering fire elemental" file="quests/the_elemental_spheres/blistering_fire_elemental.xml"/>
+	<monster name="bloated man-maggot" file="quests/rotten_blood/bloated_man-maggot.xml"/>
+	<monster name="blood beast" file="undeads/blood_beast.xml"/>
+	<monster name="blood crab" file="aquatics/blood_crab.xml"/>
+	<monster name="blood hand" file="humans/blood_hand.xml"/>
+	<monster name="blood priest" file="humans/blood_priest.xml"/>
+	<monster name="Bloodback" file="quests/the_curse_spreads/bloodback.xml"/>
+	<monster name="Bloodpaw" file="quests/svargrond_arena/greenhorn/bloodpaw.xml"/>
+	<monster name="blue djinn" file="magicals/blue_djinn.xml"/>
+	<monster name="boar" file="mammals/boar.xml"/>
+	<monster name="boar man" file="reptiles/boar_man.xml"/>
+	<monster name="bog frog" file="amphibics/bog_frog.xml"/>
+	<monster name="bog raider" file="magicals/bog_raider.xml"/>
+	<monster name="bone capsule" file="quests/ferumbras_ascension/traps/bone_capsule.xml"/>
+	<monster name="bone jaw" file="quests/the_secret_library/bone_jaw.xml"/>
+	<monster name="bonebeast" file="undeads/bonebeast.xml"/>
+	<monster name="bonelord" file="magicals/bonelord.xml"/>
+	<monster name="Bones" file="event_creatures/bones.xml"/>
+	<monster name="bones" file="traps/demon_summoner.xml"/>
+	<monster name="bonny bunny" file="quests/the_percht_queens_island/bonny_bunny.xml"/>
+	<monster name="bony sea devil" file="quests/soul_war/normal_monsters/bony_sea_devil.xml"/>
+	<monster name="Boogey" file="quests/isle_of_evil/boogey.xml"/>
+	<monster name="boogy" file="fey/boogy.xml"/>
+	<monster name="bound astral power" file="quests/forgotten_knowledge/bound_astral_power.xml"/>
+	<monster name="Bovinus" file="quests/svargrond_arena/greenhorn/bovinus.xml"/>
+	<monster name="brachiodemon" file="quests/soul_war/normal_monsters/brachiodemon.xml"/>
+	<monster name="Bragrumol" file="quests/kilmaresh/bragrumol.xml"/>
+	<monster name="Brain Head" file="bosses/brain_head.xml"/>
+	<monster name="brain parasite" file="bosses/brain_parasite.xml"/>
+	<monster name="brain squid" file="magicals/brain_squid.xml"/>
+	<monster name="braindeath" file="magicals/braindeath.xml"/>
+	<monster name="branchy crawler" file="quests/soul_war/normal_monsters/branchy_crawler.xml"/>
+	<monster name="breach brood" file="extra_dimensional/breach_brood.xml"/>
+	<monster name="Bretzecutioner" file="quests/killing_in_the_name_of/bretzecutioner.xml"/>
+	<monster name="bright percht sleigh" file="quests/the_percht_queens_island/bright_percht_sleigh.xml"/>
+	<monster name="brimstone bug" file="vermins/brimstone_bug.xml"/>
+	<monster name="brinebrute inferniarch" file="demons/brinebrute_inferniarch.xml"/>
+	<monster name="brittle skeleton" file="dawnport/brittle_skeleton.xml"/>
+	<monster name="broken shaper" file="humanoids/broken_shaper.xml"/>
+	<monster name="Brokul" file="quests/the_secret_library/bosses/brokul.xml"/>
+	<monster name="broodrider inferniarch" file="demons/broodrider_inferniarch.xml"/>
+	<monster name="Brother Chill" file="quests/the_secret_library/brother_chill.xml"/>
+	<monster name="Brother Freeze" file="quests/the_secret_library/brother_freeze.xml"/>
+	<monster name="Brother Worm" file="quests/feaster_of_souls/brother_worm.xml"/>
+	<monster name="Bruise Payne" file="quests/killing_in_the_name_of/bruise_payne.xml"/>
+	<monster name="Brutus Bloodbeard" file="raids/brutus_bloodbeard.xml"/>
+	<monster name="bug" file="vermins/bug.xml"/>
+	<monster name="bug" file="nostalgia/old_bug.xml"/>
+	<monster name="Bulltaur Alchemist" file="humanoids/bulltaur_alchemist.xml"/>
+	<monster name="Bulltaur Brute" file="humanoids/bulltaur_brute.xml"/>
+	<monster name="Bulltaur Forgepriest" file="humanoids/bulltaur_forgepriest.xml"/>
+	<monster name="Bullwark" file="bosses/bullwark.xml"/>
+	<monster name="burning book" file="magicals/burning_book.xml"/>
+	<monster name="burning gladiator" file="humans/burning_gladiator.xml"/>
+	<monster name="burrowing beetle" file="vermins/burrowing_beetle.xml"/>
+	<monster name="burster spectre" file="undeads/burster_spectre.xml"/>
+	<monster name="butterfly" file="vermins/butterfly.xml"/>
+	<monster name="butterfly" file="quests/the_explorer_society/red_butterfly.xml"/>
+	<monster name="butterfly" file="quests/the_explorer_society/purple_butterfly.xml"/>
+	<monster name="butterfly" file="quests/the_explorer_society/pink_butterfly.xml"/>
+	<monster name="butterfly" file="quests/the_explorer_society/blue_butterfly.xml"/>
+	<monster name="butterfly" file="quests/the_explorer_society/yellow_butterfly.xml"/>
+	<monster name="calamary" file="aquatics/calamary.xml"/>
+	<monster name="candy floss elemental" file="elementals/candy_floss_elemental.xml"/>
+	<monster name="candy horror" file="magicals/candy_horror.xml"/>
+	<monster name="canopic jar" file="quests/dark_trails/canopic_jar.xml"/>
+	<monster name="capricious phantom" file="quests/soul_war/normal_monsters/capricious_phantom.xml"/>
+	<monster name="Captain Jones" file="raids/captain_jones.xml"/>
+	<monster name="captured dwarf" file="quests/dangerous_depth/captured_dwarf.xml"/>
+	<monster name="carniphila" file="plants/carniphila.xml"/>
+	<monster name="carnisylvan sapling" file="humans/carnisylvan_sapling.xml"/>
+	<monster name="carnivostrich" file="reptiles/carnivostrich.xml"/>
+	<monster name="carrion worm" file="vermins/carrion_worm.xml"/>
+	<monster name="cart packed with gold" file="quests/grave_danger/cart_packed_with_gold.xml"/>
+	<monster name="carved stone tile" file="quests/the_inquisition/a_carved_stone_tile.xml"/>
+	<monster name="cat" file="mammals/cat.xml"/>
+	<monster name="cave chimera" file="vermins/cave_chimera.xml"/>
+	<monster name="cave devourer" file="vermins/cave_devourer.xml"/>
+	<monster name="cave parrot" file="birds/cave_parrot.xml"/>
+	<monster name="cave rat" file="mammals/cave_rat.xml"/>
+	<monster name="cave spider" file="quests/hidden_threats/cave_spider.xml"/>
+	<monster name="centipede" file="vermins/centipede.xml"/>
+	<monster name="Cerebellum" file="bosses/cerebellum.xml"/>
+	<monster name="Chagorz" file="bosses/chagorz.xml"/>
+	<monster name="chakoya toolshaper" file="humanoids/chakoya_toolshaper.xml"/>
+	<monster name="chakoya tribewarden" file="humanoids/chakoya_tribewarden.xml"/>
+	<monster name="chakoya windcaller" file="humanoids/chakoya_windcaller.xml"/>
+	<monster name="charged anomaly" file="quests/heart_of_destruction/charged_anomaly.xml"/>
+	<monster name="charged disruption" file="quests/heart_of_destruction/charged_disruption.xml"/>
+	<monster name="charged energy elemental" file="quests/the_elemental_spheres/charged_energy_elemental.xml"/>
+	<monster name="charger" file="quests/heart_of_destruction/charger.xml"/>
+	<monster name="Charging Outburst" file="quests/heart_of_destruction/charging_outburst.xml"/>
+	<monster name="chasm spawn" file="vermins/chasm_spawn.xml"/>
+	<monster name="Chayenne" file="raids/chayenne.xml"/>
+	<monster name="cheese thief" file="humanoids/cheese_thief.xml"/>
+	<monster name="chicken" file="birds/chicken.xml"/>
+	<monster name="Chikhaton" file="bosses/chikhaton.xml"/>
+	<monster name="Chizzoron the Distorter" file="raids/chizzoron_the_distorter.xml"/>
+	<monster name="chocolate blob" file="slimes/chocolate_blob.xml"/>
+	<monster name="choking fear" file="magicals/choking_fear.xml"/>
+	<monster name="clay guardian" file="constructs/clay_guardian.xml"/>
+	<monster name="cliff strider" file="elementals/cliff_strider.xml"/>
+	<monster name="cloak of terror" file="quests/soul_war/normal_monsters/furious_crater/cloak_of_terror.xml"/>
+	<monster name="clomp" file="mammals/clomp.xml"/>
+	<monster name="Clubarc The Plunderer" file="bosses/clubarc_the_plunderer.xml"/>
+	<monster name="cobra" file="reptiles/cobra.xml"/>
+	<monster name="cobra assassin" file="humans/cobra_assassin.xml"/>
+	<monster name="cobra scout" file="humans/cobra_scout.xml"/>
+	<monster name="cobra vizier" file="humans/cobra_vizier.xml"/>
+	<monster name="cockroach" file="vermins/cockroach.xml"/>
+	<monster name="cold percht sleigh" file="quests/the_percht_queens_island/cold_percht_sleigh.xml"/>
+	<monster name="Coldheart" file="quests/the_new_frontier/coldheart.xml"/>
+	<monster name="Colerian the Barbarian" file="quests/svargrond_arena/greenhorn/colerian_the_barbarian.xml"/>
+	<monster name="Concentrated Death" file="quests/the_secret_library/concentrated_death.xml"/>
+	<monster name="condensed sin" file="quests/grave_danger/condensed_sin.xml"/>
+	<monster name="condensed sins" file="quests/grave_danger/condensed_sins.xml"/>
+	<monster name="containment crystal" file="quests/cults_of_tibia/bosses/pillars/containment_crystal.xml"/>
+	<monster name="containment machine" file="quests/cults_of_tibia/containment_machine.xml"/>
+	<monster name="control tower" file="raids/control_tower.xml"/>
+	<monster name="converter" file="quests/rotten_blood/converter.xml"/>
+	<monster name="coral frog" file="amphibics/coral_frog.xml"/>
+	<monster name="corrupt naga" file="reptiles/corrupt_naga.xml"/>
+	<monster name="corrupted soul" file="quests/forgotten_knowledge/corrupted_soul.xml"/>
+	<monster name="corym charlatan" file="humanoids/corym_charlatan.xml"/>
+	<monster name="corym skirmisher" file="humanoids/corym_skirmisher.xml"/>
+	<monster name="corym vanguard" file="humanoids/corym_vanguard.xml"/>
+	<monster name="cosmic energy prism A" file="quests/forgotten_knowledge/cosmic_energy_prism_a.xml"/>
+	<monster name="cosmic energy prism A" file="quests/forgotten_knowledge/cosmic_energy_prism_a_invu.xml"/>
+	<monster name="cosmic energy prism B" file="quests/forgotten_knowledge/cosmic_energy_prism_b_invu.xml"/>
+	<monster name="cosmic energy prism B" file="quests/forgotten_knowledge/cosmic_energy_prism_b.xml"/>
+	<monster name="cosmic energy prism C" file="quests/forgotten_knowledge/cosmic_energy_prism_c_invu.xml"/>
+	<monster name="cosmic energy prism C" file="quests/forgotten_knowledge/cosmic_energy_prism_c.xml"/>
+	<monster name="cosmic energy prism D" file="quests/forgotten_knowledge/cosmic_energy_prism_d_invu.xml"/>
+	<monster name="cosmic energy prism D" file="quests/forgotten_knowledge/cosmic_energy_prism_d.xml"/>
+	<monster name="Count Vlarkorth" file="quests/grave_danger/bosses/count_vlarkorth.xml"/>
+	<monster name="Countess Sorrow" file="quests/pits_of_inferno/countess_sorrow.xml"/>
+	<monster name="courage leech" file="quests/soul_war/normal_monsters/furious_crater/courage_leech.xml"/>
+	<monster name="crab" file="aquatics/crab.xml"/>
+	<monster name="crackler" file="quests/heart_of_destruction/crackler.xml"/>
+	<monster name="crape man" file="reptiles/crape_man.xml"/>
+	<monster name="crawler" file="vermins/crawler.xml"/>
+	<monster name="crazed beggar" file="humans/crazed_beggar.xml"/>
+	<monster name="crazed dwarf" file="dawnport/crazed_dwarf.xml"/>
+	<monster name="crazed summer rearguard" file="humanoids/crazed_summer_rearguard.xml"/>
+	<monster name="crazed summer vanguard" file="humanoids/crazed_summer_vanguard.xml"/>
+	<monster name="crazed winter rearguard" file="humanoids/crazed_winter_rearguard.xml"/>
+	<monster name="crazed winter vanguard" file="humanoids/crazed_winter_vanguard.xml"/>
+	<monster name="cream blob" file="fey/cream_blob.xml"/>
+	<monster name="crimson frog" file="amphibics/crimson_frog.xml"/>
+	<monster name="crocodile" file="reptiles/crocodile.xml"/>
+	<monster name="crustacea gigantica" file="aquatics/crustacea_gigantica.xml"/>
+	<monster name="crypt defiler" file="humans/crypt_defiler.xml"/>
+	<monster name="crypt shambler" file="undeads/crypt_shambler.xml"/>
+	<monster name="crypt warden" file="magicals/crypt_warden.xml"/>
+	<monster name="crypt warrior" file="undeads/crypt_warrior.xml"/>
+	<monster name="crystal spider" file="vermins/crystal_spider.xml"/>
+	<monster name="crystal wolf" file="mammals/crystal_wolf.xml"/>
+	<monster name="crystalcrusher" file="magicals/crystalcrusher.xml"/>
+	<monster name="cult believer" file="quests/cults_of_tibia/cult_believer.xml"/>
+	<monster name="cult enforcer" file="quests/cults_of_tibia/cult_enforcer.xml"/>
+	<monster name="cult scholar" file="quests/cults_of_tibia/cult_scholar.xml"/>
+	<monster name="cunning werepanther" file="lycanthropes/cunning_werepanther.xml"/>
+	<monster name="cursed ape" file="undeads/cursed_ape.xml"/>
+	<monster name="cursed book" file="magicals/cursed_book.xml"/>
+	<monster name="cursed gladiator" file="quests/svargrond_arena/greenhorn/cursed_gladiator.xml"/>
+	<monster name="cursed prospector" file="undeads/cursed_prospector.xml"/>
+	<monster name="Custodian" file="bosses/custodian.xml"/>
+	<monster name="cyclops" file="giants/cyclops.xml"/>
+	<monster name="cyclops drone" file="giants/cyclops_drone.xml"/>
+	<monster name="cyclops smith" file="giants/cyclops_smith.xml"/>
+	<monster name="Damage Resonance" file="quests/heart_of_destruction/damage_resonance.xml"/>
+	<monster name="damaged crystal golem" file="constructs/damaged_crystal_golem.xml"/>
+	<monster name="damaged worker golem" file="constructs/damaged_worker_golem.xml"/>
+	<monster name="damned soul" file="quests/ferumbras_ascension/damned_soul.xml"/>
+	<monster name="Darakan the Executioner" file="quests/svargrond_arena/warlord/darakan_the_executioner.xml"/>
+	<monster name="dark apprentice" file="humans/dark_apprentice.xml"/>
+	<monster name="dark carnisylvan" file="humans/dark_carnisylvan.xml"/>
+	<monster name="dark druid" file="quests/grave_danger/dark_druid.xml"/>
+	<monster name="dark faun" file="fey/dark_faun.xml"/>
+	<monster name="dark knight" file="quests/grave_danger/dark_knight.xml"/>
+	<monster name="Dark Knowledge" file="quests/the_secret_library/dark_knowledge.xml"/>
+	<monster name="dark magician" file="humans/dark_magician.xml"/>
+	<monster name="dark monk" file="humans/dark_monk.xml"/>
+	<monster name="dark paladin" file="quests/grave_danger/dark_paladin.xml"/>
+	<monster name="dark percht sleigh" file="quests/the_percht_queens_island/dark_percht_sleigh.xml"/>
+	<monster name="dark sorcerer" file="quests/grave_danger/dark_sorcerer.xml"/>
+	<monster name="dark soul" file="quests/cults_of_tibia/bosses/summons/dark_soul.xml"/>
+	<monster name="dark torturer" file="demons/dark_torturer.xml"/>
+	<monster name="Darkfang" file="quests/the_curse_spreads/darkfang.xml"/>
+	<monster name="darklight construct" file="quests/rotten_blood/darklight_construct.xml"/>
+	<monster name="darklight emitter" file="quests/rotten_blood/darklight_emitter.xml"/>
+	<monster name="darklight matter" file="quests/rotten_blood/darklight_matter.xml"/>
+	<monster name="darklight source" file="quests/rotten_blood/darklight_source.xml"/>
+	<monster name="darklight striker" file="quests/rotten_blood/darklight_striker.xml"/>
+	<monster name="dawn bat" file="dawnport/dawn_bat.xml"/>
+	<monster name="dawn scorpion" file="dawnport/dawn_scorpion.xml"/>
+	<monster name="dawnfire asura" file="demons/dawnfire_asura.xml"/>
+	<monster name="dawnfly" file="dawnport/dawnfly.xml"/>
+	<monster name="dazed leaf golem" file="quests/the_secret_library/dazed_leaf_golem.xml"/>
+	<monster name="Deadeye Devious" file="raids/deadeye_devious.xml"/>
+	<monster name="death blob" file="slimes/death_blob.xml"/>
+	<monster name="death dragon" file="quests/ferumbras_ascension/bosses/death_dragon.xml"/>
+	<monster name="death priest" file="undeads/death_priest.xml"/>
+	<monster name="Death Priest Shargon" file="quests/dark_trails/death_priest_shargon.xml"/>
+	<monster name="Deathbine" file="quests/killing_in_the_name_of/deathbine.xml"/>
+	<monster name="Deathbringer" file="quests/svargrond_arena/warlord/deathbringer.xml"/>
+	<monster name="deathling scout" file="aquatics/deathling_scout.xml"/>
+	<monster name="deathling spellsinger" file="aquatics/deathling_spellsinger.xml"/>
+	<monster name="deathslicer" file="traps/deathslicer.xml"/>
+	<monster name="deathspawn" file="amphibics/deathspawn.xml"/>
+	<monster name="Deathstrike" file="quests/bigfoots_burden/bosses/deathstrike.xml"/>
+	<monster name="deaththrower" file="traps/deaththrower.xml"/>
+	<monster name="Deep Terror" file="quests/hero_of_rathleton/deep_terror.xml"/>
+	<monster name="deepling brawler" file="aquatics/deepling_brawler.xml"/>
+	<monster name="deepling elite" file="aquatics/deepling_elite.xml"/>
+	<monster name="deepling guard" file="aquatics/deepling_guard.xml"/>
+	<monster name="deepling master librarian" file="aquatics/deepling_master_librarian.xml"/>
+	<monster name="deepling scout" file="aquatics/deepling_scout.xml"/>
+	<monster name="deepling spellsinger" file="aquatics/deepling_spellsinger.xml"/>
+	<monster name="deepling tyrant" file="aquatics/deepling_tyrant.xml"/>
+	<monster name="deepling warrior" file="aquatics/deepling_warrior.xml"/>
+	<monster name="deepling worker" file="aquatics/deepling_worker.xml"/>
+	<monster name="deepsea blood crab" file="aquatics/deepsea_blood_crab.xml"/>
+	<monster name="deepworm" file="vermins/deepworm.xml"/>
+	<monster name="deer" file="mammals/deer.xml"/>
+	<monster name="defiler" file="slimes/defiler.xml"/>
+	<monster name="Demodras" file="quests/killing_in_the_name_of/demodras.xml"/>
+	<monster name="demon" file="demons/demon.xml"/>
+	<monster name="demon blood" file="quests/the_secret_library/demon_blood.xml"/>
+	<monster name="demon goblin" file="quests/pits_of_inferno/demon_goblin.xml"/>
+	<monster name="demon outcast" file="demons/demon_outcast.xml"/>
+	<monster name="demon parrot" file="birds/demon_parrot.xml"/>
+	<monster name="demon skeleton" file="undeads/demon_skeleton.xml"/>
+	<monster name="demon slave" file="quests/the_secret_library/demon_slave.xml"/>
+	<monster name="depolarized crackler" file="quests/heart_of_destruction/depolarized_crackler.xml"/>
+	<monster name="depowered minotaur" file="quests/dark_trails/depowered_minotaur.xml"/>
+	<monster name="despair" file="quests/ferumbras_ascension/traps/despair.xml"/>
+	<monster name="desperate soul" file="quests/ferumbras_ascension/desperate_soul.xml"/>
+	<monster name="desperate white deer" file="mammals/desperate_white_deer.xml"/>
+	<monster name="Destabilized Ferumbras" file="quests/ferumbras_ascension/bosses/destabilized_ferumbras.xml"/>
+	<monster name="destroyed pillar" file="quests/cults_of_tibia/bosses/pillars/destroyed_pillar.xml"/>
+	<monster name="destroyer" file="demons/destroyer.xml"/>
+	<monster name="devourer" file="slimes/devourer.xml"/>
+	<monster name="Dharalion" file="bosses/dharalion.xml"/>
+	<monster name="diabolic imp" file="demons/diabolic_imp.xml"/>
+	<monster name="diamond servant" file="constructs/diamond_servant.xml"/>
+	<monster name="diamond servant replica" file="constructs/diamond_servant_replica.xml"/>
+	<monster name="Diblis The Fair" file="bosses/diblis_the_fair.xml"/>
+	<monster name="Dipthrah" file="quests/ancient_tombs/dipthrah.xml"/>
+	<monster name="dire penguin" file="birds/dire_penguin.xml"/>
+	<monster name="diremaw" file="vermins/diremaw.xml"/>
+	<monster name="Dirtbeard" file="quests/isle_of_evil/dirtbeard.xml"/>
+	<monster name="Diseased Bill" file="bosses/diseased_bill.xml"/>
+	<monster name="Diseased Dan" file="bosses/diseased_dan.xml"/>
+	<monster name="Diseased Fred" file="bosses/diseased_fred.xml"/>
+	<monster name="disgusting ooze" file="quests/ferumbras_ascension/disgusting_ooze.xml"/>
+	<monster name="disruption" file="quests/heart_of_destruction/disruption.xml"/>
+	<monster name="distorted phantom" file="quests/soul_war/normal_monsters/distorted_phantom.xml"/>
+	<monster name="Doctor Marrow" file="bosses/doctor_marrow.xml"/>
+	<monster name="Doctor Perhaps" file="quests/isle_of_evil/doctor_perhaps.xml"/>
+	<monster name="dog" file="mammals/dog.xml"/>
+	<monster name="donkey" file="mammals/donkey.xml"/>
+	<monster name="doom deer" file="mammals/doom_deer.xml"/>
+	<monster name="Doomhowl" file="quests/the_new_frontier/doomhowl.xml"/>
+	<monster name="Dorokoll The Mystic" file="quests/cults_of_tibia/bosses/dorokoll_the_mystic_stop.xml"/>
+	<monster name="Dorokoll the Mystic" file="quests/cults_of_tibia/bosses/dorokoll_the_mystic.xml"/>
+	<monster name="Dracola" file="quests/pits_of_inferno/dracola.xml"/>
+	<monster name="dragolisk" file="dragons/dragolisk.xml"/>
+	<monster name="dragon" file="dragons/dragon.xml"/>
+	<monster name="dragon egg" file="quests/forgotten_knowledge/dragon_egg.xml"/>
+	<monster name="dragon essence" file="quests/the_first_dragon/dragon_essence.xml"/>
+	<monster name="dragon hatchling" file="dragons/dragon_hatchling.xml"/>
+	<monster name="Dragon Hoard" file="quests/twenty_years_a_cook/bosses/dragon_hoard.xml"/>
+	<monster name="dragon lord" file="dragons/dragon_lord.xml"/>
+	<monster name="dragon lord hatchling" file="dragons/dragon_lord_hatchling.xml"/>
+	<monster name="dragon servant" file="quests/forgotten_knowledge/dragon_servant.xml"/>
+	<monster name="dragon warden" file="quests/the_first_dragon/dragon_warden.xml"/>
+	<monster name="dragon wrath" file="quests/the_first_dragon/dragon_wrath.xml"/>
+	<monster name="Dragonking Zyrtarch" file="quests/forgotten_knowledge/bosses/dragonking_zyrtarch.xml"/>
+	<monster name="dragonling" file="magicals/dragonling.xml"/>
+	<monster name="draken abomination" file="dragons/draken_abomination.xml"/>
+	<monster name="draken elite" file="dragons/draken_elite.xml"/>
+	<monster name="draken spellweaver" file="dragons/draken_spellweaver.xml"/>
+	<monster name="draken warmaster" file="dragons/draken_warmaster.xml"/>
+	<monster name="draptor" file="raids/draptor.xml"/>
+	<monster name="Drasilla" file="quests/svargrond_arena/scrapper/drasilla.xml"/>
+	<monster name="dread intruder" file="extra_dimensional/dread_intruder.xml"/>
+	<monster name="dread minion" file="quests/cults_of_tibia/bosses/summons/dread_minion.xml"/>
+	<monster name="dreadbeast" file="quests/the_inquisition/dreadbeast.xml"/>
+	<monster name="Dreadful Disruptor" file="quests/soul_war/dreadful_disruptor.xml"/>
+	<monster name="dreadful harvester" file="quests/soul_war/dreadful_harvester.xml"/>
+	<monster name="dreadmaw" file="reptiles/dreadmaw.xml"/>
+	<monster name="Dreadwing" file="quests/the_new_frontier/dreadwing.xml"/>
+	<monster name="drillworm" file="vermins/drillworm.xml"/>
+	<monster name="dromedary" file="mammals/dromedary.xml"/>
+	<monster name="druid familiar" file="familiars/druid_familiar.xml"/>
+	<monster name="druid's apparition" file="quests/soul_war/normal_monsters/druid's_apparition.xml"/>
+	<monster name="Drume" file="quests/the_order_of_lion/bosses/drume.xml"/>
+	<monster name="dryad" file="fey/dryad.xml"/>
+	<monster name="Duke Krule" file="quests/grave_danger/bosses/duke_krule.xml"/>
+	<monster name="duskbringer" file="demons/duskbringer.xml"/>
+	<monster name="dwarf" file="humanoids/dwarf.xml"/>
+	<monster name="dwarf geomancer" file="humanoids/dwarf_geomancer.xml"/>
+	<monster name="dwarf guard" file="humanoids/dwarf_guard.xml"/>
+	<monster name="dwarf henchman" file="humanoids/dwarf_henchman.xml"/>
+	<monster name="dwarf miner" file="humanoids/dwarf_miner.xml"/>
+	<monster name="dwarf soldier" file="humanoids/dwarf_soldier.xml"/>
+	<monster name="dworc fleshhunter" file="humanoids/dworc_fleshhunter.xml"/>
+	<monster name="dworc venomsniper" file="humanoids/dworc_venomsniper.xml"/>
+	<monster name="dworc voodoomaster" file="humanoids/dworc_voodoomaster.xml"/>
+	<monster name="Earl Osam" file="quests/grave_danger/bosses/earl_osam.xml"/>
+	<monster name="earth elemental" file="elementals/earth_elemental.xml"/>
+	<monster name="Earth Overlord" file="quests/the_elemental_spheres/earth_overlord.xml"/>
+	<monster name="earworm" file="quests/kilmaresh/earworm.xml"/>
+	<monster name="echo of Chagorz" file="quests/rotten_blood/echo_of_chagorz.xml"/>
+	<monster name="echo of Ichgahal" file="quests/rotten_blood/echo_of_ichgahal.xml"/>
+	<monster name="echo of Murcion" file="quests/rotten_blood/echo_of_murcion.xml"/>
+	<monster name="echo of Vemiath" file="quests/rotten_blood/echo_of_vemiath.xml"/>
+	<monster name="eclipse knight" file="event_creatures/eclipse_knight.xml"/>
+	<monster name="efreet" file="magicals/efreet.xml"/>
+	<monster name="Egg" file="raids/egg_the_welter.xml"/>
+	<monster name="Ekatrix" file="bosses/ekatrix.xml"/>
+	<monster name="elder bloodjaw" file="quests/rotten_blood/elder_bloodjaw.xml"/>
+	<monster name="elder bonelord" file="magicals/elder_bonelord.xml"/>
+	<monster name="elder mummy" file="undeads/elder_mummy.xml"/>
+	<monster name="elder wyrm" file="dragons/elder_wyrm.xml"/>
+	<monster name="Electric Sparks" file="quests/ferumbras_ascension/traps/electric_sparks.xml"/>
+	<monster name="elephant" file="mammals/elephant.xml"/>
+	<monster name="elf" file="humanoids/elf.xml"/>
+	<monster name="elf arcanist" file="humanoids/elf_arcanist.xml"/>
+	<monster name="elf overseer" file="humanoids/elf_overseer.xml"/>
+	<monster name="elf scout" file="humanoids/elf_scout.xml"/>
+	<monster name="elite pirat" file="humanoids/elite_pirat.xml"/>
+	<monster name="Eliz The Unyielding" file="quests/cults_of_tibia/bosses/eliz_the_unyielding_stop.xml"/>
+	<monster name="Eliz the Unyielding" file="quests/cults_of_tibia/bosses/eliz_the_unyielding.xml"/>
+	<monster name="Elvira Hammerthrust" file="bosses/elvira_hammerthrust.xml"/>
+	<monster name="ember beast" file="quests/dangerous_depth/ember_beast.xml"/>
+	<monster name="emerald damselfly" file="vermins/emerald_damselfly.xml"/>
+	<monster name="emerald tortoise" file="reptiles/emerald_tortoise.xml"/>
+	<monster name="empowered glooth horror" file="quests/hero_of_rathleton/empowered_glooth_horror.xml"/>
+	<monster name="energetic book" file="magicals/energetic_book.xml"/>
+	<monster name="energized raging mage" file="bosses/energized_raging_mage.xml"/>
+	<monster name="energuardian of tales" file="magicals/energuardian_of_tales.xml"/>
+	<monster name="energy elemental" file="elementals/energy_elemental.xml"/>
+	<monster name="Energy Overlord" file="quests/the_elemental_spheres/energy_overlord.xml"/>
+	<monster name="enfeebled silencer" file="magicals/enfeebled_silencer.xml"/>
+	<monster name="enlightened of the cult" file="humans/enlightened_of_the_cult.xml"/>
+	<monster name="enpa yolo" file="vermins/enpa_yolo.xml"/>
+	<monster name="enraged crystal golem" file="constructs/enraged_crystal_golem.xml"/>
+	<monster name="enraged sand brood" file="quests/cults_of_tibia/bosses/summons/enraged_sand_brood.xml"/>
+	<monster name="enraged soul" file="quests/ferumbras_ascension/bosses/enraged_soul.xml"/>
+	<monster name="enraged squirrel" file="mammals/enraged_squirrel.xml"/>
+	<monster name="enraged white deer" file="mammals/enraged_white_deer.xml"/>
+	<monster name="enslaved dwarf" file="humanoids/enslaved_dwarf.xml"/>
+	<monster name="enthralled demon" file="quests/ferumbras_ascension/summons/enthralled_demon.xml"/>
+	<monster name="Eradicator" file="quests/heart_of_destruction/eradicator.xml"/>
+	<monster name="Eradicator" file="quests/heart_of_destruction/eradicator2.xml"/>
+	<monster name="eruption of destruction" file="quests/ferumbras_ascension/traps/eruption_of_destruction.xml"/>
+	<monster name="Eshtaba The Conjurer" file="quests/cults_of_tibia/bosses/eshtaba_the_conjurer_stop.xml"/>
+	<monster name="Eshtaba the Conjurer" file="quests/cults_of_tibia/bosses/eshtaba_the_conjurer.xml"/>
+	<monster name="Esmeralda" file="quests/killing_in_the_name_of/esmeralda.xml"/>
+	<monster name="essence of darkness" file="event_creatures/essence_of_darkness.xml"/>
+	<monster name="Essence of Malice" file="quests/cults_of_tibia/bosses/essence_of_malice.xml"/>
+	<monster name="eternal guardian" file="constructs/eternal_guardian.xml"/>
+	<monster name="Ethershreck" file="quests/killing_in_the_name_of/ethershreck.xml"/>
+	<monster name="Evil Mastermind" file="quests/isle_of_evil/evil_mastermind.xml"/>
+	<monster name="evil prospector" file="undeads/evil_prospector.xml"/>
+	<monster name="evil sheep" file="mammals/evil_sheep.xml"/>
+	<monster name="evil sheep lord" file="mammals/evil_sheep_lord.xml"/>
+	<monster name="execowtioner" file="humanoids/execowtioner.xml"/>
+	<monster name="exotic bat" file="mammals/exotic_bat.xml"/>
+	<monster name="exotic cave spider" file="vermins/exotic_cave_spider.xml"/>
+	<monster name="eye of the seven" file="quests/the_inquisition/eye_of_the_seven.xml"/>
+	<monster name="eyeless devourer" file="vermins/eyeless_devourer.xml"/>
+	<monster name="Faceless Bane" file="quests/the_dream_courts/bosses/faceless_bane.xml"/>
+	<monster name="Fahim the Wise" file="magicals/fahim_the_wise.xml"/>
+	<monster name="falcon knight" file="undeads/falcon_knight.xml"/>
+	<monster name="falcon paladin" file="undeads/falcon_paladin.xml"/>
+	<monster name="fallen challenger" file="quests/the_first_dragon/bosses/fallen_challenger.xml"/>
+	<monster name="Fallen Mooh'Tah Master Ghar" file="quests/svargrond_arena/warlord/fallen_mooh'tah_master_ghar.xml"/>
+	<monster name="Fatality" file="quests/the_new_frontier/fatality.xml"/>
+	<monster name="faun" file="fey/faun.xml"/>
+	<monster name="Fazzrah" file="quests/killing_in_the_name_of/fazzrah.xml"/>
+	<monster name="feeble glooth horror" file="quests/hero_of_rathleton/feeble_glooth_horror.xml"/>
+	<monster name="feral sphinx" file="magicals/feral_sphinx.xml"/>
+	<monster name="feral werecrocodile" file="lycanthropes/feral_werecrocodile.xml"/>
+	<monster name="Fernfang" file="raids/fernfang.xml"/>
+	<monster name="Feroxa" file="quests/the_curse_spreads/feroxa2.xml"/>
+	<monster name="Feroxa" file="quests/the_curse_spreads/feroxa.xml"/>
+	<monster name="Feroxa" file="quests/the_curse_spreads/feroxa4.xml"/>
+	<monster name="Feroxa" file="quests/the_curse_spreads/feroxa3.xml"/>
+	<monster name="Feroxa" file="quests/the_curse_spreads/feroxa5.xml"/>
+	<monster name="Ferumbras" file="raids/ferumbras.xml"/>
+	<monster name="ferumbras essence" file="quests/ferumbras_ascension/ferumbras_essence.xml"/>
+	<monster name="Ferumbras Mortal Shell" file="quests/ferumbras_ascension/bosses/ferumbras_mortal_shell.xml"/>
+	<monster name="Ferumbras Soul Splinter" file="quests/ferumbras_ascension/bosses/ferumbras_soul_splinter.xml"/>
+	<monster name="fetter" file="quests/grave_danger/fetter.xml"/>
+	<monster name="feverish citizen" file="humans/feverish_citizen.xml"/>
+	<monster name="feversleep" file="magicals/feversleep.xml"/>
+	<monster name="fiery blood" file="quests/dangerous_depth/fiery_blood.xml"/>
+	<monster name="fiery heart" file="quests/dangerous_depth/fiery_heart.xml"/>
+	<monster name="filth toad" file="amphibics/filth_toad.xml"/>
+	<monster name="fire devil" file="demons/fire_devil.xml"/>
+	<monster name="fire elemental" file="elementals/fire_elemental.xml"/>
+	<monster name="Fire Overlord" file="quests/the_elemental_spheres/fire_overlord.xml"/>
+	<monster name="firestarter" file="humanoids/firestarter.xml"/>
+	<monster name="fish" file="aquatics/fish.xml"/>
+	<monster name="flame of burning hatred" file="quests/soul_war/normal_monsters/burning_hatred/flame_of_burning_hatred.xml"/>
+	<monster name="flame of omrafir" file="quests/roshamuul/flame_of_omrafir.xml"/>
+	<monster name="Flameborn" file="quests/killing_in_the_name_of/flameborn.xml"/>
+	<monster name="flamethrower" file="quests/pits_of_inferno/flamethrower.xml"/>
+	<monster name="flaming orchid" file="bosses/the_flaming_orchid.xml"/>
+	<monster name="flamingo" file="birds/flamingo.xml"/>
+	<monster name="Fleabringer" file="raids/fleabringer.xml"/>
+	<monster name="Fleshcrawler" file="quests/killing_in_the_name_of/fleshcrawler.xml"/>
+	<monster name="Fleshslicer" file="bosses/fleshslicer.xml"/>
+	<monster name="flickering spirit elemental" file="quests/the_elemental_spheres/flickering_spirit_elemental.xml"/>
+	<monster name="flimsy lost soul" file="undeads/flimsy_lost_soul.xml"/>
+	<monster name="floating savant" file="demons/floating_savant.xml"/>
+	<monster name="floor blob" file="traps/floor_blob.xml"/>
+	<monster name="Fluffy" file="event_creatures/fluffy.xml"/>
+	<monster name="flying book" file="magicals/flying_book.xml"/>
+	<monster name="foam stalker" file="elementals/foam_stalker.xml"/>
+	<monster name="force field" file="quests/the_secret_library/force_field.xml"/>
+	<monster name="Foreman Kneebiter" file="raids/foreman_kneebiter.xml"/>
+	<monster name="Foreshock" file="quests/heart_of_destruction/foreshock.xml"/>
+	<monster name="forest fury" file="magicals/forest_fury.xml"/>
+	<monster name="fox" file="mammals/fox.xml"/>
+	<monster name="frazzlemaw" file="magicals/frazzlemaw.xml"/>
+	<monster name="freakish lost soul" file="undeads/freakish_lost_soul.xml"/>
+	<monster name="Freed Soul" file="quests/cults_of_tibia/bosses/summons/freed_soul.xml"/>
+	<monster name="Freegoiz" file="bosses/freegoiz.xml"/>
+	<monster name="Frenzy" file="quests/heart_of_destruction/frenzy.xml"/>
+	<monster name="frost dragon" file="dragons/frost_dragon.xml"/>
+	<monster name="frost dragon hatchling" file="dragons/frost_dragon_hatchling.xml"/>
+	<monster name="frost flower asura" file="demons/frost_flower_asura.xml"/>
+	<monster name="frost giant" file="giants/frost_giant.xml"/>
+	<monster name="frost giantess" file="giants/frost_giantess.xml"/>
+	<monster name="frost servant" file="raids/frost_servant.xml"/>
+	<monster name="frost troll" file="humanoids/frost_troll.xml"/>
+	<monster name="Frostfur" file="quests/svargrond_arena/greenhorn/frostfur.xml"/>
+	<monster name="frozen man" file="quests/forgotten_knowledge/frozen_man.xml"/>
+	<monster name="frozen minion" file="quests/forgotten_knowledge/frozen_minion.xml"/>
+	<monster name="frozen soul" file="quests/grave_danger/frozen_soul.xml"/>
+	<monster name="fruit drop" file="fey/fruit_drop.xml"/>
+	<monster name="fungosaurus" file="reptiles/fungosaurus.xml"/>
+	<monster name="furious orc berserker" file="humanoids/furious_orc_berserker.xml"/>
+	<monster name="furious scorpion" file="quests/the_secret_library/furious_scorpion.xml"/>
+	<monster name="furious troll" file="humanoids/furious_troll.xml"/>
+	<monster name="fury" file="demons/fury.xml"/>
+	<monster name="Fury of the Emperor" file="quests/wrath_of_the_emperor/fury_of_the_emperor.xml"/>
+	<monster name="Furyosa" file="raids/furyosa.xml"/>
+	<monster name="Gaffir" file="bosses/gaffir.xml"/>
+	<monster name="gang member" file="humans/gang_member.xml"/>
+	<monster name="gargoyle" file="magicals/gargoyle.xml"/>
+	<monster name="gazer" file="magicals/gazer.xml"/>
+	<monster name="gazer spectre" file="undeads/gazer_spectre.xml"/>
+	<monster name="Gaz'Haragoth" file="quests/roshamuul/gaz'haragoth.xml"/>
+	<monster name="Gelidrazah the Frozen" file="quests/the_first_dragon/bosses/gelidrazah_the_frozen.xml"/>
+	<monster name="General Murius" file="bosses/general_murius.xml"/>
+	<monster name="generator" file="quests/the_dream_courts/generator.xml"/>
+	<monster name="ghastly dragon" file="dragons/ghastly_dragon.xml"/>
+	<monster name="Ghazbaran" file="raids/ghazbaran.xml"/>
+	<monster name="ghost" file="undeads/ghost.xml"/>
+	<monster name="ghost wolf" file="mammals/ghost_wolf.xml"/>
+	<monster name="ghoul" file="undeads/ghoul.xml"/>
+	<monster name="ghoulish hyaena" file="mammals/ghoulish_hyaena.xml"/>
+	<monster name="Ghulosh" file="quests/the_secret_library/bosses/ghulosh.xml"/>
+	<monster name="Ghulosh' Deathgaze" file="quests/the_secret_library/ghulosh'_deathgaze.xml"/>
+	<monster name="giant beaver" file="mammals/giant_beaver.xml"/>
+	<monster name="giant spider" file="nostalgia/old_giant_spider.xml"/>
+	<monster name="giant spider" file="vermins/giant_spider.xml"/>
+	<monster name="giant spider" file="raids/giant_spider_wyda.xml"/>
+	<monster name="gingerbread man" file="constructs/gingerbread_men.xml"/>
+	<monster name="girtablilu warrior" file="magicals/girtablilu_warrior.xml"/>
+	<monster name="gladiator" file="humans/gladiator.xml"/>
+	<monster name="Glitterscale" file="bosses/glitterscale.xml"/>
+	<monster name="gloom wolf" file="mammals/gloom_wolf.xml"/>
+	<monster name="glooth anemone" file="plants/glooth_anemone.xml"/>
+	<monster name="glooth bandit" file="humans/glooth_bandit.xml"/>
+	<monster name="glooth battery" file="raids/glooth_battery.xml"/>
+	<monster name="glooth blob" file="slimes/glooth_blob.xml"/>
+	<monster name="glooth bomb" file="raids/glooth_bomb.xml"/>
+	<monster name="glooth brigand" file="humans/glooth_brigand.xml"/>
+	<monster name="Glooth Fairy" file="raids/glooth_fairy.xml"/>
+	<monster name="glooth golem" file="constructs/glooth_golem.xml"/>
+	<monster name="glooth horror" file="quests/hero_of_rathleton/glooth_horror.xml"/>
+	<monster name="glooth masher" file="quests/hero_of_rathleton/glooth_masher.xml"/>
+	<monster name="glooth powered minotaur" file="humanoids/glooth_powered_minotaur.xml"/>
+	<monster name="glooth slasher" file="quests/hero_of_rathleton/glooth_slasher.xml"/>
+	<monster name="glooth trasher" file="quests/hero_of_rathleton/glooth_trasher.xml"/>
+	<monster name="glooth-generator" file="quests/hero_of_rathleton/glooth-generator.xml"/>
+	<monster name="gnarlhound" file="mammals/gnarlhound.xml"/>
+	<monster name="gnome pack crawler" file="quests/dangerous_depth/gnome_pack_crawler.xml"/>
+	<monster name="Gnomevil" file="quests/bigfoots_burden/bosses/gnomevil.xml"/>
+	<monster name="Gnorre Chyllson" file="quests/svargrond_arena/warlord/gnorre_chyllson.xml"/>
+	<monster name="goblin" file="humanoids/goblin.xml"/>
+	<monster name="goblin assassin" file="humanoids/goblin_assassin.xml"/>
+	<monster name="goblin leader" file="humanoids/goblin_leader.xml"/>
+	<monster name="goblin scavenger" file="humanoids/goblin_scavenger.xml"/>
+	<monster name="goggle cake" file="constructs/goggle_cake.xml"/>
+	<monster name="golden servant" file="constructs/golden_servant.xml"/>
+	<monster name="golden servant replica" file="constructs/golden_servant_replica.xml"/>
+	<monster name="goldhanded cultist" file="quests/cults_of_tibia/goldhanded_cultist.xml"/>
+	<monster name="Golgordan" file="quests/the_inquisition/golgordan.xml"/>
+	<monster name="gore horn" file="mammals/gore_horn.xml"/>
+	<monster name="gorerilla" file="mammals/gorerilla.xml"/>
+	<monster name="gorger inferniarch" file="demons/gorger_inferniarch.xml"/>
+	<monster name="Gorgo" file="quests/killing_in_the_name_of/gorgo.xml"/>
+	<monster name="Gorzindel" file="quests/the_secret_library/bosses/gorzindel.xml"/>
+	<monster name="Goshnar's Cruelty" file="quests/soul_war/goshnars_cruelty.xml"/>
+	<monster name="Goshnar's Greed" file="quests/soul_war/goshnars_greed.xml"/>
+	<monster name="Goshnar's Hatred" file="quests/soul_war/goshnars_hatred.xml"/>
+	<monster name="Goshnar's Malice" file="quests/soul_war/goshnars_malice.xml"/>
+	<monster name="Goshnar's Megalomania" file="quests/soul_war/goshnar's_megalomania_blue.xml"/>
+	<monster name="Goshnar's Megalomania" file="quests/soul_war/goshnar's_megalomania_purple.xml"/>
+	<monster name="Goshnar's Megalomania" file="quests/soul_war/goshnar's_megalomania_green.xml"/>
+	<monster name="Goshnar's Spite" file="quests/soul_war/goshnars_spite.xml"/>
+	<monster name="gozzler" file="demons/gozzler.xml"/>
+	<monster name="Grand Canon Dominus" file="quests/the_secret_library/bosses/grand_canon_dominus.xml"/>
+	<monster name="Grand Chaplain Gaunder" file="quests/the_secret_library/bosses/grand_chaplain_gaunder.xml"/>
+	<monster name="Grand Commander Soeren" file="quests/the_secret_library/bosses/grand_commander_soeren.xml"/>
+	<monster name="Grand Master Oberon" file="quests/the_secret_library/bosses/grand_master_oberon.xml"/>
+	<monster name="Grand Mother Foulscale" file="raids/grand_mother_foulscale.xml"/>
+	<monster name="grand_master_oberon_functions" file="quests/the_secret_library/bosses/grand_master_oberon_functions.xml"/>
+	<monster name="Grandfather Tridian" file="bosses/grandfather_tridian.xml"/>
+	<monster name="grave guard" file="undeads/grave_guard.xml"/>
+	<monster name="grave robber" file="humans/grave_robber.xml"/>
+	<monster name="gravedigger" file="undeads/gravedigger.xml"/>
+	<monster name="Gravelord Oshuran" file="bosses/gravelord_oshuran.xml"/>
+	<monster name="greater canopic jar" file="quests/dark_trails/greater_canopic_jar.xml"/>
+	<monster name="greater death minion" file="quests/dark_trails/greater_death_minion.xml"/>
+	<monster name="greater splinter of madness" file="quests/soul_war/normal_monsters/megalomania_room/greater_splinter_of_madness.xml"/>
+	<monster name="Greed" file="quests/heart_of_destruction/greed.xml"/>
+	<monster name="greedbeast" file="quests/soul_war/greedbeast.xml"/>
+	<monster name="greedy eye" file="quests/soul_war/normal_monsters/furious_crater/a_greedy_eye.xml"/>
+	<monster name="green djinn" file="magicals/green_djinn.xml"/>
+	<monster name="green frog" file="amphibics/green_frog.xml"/>
+	<monster name="grim reaper" file="undeads/grim_reaper.xml"/>
+	<monster name="grimeleech" file="demons/grimeleech.xml"/>
+	<monster name="Grimgor Guteater" file="quests/svargrond_arena/scrapper/grimgor_guteater.xml"/>
+	<monster name="Groam" file="bosses/groam.xml"/>
+	<monster name="Grorlam" file="raids/grorlam.xml"/>
+	<monster name="grynch clan goblin" file="event_creatures/grynch_clan_goblin.xml"/>
+	<monster name="gryphon" file="magicals/gryphon.xml"/>
+	<monster name="Guard Captain Quaid" file="bosses/guard_captain_quaid.xml"/>
+	<monster name="guardian of tales" file="magicals/guardian_of_tales.xml"/>
+	<monster name="Guilt" file="quests/ferumbras_ascension/traps/guilt.xml"/>
+	<monster name="guzzlemaw" file="magicals/guzzlemaw.xml"/>
+	<monster name="hacker" file="event_creatures/hacker.xml"/>
+	<monster name="Hairman the Huge" file="bosses/hairman_the_huge.xml"/>
+	<monster name="hand of cursed fate" file="undeads/hand_of_cursed_fate.xml"/>
+	<monster name="hardened usurper archer" file="humans/hardened_usurper_archer.xml"/>
+	<monster name="hardened usurper knight" file="humans/hardened_usurper_knight.xml"/>
+	<monster name="hardened usurper warlock" file="humans/hardened_usurper_warlock.xml"/>
+	<monster name="harpy" file="reptiles/harpy.xml"/>
+	<monster name="hateful soul" file="quests/soul_war/normal_monsters/hateful_soul.xml"/>
+	<monster name="haunted dragon" file="quests/the_first_dragon/haunted_dragon.xml"/>
+	<monster name="haunted treeling" file="plants/haunted_treeling.xml"/>
+	<monster name="Haunter" file="quests/the_new_frontier/haunter.xml"/>
+	<monster name="hazardous phantom" file="undeads/hazardous_phantom.xml"/>
+	<monster name="headpecker" file="birds/headpecker.xml"/>
+	<monster name="hell hole" file="traps/hell_hole.xml"/>
+	<monster name="hellfire fighter" file="demons/hellfire_fighter.xml"/>
+	<monster name="hellflayer" file="demons/hellflayer.xml"/>
+	<monster name="Hellgorak" file="quests/the_inquisition/hellgorak.xml"/>
+	<monster name="hellhound" file="demons/hellhound.xml"/>
+	<monster name="hellhunter inferniarch" file="demons/hellhunter_inferniarch.xml"/>
+	<monster name="hellspawn" file="demons/hellspawn.xml"/>
+	<monster name="Hemming" file="quests/killing_in_the_name_of/hemming.xml"/>
+	<monster name="Heoni" file="bosses/heoni.xml"/>
+	<monster name="herald of gloom" file="demons/herald_of_gloom.xml"/>
+	<monster name="hero" file="humans/hero.xml"/>
+	<monster name="hibernal moth" file="vermins/hibernal_moth.xml"/>
+	<monster name="Hide" file="quests/killing_in_the_name_of/hide.xml"/>
+	<monster name="hideous fungus" file="plants/hideous_fungus.xml"/>
+	<monster name="high voltage elemental" file="elementals/high_voltage_elemental.xml"/>
+	<monster name="Hirintror" file="raids/hirintror.xml"/>
+	<monster name="hive overseer" file="vermins/hive_overseer.xml"/>
+	<monster name="hive pore" file="traps/hive_pore.xml"/>
+	<monster name="honey elemental" file="elementals/honey_elemental.xml"/>
+	<monster name="honour guard" file="undeads/honour_guard.xml"/>
+	<monster name="Horadron" file="quests/roshamuul/horadron.xml"/>
+	<monster name="Horestis" file="quests/ancient_tombs/horestis.xml"/>
+	<monster name="horrible dream" file="quests/the_dream_courts/horrible_dream.xml"/>
+	<monster name="horse" file="mammals/grey_horse.xml"/>
+	<monster name="horse" file="mammals/horse.xml"/>
+	<monster name="horse" file="mammals/brown_horse.xml"/>
+	<monster name="hot dog" file="mammals/hot_dog.xml"/>
+	<monster name="hulking carnisylvan" file="humans/hulking_carnisylvan.xml"/>
+	<monster name="hulking prehemoth" file="giants/hulking_prehemoth.xml"/>
+	<monster name="humongous fungus" file="plants/humongous_fungus.xml"/>
+	<monster name="humorless fungus" file="quests/bigfoots_burden/humorless_fungus.xml"/>
+	<monster name="hunter" file="humans/hunter.xml"/>
+	<monster name="husky" file="mammals/husky.xml"/>
+	<monster name="hyaena" file="mammals/hyaena.xml"/>
+	<monster name="hydra" file="dragons/hydra.xml"/>
+	<monster name="ice dragon" file="quests/the_first_dragon/ice_dragon.xml"/>
+	<monster name="ice golem" file="constructs/ice_golem.xml"/>
+	<monster name="Ice Overlord" file="quests/the_elemental_spheres/ice_overlord.xml"/>
+	<monster name="ice witch" file="humans/ice_witch.xml"/>
+	<monster name="icecold book" file="magicals/icecold_book.xml"/>
+	<monster name="Ichgahal" file="bosses/ichgahal.xml"/>
+	<monster name="icicle" file="quests/forgotten_knowledge/icicle.xml"/>
+	<monster name="iks ahpututu" file="undeads/iks_ahpututu.xml"/>
+	<monster name="iks aucar" file="undeads/iks_aucar.xml"/>
+	<monster name="iks chuka" file="undeads/iks_chuka.xml"/>
+	<monster name="iks churrascan" file="undeads/iks_churrascan.xml"/>
+	<monster name="iks pututu" file="undeads/iks_pututu.xml"/>
+	<monster name="iks yapunac" file="undeads/iks_yapunac.xml"/>
+	<monster name="imp intruder" file="quests/the_secret_library/imp_intruder.xml"/>
+	<monster name="Incineron" file="quests/the_new_frontier/incineron.xml"/>
+	<monster name="incredibly old witch" file="bosses/incredibly_old_witch.xml"/>
+	<monster name="infected weeper" file="constructs/infected_weeper.xml"/>
+	<monster name="infernal demon" file="quests/soul_war/normal_monsters/infernal_demon.xml"/>
+	<monster name="infernal frog" file="amphibics/infernal_frog.xml"/>
+	<monster name="infernal phantom" file="quests/soul_war/normal_monsters/infernal_phantom.xml"/>
+	<monster name="infernalist" file="humans/infernalist.xml"/>
+	<monster name="Infernatil" file="bosses/infernatil.xml"/>
+	<monster name="ink blob" file="slimes/ink_blob.xml"/>
+	<monster name="Inky" file="quests/in_service_of_yalahar/inky.xml"/>
+	<monster name="insane siren" file="humanoids/insane_siren.xml"/>
+	<monster name="insect swarm" file="vermins/insect_swarm.xml"/>
+	<monster name="insectoid scout" file="vermins/insectoid_scout.xml"/>
+	<monster name="insectoid worker" file="vermins/insectoid_worker.xml"/>
+	<monster name="instable breach brood" file="extra_dimensional/instable_breach_brood.xml"/>
+	<monster name="instable sparkion" file="extra_dimensional/instable_sparkion.xml"/>
+	<monster name="invading demon" file="quests/the_secret_library/invading_demon.xml"/>
+	<monster name="Irgix The Flimsy" file="quests/feaster_of_souls/irgix_the_flimsy.xml"/>
+	<monster name="iron servant" file="constructs/iron_servant.xml"/>
+	<monster name="iron servant replica" file="constructs/iron_servant_replica.xml"/>
+	<monster name="ironblight" file="elementals/ironblight.xml"/>
+	<monster name="island troll" file="humanoids/island_troll.xml"/>
+	<monster name="Izcandar Champion of Summer" file="bosses/izcandar_champion_of_summer.xml"/>
+	<monster name="Izcandar Champion of Winter" file="bosses/izcandar_champion_of_winter.xml"/>
+	<monster name="Izcandar the Banished" file="quests/the_dream_courts/bosses/izcandar_the_banished.xml"/>
+	<monster name="jagged earth elemental" file="quests/the_elemental_spheres/jagged_earth_elemental.xml"/>
+	<monster name="Jailer" file="quests/the_secret_library/jailer.xml"/>
+	<monster name="Jaul" file="quests/liquid_black/jaul.xml"/>
+	<monster name="jellyfish" file="aquatics/jellyfish.xml"/>
+	<monster name="Jesse the Wicked" file="bosses/jesse_the_wicked.xml"/>
+	<monster name="juggernaut" file="demons/juggernaut.xml"/>
+	<monster name="jungle moa" file="birds/jungle_moa.xml"/>
+	<monster name="juvenile bashmu" file="magicals/juvenile_bashmu.xml"/>
+	<monster name="juvenile cyclops" file="dawnport/juvenile_cyclops.xml"/>
+	<monster name="kalyassa" file="quests/the_first_dragon/bosses/kalyassa.xml"/>
+	<monster name="Katex Blood Tongue" file="quests/ancient_feud/katex_blood_tongue.xml"/>
+	<monster name="Kerberos" file="quests/killing_in_the_name_of/kerberos.xml"/>
+	<monster name="Kesar" file="quests/the_order_of_lion/bosses/kesar.xml"/>
+	<monster name="killer caiman" file="reptiles/killer_caiman.xml"/>
+	<monster name="killer rabbit" file="mammals/killer_rabbit.xml"/>
+	<monster name="King Zelos" file="quests/grave_danger/bosses/king_zelos.xml"/>
+	<monster name="knight familiar" file="familiars/knight_familiar.xml"/>
+	<monster name="knight's apparition" file="quests/soul_war/normal_monsters/knight's_apparition.xml"/>
+	<monster name="knowledge elemental" file="elementals/knowledge_elemental.xml"/>
+	<monster name="knowledge raider" file="quests/the_secret_library/knowledge_raider.xml"/>
+	<monster name="kollos" file="vermins/kollos.xml"/>
+	<monster name="kongra" file="mammals/kongra.xml"/>
+	<monster name="Koshei the Deathless" file="bosses/koshei_the_deathless.xml"/>
+	<monster name="Kraknaknork" file="bosses/kraknaknork.xml"/>
+	<monster name="Kraknaknork's Demon" file="bosses/kraknaknork's_demon.xml"/>
+	<monster name="Kreebosh the Exile" file="quests/svargrond_arena/scrapper/kreebosh_the_exile.xml"/>
+	<monster name="Kroazur" file="bosses/kroazur.xml"/>
+	<monster name="lacewing moth" file="vermins/lacewing_moth.xml"/>
+	<monster name="Lady Tenebris" file="quests/forgotten_knowledge/bosses/lady_tenebris.xml"/>
+	<monster name="ladybug" file="vermins/ladybug.xml"/>
+	<monster name="lamassu" file="magicals/lamassu.xml"/>
+	<monster name="lancer beetle" file="vermins/lancer_beetle.xml"/>
+	<monster name="larva" file="vermins/larva.xml"/>
+	<monster name="Last Planegazer" file="quests/cults_of_tibia/bosses/last_planegazer.xml"/>
+	<monster name="Latrivan" file="quests/the_inquisition/latrivan.xml"/>
+	<monster name="lava creature" file="quests/primal_ordeal_quest/lava_creature.xml"/>
+	<monster name="lava golem" file="constructs/lava_golem.xml"/>
+	<monster name="lava lurker" file="elementals/lava_lurker.xml"/>
+	<monster name="lava lurker attendant" file="quests/dangerous_depth/lava_lurker_attendant.xml"/>
+	<monster name="lavafungus" file="vermins/lavafungus.xml"/>
+	<monster name="lavahole" file="traps/lavahole.xml"/>
+	<monster name="lavaworm" file="vermins/lavaworm.xml"/>
+	<monster name="leaf golem" file="plants/leaf_golem.xml"/>
+	<monster name="Leiden" file="quests/cults_of_tibia/bosses/leiden.xml"/>
+	<monster name="lesser death minion" file="quests/dark_trails/lesser_death_minion.xml"/>
+	<monster name="lesser fire devil" file="dawnport/lesser_fire_devil.xml"/>
+	<monster name="lesser splinter of madness" file="quests/soul_war/normal_monsters/megalomania_room/lesser_splinter_of_madness.xml"/>
+	<monster name="lesser swarmer" file="vermins/lesser_swarmer.xml"/>
+	<monster name="Lethal Lissy" file="raids/lethal_lissy.xml"/>
+	<monster name="Leviathan" file="quests/killing_in_the_name_of/leviathan.xml"/>
+	<monster name="librarian" file="quests/the_secret_library/librarian.xml"/>
+	<monster name="lich" file="undeads/lich.xml"/>
+	<monster name="liodile" file="reptiles/liodile.xml"/>
+	<monster name="lion" file="mammals/lion.xml"/>
+	<monster name="lion archer" file="humans/lion_archer.xml"/>
+	<monster name="lion commander" file="quests/the_order_of_lion/lion_commander.xml"/>
+	<monster name="lion knight" file="humans/lion_knight.xml"/>
+	<monster name="lion warlock" file="humans/lion_warlock.xml"/>
+	<monster name="liquor spirit" file="quests/cults_of_tibia/bosses/summons/liquor_spirit.xml"/>
+	<monster name="Lisa" file="bosses/lisa.xml"/>
+	<monster name="little corym charlatan" file="humanoids/little_corym_charlatan.xml"/>
+	<monster name="lizard abomination" file="quests/wrath_of_the_emperor/lizard_abomination.xml"/>
+	<monster name="lizard chosen" file="reptiles/lizard_chosen.xml"/>
+	<monster name="lizard dragon priest" file="reptiles/lizard_dragon_priest.xml"/>
+	<monster name="lizard high guard" file="reptiles/lizard_high_guard.xml"/>
+	<monster name="lizard legionnaire" file="reptiles/lizard_legionnaire.xml"/>
+	<monster name="lizard magistratus" file="reptiles/lizard_magistratus.xml"/>
+	<monster name="lizard noble" file="reptiles/lizard_noble.xml"/>
+	<monster name="lizard sentinel" file="reptiles/lizard_sentinel.xml"/>
+	<monster name="lizard snakecharmer" file="reptiles/lizard_snakecharmer.xml"/>
+	<monster name="lizard templar" file="reptiles/lizard_templar.xml"/>
+	<monster name="lizard zaogun" file="reptiles/lizard_zaogun.xml"/>
+	<monster name="Lloyd" file="quests/forgotten_knowledge/bosses/lloyd.xml"/>
+	<monster name="Lokathmor" file="quests/the_secret_library/lokathmor_stuck.xml"/>
+	<monster name="Lokathmor" file="quests/the_secret_library/bosses/lokathmor.xml"/>
+	<monster name="Lord Azaram" file="quests/grave_danger/bosses/lord_azaram.xml"/>
+	<monster name="Lord of the Elements" file="quests/the_elemental_spheres/lord_of_the_elements.xml"/>
+	<monster name="lost basher" file="humanoids/lost_basher.xml"/>
+	<monster name="lost berserker" file="humanoids/lost_berserker.xml"/>
+	<monster name="lost exile" file="humanoids/lost_exile.xml"/>
+	<monster name="lost gnome" file="quests/dangerous_depth/lost_gnome.xml"/>
+	<monster name="lost husher" file="humanoids/lost_husher.xml"/>
+	<monster name="lost soul" file="undeads/lost_soul.xml"/>
+	<monster name="lost thrower" file="humanoids/lost_thrower.xml"/>
+	<monster name="lost time" file="quests/forgotten_knowledge/lost_time.xml"/>
+	<monster name="lovely deer" file="quests/ferumbras_ascension/lovely/lovely_deer.xml"/>
+	<monster name="lovely frazzlemaw" file="quests/ferumbras_ascension/lovely/lovely_frazzlemaw.xml"/>
+	<monster name="lovely polar bear" file="quests/ferumbras_ascension/lovely/lovely_polar_bear.xml"/>
+	<monster name="lovely rotworm" file="quests/ferumbras_ascension/lovely/lovely_rotworm.xml"/>
+	<monster name="lovely scorpion" file="quests/ferumbras_ascension/lovely/lovely_scorpion.xml"/>
+	<monster name="lovely snake" file="quests/ferumbras_ascension/lovely/lovely_snake.xml"/>
+	<monster name="lovely souleater" file="quests/ferumbras_ascension/lovely/lovely_souleater.xml"/>
+	<monster name="lovely yielothax" file="quests/ferumbras_ascension/lovely/lovely_yielothax.xml"/>
+	<monster name="lucifuga aranea" file="quests/the_dream_courts/lucifuga_aranea.xml"/>
+	<monster name="lumbering carnivor" file="magicals/lumbering_carnivor.xml"/>
+	<monster name="mad mage" file="bosses/mad_mage.xml"/>
+	<monster name="mad scientist" file="humans/mad_scientist.xml"/>
+	<monster name="mad technomancer" file="bosses/mad_technomancer.xml"/>
+	<monster name="Madareth" file="quests/the_inquisition/madareth.xml"/>
+	<monster name="magic pillar" file="traps/magic_pillar.xml"/>
+	<monster name="Magical Sphere" file="quests/grave_danger/magical_sphere.xml"/>
+	<monster name="magicthrower" file="traps/magicthrower.xml"/>
+	<monster name="magma bubble" file="quests/primal_ordeal_quest/magma_bubble.xml"/>
+	<monster name="magma crawler" file="constructs/magma_crawler.xml"/>
+	<monster name="magma crystal" file="quests/primal_ordeal_quest/magma_crystal.xml"/>
+	<monster name="magnor mournbringer" file="quests/grave_danger/magnor_mournbringer.xml"/>
+	<monster name="Mahrdis" file="quests/ancient_tombs/mahrdis.xml"/>
+	<monster name="makara" file="amphibics/makara.xml"/>
+	<monster name="makeshift home" file="quests/dangerous_depth/makeshift_home.xml"/>
+	<monster name="malicious minion" file="quests/the_secret_library/malicious_minion.xml"/>
+	<monster name="malicious soul" file="quests/soul_war/malicious_soul.xml"/>
+	<monster name="Malkhar Deathbringer" file="quests/cults_of_tibia/bosses/malkhar_deathbringer_stop.xml"/>
+	<monster name="Malkhar Deathbringer" file="quests/cults_of_tibia/bosses/malkhar_deathbringer.xml"/>
+	<monster name="Malofur Mangrinder" file="quests/the_dream_courts/bosses/malofur_mangrinder.xml"/>
+	<monster name="mammoth" file="mammals/mammoth.xml"/>
+	<monster name="man in the cave" file="raids/man_in_the_cave.xml"/>
+	<monster name="manta ray" file="aquatics/manta_ray.xml"/>
+	<monster name="manticore" file="magicals/manticore.xml"/>
+	<monster name="mantosaurus" file="reptiles/mantosaurus.xml"/>
+	<monster name="many faces" file="quests/soul_war/normal_monsters/many_faces.xml"/>
+	<monster name="marid" file="magicals/marid.xml"/>
+	<monster name="marsh stalker" file="birds/marsh_stalker.xml"/>
+	<monster name="Massacre" file="quests/pits_of_inferno/massacre.xml"/>
+	<monster name="massive earth elemental" file="elementals/massive_earth_elemental.xml"/>
+	<monster name="massive energy elemental" file="elementals/massive_energy_elemental.xml"/>
+	<monster name="massive fire elemental" file="elementals/massive_fire_elemental.xml"/>
+	<monster name="massive water elemental" file="elementals/massive_water_elemental.xml"/>
+	<monster name="Mawhawk" file="raids/mawhawk.xml"/>
+	<monster name="Maxxenius" file="quests/the_dream_courts/bosses/maxxenius.xml"/>
+	<monster name="Mazoran" file="quests/ferumbras_ascension/bosses/mazoran.xml"/>
+	<monster name="Mazzinor" file="quests/the_secret_library/bosses/mazzinor.xml"/>
+	<monster name="meadow strider" file="dawnport/meadow_strider.xml"/>
+	<monster name="mean lost soul" file="undeads/mean_lost_soul.xml"/>
+	<monster name="mean maw" file="quests/soul_war/mean_maw.xml"/>
+	<monster name="mean minion" file="quests/the_secret_library/mean_minion.xml"/>
+	<monster name="meandering mushroom" file="quests/rotten_blood/meandering_mushroom.xml"/>
+	<monster name="mechanical fighter" file="traps/mechanical_fighter.xml"/>
+	<monster name="medusa" file="magicals/medusa.xml"/>
+	<monster name="mega dragon" file="dragons/mega_dragon.xml"/>
+	<monster name="Megasylvan Yselda" file="quests/adventures_of_galthen/megasylvan_yselda.xml"/>
+	<monster name="melting frozen horror" file="quests/forgotten_knowledge/bosses/melting_frozen_horror.xml"/>
+	<monster name="memory of a banshee" file="event_creatures/memory_creatures/memory_of_a_banshee.xml"/>
+	<monster name="memory of a book" file="event_creatures/memory_creatures/memory_of_a_book.xml"/>
+	<monster name="memory of a carnisylvan" file="event_creatures/memory_creatures/memory_of_a_carnisylvan.xml"/>
+	<monster name="memory of a dwarf" file="event_creatures/memory_creatures/memory_of_a_dwarf.xml"/>
+	<monster name="memory of a faun" file="event_creatures/memory_creatures/memory_of_a_faun.xml"/>
+	<monster name="memory of a frazzlemaw" file="event_creatures/memory_creatures/memory_of_a_frazzlemaw.xml"/>
+	<monster name="memory of a fungus" file="event_creatures/memory_creatures/memory_of_a_fungus.xml"/>
+	<monster name="memory of a golem" file="event_creatures/memory_creatures/memory_of_a_golem.xml"/>
+	<monster name="memory of a hero" file="event_creatures/memory_creatures/memory_of_a_hero.xml"/>
+	<monster name="memory of a hydra" file="event_creatures/memory_creatures/memory_of_a_hydra.xml"/>
+	<monster name="memory of a lizard" file="event_creatures/memory_creatures/memory_of_a_lizard.xml"/>
+	<monster name="memory of a mammoth" file="event_creatures/memory_creatures/memory_of_a_mammoth.xml"/>
+	<monster name="memory of a manticore" file="event_creatures/memory_creatures/memory_of_a_manticore.xml"/>
+	<monster name="memory of a pirate" file="event_creatures/memory_creatures/memory_of_a_pirate.xml"/>
+	<monster name="memory of a scarab" file="event_creatures/memory_creatures/memory_of_a_scarab.xml"/>
+	<monster name="memory of a shaper" file="event_creatures/memory_creatures/memory_of_a_shaper.xml"/>
+	<monster name="memory of a vampire" file="event_creatures/memory_creatures/memory_of_a_vampire.xml"/>
+	<monster name="memory of a werelion" file="event_creatures/memory_creatures/memory_of_a_werelion.xml"/>
+	<monster name="memory of a wolf" file="event_creatures/memory_creatures/memory_of_a_wolf.xml"/>
+	<monster name="memory of a yalahari" file="event_creatures/memory_creatures/memory_of_a_yalahari.xml"/>
+	<monster name="memory of an amazon" file="event_creatures/memory_creatures/memory_of_an_amazon.xml"/>
+	<monster name="memory of an elf" file="event_creatures/memory_creatures/memory_of_an_elf.xml"/>
+	<monster name="memory of an insectoid" file="event_creatures/memory_creatures/memory_of_an_insectoid.xml"/>
+	<monster name="memory of an ogre" file="event_creatures/memory_creatures/memory_of_an_ogre.xml"/>
+	<monster name="Menace" file="quests/the_new_frontier/menace.xml"/>
+	<monster name="menacing carnivor" file="magicals/menacing_carnivor.xml"/>
+	<monster name="Mephiles" file="quests/isle_of_evil/mephiles.xml"/>
+	<monster name="mercurial menace" file="reptiles/mercurial_menace.xml"/>
+	<monster name="mercury blob" file="slimes/mercury_blob.xml"/>
+	<monster name="Merikh the Slaughterer" file="magicals/merikh_the_slaughterer.xml"/>
+	<monster name="merlkin" file="mammals/merlkin.xml"/>
+	<monster name="metal gargoyle" file="constructs/metal_gargoyle.xml"/>
+	<monster name="Mezlon The Defiler" file="quests/cults_of_tibia/bosses/mezlon_the_defiler_stop.xml"/>
+	<monster name="Mezlon The Defiler" file="quests/cults_of_tibia/bosses/mezlon_the_defiler.xml"/>
+	<monster name="midnight asura" file="demons/midnight_asura.xml"/>
+	<monster name="midnight panther" file="magicals/midnight_panther.xml"/>
+	<monster name="midnight spawn" file="slimes/midnight_spawn.xml"/>
+	<monster name="mighty splinter of madness" file="quests/soul_war/normal_monsters/megalomania_room/mighty_splinter_of_madness.xml"/>
+	<monster name="mimic" file="traps/mimic.xml"/>
+	<monster name="mind-wrecking dream" file="quests/the_dream_courts/mind-wrecking_dream.xml"/>
+	<monster name="minion of Gaz'haragoth" file="quests/roshamuul/minion_of_gaz'haragoth.xml"/>
+	<monster name="minion of Versperoth" file="quests/bigfoots_burden/minion_of_versperoth.xml"/>
+	<monster name="Minishabaal" file="event_creatures/minishabaal.xml"/>
+	<monster name="minotaur" file="humanoids/minotaur.xml"/>
+	<monster name="minotaur amazon" file="humanoids/minotaur_amazon.xml"/>
+	<monster name="minotaur archer" file="humanoids/minotaur_archer.xml"/>
+	<monster name="minotaur bruiser" file="humanoids/minotaur_bruiser.xml"/>
+	<monster name="minotaur cult follower" file="humanoids/minotaur_cult_follower.xml"/>
+	<monster name="minotaur cult prophet" file="humanoids/minotaur_cult_prophet.xml"/>
+	<monster name="minotaur cult zealot" file="humanoids/minotaur_cult_zealot.xml"/>
+	<monster name="minotaur guard" file="humanoids/minotaur_guard.xml"/>
+	<monster name="minotaur hunter" file="humanoids/minotaur_hunter.xml"/>
+	<monster name="minotaur idol" file="quests/cults_of_tibia/minotaur_idol.xml"/>
+	<monster name="minotaur invader" file="humanoids/minotaur_invader.xml"/>
+	<monster name="minotaur mage" file="humanoids/minotaur_mage.xml"/>
+	<monster name="minotaur occultist" file="humanoids/minotaur_occultist.xml"/>
+	<monster name="minotaur poacher" file="humanoids/minotaur_poacher.xml"/>
+	<monster name="minotaur totem" file="humanoids/minotaur_totem.xml"/>
+	<monster name="mirror image" file="quests/soul_war/mirror_image.xml"/>
+	<monster name="misguided bully" file="quests/cults_of_tibia/misguided_bully.xml"/>
+	<monster name="misguided shadow" file="quests/cults_of_tibia/misguided_shadow.xml"/>
+	<monster name="misguided thief" file="quests/cults_of_tibia/misguided_thief.xml"/>
+	<monster name="mitmah scout" file="extra_dimensional/mitmah_scout.xml"/>
+	<monster name="mitmah seer" file="extra_dimensional/mitmah_seer.xml"/>
+	<monster name="Mitmah Vanguard" file="bosses/mitmah_vanguard.xml"/>
+	<monster name="modified gnarlhound" file="mammals/modified_gnarlhound.xml"/>
+	<monster name="mole" file="mammals/mole.xml"/>
+	<monster name="monk" file="humans/monk.xml"/>
+	<monster name="monk familiar" file="familiars/monk_familiar.xml"/>
+	<monster name="monk of the order" file="humans/monk_of_the_order.xml"/>
+	<monster name="monk's apparition" file="quests/soul_war/normal_monsters/monk's_apparition.xml"/>
+	<monster name="Monstor" file="quests/isle_of_evil/monstor.xml"/>
+	<monster name="mooh'tah master" file="quests/the_new_frontier/mooh'tah_master.xml"/>
+	<monster name="mooh'tah warrior" file="humanoids/mooh'tah_warrior.xml"/>
+	<monster name="moohtant" file="humanoids/moohtant.xml"/>
+	<monster name="Morgaroth" file="raids/morgaroth.xml"/>
+	<monster name="Morguthis" file="quests/ancient_tombs/morguthis.xml"/>
+	<monster name="Morik the Gladiator" file="bosses/morik_the_gladiator.xml"/>
+	<monster name="Mornenion" file="bosses/mornenion.xml"/>
+	<monster name="Morshabaal" file="bosses/morshabaal.xml"/>
+	<monster name="mould phantom" file="quests/soul_war/normal_monsters/mould_phantom.xml"/>
+	<monster name="mountain troll" file="dawnport/mountain_troll.xml"/>
+	<monster name="mounted Thorn Knight" file="quests/forgotten_knowledge/bosses/mounted_thorn_knight.xml"/>
+	<monster name="Mozradek" file="quests/kilmaresh/mozradek.xml"/>
+	<monster name="Mr. Punish" file="quests/pits_of_inferno/mr._punish.xml"/>
+	<monster name="muddy earth elemental" file="quests/the_elemental_spheres/muddy_earth_elemental.xml"/>
+	<monster name="muglex clan assassin" file="dawnport/muglex_clan_assassin.xml"/>
+	<monster name="muglex clan footman" file="dawnport/muglex_clan_footman.xml"/>
+	<monster name="muglex clan scavenger" file="dawnport/muglex_clan_scavenger.xml"/>
+	<monster name="mummy" file="undeads/mummy.xml"/>
+	<monster name="Munster" file="bosses/munster.xml"/>
+	<monster name="Murcion" file="bosses/murcion.xml"/>
+	<monster name="Mushroom" file="quests/rotten_blood/mushroom.xml"/>
+	<monster name="mushroom sniffer" file="mammals/mushroom_sniffer.xml"/>
+	<monster name="mutated bat" file="mammals/mutated_bat.xml"/>
+	<monster name="mutated human" file="humans/mutated_human.xml"/>
+	<monster name="mutated rat" file="mammals/mutated_rat.xml"/>
+	<monster name="mutated tiger" file="mammals/mutated_tiger.xml"/>
+	<monster name="mutated visco" file="bosses/visco.xml"/>
+	<monster name="Mutated Zalamon" file="quests/wrath_of_the_emperor/mutated_zalamon.xml"/>
+	<monster name="mycobiontic beetle" file="quests/rotten_blood/mycobiontic_beetle.xml"/>
+	<monster name="naga archer" file="reptiles/naga_archer.xml"/>
+	<monster name="naga warrior" file="reptiles/naga_warrior.xml"/>
+	<monster name="nargol the impaler" file="quests/grave_danger/nargol_the_impaler.xml"/>
+	<monster name="necromancer" file="humans/necromancer.xml"/>
+	<monster name="necromancer servant" file="humans/necromancer_servant.xml"/>
+	<monster name="necromantic focus" file="quests/soul_war/normal_monsters/megalomania_room/necromantic_focus.xml"/>
+	<monster name="Necropharus" file="raids/necropharus.xml"/>
+	<monster name="Neferi the Spy" file="quests/kilmaresh/neferi_the_spy.xml"/>
+	<monster name="neutral deepling warrior" file="quests/the_secret_library/neutral_deepling_warrior.xml"/>
+	<monster name="nibblemaw" file="magicals/nibblemaw.xml"/>
+	<monster name="nightfiend" file="demons/nightfiend.xml"/>
+	<monster name="nighthunter" file="mammals/nighthunter.xml"/>
+	<monster name="nightmare" file="magicals/nightmare.xml"/>
+	<monster name="nightmare of Gaz'haragoth" file="quests/roshamuul/nightmare_of_gaz'haragoth.xml"/>
+	<monster name="nightmare scion" file="magicals/nightmare_scion.xml"/>
+	<monster name="nightmare tendril" file="quests/the_dream_courts/nightmare_tendril.xml"/>
+	<monster name="nightmarish dream" file="quests/the_dream_courts/nightmarish_dream.xml"/>
+	<monster name="Nightstalker" file="magicals/nightstalker.xml"/>
+	<monster name="noble lion" file="mammals/noble_lion.xml"/>
+	<monster name="nomad" file="humans/nomad_blue.xml"/>
+	<monster name="nomad" file="humans/nomad_female.xml"/>
+	<monster name="nomad" file="humans/nomad.xml"/>
+	<monster name="Norgle Glacierbeard" file="quests/svargrond_arena/warlord/norgle_glacierbeard.xml"/>
+	<monster name="northern pike" file="aquatics/northern_pike.xml"/>
+	<monster name="novice of the cult" file="humans/novice_of_the_cult.xml"/>
+	<monster name="noxious ripptor" file="reptiles/noxious_ripptor.xml"/>
+	<monster name="nymph" file="fey/nymph.xml"/>
+	<monster name="Oberon's Bile" file="quests/the_secret_library/oberons_bile.xml"/>
+	<monster name="Oberon's Hate" file="quests/the_secret_library/oberons_hate.xml"/>
+	<monster name="Oberon's Ire" file="quests/the_secret_library/oberons_ire.xml"/>
+	<monster name="Oberon's Spite" file="quests/the_secret_library/oberons_spite.xml"/>
+	<monster name="observer eye" file="quests/mysterious_ornate_chest/an_observer_eye.xml"/>
+	<monster name="observer eye" file="quests/mysterious_ornate_chest/an_observer_eye_(imune).xml"/>
+	<monster name="Obujos" file="quests/liquid_black/obujos.xml"/>
+	<monster name="Ocyakao" file="raids/ocyakao.xml"/>
+	<monster name="ogre brute" file="giants/ogre_brute.xml"/>
+	<monster name="ogre rowdy" file="giants/ogre_rowdy.xml"/>
+	<monster name="ogre ruffian" file="giants/ogre_ruffian.xml"/>
+	<monster name="ogre sage" file="giants/ogre_sage.xml"/>
+	<monster name="ogre savage" file="giants/ogre_savage.xml"/>
+	<monster name="ogre shaman" file="giants/ogre_shaman.xml"/>
+	<monster name="omnivora" file="plants/omnivora.xml"/>
+	<monster name="Omrafir" file="quests/roshamuul/omrafir.xml"/>
+	<monster name="Omruc" file="quests/ancient_tombs/omruc.xml"/>
+	<monster name="oozing carcass" file="quests/rotten_blood/oozing_carcass.xml"/>
+	<monster name="oozing corpus" file="quests/rotten_blood/oozing_corpus.xml"/>
+	<monster name="orc" file="raids/orc_sambackpack.xml"/>
+	<monster name="orc" file="humanoids/orc.xml"/>
+	<monster name="orc berserker" file="humanoids/orc_berserker.xml"/>
+	<monster name="orc cult fanatic" file="quests/cults_of_tibia/orc_cult_fanatic.xml"/>
+	<monster name="orc cult inquisitor" file="quests/cults_of_tibia/orc_cult_inquisitor.xml"/>
+	<monster name="orc cult minion" file="quests/cults_of_tibia/orc_cult_minion.xml"/>
+	<monster name="orc cult priest" file="quests/cults_of_tibia/orc_cult_priest.xml"/>
+	<monster name="orc cultist" file="quests/cults_of_tibia/orc_cultist.xml"/>
+	<monster name="orc leader" file="humanoids/orc_leader.xml"/>
+	<monster name="orc marauder" file="humanoids/orc_marauder.xml"/>
+	<monster name="orc rider" file="humanoids/orc_rider.xml"/>
+	<monster name="orc shaman" file="humanoids/orc_shaman.xml"/>
+	<monster name="orc spearman" file="humanoids/orc_spearman.xml"/>
+	<monster name="orc warlord" file="raids/orc_armor.xml"/>
+	<monster name="orc warlord" file="raids/orc_shield.xml"/>
+	<monster name="orc warlord" file="raids/orc_helmet.xml"/>
+	<monster name="orc warlord" file="humanoids/orc_warlord.xml"/>
+	<monster name="orc warrior" file="humanoids/orc_warrior.xml"/>
+	<monster name="orchid frog" file="amphibics/orchid_frog.xml"/>
+	<monster name="orclops doomhauler" file="giants/orclops_doomhauler.xml"/>
+	<monster name="orclops ravager" file="giants/orclops_ravager.xml"/>
+	<monster name="Orcus the Cruel" file="quests/svargrond_arena/greenhorn/orcus_the_cruel.xml"/>
+	<monster name="orewalker" file="constructs/orewalker.xml"/>
+	<monster name="organic matter" file="quests/dangerous_depth/organic_matter.xml"/>
+	<monster name="Orshabaal" file="raids/orshabaal.xml"/>
+	<monster name="Outburst" file="quests/heart_of_destruction/outburst.xml"/>
+	<monster name="overcharge" file="quests/heart_of_destruction/overcharge.xml"/>
+	<monster name="overcharged demon" file="quests/no_rest_for_the_wicked/summons/overcharged_demon.xml"/>
+	<monster name="overcharged disruption" file="quests/heart_of_destruction/overcharged_disruption.xml"/>
+	<monster name="overcharged energy elemental" file="quests/the_elemental_spheres/overcharged_energy_elemental.xml"/>
+	<monster name="Paiz the Pauperizer" file="quests/killing_in_the_name_of/paiz_the_pauperizer.xml"/>
+	<monster name="paladin familiar" file="familiars/paladin_familiar.xml"/>
+	<monster name="paladin's apparition" file="quests/soul_war/normal_monsters/paladin's_apparition.xml"/>
+	<monster name="panda" file="mammals/panda.xml"/>
+	<monster name="parasite" file="vermins/parasite.xml"/>
+	<monster name="parder" file="mammals/parder.xml"/>
+	<monster name="parrot" file="birds/parrot.xml"/>
+	<monster name="party skeleton" file="event_creatures/party_skeleton.xml"/>
+	<monster name="penguin" file="birds/penguin.xml"/>
+	<monster name="percht" file="quests/the_percht_queens_island/percht.xml"/>
+	<monster name="percht minion" file="quests/the_percht_queens_island/percht_minion.xml"/>
+	<monster name="phantasm" file="magicals/phantasm_summon.xml"/>
+	<monster name="Phantasm" file="magicals/phantasm.xml"/>
+	<monster name="pig" file="nostalgia/old_pig.xml"/>
+	<monster name="pig" file="mammals/pig.xml"/>
+	<monster name="pigeon" file="birds/pigeon.xml"/>
+	<monster name="pillar" file="traps/pillar.xml"/>
+	<monster name="pillar of death" file="quests/cults_of_tibia/bosses/pillars/pillar_of_death.xml"/>
+	<monster name="pillar of draining" file="quests/cults_of_tibia/bosses/pillars/pillar_of_draining.xml"/>
+	<monster name="pillar of healing" file="quests/cults_of_tibia/bosses/pillars/pillar_of_healing.xml"/>
+	<monster name="pillar of protection" file="quests/cults_of_tibia/bosses/pillars/pillar_of_protection.xml"/>
+	<monster name="pillar of summoning" file="quests/cults_of_tibia/bosses/pillars/pillar_of_summoning.xml"/>
+	<monster name="pinata dragon" file="event_creatures/pinata_dragon.xml"/>
+	<monster name="pirat artillerist" file="humanoids/pirat_artillerist.xml"/>
+	<monster name="pirat bombardier" file="humanoids/pirat_bombardier.xml"/>
+	<monster name="pirat cutthroat" file="humanoids/pirat_cutthroat.xml"/>
+	<monster name="pirat mate" file="humanoids/pirat_mate.xml"/>
+	<monster name="pirat scoundrel" file="humanoids/pirat_scoundrel.xml"/>
+	<monster name="pirate buccaneer" file="humans/pirate_buccaneer.xml"/>
+	<monster name="pirate corsair" file="humans/pirate_corsair.xml"/>
+	<monster name="pirate cutthroat" file="humans/pirate_cutthroat.xml"/>
+	<monster name="pirate ghost" file="undeads/pirate_ghost.xml"/>
+	<monster name="pirate marauder" file="humans/pirate_marauder.xml"/>
+	<monster name="pirate skeleton" file="undeads/pirate_skeleton.xml"/>
+	<monster name="pixie" file="fey/pixie.xml"/>
+	<monster name="Plagirath" file="quests/ferumbras_ascension/bosses/plagirath.xml"/>
+	<monster name="Plagueroot" file="quests/the_dream_courts/bosses/plagueroot.xml"/>
+	<monster name="plaguesmith" file="demons/plaguesmith.xml"/>
+	<monster name="plaguethrower" file="traps/plaguethrower.xml"/>
+	<monster name="plant abomination" file="quests/the_dream_courts/plant_abomination.xml"/>
+	<monster name="plant attendant" file="quests/the_dream_courts/plant_attendant.xml"/>
+	<monster name="plunder patriarch" file="quests/primal_ordeal_quest/plunder_patriarch.xml"/>
+	<monster name="poacher" file="humans/poacher.xml"/>
+	<monster name="poison spider" file="vermins/poison_spider.xml"/>
+	<monster name="poisonous carnisylvan" file="humans/poisonous_carnisylvan.xml"/>
+	<monster name="polar bear" file="mammals/polar_bear.xml"/>
+	<monster name="poodle" file="mammals/poodle.xml"/>
+	<monster name="pooka" file="fey/pooka.xml"/>
+	<monster name="poor soul" file="quests/soul_war/normal_monsters/furious_crater/poor_soul.xml"/>
+	<monster name="possessed tree" file="quests/forgotten_knowledge/possessed_tree.xml"/>
+	<monster name="powerful soul" file="quests/soul_war/powerful_soul.xml"/>
+	<monster name="Preceptor Lazare" file="quests/the_secret_library/bosses/preceptor_lazare.xml"/>
+	<monster name="priestess" file="humans/priestess.xml"/>
+	<monster name="priestess of the wild sun" file="humans/priestess_of_the_wild_sun.xml"/>
+	<monster name="primitive" file="event_creatures/primitive.xml"/>
+	<monster name="Prince Drazzak" file="quests/roshamuul/prince_drazzak.xml"/>
+	<monster name="Professor Maxxen" file="quests/hero_of_rathleton/professor_maxxen.xml"/>
+	<monster name="psychic spirit elemental" file="quests/the_elemental_spheres/psychic_spirit_elemental.xml"/>
+	<monster name="putrid mummy" file="undeads/putrid_mummy.xml"/>
+	<monster name="Pythius The Rotten" file="bosses/pythius_the_rotten.xml"/>
+	<monster name="quara constrictor" file="aquatics/quara_constrictor.xml"/>
+	<monster name="quara constrictor scout" file="aquatics/quara_constrictor_scout.xml"/>
+	<monster name="quara hydromancer" file="aquatics/quara_hydromancer.xml"/>
+	<monster name="quara hydromancer scout" file="aquatics/quara_hydromancer_scout.xml"/>
+	<monster name="quara looter" file="aquatics/quara_looter.xml"/>
+	<monster name="quara mantassin" file="aquatics/quara_mantassin.xml"/>
+	<monster name="quara mantassin scout" file="aquatics/quara_mantassin_scout.xml"/>
+	<monster name="quara pincher" file="aquatics/quara_pincher.xml"/>
+	<monster name="quara pincher scout" file="aquatics/quara_pincher_scout.xml"/>
+	<monster name="quara plunderer" file="aquatics/quara_plunderer.xml"/>
+	<monster name="quara predator" file="aquatics/quara_predator.xml"/>
+	<monster name="quara predator scout" file="aquatics/quara_predator_scout.xml"/>
+	<monster name="quara raider" file="aquatics/quara_raider.xml"/>
+	<monster name="rabbit" file="mammals/rabbit.xml"/>
+	<monster name="Rage of Mazoran" file="quests/ferumbras_ascension/rage_of_mazoran.xml"/>
+	<monster name="rage squid" file="magicals/rage_squid.xml"/>
+	<monster name="Ragiaz" file="quests/ferumbras_ascension/bosses/ragiaz.xml"/>
+	<monster name="raging fire" file="elementals/raging_fire.xml"/>
+	<monster name="raging mage" file="bosses/raging_mage.xml"/>
+	<monster name="Rahemos" file="quests/ancient_tombs/rahemos.xml"/>
+	<monster name="rat" file="mammals/rat.xml"/>
+	<monster name="Ratmiral Blackwhiskers" file="quests/a_pirates_tail_quest/ratmiral_blackwhiskers.xml"/>
+	<monster name="ravenous beyondling" file="quests/the_secret_library/ravenous_beyondling.xml"/>
+	<monster name="Ravenous Hunger" file="quests/cults_of_tibia/bosses/ravenous_hunger.xml"/>
+	<monster name="ravenous lava lurker" file="elementals/ravenous_lava_lurker.xml"/>
+	<monster name="raxias" file="bosses/raxias.xml"/>
+	<monster name="Razzagorn" file="quests/ferumbras_ascension/bosses/razzagorn.xml"/>
+	<monster name="reality reaver" file="extra_dimensional/reality_reaver.xml"/>
+	<monster name="Realityquake" file="quests/heart_of_destruction/realityquake.xml"/>
+	<monster name="redeemed soul" file="quests/ferumbras_ascension/bosses/redeemed_soul.xml"/>
+	<monster name="reflection of Mawhawk" file="quests/mysterious_ornate_chest/reflection_of_mawhawk.xml"/>
+	<monster name="reflection of obujos" file="quests/mysterious_ornate_chest/reflection_of_obujos.xml"/>
+	<monster name="regenerating mass" file="quests/grave_danger/regenerating_mass.xml"/>
+	<monster name="renegade knight" file="humans/renegade_knight.xml"/>
+	<monster name="renegade orc" file="bosses/renegade_orc.xml"/>
+	<monster name="renegade quara constrictor" file="aquatics/renegade_quara_constrictor.xml"/>
+	<monster name="renegade quara hydromancer" file="aquatics/renegade_quara_hydromancer.xml"/>
+	<monster name="renegade quara mantassin" file="aquatics/renegade_quara_mantassin.xml"/>
+	<monster name="renegade quara pincher" file="aquatics/renegade_quara_pincher.xml"/>
+	<monster name="renegade quara predator" file="aquatics/renegade_quara_predator.xml"/>
+	<monster name="retainer of Baeloc" file="quests/grave_danger/retainer_of_baeloc.xml"/>
+	<monster name="retching horror" file="magicals/retching_horror.xml"/>
+	<monster name="rewar the bloody" file="quests/grave_danger/rewar_the_bloody_inv.xml"/>
+	<monster name="rewar the bloody" file="quests/grave_danger/rewar_the_bloody.xml"/>
+	<monster name="rhindeer" file="reptiles/rhindeer.xml"/>
+	<monster name="Ribstride" file="quests/killing_in_the_name_of/ribstride.xml"/>
+	<monster name="rift breacher" file="quests/the_secret_library/rift_breacher.xml"/>
+	<monster name="rift brood" file="quests/in_service_of_yalahar/rift_brood.xml"/>
+	<monster name="rift fragment" file="quests/ferumbras_ascension/summons/rift_fragment.xml"/>
+	<monster name="rift invader" file="quests/ferumbras_ascension/summons/rift_invader.xml"/>
+	<monster name="rift lord" file="quests/in_service_of_yalahar/rift_lord.xml"/>
+	<monster name="rift minion" file="quests/the_secret_library/rift_minion.xml"/>
+	<monster name="rift phantom" file="quests/in_service_of_yalahar/rift_phantom.xml"/>
+	<monster name="rift scythe" file="quests/in_service_of_yalahar/rift_scythe.xml"/>
+	<monster name="rift spawn" file="quests/the_secret_library/rift_spawn.xml"/>
+	<monster name="rift worm" file="quests/in_service_of_yalahar/rift_worm.xml"/>
+	<monster name="ripper spectre" file="undeads/ripper_spectre.xml"/>
+	<monster name="risen soldier" file="quests/grave_danger/risen_soldier.xml"/>
+	<monster name="roaring lion" file="mammals/roaring_lion.xml"/>
+	<monster name="roaring water elemental" file="quests/the_elemental_spheres/roaring_water_elemental.xml"/>
+	<monster name="Robby the Reckless" file="bosses/robby_the_reckless.xml"/>
+	<monster name="Rocko" file="quests/the_new_frontier/rocko.xml"/>
+	<monster name="Rocky" file="quests/svargrond_arena/greenhorn/rocky.xml"/>
+	<monster name="rogue naga" file="reptiles/rogue_naga.xml"/>
+	<monster name="Ron the Ripper" file="raids/ron_the_ripper.xml"/>
+	<monster name="rootthing amber shaper" file="plants/rootthing_amber_shaper.xml"/>
+	<monster name="rootthing bug tracker" file="plants/rootthing_bug_tracker.xml"/>
+	<monster name="rootthing nutshell" file="plants/rootthing_nutshell.xml"/>
+	<monster name="rorc" file="magicals/rorc.xml"/>
+	<monster name="rot elemental" file="undeads/rot_elemental.xml"/>
+	<monster name="rotten golem" file="quests/soul_war/normal_monsters/rotten_golem.xml"/>
+	<monster name="rotten man-maggot" file="quests/rotten_blood/rotten_man-maggot.xml"/>
+	<monster name="Rottie the Rotworm" file="raids/rottie_the_rotworm.xml"/>
+	<monster name="rotworm" file="vermins/rotworm.xml"/>
+	<monster name="rotworm queen" file="raids/rotworm_queen.xml"/>
+	<monster name="Rukor Zad" file="bosses/rukor_zad.xml"/>
+	<monster name="running elite orc guard" file="humanoids/running_elite_orc_guard.xml"/>
+	<monster name="Rupture" file="quests/heart_of_destruction/rupture.xml"/>
+	<monster name="rustheap golem" file="constructs/rustheap_golem.xml"/>
+	<monster name="sabretooth" file="mammals/sabretooth.xml"/>
+	<monster name="sacred snake" file="dawnport/sacred_snake.xml"/>
+	<monster name="sacred spider" file="vermins/sacred_spider.xml"/>
+	<monster name="salamander" file="amphibics/salamander.xml"/>
+	<monster name="salamander trainer" file="dawnport/salamander_trainer.xml"/>
+	<monster name="sand brood" file="quests/cults_of_tibia/bosses/summons/sand_brood.xml"/>
+	<monster name="sand vortex" file="quests/cults_of_tibia/bosses/summons/sand_vortex.xml"/>
+	<monster name="sandcrawler" file="vermins/sandcrawler.xml"/>
+	<monster name="sandstone scorpion" file="constructs/sandstone_scorpion.xml"/>
+	<monster name="scar tribe shaman" file="dawnport/scar_tribe_shaman.xml"/>
+	<monster name="scar tribe warrior" file="dawnport/scar_tribe_warrior.xml"/>
+	<monster name="scarab" file="vermins/scarab.xml"/>
+	<monster name="Scarlett Etzel" file="quests/grave_danger/bosses/scarlett_etzel.xml"/>
+	<monster name="schiach" file="quests/the_percht_queens_island/schiach.xml"/>
+	<monster name="Scorn of the Emperor" file="quests/wrath_of_the_emperor/scorn_of_the_emperor.xml"/>
+	<monster name="scorpion" file="vermins/scorpion.xml"/>
+	<monster name="sea serpent" file="reptiles/sea_serpent.xml"/>
+	<monster name="seacrest serpent" file="reptiles/seacrest_serpent.xml"/>
+	<monster name="seagull" file="birds/seagull.xml"/>
+	<monster name="security golem" file="quests/cults_of_tibia/bosses/summons/security_golem.xml"/>
+	<monster name="serpent spawn" file="reptiles/serpent_spawn.xml"/>
+	<monster name="shaburak demon" file="demons/shaburak_demon.xml"/>
+	<monster name="shaburak lord" file="demons/shaburak_lord.xml"/>
+	<monster name="shaburak prince" file="demons/shaburak_prince.xml"/>
+	<monster name="shadow fiend" file="quests/forgotten_knowledge/shadow_fiend.xml"/>
+	<monster name="shadow hound" file="demons/shadow_hound.xml"/>
+	<monster name="shadow pupil" file="humans/shadow_pupil.xml"/>
+	<monster name="shadow tentacle" file="quests/forgotten_knowledge/shadow_tentacle.xml"/>
+	<monster name="Shadowpelt" file="quests/the_curse_spreads/shadowpelt.xml"/>
+	<monster name="shaper matriarch" file="humanoids/shaper_matriarch.xml"/>
+	<monster name="Shard of Corruption" file="quests/the_new_frontier/shard_of_corruption.xml"/>
+	<monster name="shard of Magnor" file="quests/grave_danger/shard_of_magnor.xml"/>
+	<monster name="Shardhead" file="quests/killing_in_the_name_of/shardhead.xml"/>
+	<monster name="shark" file="aquatics/shark.xml"/>
+	<monster name="Sharpclaw" file="quests/the_curse_spreads/sharpclaw.xml"/>
+	<monster name="Sharptooth" file="quests/in_service_of_yalahar/sharptooth.xml"/>
+	<monster name="sheep" file="mammals/sheep.xml"/>
+	<monster name="shielded astral glyph" file="quests/kilmaresh/a_shielded_astral_glyph.xml"/>
+	<monster name="Shiversleep" file="magicals/shiversleep.xml"/>
+	<monster name="shock head" file="magicals/shock_head.xml"/>
+	<monster name="shredderthrower" file="quests/ancient_tombs/shredderthrower.xml"/>
+	<monster name="shrieking cry-stal" file="constructs/shrieking_cry-stal.xml"/>
+	<monster name="Shulgrax" file="quests/ferumbras_ascension/bosses/shulgrax.xml"/>
+	<monster name="sibang" file="mammals/sibang.xml"/>
+	<monster name="sight of surrender" file="magicals/sight_of_surrender.xml"/>
+	<monster name="silencer" file="magicals/silencer.xml"/>
+	<monster name="silver rabbit" file="mammals/silver_rabbit.xml"/>
+	<monster name="sin devourer" file="quests/ferumbras_ascension/bosses/sin_devourer.xml"/>
+	<monster name="sineater inferniarch" file="demons/sineater_inferniarch.xml"/>
+	<monster name="Sir Baeloc" file="quests/grave_danger/bosses/sir_baeloc.xml"/>
+	<monster name="Sir Nictros" file="quests/grave_danger/bosses/sir_nictros.xml"/>
+	<monster name="Sir Valorcrest" file="raids/sir_valorcrest.xml"/>
+	<monster name="Sister Hetai" file="quests/kilmaresh/sister_hetai.xml"/>
+	<monster name="skeleton" file="undeads/skeleton.xml"/>
+	<monster name="skeleton elite warrior" file="undeads/skeleton_elite_warrior.xml"/>
+	<monster name="skeleton warrior" file="undeads/skeleton_warrior.xml"/>
+	<monster name="skunk" file="mammals/skunk.xml"/>
+	<monster name="slick water elemental" file="quests/the_elemental_spheres/slick_water_elemental.xml"/>
+	<monster name="Slim" file="quests/svargrond_arena/scrapper/slim.xml"/>
+	<monster name="slime" file="slimes/slime.xml"/>
+	<monster name="slug" file="vermins/slug.xml"/>
+	<monster name="smuggler" file="humans/smuggler.xml"/>
+	<monster name="Smuggler Baron Silvertoe" file="bosses/smuggler_baron_silvertoe.xml"/>
+	<monster name="snail slime" file="quests/dangerous_depth/snail_slime.xml"/>
+	<monster name="snake" file="reptiles/snake.xml"/>
+	<monster name="Snake God Essence" file="quests/wrath_of_the_emperor/snake_god_essence.xml"/>
+	<monster name="Snake Thing" file="quests/wrath_of_the_emperor/snake_thing.xml"/>
+	<monster name="solid frozen horror" file="quests/forgotten_knowledge/bosses/solid_frozen_horror.xml"/>
+	<monster name="somewhat beatable" file="quests/the_first_dragon/somewhat_beatable.xml"/>
+	<monster name="son of verminor" file="slimes/son_of_verminor.xml"/>
+	<monster name="sopping carcass" file="quests/rotten_blood/sopping_carcass.xml"/>
+	<monster name="sopping corpus" file="quests/rotten_blood/sopping_corpus.xml"/>
+	<monster name="sorcerer familiar" file="familiars/sorcerer_familiar.xml"/>
+	<monster name="sorcerer's apparition" file="quests/soul_war/normal_monsters/sorcerer's_apparition.xml"/>
+	<monster name="soul cage" file="quests/soul_war/soul_cage.xml"/>
+	<monster name="soul of Dragonking Zyrtarch" file="quests/forgotten_knowledge/bosses/soul_of_dragonking_zyrtarch.xml"/>
+	<monster name="soul reaper" file="quests/cults_of_tibia/bosses/summons/soul_reaper.xml"/>
+	<monster name="soul scourge" file="quests/grave_danger/soul_scourge.xml"/>
+	<monster name="soul sphere" file="quests/soul_war/soul_sphere.xml"/>
+	<monster name="soul-broken harbinger" file="humanoids/soul-broken_harbinger.xml"/>
+	<monster name="soulcatcher" file="quests/forgotten_knowledge/soulcatcher.xml"/>
+	<monster name="souleater" file="undeads/souleater.xml"/>
+	<monster name="soulless minion" file="quests/grave_danger/soulless_minion.xml"/>
+	<monster name="soulsnatcher" file="quests/soul_war/soulsnatcher.xml"/>
+	<monster name="spark of burning hatred" file="quests/soul_war/normal_monsters/burning_hatred/spark_of_burning_hatred.xml"/>
+	<monster name="spark of destruction" file="quests/heart_of_destruction/spark_of_destruction.xml"/>
+	<monster name="sparkion" file="extra_dimensional/sparkion.xml"/>
+	<monster name="spawn of havoc" file="quests/the_secret_library/spawn_of_havoc.xml"/>
+	<monster name="Spawn of the Welter" file="raids/spawn_of_the_welter.xml"/>
+	<monster name="spectral scum" file="event_creatures/spectral_scum.xml"/>
+	<monster name="spectre" file="undeads/spectre.xml"/>
+	<monster name="spellreaper inferniarch" file="demons/spellreaper_inferniarch.xml"/>
+	<monster name="sphere of wrath" file="quests/cults_of_tibia/bosses/summons/sphere_of_wrath.xml"/>
+	<monster name="sphinx" file="magicals/sphinx.xml"/>
+	<monster name="spider" file="nostalgia/old_spider.xml"/>
+	<monster name="spider" file="vermins/spider.xml"/>
+	<monster name="spider queen" file="bosses/spider_queen.xml"/>
+	<monster name="spidris" file="vermins/spidris.xml"/>
+	<monster name="spidris elite" file="vermins/spidris_elite.xml"/>
+	<monster name="spidris elite" file="dawnport/spidris_elitesumom.xml"/>
+	<monster name="spiky carnivor" file="magicals/spiky_carnivor.xml"/>
+	<monster name="spirit of earth" file="quests/svargrond_arena/scrapper/spirit_of_earth.xml"/>
+	<monster name="spirit of fertility" file="quests/the_first_dragon/spirit_of_fertility.xml"/>
+	<monster name="spirit of fire" file="quests/svargrond_arena/scrapper/spirit_of_fire.xml"/>
+	<monster name="spirit of water" file="quests/svargrond_arena/scrapper/spirit_of_water.xml"/>
+	<monster name="Spirit Overlord" file="quests/the_elemental_spheres/spirit_overlord.xml"/>
+	<monster name="spit nettle" file="plants/spit_nettle.xml"/>
+	<monster name="Spite of the Emperor" file="quests/wrath_of_the_emperor/spite_of_the_emperor.xml"/>
+	<monster name="spiteful spitter" file="quests/soul_war/spiteful_spitter.xml"/>
+	<monster name="spitter" file="vermins/spitter.xml"/>
+	<monster name="Splasher" file="bosses/splasher.xml"/>
+	<monster name="squid warden" file="magicals/squid_warden.xml"/>
+	<monster name="squidgy slime" file="slimes/squidgy_slime.xml"/>
+	<monster name="squire of Nictros" file="quests/grave_danger/squire_of_nictros.xml"/>
+	<monster name="squirrel" file="mammals/squirrel.xml"/>
+	<monster name="Srezz Yellow Eyes" file="quests/ancient_feud/srezz_yellow_eyes.xml"/>
+	<monster name="stabilizing dread intruder" file="extra_dimensional/stabilizing_dread_intruder.xml"/>
+	<monster name="stabilizing reality reaver" file="extra_dimensional/stabilizing_reality_reaver.xml"/>
+	<monster name="stalker" file="humans/stalker.xml"/>
+	<monster name="stalking stalk" file="plants/stalking_stalk.xml"/>
+	<monster name="stampor" file="reptiles/stampor.xml"/>
+	<monster name="starving wolf" file="mammals/starving_wolf.xml"/>
+	<monster name="stolen knowledge of armor" file="quests/the_secret_library/stolen_knowledge_of_armor.xml"/>
+	<monster name="stolen knowledge of healing" file="quests/the_secret_library/stolen_knowledge_of_healing.xml"/>
+	<monster name="stolen knowledge of lifesteal" file="quests/the_secret_library/stolen_knowledge_of_lifesteal.xml"/>
+	<monster name="stolen knowledge of spells" file="quests/the_secret_library/stolen_knowledge_of_spells.xml"/>
+	<monster name="stolen knowledge of summoning" file="quests/the_secret_library/stolen_knowledge_of_summoning.xml"/>
+	<monster name="stolen soul" file="quests/cults_of_tibia/bosses/summons/stolen_soul.xml"/>
+	<monster name="stolen tome of portals" file="quests/the_secret_library/stolen_tome_of_portals.xml"/>
+	<monster name="stone devourer" file="constructs/stone_devourer.xml"/>
+	<monster name="stone golem" file="constructs/stone_golem.xml"/>
+	<monster name="stone rhino" file="mammals/stone_rhino.xml"/>
+	<monster name="Stonecracker" file="quests/killing_in_the_name_of/stonecracker.xml"/>
+	<monster name="stonerefiner" file="reptiles/stonerefiner.xml"/>
+	<monster name="strange slime" file="quests/bigfoots_burden/strange_slime.xml"/>
+	<monster name="streaked devourer" file="vermins/streaked_devourer.xml"/>
+	<monster name="strong glooth horror" file="quests/hero_of_rathleton/strong_glooth_horror.xml"/>
+	<monster name="strong soul" file="quests/soul_war/strong_soul.xml"/>
+	<monster name="sugar cube" file="fey/sugar_cube.xml"/>
+	<monster name="sugar cube worker" file="fey/sugar_cube_worker.xml"/>
+	<monster name="Sugar Daddy" file="bosses/sugar_daddy.xml"/>
+	<monster name="Sugar Mommy" file="bosses/sugar_mommy.xml"/>
+	<monster name="sulphider" file="vermins/sulphider.xml"/>
+	<monster name="Sulphur Scuttler" file="quests/killing_in_the_name_of/sulphur_scuttler.xml"/>
+	<monster name="sulphur spouter" file="elementals/sulphur_spouter.xml"/>
+	<monster name="sun-marked goanna" file="quests/kilmaresh/sun-marked_goanna.xml"/>
+	<monster name="Supercharged Mazzinor" file="quests/the_secret_library/supercharged_mazzinor.xml"/>
+	<monster name="superior death minion" file="quests/dark_trails/superior_death_minion.xml"/>
+	<monster name="Svoren the Mad" file="quests/svargrond_arena/warlord/svoren_the_mad.xml"/>
+	<monster name="swamp troll" file="humanoids/swamp_troll.xml"/>
+	<monster name="swampling" file="plants/swampling.xml"/>
+	<monster name="swan maiden" file="fey/swan_maiden.xml"/>
+	<monster name="swarmer" file="vermins/swarmer.xml"/>
+	<monster name="swarmer hatchling" file="vermins/swarmer_hatchling.xml"/>
+	<monster name="sword of vengeance" file="quests/forgotten_knowledge/sword_of_vengeance.xml"/>
+	<monster name="symbol of hatred" file="quests/soul_war/normal_monsters/burning_hatred/symbol_of_hatred.xml"/>
+	<monster name="tainted soul" file="fey/tainted_soul.xml"/>
+	<monster name="tainted soul splinter" file="quests/grave_danger/tainted_soul_splinter.xml"/>
+	<monster name="tame terror bird" file="birds/tame_terror_bird.xml"/>
+	<monster name="Tanjis" file="quests/liquid_black/tanjis.xml"/>
+	<monster name="tarantula" file="vermins/tarantula.xml"/>
+	<monster name="Tarbaz" file="quests/ferumbras_ascension/bosses/tarbaz.xml"/>
+	<monster name="tarnished spirit" file="undeads/tarnished_spirit.xml"/>
+	<monster name="Tazhadur" file="quests/the_first_dragon/bosses/tazhadur.xml"/>
+	<monster name="Teleskor" file="bosses/teleskor.xml"/>
+	<monster name="tentacle of the Deep Terror" file="quests/hero_of_rathleton/tentacle_of_the_deep_terror.xml"/>
+	<monster name="Tentugly's Head" file="quests/a_pirates_tail_quest/tentuglys_head.xml"/>
+	<monster name="Terofar" file="quests/roshamuul/terofar.xml"/>
+	<monster name="terramite" file="vermins/terramite.xml"/>
+	<monster name="terrified elephant" file="mammals/terrified_elephant.xml"/>
+	<monster name="terror bird" file="birds/terror_bird.xml"/>
+	<monster name="terrorsleep" file="magicals/terrorsleep.xml"/>
+	<monster name="Thalas" file="quests/ancient_tombs/thalas.xml"/>
+	<monster name="thanatursus" file="magicals/thanatursus.xml"/>
+	<monster name="thawing dragon lord" file="quests/the_secret_library/bosses/thawing_dragon_lord.xml"/>
+	<monster name="The Abomination" file="bosses/the_abomination.xml"/>
+	<monster name="The Armored Voidborn" file="quests/cults_of_tibia/bosses/the_armored_voidborn.xml"/>
+	<monster name="the astral source" file="bosses/the_astral_source.xml"/>
+	<monster name="the Axeorcist" file="quests/the_new_frontier/the_axeorcist.xml"/>
+	<monster name="The Baron From Below" file="quests/dangerous_depth/bosses/the_baron_from_below.xml"/>
+	<monster name="The Blazing Rose" file="quests/the_secret_library/the_blazing_rose.xml"/>
+	<monster name="The Blazing Time Guardian" file="quests/forgotten_knowledge/bosses/the_blazing_time_guardian.xml"/>
+	<monster name="The Blightfather" file="bosses/the_blightfather.xml"/>
+	<monster name="the Bloodtusk" file="quests/killing_in_the_name_of/the_bloodtusk.xml"/>
+	<monster name="The Bloodweb" file="quests/killing_in_the_name_of/the_bloodweb.xml"/>
+	<monster name="The Book of Death" file="bosses/the_book_of_death.xml"/>
+	<monster name="The Book of Secrets" file="quests/the_secret_library/the_book_of_secrets.xml"/>
+	<monster name="The Brainstealer" file="bosses/the_brainstealer.xml"/>
+	<monster name="the cold of winter" file="quests/the_dream_courts/the_cold_of_winter.xml"/>
+	<monster name="The Collector" file="bosses/the_collector.xml"/>
+	<monster name="The Corruptor Of Souls" file="quests/cults_of_tibia/bosses/the_corruptor_of_souls.xml"/>
+	<monster name="The Count" file="quests/the_inquisition/the_count.xml"/>
+	<monster name="The Count Of The Core" file="quests/dangerous_depth/bosses/the_count_of_the_core.xml"/>
+	<monster name="The Dark Dancer" file="quests/svargrond_arena/scrapper/the_dark_dancer.xml"/>
+	<monster name="The Destruction" file="quests/heart_of_destruction/the_destruction.xml"/>
+	<monster name="The Devourer of Secrets" file="quests/the_secret_library/the_devourer_of_secrets.xml"/>
+	<monster name="The Diamond Blossom" file="quests/the_secret_library/the_diamond_blossom.xml"/>
+	<monster name="The Distorted Astral Source" file="quests/forgotten_knowledge/the_distorted_astral_source.xml"/>
+	<monster name="The Dread Maiden" file="quests/feaster_of_souls/the_dread_maiden.xml"/>
+	<monster name="The Dreadorian" file="quests/the_new_frontier/the_dreadorian.xml"/>
+	<monster name="The Duke Of The Depths" file="quests/dangerous_depth/bosses/the_duke_of_the_depths.xml"/>
+	<monster name="the end of days" file="quests/primal_ordeal_quest/the_end_of_days.xml"/>
+	<monster name="the enraged Thorn Knight" file="quests/forgotten_knowledge/bosses/the_enraged_thorn_knight.xml"/>
+	<monster name="The Evil Eye" file="bosses/the_evil_eye.xml"/>
+	<monster name="The False God" file="quests/cults_of_tibia/bosses/the_false_god.xml"/>
+	<monster name="The Fear Feaster" file="quests/feaster_of_souls/the_fear_feaster.xml"/>
+	<monster name="The Fire Empowered Duke" file="quests/dangerous_depth/bosses/the_duke_of_the_depths_immortal.xml"/>
+	<monster name="the first dragon" file="bosses/the_first_dragon.xml"/>
+	<monster name="The Freezing Time Guardian" file="quests/forgotten_knowledge/bosses/the_freezing_time_guardian.xml"/>
+	<monster name="The Frog Prince" file="bosses/the_frog_prince.xml"/>
+	<monster name="The Hag" file="quests/svargrond_arena/scrapper/the_hag.xml"/>
+	<monster name="The Hairy One" file="quests/svargrond_arena/greenhorn/the_hairy_one.xml"/>
+	<monster name="The Halloween Hare" file="event_creatures/the_halloween_hare.xml"/>
+	<monster name="The Handmaiden" file="quests/pits_of_inferno/the_handmaiden.xml"/>
+	<monster name="the heat of summer" file="quests/the_dream_courts/the_heat_of_summer.xml"/>
+	<monster name="the Horned Fox" file="raids/the_horned_fox.xml"/>
+	<monster name="The Hunger" file="quests/heart_of_destruction/the_hunger.xml"/>
+	<monster name="The Hungry Baron From Below" file="quests/dangerous_depth/bosses/the_hungry_baron_from_below.xml"/>
+	<monster name="The Imperor" file="quests/pits_of_inferno/the_imperor.xml"/>
+	<monster name="The Keeper" file="quests/wrath_of_the_emperor/the_keeper.xml"/>
+	<monster name="the last lore keeper" file="quests/forgotten_knowledge/bosses/the_last_lore_keeper.xml"/>
+	<monster name="The Lily of Night" file="quests/the_secret_library/the_lily_of_night.xml"/>
+	<monster name="The Lord of the Lice" file="quests/ferumbras_ascension/bosses/the_lord_of_the_lice.xml"/>
+	<monster name="The Many" file="quests/killing_in_the_name_of/the_many.xml"/>
+	<monster name="The Masked Marauder" file="quests/svargrond_arena/warlord/the_masked_marauder.xml"/>
+	<monster name="The Monster" file="bosses/the_monster.xml"/>
+	<monster name="The Mutated Pumpkin" file="event_creatures/the_mutated_pumpkin.xml"/>
+	<monster name="The Nightmare Beast" file="quests/the_dream_courts/bosses/the_nightmare_beast.xml"/>
+	<monster name="The Noxious Spawn" file="quests/killing_in_the_name_of/the_noxious_spawn.xml"/>
+	<monster name="The Obliverator" file="quests/svargrond_arena/warlord/the_obliverator.xml"/>
+	<monster name="The Old Widow" file="quests/killing_in_the_name_of/the_old_widow.xml"/>
+	<monster name="The Pale Count" file="raids/the_pale_count.xml"/>
+	<monster name="The Pale Worm" file="quests/feaster_of_souls/the_pale_worm.xml"/>
+	<monster name="The Percht Queen" file="quests/the_percht_queens_island/the_percht_queen.xml"/>
+	<monster name="The Pit Lord" file="quests/svargrond_arena/warlord/the_pit_lord.xml"/>
+	<monster name="The Plasmother" file="quests/pits_of_inferno/the_plasmother.xml"/>
+	<monster name="The Primal Menace" file="quests/primal_ordeal_quest/the_primal_menace.xml"/>
+	<monster name="The Rage" file="quests/heart_of_destruction/the_rage.xml"/>
+	<monster name="The Ravager" file="quests/dark_trails/the_ravager.xml"/>
+	<monster name="the red knight" file="quests/grave_danger/the_red_knight.xml"/>
+	<monster name="The Remorseless Corruptor" file="quests/cults_of_tibia/bosses/the_remorseless_corruptor.xml"/>
+	<monster name="The Sandking" file="quests/cults_of_tibia/bosses/the_sandking_fake.xml"/>
+	<monster name="The Sandking" file="quests/cults_of_tibia/bosses/the_sandking.xml"/>
+	<monster name="The Scion of Havoc" file="quests/the_secret_library/the_scion_of_havoc.xml"/>
+	<monster name="The Scourge Of Oblivion" file="quests/the_secret_library/bosses/the_scourge_of_oblivion.xml"/>
+	<monster name="The Shatterer" file="quests/ferumbras_ascension/bosses/the_shatterer.xml"/>
+	<monster name="the shielded Thorn Knight" file="quests/forgotten_knowledge/bosses/the_shielded_thorn_knight.xml"/>
+	<monster name="The Sinister Hermit" file="quests/cults_of_tibia/bosses/the_sinister_hermit_clean.xml"/>
+	<monster name="The Sinister Hermit" file="quests/cults_of_tibia/bosses/the_sinister_hermit_dirty.xml"/>
+	<monster name="The Snapper" file="quests/killing_in_the_name_of/the_snapper.xml"/>
+	<monster name="The Souldespoiler" file="quests/cults_of_tibia/bosses/the_souldespoiler.xml"/>
+	<monster name="The Source Of Corruption" file="quests/cults_of_tibia/bosses/the_source_of_corruption.xml"/>
+	<monster name="The Spellstealer" file="quests/the_secret_library/the_spellstealer.xml"/>
+	<monster name="The Time Guardian" file="quests/forgotten_knowledge/bosses/the_time_guardian.xml"/>
+	<monster name="The Unarmored Voidborn" file="quests/cults_of_tibia/bosses/the_unarmored_voidborn.xml"/>
+	<monster name="The Unwelcome" file="quests/feaster_of_souls/the_unwelcome.xml"/>
+	<monster name="The Voice of Ruin" file="raids/the_voice_of_ruin.xml"/>
+	<monster name="the weakened Count" file="quests/the_inquisition/the_weakened_count.xml"/>
+	<monster name="The Welter" file="raids/the_welter.xml"/>
+	<monster name="the_rootkraken" file="bosses/the_rootkraken.xml"/>
+	<monster name="thieving squirrel" file="mammals/thieving_squirrel.xml"/>
+	<monster name="thorn minion" file="quests/forgotten_knowledge/thorn_minion.xml"/>
+	<monster name="thorn steed" file="quests/forgotten_knowledge/bosses/thorn_steed.xml"/>
+	<monster name="thornback tortoise" file="reptiles/thornback_tortoise.xml"/>
+	<monster name="thornfire wolf" file="mammals/thornfire_wolf.xml"/>
+	<monster name="Thul" file="quests/killing_in_the_name_of/thul.xml"/>
+	<monster name="tiger" file="mammals/tiger.xml"/>
+	<monster name="time keeper" file="quests/forgotten_knowledge/time_keeper.xml"/>
+	<monster name="time waster" file="quests/forgotten_knowledge/time_waster.xml"/>
+	<monster name="Timira the Many-Headed" file="quests/marapur/timira_the_many-headed.xml"/>
+	<monster name="Tiquandas Revenge" file="quests/killing_in_the_name_of/tiquandas_revenge.xml"/>
+	<monster name="Tirecz" file="quests/the_new_frontier/tirecz.xml"/>
+	<monster name="toad" file="amphibics/toad.xml"/>
+	<monster name="tomb servant" file="undeads/tomb_servant.xml"/>
+	<monster name="tormented ghost" file="quests/in_service_of_yalahar/tormented_ghost.xml"/>
+	<monster name="Tormentor" file="quests/killing_in_the_name_of/tormentor.xml"/>
+	<monster name="tortoise" file="reptiles/tortoise.xml"/>
+	<monster name="training machine" file="trainers/training_machine.xml"/>
+	<monster name="travelling merchant" file="quests/rottin_wood_and_the_married_men_quest/travelling_merchant.xml"/>
+	<monster name="tremendous tyrant" file="vermins/tremendous_tyrant.xml"/>
+	<monster name="tremor worm" file="quests/dark_trails/tremor_worm.xml"/>
+	<monster name="Tremorak" file="quests/the_new_frontier/tremorak.xml"/>
+	<monster name="troll" file="humanoids/troll.xml"/>
+	<monster name="troll champion" file="humanoids/troll_champion.xml"/>
+	<monster name="troll guard" file="humanoids/troll_guard.xml"/>
+	<monster name="troll legionnaire" file="humanoids/troll_legionnaire.xml"/>
+	<monster name="troll marauder" file="dawnport/troll_marauder.xml"/>
+	<monster name="troll-trained salamander" file="dawnport/troll-trained_salamander.xml"/>
+	<monster name="Tromphonyte" file="quests/killing_in_the_name_of/tromphonyte.xml"/>
+	<monster name="true dawnfire asura" file="demons/true_dawnfire_asura.xml"/>
+	<monster name="true frost flower asura" file="demons/true_frost_flower_asura.xml"/>
+	<monster name="true midnight asura" file="demons/true_midnight_asura.xml"/>
+	<monster name="Truffle" file="fey/truffle.xml"/>
+	<monster name="truffle cook" file="fey/truffle_cook.xml"/>
+	<monster name="tunnel tyrant" file="vermins/tunnel_tyrant.xml"/>
+	<monster name="turbulent elemental" file="quests/soul_war/normal_monsters/turbulent_elemental.xml"/>
+	<monster name="twisted pooka" file="fey/twisted_pooka.xml"/>
+	<monster name="twisted shaper" file="humanoids/twisted_shaper.xml"/>
+	<monster name="two-headed turtle" file="reptiles/two-headed_turtle.xml"/>
+	<monster name="Tyrn" file="raids/tyrn.xml"/>
+	<monster name="ugly monster" file="quests/mysterious_ornate_chest/ugly_monster.xml"/>
+	<monster name="Unaz the Mean" file="quests/feaster_of_souls/unaz_the_mean.xml"/>
+	<monster name="unbeatable dragon" file="quests/the_first_dragon/unbeatable_dragon.xml"/>
+	<monster name="unbound blightwalker" file="quests/forgotten_knowledge/unbound_blightwalker.xml"/>
+	<monster name="unbound defiler" file="quests/forgotten_knowledge/unbound_defiler.xml"/>
+	<monster name="unbound demon" file="quests/forgotten_knowledge/unbound_demon.xml"/>
+	<monster name="unbound demon outcast" file="quests/forgotten_knowledge/unbound_demon_outcast.xml"/>
+	<monster name="unchained fire" file="quests/primal_ordeal_quest/unchained_fire.xml"/>
+	<monster name="undead cavebear" file="undeads/undead_cavebear.xml"/>
+	<monster name="undead dragon" file="undeads/undead_dragon.xml"/>
+	<monster name="undead elite gladiator" file="undeads/undead_elite_gladiator.xml"/>
+	<monster name="undead gladiator" file="undeads/undead_gladiator.xml"/>
+	<monster name="undead mine worker" file="undeads/undead_mine_worker.xml"/>
+	<monster name="Undead Minion" file="event_creatures/undead_minion.xml"/>
+	<monster name="undead prospector" file="undeads/undead_prospector.xml"/>
+	<monster name="undertaker" file="vermins/undertaker.xml"/>
+	<monster name="Ungreez" file="quests/the_inquisition/ungreez.xml"/>
+	<monster name="unpleasant dream" file="quests/the_dream_courts/unpleasant_dream.xml"/>
+	<monster name="unstable spark" file="quests/heart_of_destruction/unstable_spark.xml"/>
+	<monster name="Urmahlullu the Immaculate" file="quests/kilmaresh/urmahlullu_the_immaculate.xml"/>
+	<monster name="Urmahlullu the Tamed" file="quests/kilmaresh/urmahlullu_the_tamed.xml"/>
+	<monster name="Urmahlullu the Weakened" file="quests/kilmaresh/urmahlullu_the_weakened.xml"/>
+	<monster name="Ushuriel" file="quests/the_inquisition/ushuriel.xml"/>
+	<monster name="usurper archer" file="humans/usurper_archer.xml"/>
+	<monster name="usurper commander" file="quests/the_order_of_lion/usurper_commander.xml"/>
+	<monster name="usurper knight" file="humans/usurper_knight.xml"/>
+	<monster name="usurper warlock" file="humans/usurper_warlock.xml"/>
+	<monster name="Utua Stone Sting" file="quests/ancient_feud/utua_stone_sting.xml"/>
+	<monster name="valkyrie" file="humans/valkyrie.xml"/>
+	<monster name="vampire" file="undeads/vampire.xml"/>
+	<monster name="vampire bride" file="undeads/vampire_bride.xml"/>
+	<monster name="vampire pig" file="mammals/vampire_pig.xml"/>
+	<monster name="vampire viscount" file="undeads/vampire_viscount.xml"/>
+	<monster name="vampiric blood" file="quests/grave_danger/vampiric_blood.xml"/>
+	<monster name="varnished diremaw" file="vermins/varnished_diremaw.xml"/>
+	<monster name="Vashresamun" file="quests/ancient_tombs/vashresamun.xml"/>
+	<monster name="Vemiath" file="bosses/vemiath.xml"/>
+	<monster name="venerable girtablilu" file="magicals/venerable_girtablilu.xml"/>
+	<monster name="vermin swarm" file="quests/cults_of_tibia/bosses/summons/vermin_swarm.xml"/>
+	<monster name="Verminor" file="bosses/verminor.xml"/>
+	<monster name="Versperoth" file="quests/bigfoots_burden/versperoth.xml"/>
+	<monster name="vexclaw" file="demons/vexclaw.xml"/>
+	<monster name="vibrant phantom" file="quests/soul_war/normal_monsters/furious_crater/vibrant_phantom.xml"/>
+	<monster name="vicious manbat" file="undeads/vicious_manbat.xml"/>
+	<monster name="vicious squire" file="humans/vicious_squire.xml"/>
+	<monster name="vile grandmaster" file="humans/vile_grandmaster.xml"/>
+	<monster name="void" file="quests/ferumbras_ascension/traps/void.xml"/>
+	<monster name="voidshard" file="quests/cults_of_tibia/bosses/summons/voidshard.xml"/>
+	<monster name="Vok the Freakish" file="quests/feaster_of_souls/vok_the_freakish.xml"/>
+	<monster name="vulcongra" file="mammals/vulcongra.xml"/>
+	<monster name="wailing widow" file="vermins/wailing_widow.xml"/>
+	<monster name="walker" file="constructs/walker.xml"/>
+	<monster name="walking pillar" file="quests/rotten_blood/walking_pillar.xml"/>
+	<monster name="wandering pillar" file="quests/rotten_blood/wandering_pillar.xml"/>
+	<monster name="war golem" file="constructs/war_golem.xml"/>
+	<monster name="war servant" file="quests/the_secret_library/war_servant.xml"/>
+	<monster name="war wolf" file="mammals/war_wolf.xml"/>
+	<monster name="wardragon" file="dragons/war_dragon.xml"/>
+	<monster name="warlock" file="humans/warlock.xml"/>
+	<monster name="Warlord Ruzad" file="bosses/warlord_ruzad.xml"/>
+	<monster name="warm fire" file="quests/the_percht_queens_island/warm_fire.xml"/>
+	<monster name="wasp" file="nostalgia/old_wasp.xml"/>
+	<monster name="wasp" file="bosses/williwasp.xml"/>
+	<monster name="wasp" file="vermins/wasp.xml"/>
+	<monster name="Waspoid" file="vermins/waspoid.xml"/>
+	<monster name="water buffalo" file="mammals/water_buffalo.xml"/>
+	<monster name="water elemental" file="elementals/water_elemental.xml"/>
+	<monster name="weak soul" file="quests/soul_war/weak_soul.xml"/>
+	<monster name="weakened demon" file="bosses/weakened_demon.xml"/>
+	<monster name="weakened frazzlemaw" file="magicals/weakened_frazzlemaw.xml"/>
+	<monster name="weakened glooth horror" file="quests/hero_of_rathleton/weakened_glooth_horror.xml"/>
+	<monster name="Weakened Shlorg" file="bosses/weakened_shlorg.xml"/>
+	<monster name="Webster" file="quests/svargrond_arena/warlord/webster.xml"/>
+	<monster name="weeper" file="constructs/weeper.xml"/>
+	<monster name="weeping soul" file="quests/soul_war/weeping_soul.xml"/>
+	<monster name="werebadger" file="lycanthropes/werebadger.xml"/>
+	<monster name="werebear" file="lycanthropes/werebear.xml"/>
+	<monster name="wereboar" file="lycanthropes/wereboar.xml"/>
+	<monster name="werecrocodile" file="lycanthropes/werecrocodile.xml"/>
+	<monster name="werefox" file="lycanthropes/werefox.xml"/>
+	<monster name="werehyaena" file="lycanthropes/werehyaena.xml"/>
+	<monster name="werehyaena shaman" file="lycanthropes/werehyaena_shaman.xml"/>
+	<monster name="werelion" file="lycanthropes/werelion.xml"/>
+	<monster name="werelioness" file="lycanthropes/werelioness.xml"/>
+	<monster name="werepanther" file="lycanthropes/werepanther.xml"/>
+	<monster name="weretiger" file="lycanthropes/weretiger.xml"/>
+	<monster name="werewolf" file="lycanthropes/werewolf.xml"/>
+	<monster name="whirling blades" file="quests/the_dream_courts/whirling_blades.xml"/>
+	<monster name="white deer" file="mammals/white_deer.xml"/>
+	<monster name="white lion" file="mammals/white_lion.xml"/>
+	<monster name="White Pale" file="raids/white_pale.xml"/>
+	<monster name="white shade" file="undeads/white_shade.xml"/>
+	<monster name="white tiger" file="mammals/white_tiger.xml"/>
+	<monster name="white weretiger" file="lycanthropes/white_weretiger.xml"/>
+	<monster name="wiggler" file="vermins/wiggler.xml"/>
+	<monster name="wild dog" file="mammals/wild_dog.xml"/>
+	<monster name="wild fire magic" file="wild_magics/wild_fire_magic.xml"/>
+	<monster name="wild fury magic" file="wild_magics/wild_fury_magic.xml"/>
+	<monster name="wild horse" file="mammals/wild_horse.xml"/>
+	<monster name="wild knowledge" file="quests/the_secret_library/wild_knowledge.xml"/>
+	<monster name="wild nature magic" file="wild_magics/wild_nature_magic.xml"/>
+	<monster name="wild warrior" file="humans/wild_warrior.xml"/>
+	<monster name="wild water magic" file="wild_magics/wild_water_magic.xml"/>
+	<monster name="wildness of urmahlullu" file="quests/kilmaresh/wildness_of_urmahlullu.xml"/>
+	<monster name="wilting leaf golem" file="plants/wilting_leaf_golem.xml"/>
+	<monster name="wine cask" file="quests/cults_of_tibia/bosses/wine_cask.xml"/>
+	<monster name="winter wolf" file="mammals/winter_wolf.xml"/>
+	<monster name="Wisdom of Urmahlullu" file="quests/kilmaresh/wisdom_of_urmahlullu.xml"/>
+	<monster name="wisp" file="fey/wisp.xml"/>
+	<monster name="witch" file="humans/witch.xml"/>
+	<monster name="wolf" file="mammals/wolf.xml"/>
+	<monster name="wolf" file="nostalgia/old_wolf.xml"/>
+	<monster name="woodling" file="dawnport/woodling.xml"/>
+	<monster name="worker golem" file="constructs/worker_golem.xml"/>
+	<monster name="World Devourer" file="quests/heart_of_destruction/world_devourer.xml"/>
+	<monster name="worm priestess" file="humanoids/worm_priestess.xml"/>
+	<monster name="wormling" file="quests/feaster_of_souls/wormling.xml"/>
+	<monster name="Wrath of the Emperor" file="quests/wrath_of_the_emperor/wrath_of_the_emperor.xml"/>
+	<monster name="wyrm" file="dragons/wyrm.xml"/>
+	<monster name="wyvern" file="reptiles/wyvern.xml"/>
+	<monster name="Xenia" file="raids/xenia.xml"/>
+	<monster name="xogixath" file="quests/kilmaresh/xogixath.xml"/>
+	<monster name="Yaga the Crone" file="bosses/yaga_the_crone.xml"/>
+	<monster name="Yakchal" file="raids/yakchal.xml"/>
+	<monster name="Yalahari" file="quests/in_service_of_yalahar/yalahari.xml"/>
+	<monster name="yalahari despoiler" file="quests/the_secret_library/yalahari_despoiler.xml"/>
+	<monster name="yeti" file="mammals/yeti.xml"/>
+	<monster name="yielothax" file="extra_dimensional/yielothax.xml"/>
+	<monster name="Yirkas Blue Scales" file="quests/ancient_feud/yirkas_blue_scales.xml"/>
+	<monster name="You see a spyrat" file="raids/spyrat_facing_west.xml"/>
+	<monster name="You see a spyrat" file="raids/spyrat_facing_south.xml"/>
+	<monster name="You see a spyrat" file="raids/spyrat_facing_east.xml"/>
+	<monster name="You see a spyrat" file="raids/spyrat_facing_north.xml"/>
+	<monster name="young goanna" file="reptiles/young_goanna.xml"/>
+	<monster name="young sea serpent" file="reptiles/young_sea_serpent.xml"/>
+	<monster name="young troll" file="humanoids/young_troll.xml"/>
+	<monster name="Zamulosh" file="quests/ferumbras_ascension/bosses/zamulosh.xml"/>
+	<monster name="Zamulosh" file="quests/ferumbras_ascension/bosses/zamulosh3.xml"/>
+	<monster name="zamulosh" file="quests/ferumbras_ascension/bosses/zamulosh2.xml"/>
+	<monster name="Zanakeph" file="quests/killing_in_the_name_of/zanakeph.xml"/>
+	<monster name="zarabustor" file="bosses/zarabustor.xml"/>
+	<monster name="Zarcorix Of Yalahar" file="quests/cults_of_tibia/bosses/zarcorix_of_yalahar.xml"/>
+	<monster name="Zavarash" file="bosses/zavarash.xml"/>
+	<monster name="Zevelon Duskbringer" file="bosses/zevelon_duskbringer.xml"/>
+	<monster name="Zomba" file="raids/zomba.xml"/>
+	<monster name="zombie" file="undeads/zombie.xml"/>
+	<monster name="Zoralurk" file="bosses/zoralurk.xml"/>
+	<monster name="zorvorax" file="quests/the_first_dragon/bosses/zorvorax.xml"/>
+	<monster name="Zugurosh" file="quests/the_inquisition/zugurosh.xml"/>
+	<monster name="Zulazza the Corruptor" file="raids/zulazza_the_corruptor.xml"/>
+	<monster name="zushuka" file="bosses/zushuka.xml"/>
+</monsters>

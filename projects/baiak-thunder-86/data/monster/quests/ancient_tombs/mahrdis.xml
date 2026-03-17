@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mahrdis" nameDescription="a mahrdis" race="undead" experience="3050" speed="170" manacost="0">
+	<health now="3900" max="3900" />
+	<look type="86" head="0" body="0" legs="0" feet="0" addons="0" corpse="6025" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="physical" interval="1600" chance="7" range="1" target="0" min="-60" max="-600">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="fire" interval="1000" chance="7" range="7" target="0" min="-60" max="-600">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="speed" interval="2000" chance="13" range="7" target="0" speedchange="-850" duration="50000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="fire" interval="2000" chance="34" radius="3" target="0" min="-80" max="-800">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="physical" interval="1000" chance="12" radius="4" target="0">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="13" length="8" spread="3" target="0" min="-50" max="-500">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="30">
+		<defense name="healing" interval="1000" chance="20" min="20" max="800">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="45" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-25" />
+		<element holyPercent="-22" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ashes to ashes!" />
+		<voice sentence="Fire, Fire!" />
+		<voice sentence="The eternal flame demands its due!" />
+		<voice sentence="This is why I'm hot." />
+		<voice sentence="May my flames engulf you!" />
+		<voice sentence="Burnnnnnnnnn!" />
+	</voices>
+	<loot>
+		<item name="holy falcon" chance="500" />
+		<item name="small ruby" chance="7000" countmax="3" />
+		<item name="gold coin" chance="50000" countmax="80" />
+		<item name="gold coin" chance="50000" countmax="70" />
+		<item name="gold coin" chance="50000" countmax="64" />
+		<item name="red gem" chance="1500" />
+		<item name="life ring" chance="1500" />
+		<item name="burning heart" chance="100000" />
+		<item name="fire axe" chance="750" />
+		<item name="phoenix shield" chance="300" />
+		<item name="great health potion" chance="1500" />
+	</loot>
+</monster>

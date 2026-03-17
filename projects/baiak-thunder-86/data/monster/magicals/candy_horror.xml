@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="candy horror" nameDescription="a candy horror" race="blood" experience="3000" speed="115" manacost="0">
+	<health now="3100" max="3100" />
+	<look type="1739" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-200" />
+		<attack name="earth" interval="2000" chance="20" radius="3" range="6" target="1" min="-120" max="-300">
+			<attribute key="areaEffect" value="cake" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="6" target="0" min="-120" max="-350">
+			<attribute key="areaEffect" value="cacao" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" min="-120" max="-350">
+			<attribute key="areaEffect" value="bigscratch" />
+		</attack>
+	</attacks>
+	<defenses armor="43" defense="24" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="-10" />
+		<element earthPercent="10" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-15" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="We will devour you ..." />
+		<voice sentence="Wait for us, little treat ..." />
+		<voice sentence="*Horrraa!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="30" />
+		<item name="platinum coin" chance="82000" countmax="6" />
+<item name="violet gem" chance="1550" />
+<item name="energy bar" chance="5550" />
+		<item name="raspberry" chance="1240" countmax="2" />
+		<item name="dreaded cleaver" chance="502" />
+		<item name="wand of decay" chance="1840" />
+		<item name="black shield" chance="2830" />
+	</loot>
+</monster>

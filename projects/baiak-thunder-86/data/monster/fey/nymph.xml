@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="nymph" nameDescription="a nymph" race="blood" experience="850" speed="114" manacost="0">
+	<health now="900" max="900" />
+	<look type="989" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="20" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-205" />
+		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-85" max="-135">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="4" target="1" min="-85" max="-135">
+			<attribute key="areaEffect" value="hearts" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-85" max="-135">
+			<attribute key="areaEffect" value="hearts" />
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+		<defense name="healing" interval="2000" chance="15" min="75" max="90">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="0" />
+		<element earthPercent="60" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="40" />
+		<element deathPercent="40" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Looking at a nymph can blind you. Be careful, mortal being!" />
+		<voice sentence="Are you one of those evil nightmare creatures? Leave this realm alone!" />
+		<voice sentence="Come here, sweetheart! I won't hurt you! *giggle*" />
+		<voice sentence="I'm just protecting nature's beauty!" />
+	</voices>
+	<loot>
+		<item name="blue rose" chance="400" />
+		<item name="boots of haste" chance="150" />
+		<item name="dandelion seeds" chance="12000" />
+		<item name="emerald bangle" chance="1800" />
+		<item name="flower wreath" chance="500" />
+		<item name="wild flowers" chance="15000" countmax="2" />
+		<item name="gold coin" chance="65000" countmax="100" />
+		<item name="great mana potion" chance="3000" />
+		<item name="hibiscus dress" chance="650" />
+		<item name="sacred tree amulet" chance="1000" />
+		<item name="small enchanted amethyst" chance="2000" countmax="2" />
+		<item name="small topaz" chance="2500" countmax="2" />
+		<item name="colourful snail shell" chance="12000" />
+		<item name="dream blossom staff" chance="720" />
+		<item name="butterfly ring" chance="840" />
+		<item name="fresh fruit" chance="15000" countmax="2" />
+		<item name="strong mana potion" chance="1000" />
+	</loot>
+</monster>

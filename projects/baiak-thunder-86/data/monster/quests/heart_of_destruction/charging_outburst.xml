@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Charging Outburst" nameDescription="a charging outburst" race="venom" experience="50000" speed="150" manacost="0">
+	<health now="12000" max="12000" />
+	<look type="876" head="77" body="82" legs="82" feet="0" addons="3" />
+	<targetchange interval="2000" chance="25" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-300" max="-1800" />
+		<attack name="death" interval="2000" chance="25" radius="3" target="0" min="-300" max="-500">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" radius="8" target="0" min="-450" max="-900">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" length="8" spread="0" target="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="40" target="0" />
+		<attack name="physical" interval="10000" chance="100" target="0" min="-1500" max="-2000" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="-50" />
+		<element energyPercent="70" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element lifedrainPercent="80" />
+		<element manadrainPercent="0" />
+		<element drownPercent="50" />
+		<element icePercent="80" />
+		<element holyPercent="50" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+</monster>

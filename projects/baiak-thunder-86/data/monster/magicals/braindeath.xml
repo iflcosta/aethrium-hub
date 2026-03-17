@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="braindeath" nameDescription="a braindeath" race="undead" experience="985" speed="109" manacost="0">
+  <health now="1225" max="1225" />
+  <look type="256" head="0" body="0" legs="0" feet="0" addons="0" corpse="7256" />
+  <targetchange interval="4000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="4" />
+    <flag staticattack="80" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-100" />
+    <attack name="energy" interval="2000" chance="10" range="7" target="0" min="-93" max="-170">
+      <attribute key="shootEffect" value="energy" />
+    </attack>
+    <attack name="fire" interval="2000" chance="10" range="7" target="0" min="-75" max="-125">
+      <attribute key="shootEffect" value="fire" />
+    </attack>
+    <attack name="death" interval="2000" chance="10" range="7" target="0" min="-85" max="-170">
+      <attribute key="areaEffect" value="smallclouds" />
+      <attribute key="shootEffect" value="suddendeath" />
+    </attack>
+    <attack name="earth" interval="2000" chance="10" range="7" target="0" min="-65" max="-125">
+      <attribute key="shootEffect" value="poison" />
+    </attack>
+    <attack name="lifedrain" interval="2000" chance="10" range="7" target="0" min="-75" max="-85">
+      <attribute key="areaEffect" value="redshimmer" />
+    </attack>
+    <attack name="manadrain" interval="2000" chance="10" range="7" target="0" min="0" max="-155" />
+  </attacks>
+  <defenses armor="12" defense="12">
+    <defense name="healing" interval="2000" chance="15" min="150" max="200">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+    <defense name="speed" interval="2000" chance="15" speedchange="260" duration="5000">
+      <attribute key="areaEffect" value="redshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="15" />
+    <element energyPercent="10" />
+    <element earthPercent="100" />
+    <element firePercent="-15" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="20" />
+    <element holyPercent="-20" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="You have disturbed my thoughts!" />
+    <voice sentence="I will turn you into something more useful!" />
+    <voice sentence="Let me taste your brain!" />
+    <voice sentence="You will be punished!" />
+  </voices>
+  <loot>
+    <item name="gold coin" chance="99470" countmax="89" />
+    <item name="bone sword" chance="15130" />
+    <item name="sniper arrow" chance="9560" countmax="4" />
+    <item name="steel shield" chance="5940" />
+    <item name="piece of dead brain" chance="5030" />
+    <item name="bonelord eye" chance="2960" />
+    <item name="clerical mace" chance="1970" />
+    <item name="haunted blade" chance="1440" />
+    <item name="spellbook" chance="930" />
+    <item name="spiked squelcher" chance="180" />
+    <item name="bonelord shield" chance="100" />
+    <item name="bonelord helmet" chance="100" />
+  </loot>
+</monster>

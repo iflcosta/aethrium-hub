@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="skeleton" nameDescription="a skeleton" race="undead" experience="35" speed="77" manacost="200">
+	<health now="50" max="50" />
+	<look type="33" head="0" body="0" legs="0" feet="0" addons="0" corpse="5963" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-20" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" target="0" min="-7" max="-13" />
+	</attacks>
+	<defenses armor="2" defense="10" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="0" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="torch" chance="10000" />
+		<item name="torch" chance="9880" />
+		<item name="gold coin" chance="43900" countmax="10" />
+		<item name="bone" chance="49100" />
+		<item name="sword" chance="1940" />
+		<item name="hatchet" chance="4850" />
+		<item name="mace" chance="4850" />
+		<item name="viking helmet" chance="7520" />
+		<item name="brass shield" chance="2090" />
+		<item name="pelvis bone" chance="9940" />
+		<item name="heavy old tome" chance="1000" />
+	</loot>
+</monster>

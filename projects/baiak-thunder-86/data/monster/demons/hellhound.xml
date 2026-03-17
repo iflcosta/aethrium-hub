@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hellhound" nameDescription="a hellhound" race="blood" experience="5440" speed="180" manacost="0">
+	<health now="7500" max="7500" />
+	<look type="240" head="0" body="0" legs="0" feet="0" addons="0" corpse="6332" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="5" length="8" spread="3" target="0" min="-300" max="-700">
+			<attribute key="areaEffect" value="carniphila" />
+		</attack>
+		<attack name="death" interval="2000" chance="10" range="7" target="0" min="-395" max="-498">
+			<attribute key="areaEffect" value="smallclouds" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="8" spread="3" target="0" min="-350" max="-660">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="3" target="0" min="-350" max="-976">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" radius="1" target="1" min="-200" max="-403">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="earth" interval="2000" chance="5" range="7" target="0" min="-300" max="-549">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="40">
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="20" min="220" max="425">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="20" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="-5" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="GROOOOWL!" />
+	</voices>
+	<loot>
+		<item name="amber staff" chance="2000" />
+		<item name="assassin star" chance="25000" countmax="10" />
+		<item name="big bone" chance="900" />
+		<item name="black pearl" chance="9200" countmax="4" />
+		<item name="blazing bone" chance="12500" />
+		<item name="flask of demonic blood" chance="20000" countmax="2" />
+		<item name="demonic essence" chance="20000" />
+		<item name="explorer brooch" chance="400" />
+		<item name="fiery heart" chance="10000" />
+		<item name="fire sword" chance="7000" />
+		<item name="giant sword" chance="1000" />
+		<item name="gold ingot" chance="1500" />
+		<item name="great mana potion" chance="30000" countmax="3" />
+		<item name="great spirit potion" chance="20000" />
+		<item name="green gem" chance="1000" />
+		<item name="ham" chance="30000" countmax="14" />
+		<item name="hardened bone" chance="10000" />
+		<item name="hellhound slobber" chance="20000" />
+		<item name="knight axe" chance="7500" />
+		<item name="magma amulet" chance="3000" />
+		<item name="magma boots" chance="1500" />
+		<item name="magma coat" chance="800" />
+		<item name="magma legs" chance="1000" />
+		<item name="magma monocle" chance="900" />
+		<item name="onyx flail" chance="1000" />
+		<item name="platinum coin" chance="100000" countmax="7" />
+		<item name="red gem" chance="4500" />
+		<item name="ruthless axe" chance="1000" />
+		<item name="small emerald" chance="10000" countmax="3" />
+		<item name="small ruby" chance="10000" countmax="3" />
+		<item name="small topaz" chance="10000" countmax="3" />
+		<item name="soul orb" chance="20000" />
+		<item name="ultimate health potion" chance="16000" />
+		<item name="wand of inferno" chance="7000" />
+		<item name="yellow gem" chance="4500" />
+		<item name="red piece of cloth" chance="3000" />
+		<item name="green piece of cloth" chance="5000" />
+		<item name="yellow piece of cloth" chance="6000" />
+	</loot>
+</monster>

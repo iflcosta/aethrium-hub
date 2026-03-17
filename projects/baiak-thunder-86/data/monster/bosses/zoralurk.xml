@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zoralurk" nameDescription="a zoralurk" race="undead" experience="30000" speed="200" manacost="0">
+	<health now="55000" max="55000" />
+	<look type="12" head="0" body="98" legs="86" feet="94" addons="0" corpse="6068" />
+	<targetchange interval="10000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="98" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1013" />
+		<attack name="energy" interval="1000" chance="12" radius="7" target="0" min="-600" max="-900">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="earth" interval="1000" chance="12" radius="7" target="0" min="-400" max="-800">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="25" range="7" target="0" min="-500" max="-800">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="fire" interval="3000" chance="35" radius="7" range="7" target="1" min="-200" max="-600">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="2000" chance="35" min="300" max="800">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="4000" chance="80" speedchange="440" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="bubbles" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="bubbles" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="bubbles" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="bubbles" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="bubbles" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="60" />
+		<element energyPercent="60" />
+		<element earthPercent="80" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="40" />
+		<element deathPercent="90" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I AM ZORALURK, THE DEMON WITH A THOUSAND FACES" />
+		<voice sentence="BRING IT, COCKROACHES!" />
+	</voices>
+	<loot>
+		<item name="white pearl" chance="10000" countmax="5" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="90" />
+		<item name="boots of haste" chance="16033" />
+		<item name="giant sword" chance="60000" />
+		<item name="bright sword" chance="20000" />
+		<item name="bright sword" chance="20000" />
+		<item name="warlord sword" chance="6000" />
+		<item name="patched boots" chance="7000" />
+		<item name="worn leather boots" chance="16000" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

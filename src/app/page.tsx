@@ -1,65 +1,144 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import { KpiCard } from "@/components/kpi-card";
+import { SectionHeader } from "@/components/section-header";
+import { AgentAvatar } from "@/components/agent-avatar";
+import { StatusBadge } from "@/components/status-badge";
+import { DollarSign, Bot, ListTodo, Cpu } from "lucide-react";
+import { mockTasks } from "@/lib/mock/tasks";
+
+interface Agent {
+  slug: string;
+  displayName: string;
+  model: string;
+  role: string;
+  color: string;
+  isOnline: boolean;
+}
+
+export default function OverviewPage() {
+  const [agents, setAgents] = useState<Agent[]>([]);
+
+  useEffect(() => {
+    fetch("/api/agents")
+      .then((r) => r.json())
+      .then((data) => setAgents(Array.isArray(data) ? data : []))
+      .catch(() => {});
+  }, []);
+
+  const onlineAgents = agents.filter((a) => a.isOnline);
+  const recentTasks = mockTasks.slice(0, 5);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div>
+      <h1 className="text-2xl font-bold text-white mb-6">Overview</h1>
+
+      {/* KPI Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <KpiCard
+          label="Monthly Revenue"
+          value="R$ 1.240"
+          trend="+12%"
+          trendUp
+          icon={DollarSign}
+          accentColor="#EF9F27"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <KpiCard
+          label="Active Agents"
+          value={`${onlineAgents.length}`}
+          trend={`${agents.length} total`}
+          trendUp
+          icon={Bot}
+          accentColor="#7F77DD"
+        />
+        <KpiCard
+          label="Tasks in Progress"
+          value="12"
+          trend="3 completed today"
+          trendUp
+          icon={ListTodo}
+          accentColor="#378ADD"
+        />
+        <KpiCard
+          label="Systems"
+          value="3 / 6"
+          icon={Cpu}
+          accentColor="#D85A30"
+          progress={50}
+        />
+      </div>
+
+      {/* Two Column Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Active Agents */}
+        <div>
+          <SectionHeader title="Active Agents" subtitle="Currently online" />
+          <div className="space-y-3">
+            {onlineAgents.map((agent) => (
+              <div
+                key={agent.slug}
+                className="bg-[#111111] border border-[#222222] rounded-lg p-4 hover:border-[#333333] transition-colors group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <AgentAvatar
+                    name={agent.displayName}
+                    color={agent.color}
+                    size="sm"
+                    isOnline={agent.isOnline}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-white">
+                        {agent.displayName}
+                      </span>
+                      <StatusBadge variant={agent.role as any} />
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-[#888780] font-mono">
+                    {agent.model}
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-[#888780] truncate pl-9">
+                  Processing task assignments...
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Recent Tasks */}
+        <div>
+          <SectionHeader title="Recent Tasks" subtitle="Last 5 tasks" />
+          <div className="space-y-3">
+            {recentTasks.map((task) => (
+              <div
+                key={task.id}
+                className="bg-[#111111] border border-[#222222] rounded-lg p-4 hover:border-[#333333] transition-colors"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <AgentAvatar
+                      name={task.ownerName}
+                      color={task.ownerColor}
+                      size="sm"
+                    />
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-white truncate">
+                        {task.title}
+                      </p>
+                      <p className="text-xs text-[#888780] mt-0.5">
+                        {task.ownerName} · {new Date(task.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                  <StatusBadge variant={task.status as any} />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

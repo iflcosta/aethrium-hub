@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="brain squid" nameDescription="a brain squid" race="undead" experience="17672" speed="215" manacost="0">
+	<health now="18000" max="18000" />
+	<look type="1059" head="17" body="41" legs="77" feet="57" addons="0" corpse="31238" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-100" max="-200" />
+		<attack name="energy" interval="2000" chance="15" range="7" target="0" min="-200" max="-470">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="energy" interval="2000" chance="13" radius="3" target="0" min="-200" max="-505">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="40" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="100" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="100" />
+		<element deathPercent="-15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="tzzzz tzzzzz tzzzzz" />
+		<voice sentence="tzuuuumme tzuuummmmee" />
+	</voices>
+	<loot>
+		<item name="violet crystal shard" chance="900" countmax="4" />
+		<item name="platinum coin" chance="100000" countmax="12" />
+		<item name="glowing rune" chance="900" countmax="4" />
+		<item name="instable proto matter" chance="1200" countmax="4" />
+		<item name="energy ball" chance="1200" countmax="4" />
+		<item name="energy bar" chance="1200" countmax="4" />
+		<item name="energy drink" chance="1200" countmax="4" />
+		<item name="odd organ" chance="1200" countmax="4" />
+		<item name="frozen lightning" chance="1200" countmax="4" />
+		<item name="inkwell" chance="1200" countmax="3" />
+		<item name="small ruby" chance="1200" countmax="4" />
+		<item name="violet gem" chance="1200" countmax="4" />
+		<item name="blue crystal splinter" chance="1200" countmax="4" />
+		<item name="cyan crystal fragment" chance="1200" countmax="4" />
+		<item name="ultimate mana potion" chance="1200" countmax="4" />
+		<item name="piece of dead brain" chance="1200" countmax="4" />
+		<item name="wand of defiance" chance="800" />
+		<item name="lightning headband" chance="950" />
+		<item name="lightning pendant" chance="850" />
+		<item name="might ring" chance="1300" />
+		<item name="slime heart" chance="1200" countmax="4" />
+		<item name="collar of red plasma" chance="560" />
+		<item name="collar of blue plasma" chance="560" />
+		<item name="collar of green plasma" chance="560" />
+		<item name="ring of red plasma" chance="560" />
+		<item name="ring of blue plasma" chance="560" />
+		<item name="ring of green plasma" chance="560" />
+	</loot>
+</monster>

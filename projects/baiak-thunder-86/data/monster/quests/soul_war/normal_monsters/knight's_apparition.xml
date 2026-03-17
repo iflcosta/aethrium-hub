@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="knight's apparition" nameDescription="a knight's apparition" race="blood" experience="28600" speed="235" manacost="0">
+	<health now="25000" max="25000" />
+	<look type="131" head="19" body="76" legs="74" feet="114" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900" />
+		<attack name="ice" interval="3000" chance="26" radius="4" range="7" target="1" min="-840" max="-1000">
+			<attribute key="areaEffect" value="bigclouds" />
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+		<attack name="physical" interval="9500" chance="34" range="7" min="-1050" max="-1300" />
+		<attack name="holy" interval="5000" chance="52" range="7" target="1" min="-1050" max="-1300">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+		<attack name="holy" interval="4000" chance="14" radius="4" target="0" min="-1100" max="-1400">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="physical" interval="3000" chance="19" radius="4" target="0" min="-850" max="-1000">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="-20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I am you. Just better!" />
+		<voice sentence="I'll take your place when you are gone." />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="76610" />
+		<item name="ultimate health potion" chance="9010" />
+		<item name="epee" chance="6870" />
+		<item name="green gem" chance="4940" />
+		<item name="violet gem" chance="3860" />
+		<item name="glacier amulet" chance="3860" />
+		<item name="crystal mace" chance="2360" />
+		<item name="giant sword" chance="1720" />
+		<item name="stone skin amulet" chance="1500" />
+		<item name="crown shield" chance="640" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

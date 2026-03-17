@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="thornback tortoise" nameDescription="a thornback tortoise" race="blood" experience="150" speed="75" manacost="600">
+	<health now="300" max="300" />
+	<look type="198" head="0" body="0" legs="0" feet="0" addons="0" corpse="6073" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+	</attacks>
+	<defenses armor="24" defense="40" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="0" />
+		<element earthPercent="20" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="white pearl" chance="1600" />
+		<item name="black pearl" chance="800" />
+		<item name="gold coin" chance="89500" countmax="48" />
+		<item name="war hammer" chance="260" />
+		<item name="fish" chance="10800" countmax="2" />
+		<item name="white mushroom" chance="1200" />
+		<item name="brown mushroom" chance="700" />
+		<item name="tortoise egg" chance="790" countmax="3" />
+		<item name="turtle shell" chance="800" />
+		<item name="health potion" chance="1600" />
+		<item name="thorn" chance="15980" />
+	</loot>
+</monster>

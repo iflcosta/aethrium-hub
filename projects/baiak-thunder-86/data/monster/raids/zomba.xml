@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zomba" nameDescription="a zomba" race="blood" experience="300" speed="90" manacost="0">
+	<health now="300" max="300" />
+	<look type="570" head="0" body="0" legs="0" feet="0" addons="0" corpse="5986" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="30" attack="20" />
+	</attacks>
+	<defenses armor="6" defense="13" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="40" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-15" />
+		<element holyPercent="20" />
+		<element deathPercent="-8" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Groarrrr! Rwarrrr!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="25" />
+		<item name="lion's mane" chance="100000" countmax="2" />
+		<item name="platinum coin" chance="25000" />
+		<item name="life ring" chance="12500" />
+	</loot>
+</monster>

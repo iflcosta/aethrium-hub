@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="draken elite" nameDescription="a draken elite" race="blood" experience="4750" speed="166" manacost="0">
+	<health now="5550" max="5550" />
+	<look type="362" head="0" body="0" legs="0" feet="0" addons="0" corpse="12609" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-354" />
+		<attack name="fire" interval="2000" chance="10" length="4" spread="3" target="0" min="-240" max="-550">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" target="1" min="-200" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="earth" interval="2000" chance="15" radius="4" target="1" min="-280" max="-410">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" target="0" />
+		<attack name="physical" interval="2000" chance="10" range="7" target="1" min="-250" max="-320">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+		<defense name="healing" interval="2000" chance="15" min="510" max="600">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="40" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="30" />
+		<element deathPercent="30" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="For ze emperor!" />
+		<voice sentence="You will die zhouzandz deazhz!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="97220" countmax="100" />
+		<item name="platinum coin" chance="49070" countmax="8" />
+		<item name="meat" chance="34260" countmax="4" />
+		<item name="broken draken mail" chance="25000" />
+		<item name="broken slicer" chance="25000" />
+		<item name="ultimate health potion" chance="12040" countmax="3" />
+		<item name="great mana potion" chance="9260" countmax="3" />
+		<item name="draken sulphur" chance="6480" />
+		<item name="draken wristbands" chance="6480" />
+		<item name="small diamond" chance="1850" countmax="2" />
+		<item name="zaoan legs" chance="1850" />
+		<item name="magic sulphur" chance="1850" />
+		<item name="draken boots" chance="930" />
+		<item name="assassin dagger" chance="930" />
+		<item name="twiceslicer" chance="930" />
+		<item name="zaoan armor" chance="650" />
+		<item name="zaoan sword" chance="550" />
+		<item name="zaoan helmet" chance="220" />
+		<item name="elite draken mail" chance="110" />
+		<item name="blade of corruption" chance="60" />
+		<item name="snake god's wristguard" chance="40" />
+		<item name="cobra crown" chance="0" />
+	</loot>
+</monster>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ahau" nameDescription="a ahau" race="blood" experience="17500" speed="350" manacost="0">
+	<health now="9000" max="9000" />
+	<look type="1591" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1700" chance="100" min="0" max="-456" />
+		<attack name="earth" interval="2000" chance="20" radius="0" range="1" target="1" min="-350" max="-422">
+			<attribute key="areaEffect" value="greensmoke" />
+		</attack>
+		<attack name="fire" interval="2000" chance="40" length="5" spread="0" target="0" min="-400" max="-500" />
+		<attack name="earth" interval="2000" chance="30" radius="2" target="0" min="-415" max="-570">
+			<attribute key="areaEffect" value="stonestorm" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" min="-460" max="-500" />
+	</attacks>
+	<defenses armor="0" defense="64" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="5" />
+		<element earthPercent="100" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="WAAAHNGH!!!" />
+		<voice sentence="Awrrrgh!" />
+		<voice sentence="IKSPUTUTU!!" />
+		<voice sentence="Hwaaarrrh!!!" />
+		<voice sentence="Wraaahgh?!" />
+		<voice sentence="AAAAAH!!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+<item name="great health potion" chance="40000" countmax="5" />
+		<item name="great spirit potion" chance="25530" />
+		<item name="great mana potion" chance="34040" countmax="5" />
+<item name="diamond" chance="5320" countmax="8" />
+		<item name="amber with a bug" chance="3190" />
+		<item name="amber" chance="5320" />
+		<item name="ring of red plasma" chance="3500" />
+		<item name="ring of green plasma" chance="3500" />
+		<item name="ring of blue plasma" chance="3500" />
+		<item name="collar of red plasma" chance="3500" />
+		<item name="collar of blue plasma" chance="3500" />
+		<item name="collar of green plasma" chance="3500" />
+</loot>
+</monster>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="broken shaper" nameDescription="a broken shaper" race="blood" experience="1800" speed="155" manacost="0">
+	<health now="2200" max="2200" />
+	<look type="932" head="94" body="76" legs="0" feet="82" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="98" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-200" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="0" max="-150">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+		<attack name="physical" interval="2000" chance="35" length="5" spread="0" target="0" min="0" max="-100">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+	</attacks>
+	<defenses armor="37" defense="25">
+		<defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="0" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="-15" />
+		<element earthPercent="30" />
+		<element firePercent="-15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="20" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="&lt;grunt&gt;" />
+		<voice sentence="Raar!!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="70320" countmax="2" />
+		<item name="cave turnip" chance="20000" countmax="2" />
+		<item name="ancient belt buckle" chance="17000" />
+		<item name="cracked alabaster vase" chance="20000" />
+		<item name="rhino horn carving" chance="13000" />
+		<item name="ancient coin" chance="4000" />
+		<item name="blank rune" chance="15000" />
+		<item name="meat" chance="50320" countmax="2" />
+		<item name="orichalcum pearl" chance="5000" countmax="2" />
+		<item name="blue piece of cloth" chance="1000" countmax="2" />
+		<item name="brown piece of cloth" chance="5000" countmax="2" />
+		<item name="yellow piece of cloth" chance="2000" countmax="2" />
+		<item name="boots of haste" chance="230" />
+		<item name="great health potion" chance="7000" />
+		<item name="ice rapier" chance="1000" />
+		<item name="magic light wand" chance="1000" />
+		<item name="onyx chip" chance="4200" />
+		<item name="ring of healing" chance="2000" />
+		<item name="small ruby" chance="3000" />
+		<item name="small sapphire" chance="5000" />
+		<item name="brown mushroom" chance="6500" countmax="5" />
+	</loot>
+</monster>

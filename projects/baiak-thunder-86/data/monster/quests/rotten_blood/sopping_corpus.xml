@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="sopping corpus" nameDescription="a sopping corpus" race="undead" experience="22465" speed="210" manacost="0">
+	<health now="33400" max="33400" />
+	<look type="1659" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1600" />
+		<attack name="physical" interval="2000" chance="15" length="8" spread="3" target="0" min="-1300" max="-1600">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" target="1" min="-1200" max="-1500">
+			<attribute key="areaEffect" value="bigscratch" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="5" target="1" min="-1400" max="-1600">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" length="8" spread="3" target="0" min="-1200" max="-1500">
+			<attribute key="areaEffect" value="greenenergy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" target="0" min="-1000" max="-1200" />
+	</attacks>
+	<defenses armor="112" defense="112" />
+	<elements>
+		<element physicalPercent="40" />
+		<element energyPercent="-20" />
+		<element earthPercent="50" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="5" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*Lessshhh!*" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="42860" />
+		<item name="ultimate mana potion" chance="42860" countmax="3" />
+		<item name="crimson sword" chance="14290" />
+		<item name="ultimate health potion" chance="14290" countmax="2" />
+<item name="emerald bangle" chance="8558" />
+		<item name="underworld rod" chance="8380" />
+		<item name="violet gem" chance="5084" />
+		<item name="blue gem" chance="9808" />
+		<item name="relic sword" chance="6964" />
+		<item name="skullcracker armor" chance="7270" />
+		<item name="ring of green plasma" chance="3073" />
+	</loot>
+</monster>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="shaburak lord" nameDescription="a shaburak lord" race="fire" experience="1200" speed="120" manacost="0">
+	<health now="2100" max="2100" />
+	<look type="409" head="0" body="0" legs="0" feet="0" addons="0" corpse="13958" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-251" />
+		<attack name="fire" interval="2000" chance="20" radius="6" range="7" target="0" min="-30" max="-75">
+			<attribute key="areaEffect" value="fireattack" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" min="-80" max="-170" />
+		<attack name="fire" interval="2000" chance="10" length="4" spread="0" target="0" min="-140" max="-200">
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" radius="1" target="1" speedchange="-650" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="20">
+		<defense name="healing" interval="2000" chance="5" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="65" />
+		<element earthPercent="-20" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="65" />
+		<element holyPercent="0" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="GREEN IS MEAN!" />
+		<voice sentence="WE RULE!" />
+		<voice sentence="POWER TO THE SHABURAK!" />
+		<voice sentence="DEATH TO THE ASKARAK!" />
+		<voice sentence="ONLY WE ARE TRUE DEMONS!" />
+	</voices>
+	<loot>
+		<item name="small ruby" chance="6120" countmax="5" />
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="78" />
+		<item name="platinum coin" chance="33333" countmax="2" />
+		<item name="energy ring" chance="1652" />
+		<item name="wand of inferno" chance="800" />
+		<item name="steel boots" chance="160" />
+		<item name="brown mushroom" chance="5346" />
+		<item name="magic sulphur" chance="620" />
+		<item name="bullseye potion" chance="400" />
+		<item name="strong health potion" chance="7000" />
+		<item name="strong mana potion" chance="7000" />
+		<item name="magma coat" chance="100" />
+	</loot>
+</monster>

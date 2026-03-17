@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Outburst" nameDescription="a outburst" race="venom" experience="50000" speed="250" manacost="0">
+	<health now="290000" max="290000" />
+	<look type="876" head="79" body="3" legs="94" feet="3" addons="3" corpse="2920" />
+	<targetchange interval="2000" chance="25" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-300" max="-1800" />
+		<attack name="physical" interval="2000" chance="25" target="0" min="-700" max="-1300" />
+		<attack name="death" interval="2000" chance="25" radius="4" target="1" min="-300" max="-600">
+			<attribute key="areaEffect" value="energyarea" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" length="8" spread="0" target="0" min="-800" max="-1300">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="25" length="8" spread="0" target="0" min="-600" max="-900">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" target="0" />
+		<attack name="physical" interval="2000" chance="40" target="0" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="0" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="10" />
+		<item name="blue crystal shard" chance="8000" countmax="3" />
+		<item name="great mana potion" chance="8000" countmax="10" />
+		<item name="green crystal shard" chance="8000" countmax="3" />
+		<item name="small amethyst" chance="8000" countmax="10" />
+		<item name="small sapphire" chance="8000" countmax="5" />
+		<item name="ultimate health potion" chance="8000" countmax="5" />
+		<item name="violet crystal shard" chance="8000" countmax="3" />
+		<item name="gold token" chance="100000" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="green gem" chance="8000" />
+		<item name="chaos mace" chance="6000" />
+		<item name="ring of red plasma" chance="5000" />
+		<item name="tiara of power" chance="2000" />
+		<item name="void boots" chance="2000" />
+		<item name="crystalline sword" chance="2000" />
+	</loot>
+</monster>

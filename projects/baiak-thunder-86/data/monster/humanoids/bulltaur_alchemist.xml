@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bulltaur Alchemist" nameDescription="a bulltaur alchemist" race="blood" experience="4500" speed="160" manacost="0">
+	<health now="5690" max="5690" />
+	<look type="1718" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-120" max="-270" />
+		<attack name="energy" interval="2000" chance="20" radius="3" target="1" min="-300" max="-420">
+			<attribute key="areaEffect" value="redsmoke" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" radius="4" range="4" target="1" min="-280" max="-400">
+			<attribute key="areaEffect" value="purplesmoke" />
+			<attribute key="shootEffect" value="energyball" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" min="-350" max="-450" />
+	</attacks>
+	<defenses armor="67" defense="67" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="0" />
+		<element earthPercent="-20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="-5" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity drunk="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Your misfortune is setteled!" />
+		<voice sentence="Soon I will harvest you for ingredients!" />
+		<voice sentence="I have just the solution for this problem!" />
+	</voices>
+	<loot>
+		<item name="dead pharaoh" chance="51528" countmax="30" />
+		<item name="exaltation forge" chance="9169" />
+		<item name="exaltation forge" chance="6256" />
+		<item name="grass" chance="3534" />
+		<item name="rock soil" chance="2722" />
+		<item name="dead pharaoh" chance="1862" />
+		<item name="dead minotaur amazon" chance="1385" />
+		<item name="dead marid" chance="1003" />
+		<item name="dead human" chance="1003" />
+		<item name="small brook" chance="1003" />
+		<item name="stone pedestal" chance="621" />
+	</loot>
+</monster>

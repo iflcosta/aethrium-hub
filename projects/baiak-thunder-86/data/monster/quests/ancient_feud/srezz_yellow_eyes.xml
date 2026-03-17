@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Srezz Yellow Eyes" nameDescription="a srezz yellow eyes" race="venom" experience="4800" speed="117" manacost="0">
+	<health now="6200" max="6200" />
+	<look type="220" head="0" body="0" legs="0" feet="0" addons="0" corpse="6061" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-0" max="-200" />
+		<attack name="earth" interval="2000" chance="20" radius="3" spread="3" range="5" target="1" min="-400" max="-500">
+			<attribute key="areaEffect" value="yellowenergy" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="30" min="-200" max="-300" />
+		<attack name="lifedrain" interval="2000" chance="30" length="5" spread="3" min="-200" max="-300">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="70" radius="4" target="0" min="-200" max="-350">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="250" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="340" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="40" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="17" />
+		<item name="ultimate health potion" chance="100000" countmax="5" />
+		<item name="snake skin" chance="25560" countmax="3" />
+		<item name="mastermind potion" chance="17780" />
+		<item name="gold ingot" chance="16110" />
+		<item name="blue crystal shard" chance="10560" />
+<item name="black pearl" chance="10000" />
+		<item name="violet gem" chance="8330" />
+		<item name="green gem" chance="7220" />
+		<item name="blue gem" chance="6670" />
+		<item name="gemmed figurine" chance="5560" />
+		<item name="winged tail" chance="5000" />
+		<item name="glacier kilt" chance="4440" />
+		<item name="srezz' eye" chance="3890" />
+		<item name="skull helmet" chance="3330" />
+		<item name="glacier robe" chance="2780" />
+		<item name="war axe" chance="2220" />
+		<item name="ring of green plasma" chance="1670" />
+		<item name="giant sword" chance="1110" />
+		<item name="demonrage sword" chance="560" />
+		<item name="gold nugget" chance="560" />
+		<item name="red silk flower" chance="360" />
+	</loot>
+</monster>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="moohtant" nameDescription="a moohtant" race="blood" experience="2600" speed="130" manacost="0">
+	<health now="3200" max="3200" />
+	<look type="607" head="0" body="0" legs="0" feet="0" addons="0" corpse="23367" />
+	<targetchange interval="2000" chance="3" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="110" attack="50" />
+		<attack name="physical" interval="2000" chance="13" length="3" spread="0" target="0" min="-100" max="-230">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="physical" interval="2000" chance="12" radius="3" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="19" radius="5" target="0" min="-50" max="-225">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" radius="4" range="7" target="1" min="-150" max="-235">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="2000" chance="9" min="50" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="15" />
+		<element earthPercent="100" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="58160" countmax="2" />
+		<item name="moohtant horn" chance="2740" countmax="2" />
+		<item name="giant pacifier" chance="1770" />
+		<item name="great health potion" chance="7380" countmax="3" />
+		<item name="great mana potion" chance="7230" countmax="3" />
+		<item name="meat" chance="6520" />
+		<item name="small ruby" chance="4680" countmax="2" />
+		<item name="minotaur leather" chance="4110" />
+		<item name="small diamond" chance="4400" countmax="2" />
+		<item name="ring of healing" chance="2410" />
+		<item name="red piece of cloth" chance="900" />
+		<item name="moohtant cudgel" chance="860" />
+		<item name="yellow gem" chance="710" />
+		<item name="spiked squelcher" chance="430" />
+		<item name="chaos mace" chance="280" />
+		<item name="gold ingot" chance="280" />
+		<item name="minotaur trophy" chance="280" />
+	</loot>
+</monster>

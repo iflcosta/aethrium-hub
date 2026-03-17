@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="roaring water elemental" nameDescription="a roaring water elemental" race="undead" experience="1300" speed="195" manacost="0">
+	<health now="1750" max="1750" />
+	<look type="11" head="0" body="0" legs="0" feet="0" addons="0" corpse="8965" />
+	<targetchange interval="20000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-225" />
+		<attack name="ice" interval="1000" chance="15" radius="2" target="1" min="-240" max="-320">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="90" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="45" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="40" />
+		<element deathPercent="1" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="BLUB BLUB" />
+		<voice sentence="SWASHHH" />
+	</voices>
+	<loot>
+		<item name="small sapphire" chance="4125" countmax="2" />
+		<item name="gold coin" chance="27000" countmax="90" />
+		<item name="gold coin" chance="27000" countmax="87" />
+		<item name="iced soil" chance="9000" />
+		<item name="northwind rod" chance="750" />
+	</loot>
+</monster>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="turbulent elemental" nameDescription="a turbulent elemental" race="blood" experience="19360" speed="180" manacost="0">
+	<health now="28000" max="28000" />
+	<look type="1314" head="0" body="0" legs="0" feet="0" addons="0" corpse="36561" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900" />
+		<attack name="ice" interval="2000" chance="15" range="7" target="1" min="-900" max="-1350">
+			<attribute key="areaEffect" value="iceattack" />
+			<attribute key="shootEffect" value="snowball" />
+		</attack>
+		<attack name="physical" interval="3000" chance="15" range="7" target="1" min="-700" max="-1000">
+			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="shootEffect" value="huntingspear" />
+		</attack>
+		<attack name="ice" interval="4000" chance="24" radius="4" target="0" min="-950" max="-1260">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+		<attack name="ice" interval="2000" chance="17" radius="4" target="0" min="-950" max="-1260">
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="earth" interval="2000" chance="10" radius="2" length="5" target="0" min="-950" max="-1100">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="1" target="1" />
+	</attacks>
+	<defenses armor="105" defense="105" />
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="-10" />
+		<element earthPercent="40" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="30" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="74880" />
+		<item name="gold ingot" chance="22270" />
+		<item name="ultimate health potion" chance="17300" countmax="4" />
+		<item name="sacred tree amulet" chance="6160" />
+		<item name="blue gem" chance="4980" />
+		<item name="springsprout rod" chance="4270" />
+		<item name="northwind rod" chance="3320" />
+		<item name="violet gem" chance="3080" />
+		<item name="glacier amulet" chance="2840" />
+		<item name="glacier robe" chance="1900" />
+		<item name="fur armor" chance="1420" />
+		<item name="wood cape" chance="950" />
+		<item name="crystalline armor" chance="710" />
+		<item name="rubber cap" chance="710" />
+		<item name="stone skin amulet" chance="470" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

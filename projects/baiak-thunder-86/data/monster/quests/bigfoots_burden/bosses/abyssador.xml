@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Abyssador" nameDescription="a abyssador" race="blood" experience="400000" speed="230" manacost="0">
+	<health now="340000" max="340000" />
+	<look type="495" head="0" body="0" legs="0" feet="0" addons="0" corpse="17413" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="3000" chance="100" skill="300" attack="150" />
+		<attack name="physical" interval="1000" chance="10" radius="4" target="0" min="-800" max="-800">
+			<attribute key="areaEffect" value="smallplants" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" radius="4" target="0" min="-500" max="-1600">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="1000" chance="20" target="0" min="-1000" max="-1800" />
+	</attacks>
+	<defenses armor="15" defense="20">
+		<defense name="healing" interval="1000" chance="1" min="0" max="300000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="5000" chance="30" min="1000" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="25">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="15" />
+		<element earthPercent="100" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="0" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*** STEALTH ***" />
+		<voice sentence="*** TIME ***" />
+		<voice sentence="*** IMPORTANT ***" />
+		<voice sentence="*** BRAINS *** SMALL ***" />
+		<voice sentence="*** DEATH ***" />
+		<voice sentence="*** FIRE *** HOME *** VICTORY ***" />
+		<voice sentence="*** EXISTENCE *** FUTILE ***" />
+	</voices>
+	<loot>
+		<item name="abyssador's lash" chance="100000" />
+		<item name="crystal crossbow" chance="8333" />
+		<item name="crystalline axe" chance="7333" />
+		<item name="shiny blade" chance="5333" />
+		<item name="crystalline sword" chance="6666" />
+		<item name="mycological bow" chance="6263" />
+		<item name="decorative ribbon" chance="2754" />
+		<item name="mycological mace" chance="2754" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

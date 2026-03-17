@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Noxious Spawn" nameDescription="a the noxious spawn" race="venom" experience="6000" speed="180" manacost="0">
+	<health now="9500" max="9500" />
+	<look type="220" head="0" body="0" legs="0" feet="0" addons="0" corpse="4323" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="275" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-250" />
+		<attack name="speed" interval="4000" chance="20" range="7" target="1" speedchange="-370" duration="12000">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="7" length="8" spread="3" target="0" min="0" max="-550">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="9" length="8" spread="3" target="0" min="0" max="-550">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		<attack name="earth" interval="2000" chance="12" range="1" target="0" min="0" max="-300">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="outfit" interval="2000" chance="11" range="7" target="0" duration="4000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="18" defense="25">
+		<defense name="healing" interval="2000" chance="10" min="900" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I bring you deathhhh, mortalssss" />
+	</voices>
+	<loot>
+		<item name="snake skin" chance="100000" />
+		<item name="winged tail" chance="100000" />
+		<item name="platinum coin" chance="80000" countmax="5" />
+		<item name="great mana potion" chance="72000" countmax="4" />
+		<item name="small emerald" chance="68000" countmax="5" />
+		<item name="mercenary sword" chance="45000" />
+		<item name="tower shield" chance="43000" />
+		<item name="noble axe" chance="39000" />
+		<item name="golden mug" chance="35000" />
+		<item name="crown armor" chance="29000" />
+		<item name="assassin star" chance="27000" countmax="78" />
+		<item name="green mushroom" chance="19000" />
+		<item name="life ring" chance="13000" />
+		<item name="spellbook of mind control" chance="13000" />
+		<item name="royal helmet" chance="4000" />
+		<item name="swamplair armor" chance="2000" />
+	</loot>
+</monster>

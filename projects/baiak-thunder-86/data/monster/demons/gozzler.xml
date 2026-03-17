@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="gozzler" nameDescription="a gozzler" race="undead" experience="180" speed="120" manacost="480">
+	<health now="240" max="240" />
+	<look type="313" head="0" body="0" legs="0" feet="0" addons="0" corpse="9938" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-110" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" target="0" min="-32" max="-135" />
+	</attacks>
+	<defenses armor="25" defense="15">
+		<defense name="healing" interval="2000" chance="10" min="30" max="50">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="210" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="50" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Huhuhuhuuu!" />
+		<voice sentence="Let the fun begin!" />
+		<voice sentence="Yihahaha!" />
+		<voice sentence="I'll bite you! Nyehehehe!" />
+		<voice sentence="Nyarnyarnyarnyar." />
+	</voices>
+	<loot>
+		<item name="brown flask" chance="8750" />
+		<item name="small sapphire" chance="360" />
+		<item name="gold coin" chance="52500" countmax="70" />
+		<item name="dwarven ring" chance="190" />
+		<item name="battle axe" chance="3100" />
+		<item name="sabre" chance="8250" />
+		<item name="morning star" chance="5000" />
+		<item name="serpent sword" chance="250" />
+		<item name="clerical mace" chance="900" />
+		<item name="plate shield" chance="10000" />
+	</loot>
+</monster>

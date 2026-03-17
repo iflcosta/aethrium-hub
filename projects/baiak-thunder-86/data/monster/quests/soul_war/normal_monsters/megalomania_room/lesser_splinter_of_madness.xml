@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lesser splinter of madness" nameDescription="a lesser splinter of madness" race="undead" experience="0" speed="175" manacost="0">
+	<health now="4000" max="4000" />
+	<look type="1268" head="0" body="57" legs="0" feet="0" addons="1" corpse="3013" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-100" max="-350" />
+		<attack name="death" interval="2000" chance="30" range="4" target="0" min="-300" max="-550">
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="energy" interval="2000" chance="30" range="4" target="1" min="-300" max="-550">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="79" defense="40" />
+	<elements>
+		<element physicalPercent="100" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="100" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="100" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+</monster>

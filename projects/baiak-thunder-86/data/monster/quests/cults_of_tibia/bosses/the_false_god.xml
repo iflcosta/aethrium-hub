@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The False God" nameDescription="a the false god" race="blood" experience="50000" speed="115" manacost="0">
+	<health now="300000" max="300000" />
+	<look type="984" head="0" body="0" legs="0" feet="0" addons="0" corpse="22495" />
+	<targetchange interval="5000" chance="30" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="20" radius="4" range="4" target="1" min="0" max="-500">
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="5" target="0" speedchange="-650" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30" />
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="0" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="CREEEAK!" />
+	</voices>
+	<loot>
+<item name="magic sulphur" chance="18920" />
+		<item name="mino shield" chance="17620" />
+		<item name="silver token" chance="1732" />
+		<item name="gold token" chance="1532" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="29840" countmax="30" />
+		<item name="piece of hell steel" chance="12370" countmax="9" />
+		<item name="red piece of cloth" chance="16370" countmax="6" />
+		<item name="yellow gem" chance="29460" />
+		<item name="blue gem" chance="21892" />
+		<item name="underworld rod" chance="100000" />
+		<item name="war axe" chance="100000" />
+		<item name="pair of iron fists" chance="9510" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="small diamond" chance="12760" countmax="10" />
+		<item name="small amethyst" chance="14700" countmax="10" />
+		<item name="small topaz" chance="11520" countmax="10" />
+		<item name="small sapphire" chance="13790" countmax="10" />
+		<item name="small emerald" chance="14700" countmax="10" />
+		<item name="small amethyst" chance="12259" countmax="10" />
+		<item name="energy bar" chance="16872" countmax="3" />
+		<item name="ultimate health potion" chance="27652" countmax="10" />
+		<item name="great mana potion" chance="33721" countmax="10" />
+		<item name="great spirit potion" chance="25690" countmax="5" />
+		<item name="piece of royal steel" chance="15890" />
+		<item name="execowtioner axe" chance="7890" />
+		<item name="maimer" chance="1890" />
+		<item name="ornate mace" chance="7890" />
+		<item name="velvet mantle" chance="1890" />
+		<item name="iron ore" chance="14542" />
+		<item name="giant sword" chance="16892" />
+	</loot>
+</monster>

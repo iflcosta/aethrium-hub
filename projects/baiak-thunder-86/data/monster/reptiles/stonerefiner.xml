@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="stonerefiner" nameDescription="a stonerefiner" race="blood" experience="500" speed="110" manacost="0">
+	<health now="800" max="800" />
+	<look type="1032" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-100" />
+		<attack name="physical" interval="2000" chance="15" target="0" min="0" max="-70" />
+		<attack name="physical" interval="2000" chance="10" range="7" target="0" min="-40" max="-80" />
+	</attacks>
+	<defenses armor="20" defense="45" />
+	<elements>
+		<element physicalPercent="-20" />
+		<element energyPercent="0" />
+		<element earthPercent="20" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="knak knak knak" />
+		<voice sentence="nomnomnom" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="50930" countmax="4" />
+		<item name="rare earth" chance="39750" countmax="2" />
+		<item name="coal" chance="27980" countmax="5" />
+		<item name="glob of acid slime" chance="23680" />
+		<item name="stonerefiner's skull" chance="20110" />
+		<item name="poisonous slime" chance="20040" countmax="3" />
+		<item name="half-digested stones" chance="15210" countmax="5" />
+	</loot>
+</monster>

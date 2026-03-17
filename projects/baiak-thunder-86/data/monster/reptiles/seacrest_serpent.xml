@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="seacrest serpent" nameDescription="a seacrest serpent" race="venom" experience="2900" speed="250" manacost="0">
+	<health now="3000" max="3000" />
+	<look type="675" head="0" body="0" legs="0" feet="0" addons="0" corpse="24262" />
+	<targetchange interval="2000" chance="9" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="120" attack="82" />
+		<attack name="death" interval="2000" chance="7" range="7" target="1" min="-200" max="-260">
+			<attribute key="areaEffect" value="rednote" />
+			<attribute key="shootEffect" value="earth" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="11" radius="3" target="0" min="-200" max="-285">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="30" target="0" min="0" max="-284" />
+		<attack name="physical" interval="2000" chance="10" length="4" spread="3" target="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="51" defense="31">
+		<defense name="healing" interval="2000" chance="15" min="145" max="200">
+			<attribute key="areaEffect" value="bluenote" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="LEAVE THESE GROUNDS..." />
+		<voice sentence="THE DARK TIDE WILL SWALLOW YOU..." />
+	</voices>
+	<loot>
+		<item name="dragon ham" chance="13040" />
+		<item name="seacrest hair" chance="12040" />
+		<item name="shiver arrow" chance="7020" countmax="17" />
+		<item name="glacier mask" chance="2680" />
+		<item name="crest of the deep seas" chance="400" />
+		<item name="platinum coin" chance="100000" countmax="5" />
+		<item name="strong health potion" chance="7020" countmax="2" />
+		<item name="strong mana potion" chance="10370" countmax="2" />
+		<item name="seacrest pearl" chance="10030" />
+		<item name="white pearl" chance="3680" countmax="2" />
+		<item name="black pearl" chance="2340" countmax="3" />
+<item name="soul orb" chance="3340" />
+		<item name="small diamond" chance="5020" countmax="3" />
+		<item name="seacrest scale" chance="17390" />
+		<item name="glacier amulet" chance="670" />
+		<item name="glacier kilt" chance="3680" />
+		<item name="glacier shoes" chance="3010" />
+		<item name="wand of defiance" chance="670" />
+		<item name="wand of draconia" chance="670" />
+	</loot>
+</monster>

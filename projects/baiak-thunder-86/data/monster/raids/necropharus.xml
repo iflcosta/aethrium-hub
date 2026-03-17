@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Necropharus" nameDescription="a necropharus" race="blood" experience="1050" speed="180" manacost="0">
+	<health now="750" max="750" />
+	<look type="209" head="0" body="0" legs="0" feet="0" addons="0" corpse="6080" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="physical" interval="3000" chance="70" range="5" target="0" min="-60" max="-217">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="20" range="1" target="0" min="-80" max="-120" />
+		<attack name="fire" interval="1000" chance="17" range="7" target="0" min="-50" max="-140">
+			<attribute key="areaEffect" value="fire" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="1000" chance="17" range="7" target="0" min="-50" max="-140">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="0" max="300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You will rise as my servant!" />
+		<voice sentence="Praise to my master Urgith!" />
+	</voices>
+	<loot>
+		<item name="book of necromantic rituals" chance="100000" />
+		<item name="gold coin" chance="100000" countmax="99" />
+		<item name="necromantic robe" chance="100000" />
+		<item name="soul stone" chance="100000" />
+		<item name="clerical mace" chance="52000" />
+		<item name="skull staff" chance="47000" />
+		<item name="bone club" chance="38000" />
+		<item name="skull" chance="19000" />
+		<item name="green mushroom" chance="14000" />
+		<item name="moonlight rod" chance="14000" />
+		<item name="big bone" chance="9500" />
+		<item name="bone shield" chance="9500" />
+		<item name="boots of haste" chance="4700" />
+		<item name="mystic turban" chance="4700" />
+		<item name="strong mana potion" chance="4700" />
+	</loot>
+</monster>

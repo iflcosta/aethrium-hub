@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Maxxenius" nameDescription="a maxxenius" race="blood" experience="55000" speed="125" manacost="0">
+	<health now="320000" max="320000" />
+	<look type="1142" head="0" body="0" legs="0" feet="0" addons="0" corpse="32807" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-500" max="-1000" />
+		<attack name="physical" interval="2000" chance="10" target="0" min="-500" max="-1200">
+			<attribute key="areaEffect" value="energyarea" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" target="0" min="-500" max="-1200">
+			<attribute key="areaEffect" value="energyarea" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="600" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="ring of blue plasma" chance="14290" />
+		<item name="ring of blue plasma" chance="3570" />
+		<item name="ring of green plasma" chance="10710" />
+		<item name="ring of red plasma" chance="14290" />
+		<item name="ring of red plasma" chance="7140" />
+		<item name="collar of blue plasma" chance="14290" />
+		<item name="collar of blue plasma" chance="3570" />
+		<item name="collar of green plasma" chance="10710" />
+		<item name="collar of red plasma" chance="17860" />
+		<item name="red gem" chance="28570" />
+		<item name="abyss hammer" chance="3570" />
+		<item name="berserk potion" chance="28570" countmax="19" />
+		<item name="blue gem" chance="10710" />
+		<item name="bullseye potion" chance="10710" />
+		<item name="chaos mace" chance="7140" />
+		<item name="crystal coin" chance="14290" countmax="3" />
+		<item name="energized limb" chance="3570" />
+		<item name="energy bar" chance="82140" />
+		<item name="giant ruby" chance="17860" />
+		<item name="giant shimmering pearl" chance="21430" />
+		<item name="gold ingot" chance="14290" />
+		<item name="gold token" chance="60710" />
+		<item name="green gem" chance="28570" />
+		<item name="huge chunk of crude iron" chance="42860" />
+		<item name="magic sulphur" chance="3570" />
+		<item name="mastermind potion" chance="42860" countmax="6" />
+<item name="maxxenius head" chance="7140" />
+		<item name="mysterious remains" chance="85710" />
+		<item name="ornate locket" chance="14290" />
+		<item name="piggy bank" chance="89290" />
+		<item name="platinum coin" chance="100000" countmax="6" />
+		<item name="pomegranate" chance="21430" />
+		<item name="ring of the sky" chance="7140" />
+		<item name="royal star" chance="57140" countmax="100" />
+		<item name="silver token" chance="96430" countmax="3" />
+		<item name="skull staff" chance="21430" />
+		<item name="soul stone" chance="14290" />
+		<item name="supreme health potion" chance="85710" countmax="32" />
+		<item name="ultimate mana potion" chance="42860" countmax="14" />
+		<item name="ultimate spirit potion" chance="64290" countmax="20" />
+		<item name="violet gem" chance="3570" />
+		<item name="yellow gem" chance="50000" countmax="2" />
+	</loot>
+</monster>

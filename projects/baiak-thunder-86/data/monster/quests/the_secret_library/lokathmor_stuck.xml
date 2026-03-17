@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lokathmor" nameDescription="a lokathmor" race="blood" experience="0" speed="0" manacost="0">
+	<health now="300000" max="300000" />
+	<look type="1062" head="22" body="22" legs="79" feet="97" addons="0" corpse="3128" />
+	<targetchange interval="2000" chance="4" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="150" attack="250" />
+		<attack name="lifedrain" interval="2000" chance="8" radius="5" range="7" target="1" min="-2500" max="-2800">
+			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+		<attack name="death" interval="1000" chance="8" radius="9" target="0" min="-1500" max="-1900">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="5000" chance="18" target="0" min="-2000" max="-2500">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="1000" chance="20" radius="6" range="7" target="0" min="-1000" max="-255">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="8" range="7" target="1" min="-170" max="-200">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="5" />
+	<elements>
+		<element physicalPercent="100" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="100" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+</monster>

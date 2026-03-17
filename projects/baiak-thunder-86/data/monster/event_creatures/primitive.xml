@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="primitive" nameDescription="a primitive" race="blood" experience="45" speed="150" manacost="0">
+	<health now="200" max="200" />
+	<look type="143" head="1" body="1" legs="1" feet="1" addons="0" corpse="6080" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="5" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-32" />
+		<attack name="drunk" interval="1000" chance="20" range="7" target="0">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="fire" interval="1000" chance="34" radius="3" range="7" target="1" min="-20" max="-20">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="outfit" interval="1000" chance="2" radius="4" target="0" duration="10000" monster="primitive">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="100" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="We don't need a future!" />
+		<voice sentence="I'll rook you all!" />
+		<voice sentence="They thought they'd beaten us!" />
+		<voice sentence="You are history!" />
+		<voice sentence="There can only be one world!" />
+		<voice sentence="Guido who?" />
+		<voice sentence="Die noob!" />
+		<voice sentence="There are no dragons!" />
+		<voice sentence="I'll quit forever! Again ..." />
+		<voice sentence="You all are noobs!" />
+		<voice sentence="Beware of the cyclops!" />
+		<voice sentence="Just had a disconnect." />
+		<voice sentence="Magic is only good for girls!" />
+		<voice sentence="We'll be back!" />
+		<voice sentence="I need some vitamins!" />
+		<voice sentence="Uh, I can't hear anymore. I am deaf!" />
+		<voice sentence="They've ruined it! I can't cheat anymore!" />
+		<voice sentence="This world is ours!" />
+		<voice sentence="Back to the roots!" />
+		<voice sentence="Kill all magic users!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="12500" countmax="10" />
+		<item name="sabre" chance="10250" />
+		<item name="axe" chance="12250" />
+		<item name="studded helmet" chance="9500" />
+		<item name="studded armor" chance="7000" />
+		<item name="studded shield" chance="1200" />
+		<item name="surprise bag" chance="500" />
+		<item name="surprise bag" chance="500" />
+	</loot>
+</monster>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cyclops" nameDescription="a cyclops" race="blood" experience="150" speed="95" manacost="520">
+	<health now="260" max="260" />
+	<look type="22" head="0" body="0" legs="0" feet="0" addons="0" corpse="5962" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-105" />
+	</attacks>
+	<defenses armor="17" defense="20" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="25" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="20" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Human, uh whil dyh!" />
+		<voice sentence="Youh ah trak!" />
+		<voice sentence="Let da mashing begin!" />
+		<voice sentence="Toks utat." />
+		<voice sentence="Il lorstok human!" />
+	</voices>
+	<loot>
+		<item name="wolf tooth chain" chance="190" />
+		<item name="gold coin" chance="82000" countmax="47" />
+		<item name="club ring" chance="90" />
+		<item name="halberd" chance="1003" />
+		<item name="short sword" chance="8000" />
+		<item name="dark helmet" chance="220" />
+		<item name="plate shield" chance="2500" />
+		<item name="battle shield" chance="1400" />
+		<item name="meat" chance="30070" />
+		<item name="cyclops trophy" chance="80" />
+		<item name="health potion" chance="210" />
+		<item name="cyclops toe" chance="4930" />
+		<item name="heavy old tome" chance="1000" />
+	</loot>
+</monster>

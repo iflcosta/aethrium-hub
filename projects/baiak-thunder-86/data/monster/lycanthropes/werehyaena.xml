@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="werehyaena" nameDescription="a werehyaena" race="blood" experience="2200" speed="120" manacost="0">
+	<health now="2700" max="2700" />
+	<look type="1300" head="57" body="77" legs="1" feet="1" addons="0" corpse="36474" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="30" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2" min="0" max="-300" />
+		<attack name="earth" interval="2" chance="17" radius="3" min="-175" max="-255">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="death" interval="2" chance="15" radius="1" range="5" target="1" min="-330" max="-370">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="death" interval="2" chance="13" length="3" spread="0" min="-225" max="-275">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="36" defense="0">
+		<defense name="speed" interval="2" chance="15" duration="5">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="40" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-20" />
+		<element holyPercent="-25" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Snarl!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="3" />
+		<item name="great health potion" chance="49970" countmax="3" />
+		<item name="meat" chance="19070" />
+		<item name="axe" chance="16810" />
+		<item name="knife" chance="16620" />
+		<item name="werehyaena nose" chance="12670" />
+		<item name="halberd" chance="11480" />
+		<item name="red crystal fragment" chance="9540" />
+		<item name="small enchanted amethyst" chance="5760" countmax="5" />
+		<item name="life preserver" chance="5670" />
+		<item name="red gem" chance="5590" />
+		<item name="yellow gem" chance="5420" />
+		<item name="combat knife" chance="4700" />
+		<item name="green crystal fragment" chance="4580" />
+		<item name="ratana" chance="4280" />
+		<item name="werehyaena talisman" chance="750" />
+		<item name="werehyaena trophy" chance="190" />
+	</loot>
+</monster>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sir Nictros" nameDescription="a sir nictros" race="venom" experience="55000" speed="125" manacost="0">
+	<health now="75000" max="75000" />
+	<look type="1222" head="101" body="79" legs="0" feet="0" addons="2" corpse="31599" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="3100" chance="37" length="7" spread="0" target="0" min="-400" max="-1000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="2500" chance="35" range="5" target="1" min="-350" max="-625">
+			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+		<attack name="death" interval="2700" chance="30" range="1" target="1" min="-180" max="-250">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="25">
+		<defense name="healing" interval="2000" chance="35" min="350" max="550">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="5" />
+		<element earthPercent="80" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="35" />
+		<element holyPercent="-10" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+
+
+</loot>
+</monster>

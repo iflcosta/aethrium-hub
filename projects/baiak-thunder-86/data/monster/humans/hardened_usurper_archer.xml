@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hardened usurper archer" nameDescription="a hardened usurper archer" race="blood" experience="0" speed="125" manacost="0">
+  <health now="7300" max="7300" />
+  <look type="1316" head="57" body="38" legs="21" feet="21" addons="2" />
+  <targetchange interval="4000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="4" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="physical" interval="2000" chance="100" range="7" target="1" min="0" max="-430">
+      <attribute key="shootEffect" value="burstarrow" />
+    </attack>
+    <attack name="death" interval="6000" chance="8" range="7" target="1" min="-160" max="-485">
+      <attribute key="shootEffect" value="smallholy" />
+    </attack>
+    <attack name="death" interval="4000" chance="6" range="7" target="1" min="-160" max="-545">
+      <attribute key="areaEffect" value="mortarea" />
+      <attribute key="shootEffect" value="suddendeath" />
+    </attack>
+    <attack name="ice" interval="4000" chance="6" radius="3" target="1" min="-150" max="-425">
+      <attribute key="areaEffect" value="icearea" />
+    </attack>
+  </attacks>
+  <defenses armor="0" defense="50" />
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="10" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

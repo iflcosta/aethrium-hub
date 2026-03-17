@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="twisted pooka" nameDescription="a twisted pooka" race="blood" experience="600" speed="115" manacost="0">
+	<health now="700" max="700" />
+	<look type="978" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="20" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-120" />
+		<attack name="earth" interval="2000" chance="15" range="4" target="1" min="0" max="-50">
+			<attribute key="areaEffect" value="stones" />
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="3" target="1" min="-50" max="-100">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="5000">
+			<attribute key="areaEffect" value="stun" />
+		</attack>
+	</attacks>
+	<defenses armor="41" defense="38">
+		<defense name="healing" interval="2000" chance="25" min="40" max="60">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="-10" />
+		<element earthPercent="40" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="-20" />
+		<element deathPercent="30" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*sniff sniff* Mhmmm ... mortal flesh." />
+		<voice sentence="Hoppel-di-hopp!" />
+		<voice sentence="I'll gnaw away your toes!" />
+	</voices>
+	<loot>
+		<item name="carrot on a stick" chance="20" />
+		<item name="small stone" chance="200" countmax="5" />
+		<item name="gold coin" chance="30000" countmax="100" />
+		<item name="stealth ring" chance="492" />
+		<item name="carrot" chance="55000" countmax="3" />
+		<item name="strong health potion" chance="719" />
+		<item name="orange mushroom" chance="10000" />
+		<item name="fairy wings" chance="30100" />
+		<item name="orange mushroom" chance="5155" />
+		<item name="shimmering beetles" chance="591" />
+		<item name="prismatic quartz" chance="2500" />
+		<item name="crystal of focus" chance="60" />
+		<item name="small enchanted ruby" chance="3400" countmax="2" />
+	</loot>
+</monster>

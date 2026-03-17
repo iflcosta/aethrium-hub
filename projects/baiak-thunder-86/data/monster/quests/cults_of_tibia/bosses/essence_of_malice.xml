@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Essence of Malice" nameDescription="a essence of malice" race="undead" experience="150000" speed="160" manacost="0">
+	<health now="250000" max="250000" />
+	<look type="351" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="5" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="366" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-603" />
+		<attack name="physical" interval="2000" chance="5" range="5" target="0" />
+		<attack name="physical" interval="2000" chance="10" range="5" target="1" min="-520" max="-780">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" target="1" min="-80" max="-230">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="death" interval="2000" chance="10" length="8" spread="0" target="0" min="-120" max="-250">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="4" target="0" min="-110" max="-180">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" range="7" target="1" speedchange="-800" duration="30000">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-50" />
+		<element earthPercent="-50" />
+		<element firePercent="-50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="-50" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Your demised will please me!" />
+		<voice sentence="You will suffer!" />
+	</voices>
+	<loot>
+		<item name="silver token" chance="2732" />
+		<item name="gold token" chance="1530" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="29840" countmax="57" />
+		<item name="lightning legs" chance="8723" />
+		<item name="yellow gem" chance="29460" />
+		<item name="demon shield" chance="2270" />
+		<item name="shockwave amulet" chance="15100" />
+		<item name="witch hat" chance="9510" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="small amethyst" chance="14700" countmax="10" />
+		<item name="small amethyst" chance="12259" countmax="10" />
+		<item name="odd organ" chance="100000" />
+		<item name="energy bar" chance="16872" countmax="3" />
+		<item name="ring of blue plasma" chance="8762" />
+		<item name="ultimate health potion" chance="27652" countmax="10" />
+		<item name="blade of corruption" chance="3775" />
+	</loot>
+</monster>

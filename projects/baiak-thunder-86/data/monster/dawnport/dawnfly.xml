@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dawnfly" nameDescription="a dawnfly" race="venom" experience="35" speed="100" manacost="0">
+	<health now="90" max="90" />
+	<look type="528" head="0" body="0" legs="0" feet="0" addons="0" corpse="23825" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="9" range="7" target="0" min="-4" max="-8">
+			<attribute key="shootEffect" value="poisonarrow" />
+		</attack>
+	</attacks>
+	<defenses armor="3" defense="2">
+		<defense name="speed" interval="2000" chance="11" speedchange="238" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="simple arrow" chance="21360" countmax="16" />
+		<item name="doublet" chance="4140" />
+		<item name="damselfly wing" chance="11940" />
+		<item name="damselfly eye" chance="10130" />
+		<item name="gold coin" chance="100000" countmax="12" />
+		<item name="health potion" chance="3630" />
+		<item name="mana potion" chance="3800" />
+		<item name="poison arrow" chance="14500" countmax="8" />
+	</loot>
+</monster>

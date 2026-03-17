@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="orc cultist" nameDescription="a orc cultist" race="blood" experience="950" speed="95" manacost="0">
+  <health now="1350" max="1350" />
+  <look type="7" head="0" body="0" legs="0" feet="0" addons="0" corpse="5979" />
+  <targetchange interval="4000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="95" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-300" />
+  </attacks>
+  <defenses armor="30" defense="30" />
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="30" />
+    <element earthPercent="-10" />
+    <element firePercent="0" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="10" />
+    <element deathPercent="-10" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <loot>
+    <item name="gold coin" chance="100000" countmax="100" />
+    <item name="strong health potion" chance="19830" />
+    <item name="small topaz" chance="6002" countmax="3" />
+    <item name="orcish axe" chance="9005" />
+    <item name="cultish robe" chance="4960" />
+    <item name="ham" chance="7020" countmax="3" />
+    <item name="orc tusk" chance="8260" countmax="2" />
+    <item name="green piece of cloth" chance="4960" />
+    <item name="brown crystal splinter" chance="4960" />
+  </loot>
+</monster>

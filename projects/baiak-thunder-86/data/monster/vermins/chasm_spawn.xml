@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="chasm spawn" nameDescription="a chasm spawn" race="blood" experience="3600" speed="115" manacost="0">
+	<health now="4500" max="4500" />
+	<look type="1037" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-250" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-5" max="-16">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="7" target="1" min="-30" max="-60">
+			<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" length="3" spread="3" range="3" target="0" min="-70" max="-160">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" min="-50" max="-170" />
+		<attack name="manadrain" interval="2000" chance="10" range="7" target="0" min="-40" max="-60" />
+		<attack name="physical" interval="2000" chance="10" range="7" target="0" min="-70" max="-140" />
+		<attack name="earth" interval="2000" chance="10" length="3" spread="3" target="0" min="-70" max="-140">
+			<attribute key="areaEffect" value="plantattack" />
+		</attack>
+	</attacks>
+	<defenses armor="74" defense="5" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="10000" countmax="78" />
+		<item name="wood mushroom" chance="27200" countmax="5" />
+		<item name="chasm spawn head" chance="33390" />
+		<item name="chasm spawn abdomen" chance="24710" />
+		<item name="chasm spawn tail" chance="64890" />
+		<item name="small enchanted emerald" chance="11040" countmax="3" />
+		<item name="small enchanted amethyst" chance="8170" countmax="3" />
+		<item name="brown mushroom" chance="19680" countmax="5" />
+		<item name="orange mushroom" chance="15140" />
+		<item name="blue crystal shard" chance="7850" />
+		<item name="green crystal shard" chance="7850" />
+		<item name="violet crystal shard" chance="4690" />
+		<item name="mushroom backpack" chance="610" />
+		<item name="suspicious device" chance="850" />
+	</loot>
+</monster>

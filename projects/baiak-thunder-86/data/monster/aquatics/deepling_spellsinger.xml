@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="deepling spellsinger" nameDescription="a deepling spellsinger" race="blood" experience="1000" speed="95" manacost="0">
+	<health now="850" max="850" />
+	<look type="443" head="0" body="0" legs="0" feet="0" addons="0" corpse="15211" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="60" />
+		<flag runonhealth="60" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-152">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="ice" interval="2000" chance="10" length="10" spread="3" target="0" min="-180" max="-350">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+		<attack name="drown" interval="2000" chance="20" radius="4" target="1" min="-90" max="-130">
+			<attribute key="areaEffect" value="bubbles" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" target="0" min="-60" max="-140">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" range="7" target="0" min="-60" max="-140">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" range="5" target="0" />
+	</attacks>
+	<defenses armor="42" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Jey Obu giotja!!" />
+		<voice sentence="Mmmmmoooaaaaaahaaa!!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="80120" />
+		<item name="gold coin" chance="75110" countmax="60" />
+		<item name="spellsinger's seal" chance="15185" />
+		<item name="deepling filet" chance="14995" />
+		<item name="key to the drowned library" chance="10740" />
+		<item name="fish" chance="3448" />
+		<item name="small sapphire" chance="2934" />
+		<item name="eye of a deepling" chance="2540" />
+		<item name="life ring" chance="2459" />
+		<item name="deepling staff" chance="2020" />
+		<item name="necklace of the deep" chance="790" />
+		<item name="fish fin" chance="520" />
+		<item name="ornate crossbow" chance="220" />
+	</loot>
+</monster>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="spider queen" nameDescription="a spider queen" race="venom" experience="120" speed="140" manacost="0">
+  <health now="10000" max="10000" />
+  <look type="219" head="0" body="0" legs="0" feet="0" addons="0" corpse="6060" />
+  <targetchange interval="5000" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="physical" interval="5000" chance="100" range="1" target="1" />
+  </attacks>
+  <defenses armor="10" defense="5">
+    <defense name="speed" interval="1000" chance="10" speedchange="480" duration="5000">
+      <attribute key="areaEffect" value="redshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="100" />
+    <element energyPercent="100" />
+    <element earthPercent="100" />
+    <element firePercent="100" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="100" />
+    <element icePercent="100" />
+    <element holyPercent="100" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="0" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

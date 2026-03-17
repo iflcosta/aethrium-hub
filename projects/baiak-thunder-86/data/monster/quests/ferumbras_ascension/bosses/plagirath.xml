@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Plagirath" nameDescription="a plagirath" race="venom" experience="500000" speed="160" manacost="0">
+	<health now="290000" max="290000" />
+	<look type="862" head="84" body="62" legs="60" feet="79" addons="1" corpse="22495" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-1300" max="-2250" />
+		<attack name="earth" interval="2000" chance="20" radius="4" target="0" min="-500" max="-900">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="4" range="4" target="1" min="-500" max="-900">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" length="10" spread="3" target="0" min="-1000" max="-1200">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="3" target="0" min="-1500" max="-1900">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="7" target="0" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+		<attack name="physical" interval="20000" chance="25" target="0" />
+	</attacks>
+	<defenses armor="125" defense="125">
+		<defense name="healing" interval="2000" chance="15" min="3000" max="4000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="30" speedchange="440" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I CAN SENSE YOUR BODY ROTTING!" />
+		<voice sentence="WITHER AND DIE!" />
+		<voice sentence="COME AND RECEIVE MY GIFTS!!" />
+		<voice sentence="DEATH AND DECAY!" />
+	</voices>
+	<loot>
+		<item name="silver token" chance="100000" />
+		<item name="sai" chance="3000" />
+		<item name="muck rod" chance="1820" />
+		<item name="cyan crystal fragment" chance="23000" countmax="6" />
+		<item name="red crystal fragment" chance="23000" countmax="6" />
+		<item name="green crystal fragment" chance="23000" countmax="6" />
+		<item name="white pearl" chance="12000" countmax="8" />
+		<item name="small sapphire" chance="12000" countmax="9" />
+		<item name="gold coin" chance="98000" countmax="100" />
+		<item name="small amethyst" chance="10000" countmax="5" />
+		<item name="platinum coin" chance="8000" countmax="58" />
+		<item name="rift lance" chance="800" />
+		<item name="plague bite" chance="500" />
+		<item name="rift bow" chance="800" />
+		<item name="rift crossbow" chance="800" />
+		<item name="demonic essence" chance="11000" />
+		<item name="mercenary sword" chance="5000" />
+<item name="terra amulet" chance="5000" />
+		<item name="ultimate health potion" chance="23000" countmax="15" />
+		<item name="spellbook of warding" chance="4000" />
+		<item name="small topaz" chance="10000" countmax="8" />
+	</loot>
+</monster>

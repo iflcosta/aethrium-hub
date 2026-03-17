@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lava golem" nameDescription="a lava golem" race="fire" experience="7900" speed="210" manacost="0">
+	<health now="9000" max="9000" />
+	<look type="491" head="0" body="0" legs="0" feet="0" addons="0" corpse="17332" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="fire" interval="2000" chance="15" length="8" spread="0" target="0" min="-350" max="-700">
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" />
+		<attack name="fire" interval="2000" chance="15" radius="4" target="1" min="-220" max="-350">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" length="5" spread="3" target="0" speedchange="-800" duration="30000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="fire" interval="2000" chance="30" radius="3" target="0" min="-280" max="-350">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="84" defense="60" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="30" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="0" />
+		<element deathPercent="35" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Grrrrunt" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="11" />
+		<item name="yellow gem" chance="6480" />
+		<item name="red gem" chance="1180" />
+		<item name="wand of inferno" chance="2950" />
+		<item name="fire sword" chance="1710" />
+		<item name="fire axe" chance="1560" />
+		<item name="crown shield" chance="1180" />
+		<item name="iron ore" chance="11570" />
+		<item name="white piece of cloth" chance="4810" />
+		<item name="red piece of cloth" chance="3530" />
+		<item name="yellow piece of cloth" chance="7230" />
+		<item name="strong health potion" chance="18830" countmax="2" />
+		<item name="strong mana potion" chance="18150" countmax="2" />
+		<item name="great mana potion" chance="16030" countmax="2" />
+		<item name="mana potion" chance="20720" countmax="2" />
+		<item name="magma amulet" chance="2900" />
+		<item name="magma boots" chance="2650" />
+		<item name="magma coat" chance="430" />
+		<item name="ultimate health potion" chance="15390" />
+		<item name="spellbook of mind control" chance="450" />
+		<item name="fiery heart" chance="13510" />
+		<item name="wand of everblazing" chance="1390" />
+		<item name="violet crystal shard" chance="6200" />
+		<item name="green crystal splinter" chance="13990" countmax="2" />
+		<item name="red crystal fragment" chance="10990" />
+		<item name="magma clump" chance="15370" countmax="2" />
+		<item name="blazing bone" chance="15200" />
+		<item name="prismatic bolt" chance="12580" countmax="5" />
+	</loot>
+</monster>

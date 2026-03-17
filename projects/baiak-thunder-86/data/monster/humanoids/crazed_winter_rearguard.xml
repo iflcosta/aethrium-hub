@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="crazed winter rearguard" nameDescription="a crazed winter rearguard" race="blood" experience="4700" speed="200" manacost="0">
+	<health now="5200" max="5200" />
+	<look type="1136" head="47" body="7" legs="0" feet="85" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="ice" interval="2500" chance="20" radius="1" range="5" target="1" min="-100" max="-300">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="ice" interval="3000" chance="25" length="4" spread="0" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="giantice" />
+		</attack>
+		<attack name="ice" interval="3500" chance="25" radius="3" target="0" min="-250" max="-300">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="20" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-15" />
+		<element earthPercent="-20" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="40" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="86000" countmax="5" />
+		<item name="red crystal fragment" chance="2000" />
+		<item name="red gem" chance="330" />
+		<item name="ice rapier" chance="17200" />
+		<item name="ultimate health potion" chance="16850" />
+		<item name="great spirit potion" chance="15780" />
+		<item name="ice flower" chance="9000" countmax="2" />
+		<item name="life crystal" chance="7900" />
+		<item name="dream essence egg" chance="8750" />
+		<item name="elven astral observer" chance="7600" />
+		<item name="glacier mask" chance="6000" />
+		<item name="moonlight rod" chance="5400" />
+		<item name="small enchanted sapphire" chance="4700" countmax="7" />
+		<item name="northwind rod" chance="2360" />
+		<item name="glacier amulet" chance="2930" />
+		<item name="hailstorm rod" chance="2660" />
+		<item name="glacier robe" chance="1930" />
+		<item name="cyan crystal fragment" chance="2100" />
+		<item name="elven amulet" chance="1260" />
+		<item name="blue gem" chance="330" />
+	</loot>
+</monster>

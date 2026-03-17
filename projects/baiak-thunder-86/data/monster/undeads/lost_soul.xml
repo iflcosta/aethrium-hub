@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lost soul" nameDescription="a lost soul" race="undead" experience="4000" speed="190" manacost="0">
+	<health now="5800" max="5800" />
+	<look type="232" head="0" body="0" legs="0" feet="0" addons="0" corpse="6311" />
+	<targetchange interval="4000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="450" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-420" />
+		<attack name="death" interval="2000" chance="10" length="3" spread="0" target="0" min="-40" max="-210">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="6" target="0" speedchange="-800" duration="4000">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+	</attacks>
+	<defenses armor="28" defense="30" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Mouuuurn meeee!" />
+		<voice sentence="Forgive Meee!" />
+		<voice sentence="Help meee!" />
+	</voices>
+	<loot>
+		<item name="ruby necklace" chance="1500" />
+		<item name="white pearl" chance="10000" countmax="3" />
+		<item name="black pearl" chance="12000" countmax="3" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="7" />
+		<item name="red gem" chance="15000" />
+		<item name="stone skin amulet" chance="2780" />
+		<item name="blank rune" chance="35250" countmax="3" />
+		<item name="skull staff" chance="850" />
+		<item name="tower shield" chance="740" />
+		<item name="skull helmet" chance="170" />
+		<item name="silver goblet" chance="4950" />
+		<item name="soul orb" chance="15000" />
+		<item name="death ring" chance="2170" />
+		<item name="demonic essence" chance="7500" />
+		<item name="skeleton decoration" chance="1250" />
+		<item name="haunted blade" chance="740" />
+		<item name="titan axe" chance="1000" />
+		<item name="great mana potion" chance="14200" countmax="2" />
+		<item name="great health potion" chance="8800" countmax="2" />
+		<item name="slightly rusted armor" chance="3500" />
+		<item name="unholy bone" chance="33010" />
+	</loot>
+</monster>

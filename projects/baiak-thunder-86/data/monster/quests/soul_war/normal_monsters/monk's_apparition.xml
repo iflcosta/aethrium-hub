@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="monk's apparition" nameDescription="a monk's apparition" race="blood" experience="28600" speed="235" manacost="0">
+  <health now="25000" max="25000" />
+  <look type="1824" head="114" body="48" legs="114" feet="95" addons="1" corpse="6081" />
+  <targetchange interval="4000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-850" />
+    <attack name="ice" interval="3000" chance="31" radius="4" range="7" target="1" min="-1080" max="-1300">
+      <attribute key="areaEffect" value="bigclouds" />
+      <attribute key="shootEffect" value="ice" />
+    </attack>
+    <attack name="physical" interval="9500" chance="37" range="7" min="-1100" max="-1300" />
+    <attack name="holy" interval="4000" chance="55" range="7" target="1" min="-1100" max="-1250">
+      <attribute key="areaEffect" value="holydamage" />
+      <attribute key="shootEffect" value="holy" />
+    </attack>
+    <attack name="holy" interval="3000" chance="23" radius="4" target="0" min="-1250" max="-1400">
+      <attribute key="areaEffect" value="holyarea" />
+    </attack>
+  </attacks>
+  <defenses armor="100" defense="100">
+    <defense name="healing" interval="2000" chance="25" min="1000" max="1100">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="20" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="-10" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="40" />
+    <element deathPercent="-20" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="1" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Healing is what I do best." />
+    <voice sentence="I'll take your place when you are gone." />
+  </voices>
+  <loot>
+    <item name="crystal coin" chance="80700" />
+    <item name="terra rod" chance="17540" />
+    <item name="great mana potion" chance="17110" countmax="3" />
+    <item name="blue gem" chance="12720" />
+    <item name="green gem" chance="6580" />
+    <item name="stone skin amulet" chance="4820" />
+    <item name="glacier amulet" chance="3510" />
+    <item name="sacred tree amulet" chance="3070" />
+    <item name="springsprout rod" chance="2190" />
+    <item name="underworld rod" chance="2190" />
+    <item name="platinum amulet" chance="1750" />
+    <item name="glacier robe" chance="880" />
+    <item name="collar of red plasma" chance="440" />
+    <item name="bag you desire" chance="15" />
+  </loot>
+</monster>

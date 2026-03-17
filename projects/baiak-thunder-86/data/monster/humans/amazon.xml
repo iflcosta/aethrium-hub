@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="amazon" nameDescription="a amazon" race="blood" experience="60" speed="86" manacost="220">
+	<health now="110" max="110" />
+	<look type="137" head="113" body="120" legs="95" feet="115" addons="0" corpse="20323" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-45" />
+		<attack name="physical" interval="2000" chance="15" range="5" target="0" min="0" max="-40">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10" />
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Your head shall be mine!" />
+		<voice sentence="Your head will be mine!" />
+		<voice sentence="Yeeee ha!" />
+	</voices>
+	<loot>
+		<item name="dagger" chance="80000" />
+		<item name="skull" chance="80000" countmax="2" />
+		<item name="gold coin" chance="40000" countmax="20" />
+		<item name="brown bread" chance="30000" />
+		<item name="sabre" chance="23000" />
+		<item name="girlish hair decoration" chance="10000" />
+		<item name="protective charm" chance="5200" />
+		<item name="torch" chance="1000" />
+		<item name="crystal necklace" chance="260" />
+		<item name="small ruby" chance="130" />
+	</loot>
+</monster>

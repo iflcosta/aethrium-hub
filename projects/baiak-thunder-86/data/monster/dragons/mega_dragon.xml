@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mega dragon" nameDescription="a mega dragon" race="blood" experience="7810" speed="170" manacost="0">
+	<health now="7920" max="7920" />
+	<look type="1712" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-450" />
+		<attack name="physical" interval="2500" chance="15" range="2" target="1" min="-250" max="-350">
+			<attribute key="areaEffect" value="bigscratch" />
+		</attack>
+		<attack name="fire" interval="2500" chance="20" length="8" spread="4" target="0" min="-250" max="-300">
+			<attribute key="areaEffect" value="explosionhit" />
+		</attack>
+		<attack name="fire" interval="2500" chance="15" radius="4" range="7" target="1" min="-200" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="3000" chance="5" radius="4" target="1" min="-200" max="-350">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2500" chance="15" range="7" min="-200" max="-350" />
+	</attacks>
+	<defenses armor="76" defense="76" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Just Look at me!" />
+		<voice sentence="I'll stare you down" />
+		<voice sentence="Let me have a look" />
+	</voices>
+	<loot>
+		<item name="Platinum Coin" chance="50780" countmax="48" />
+<item name="dead efreet" chance="10090" />
+<item name="Prismatic Quartz" chance="4460" />
+		<item name="Rainbow Quartz" chance="4430" countmax="2" />
+		<item name="dead marid" chance="6790" />
+<item name="Violet Gem" chance="1470" />
+		<item name="Dragon Slayer" chance="130" />
+	</loot>
+</monster>

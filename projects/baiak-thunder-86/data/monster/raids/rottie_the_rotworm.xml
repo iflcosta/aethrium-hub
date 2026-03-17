@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Rottie the Rotworm" nameDescription="a rottie the rotworm" race="blood" experience="40" speed="90" manacost="0">
+	<health now="65" max="65" />
+	<look type="26" head="0" body="0" legs="0" feet="0" addons="0" corpse="5967" />
+	<targetchange interval="2000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="30" attack="30" />
+	</attacks>
+	<defenses armor="8" defense="11" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="6230" countmax="30" />
+		<item name="copper shield" chance="2850" />
+		<item name="meat" chance="3260" countmax="2" />
+		<item name="worm" chance="32500" countmax="5" />
+		<item name="mace" chance="3335" />
+		<item name="ham" chance="3160" countmax="2" />
+		<item name="sword" chance="3335" />
+		<item name="katana" chance="900" />
+		<item name="legion helmet" chance="1250" />
+	</loot>
+</monster>

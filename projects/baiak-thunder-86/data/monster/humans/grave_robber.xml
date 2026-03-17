@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="grave robber" nameDescription="a grave robber" race="blood" experience="65" speed="95" manacost="330">
+	<health now="165" max="165" />
+	<look type="146" head="57" body="95" legs="57" feet="19" addons="3" corpse="20411" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-90" />
+		<attack name="physical" interval="2000" chance="15" radius="1" range="7" target="1" min="-100" max="-160">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="7" defense="15" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="20" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="54260" countmax="38" />
+		<item name="axe" chance="2500" />
+		<item name="mace" chance="1700" />
+		<item name="iron helmet" chance="500" />
+		<item name="brass armor" chance="1700" />
+		<item name="steel shield" chance="500" />
+		<item name="nomad parchment" chance="170" />
+		<item name="potato" chance="5680" countmax="3" />
+		<item name="dirty turban" chance="1700" />
+		<item name="rope belt" chance="7510" />
+	</loot>
+</monster>

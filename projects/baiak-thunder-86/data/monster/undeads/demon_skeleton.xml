@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="demon skeleton" nameDescription="a demon skeleton" race="undead" experience="240" speed="90" manacost="800">
+	<health now="400" max="400" />
+	<look type="37" head="0" body="0" legs="0" feet="0" addons="0" corpse="5963" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-185" />
+		<attack name="death" interval="2000" chance="10" radius="1" range="1" target="1" min="-30" max="-50">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="30" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="0" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="torch" chance="5270" />
+		<item name="black pearl" chance="2900" />
+		<item name="small ruby" chance="1400" />
+		<item name="gold coin" chance="97000" countmax="75" />
+		<item name="mind stone" chance="520" />
+		<item name="mysterious fetish" chance="690" />
+		<item name="throwing star" chance="10000" countmax="3" />
+		<item name="battle hammer" chance="4000" />
+		<item name="iron helmet" chance="3450" />
+		<item name="battle shield" chance="5000" />
+		<item name="guardian shield" chance="100" />
+		<item name="health potion" chance="10120" countmax="2" />
+		<item name="health potion" chance="10000" countmax="2" />
+		<item name="mana potion" chance="5300" />
+		<item name="demonic skeletal hand" chance="12600" />
+	</loot>
+</monster>

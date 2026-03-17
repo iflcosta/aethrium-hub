@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Wrath of the Emperor" nameDescription="a wrath of the emperor" race="undead" experience="600" speed="205" manacost="0">
+	<health now="55000" max="55000" />
+	<look type="351" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="366" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="55" attack="115" />
+		<attack name="physical" interval="3000" chance="17" length="8" spread="3" target="0" min="-150" max="-250">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="3000" chance="10" range="7" target="0" min="0" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="speed" interval="1000" chance="10" range="7" target="0" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="21" radius="6" target="0" min="-200" max="-450">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="35" />
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="60" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-15" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="YOU DON'T EVEN UNDERSTAND WHOM YOU ARE SERVING!" />
+		<voice sentence="FLEE AND NEVER RETURN!" />
+		<voice sentence="YOU HAVE BEEN USED AND FOOLED!" />
+		<voice sentence="I WILL STOP YOU ONCE AND FOR ALL!" />
+	</voices>
+</monster>

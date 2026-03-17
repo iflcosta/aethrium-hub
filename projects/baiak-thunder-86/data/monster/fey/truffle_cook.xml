@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="truffle cook" nameDescription="a truffle cook" race="undead" experience="13" speed="160" manacost="0">
+	<health now="54" max="54" />
+	<look type="1751" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="54" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1" />
+	</attacks>
+	<defenses armor="13" defense="5" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="25" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="-5" />
+		<element deathPercent="5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You have to taste my latest creation!" />
+		<voice sentence="Please stand still and try my newest creation." />
+		<voice sentence="Delicious!" />
+	</voices>
+</monster>

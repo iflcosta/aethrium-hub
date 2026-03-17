@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="kalyassa" nameDescription="a kalyassa" race="blood" experience="9000" speed="175" manacost="0">
+	<health now="10000" max="10000" />
+	<look type="947" head="56" body="113" legs="19" feet="95" addons="3" corpse="5984" />
+	<targetchange interval="2000" chance="5" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="800" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="112" attack="85" />
+		<attack name="fire" interval="2000" chance="20" radius="5" range="7" target="1" min="-110" max="-495">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="9" spread="4" target="0" min="-310" max="-495">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="9" spread="3" target="0" min="-710" max="-895">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="7" range="7" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="70">
+		<defense name="healing" interval="2000" chance="25" min="400" max="700">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="horn of kalyassa" chance="100000" />
+		<item name="dragon ham" chance="75230" countmax="9" />
+		<item name="platinum coin" chance="99080" countmax="9" />
+		<item name="dragon blood" chance="80000" countmax="2" />
+		<item name="great health potion" chance="8260" />
+		<item name="great mana potion" chance="9170" />
+		<item name="royal helmet" chance="25000" />
+		<item name="dragon scale mail" chance="25000" />
+		<item name="dragon tongue" chance="100000" />
+		<item name="power bolt" chance="17430" />
+		<item name="onyx arrow" chance="26610" countmax="10" />
+		<item name="fire sword" chance="25000" />
+		<item name="energy ring" chance="25000" />
+		<item name="red dragon leather" chance="25000" />
+	</loot>
+</monster>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tentugly's Head" nameDescription="a tentugly's head" race="blood" experience="40000" speed="0" manacost="0">
+	<health now="75000" max="75000" />
+	<look type="0" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="energy" interval="2000" chance="40" radius="4" range="5" target="1" min="-100" max="-400">
+			<attribute key="areaEffect" value="ghostlybite" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="30" min="0" max="-250" />
+		<attack name="energy" interval="2000" chance="50" radius="5" min="-100" max="-300">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="60" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="30" />
+		<element earthPercent="-30" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="59860" countmax="3" />
+		<item name="ultimate mana potion" chance="59860" countmax="34" />
+		<item name="ultimate health potion" chance="47890" countmax="33" />
+		<item name="ultimate spirit potion" chance="28870" countmax="19" />
+		<item name="berserk potion" chance="23940" countmax="9" />
+		<item name="platinum coin" chance="23240" countmax="19" />
+		<item name="bullseye potion" chance="20420" countmax="9" />
+		<item name="mastermind potion" chance="16900" countmax="9" />
+<item name="pirate coin" chance="13380" countmax="86" />
+		<item name="cheesy key" chance="7750" />
+		<item name="giant topaz" chance="4930" />
+		<item name="small treasure chest" chance="4230" />
+		<item name="golden cheese wedge" chance="3520" />
+		<item name="golden skull" chance="3520" />
+		<item name="giant amethyst" chance="2820" />
+		<item name="sea horse figurine" chance="2820" />
+		<item name="giant ruby" chance="2110" />
+		<item name="golden dustbin" chance="2110" />
+		<item name="plushie of tentugly" chance="2110" />
+		<item name="tentacle of tentugly" chance="2110" />
+		<item name="tiara" chance="1410" />
+		<item name="tentugly's eye" chance="700" />
+		<item name="tentugly's jaws" chance="700" />
+	</loot>
+</monster>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Undead Minion" nameDescription="a undead minion" race="undead" experience="550" speed="115" manacost="1700">
+	<health now="850" max="850" />
+	<look type="37" head="0" body="0" legs="0" feet="0" addons="0" corpse="5963" />
+	<targetchange interval="5000" chance="1" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1000" chance="100" min="0" max="-248" />
+		<attack name="lifedrain" interval="1000" chance="13" radius="4" target="0" min="-100" max="-160">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="40" />
+		<item name="blank rune" chance="10000" />
+		<item name="battle hammer" chance="5000" />
+		<item name="battle shield" chance="1000" />
+		<item name="guardian shield" chance="5000" />
+		<item name="surprise bag" chance="5538" />
+		<item name="surprise bag" chance="1538" />
+	</loot>
+</monster>

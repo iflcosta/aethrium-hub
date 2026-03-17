@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ichgahal" nameDescription="a ichgahal" race="undead" experience="3250000" speed="250" manacost="0">
+	<health now="350000" max="350000" />
+	<look type="1665" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="10000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="98" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="3000" chance="100" min="-1500" max="-2300" />
+		<attack name="physical" interval="1000" chance="10" length="12" spread="0" target="0" min="-700" max="-1000" />
+		<attack name="manadrain" interval="2000" chance="20" length="12" spread="0" target="0" min="-2600" max="-2300" />
+		<attack name="fire" interval="2000" chance="20" length="6" spread="0" target="0" min="-900" max="-1500">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="35" radius="8" target="0" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="105" defense="105">
+		<defense name="healing" interval="3000" chance="10" min="800" max="1200" />
+	</defenses>
+	<elements>
+		<element physicalPercent="15" />
+		<element energyPercent="15" />
+		<element earthPercent="15" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="15" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Rott!!" />
+		<voice sentence="Putrefy!" />
+		<voice sentence="Decay!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="14615" countmax="100" />
+		<item name="ultimate spirit potion" chance="7169" countmax="100" />
+		<item name="mastermind potion" chance="14651" countmax="45" />
+		<item name="yellow gem" chance="9243" countmax="5" />
+		<item name="amber with a bug" chance="7224" countmax="2" />
+		<item name="ultimate mana potion" chance="13137" countmax="100" />
+		<item name="violet gem" chance="14447" countmax="4" />
+		<item name="raw watermelon tourmaline" chance="6788" countmax="2" />
+		<item name="red gem" chance="9047" />
+		<item name="supreme health potion" chance="14635" countmax="37" />
+		<item name="berserk potion" chance="14973" countmax="45" />
+		<item name="amber with a dragonfly" chance="6470" />
+		<item name="gold ingot" chance="11421" />
+		<item name="blue gem" chance="8394" />
+		<item name="bullseye potion" chance="13783" countmax="36" />
+<item name="white gem" chance="13559" countmax="3" />
+</loot>
+</monster>

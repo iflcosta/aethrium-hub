@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="orc warlord" nameDescription="a orc warlord" race="blood" experience="670" speed="117" manacost="0">
+  <health now="950" max="950" />
+  <look type="2" head="0" body="0" legs="0" feet="0" addons="0" corpse="6008" />
+  <targetchange interval="4000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-250" />
+    <attack name="physical" interval="2000" chance="20" range="7" target="0" min="0" max="-200">
+      <attribute key="shootEffect" value="throwingstar" />
+    </attack>
+  </attacks>
+  <defenses armor="28" defense="35">
+    <defense name="invisible" interval="2000" chance="5">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="20" />
+    <element earthPercent="-10" />
+    <element firePercent="80" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="10" />
+    <element deathPercent="-5" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Ikem rambo zambo!" />
+    <voice sentence="Orc buta bana!" />
+    <voice sentence="Ranat Ulderek!" />
+    <voice sentence="Futchi maruk buta!" />
+  </voices>
+  <loot>
+    <item name="gold coin" chance="18000" countmax="45" />
+    <item name="stealth ring" chance="90" />
+    <item name="gold ring" chance="30" />
+    <item name="protection amulet" chance="2190" />
+    <item name="two handed sword" chance="1680" />
+    <item name="throwing star" chance="13920" countmax="18" />
+    <item name="scimitar" chance="3450" />
+    <item name="orcish axe" chance="5400" />
+    <item name="dragon hammer" chance="320" />
+    <item name="plate armor" chance="5210" />
+    <item name="brass armor" chance="740" />
+    <item name="dark helmet" chance="1260" />
+    <item name="crusader helmet" chance="280" />
+    <item name="plate legs" chance="4280" />
+    <item name="fish" chance="10800" countmax="2" />
+    <item name="hunting spear" chance="5260" />
+    <item name="orc trophy" chance="50" />
+    <item name="health potion" chance="470" />
+    <item name="magma boots" chance="280" />
+    <item name="orc tooth" chance="9640" />
+    <item name="broken helmet" chance="24350" />
+    <item name="orc leather" chance="20620" />
+    <item name="skull belt" chance="4610" />
+  </loot>
+</monster>

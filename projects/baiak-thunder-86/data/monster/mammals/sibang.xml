@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="sibang" nameDescription="a sibang" race="blood" experience="105" speed="107" manacost="0">
+	<health now="225" max="225" />
+	<look type="118" head="0" body="0" legs="0" feet="0" addons="0" corpse="6045" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-40" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="0" min="0" max="-55">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="380" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-15" />
+		<element holyPercent="10" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Eeeeek! Eeeeek!" />
+		<voice sentence="Huh! Huh! Huh!" />
+		<voice sentence="Ahhuuaaa!" />
+	</voices>
+	<loot>
+		<item name="small stone" chance="30060" countmax="3" />
+		<item name="gold coin" chance="56000" countmax="35" />
+		<item name="orange" chance="19840" countmax="5" />
+		<item name="banana" chance="30000" countmax="12" />
+		<item name="coconut" chance="1960" countmax="3" />
+		<item name="melon" chance="1000" />
+		<item name="ape fur" chance="1000" />
+		<item name="banana sash" chance="5000" />
+	</loot>
+</monster>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="terrorsleep" nameDescription="a terrorsleep" race="blood" experience="6900" speed="180" manacost="0">
+	<health now="7200" max="7200" />
+	<look type="587" head="0" body="0" legs="0" feet="0" addons="0" corpse="22497" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="physical" interval="2000" chance="20" radius="7" target="0" min="-1000" max="-1500">
+			<attribute key="areaEffect" value="yellowenergy" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" radius="5" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="7" target="0" />
+		<attack name="lifedrain" interval="2000" chance="10" length="6" spread="0" target="1" min="-350" max="-500">
+			<attribute key="areaEffect" value="yellowenergy" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="1" target="1" min="-200" max="-450">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50">
+		<defense name="healing" interval="2000" chance="15" min="300" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="15">
+			<attribute key="areaEffect" value="mortarea" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="15" />
+		<element energyPercent="-5" />
+		<element earthPercent="100" />
+		<element firePercent="35" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="-10" />
+		<element deathPercent="55" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Aktat Roshok! Marruk!" />
+		<voice sentence="I will eat you in your sleep." />
+		<voice sentence="I am the darkness around you..." />
+	</voices>
+	<loot>
+		<item name="small ruby" chance="9600" countmax="3" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="small emerald" chance="14000" />
+		<item name="small amethyst" chance="17000" countmax="3" />
+		<item name="platinum coin" chance="100000" countmax="8" />
+		<item name="giant sword" chance="560" />
+		<item name="warrior helmet" chance="2820" />
+		<item name="knight armor" chance="4000" />
+		<item name="white piece of cloth" chance="4520" />
+		<item name="red piece of cloth" chance="1130" />
+		<item name="great mana potion" chance="36000" countmax="2" />
+		<item name="ultimate health potion" chance="26000" />
+		<item name="small topaz" chance="17000" countmax="2" />
+		<item name="blue crystal shard" chance="6000" />
+		<item name="blue crystal splinter" chance="13000" />
+		<item name="cyan crystal fragment" chance="17000" />
+		<item name="broken dream" chance="1130" />
+		<item name="trapped bad dream monster" chance="13000" />
+		<item name="bowl of terror sweat" chance="18000" />
+	</loot>
+</monster>

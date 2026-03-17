@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dwarf geomancer" nameDescription="a dwarf geomancer" race="blood" experience="265" speed="100" manacost="0">
+  <health now="380" max="380" />
+  <look type="66" head="0" body="0" legs="0" feet="0" addons="0" corpse="6015" />
+  <targetchange interval="4000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="1" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="4" />
+    <flag staticattack="70" />
+    <flag runonhealth="110" />
+  </flags>
+  <attacks>
+    <attack name="earth" interval="2000" chance="20" range="7" target="0" min="-50" max="-110">
+      <attribute key="areaEffect" value="greenshimmer" />
+      <attribute key="shootEffect" value="smallearth" />
+    </attack>
+    <attack name="manadrain" interval="2000" chance="10" range="7" target="0" min="-50" max="-80" />
+  </attacks>
+  <defenses armor="15" defense="15">
+    <defense name="healing" interval="2000" chance="40" min="75" max="125">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="10" />
+    <element earthPercent="20" />
+    <element firePercent="60" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="-5" />
+    <element holyPercent="10" />
+    <element deathPercent="-10" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Hail Durin!" />
+    <voice sentence="Earth is the strongest element." />
+    <voice sentence="Dust to dust." />
+  </voices>
+  <loot>
+    <item name="small sapphire" chance="710" />
+    <item name="gold coin" chance="50000" countmax="35" />
+    <item name="magic light wand" chance="14000" />
+    <item name="spellbook" chance="360" />
+    <item name="dwarven ring" chance="530" />
+    <item name="blank rune" chance="33000" />
+    <item name="clerical mace" chance="1120" />
+    <item name="pear" chance="25000" />
+    <item name="white mushroom" chance="60000" countmax="2" />
+    <item name="iron ore" chance="120" />
+    <item name="terra boots" chance="470" />
+    <item name="geomancer's robe" chance="8000" />
+    <item name="geomancer's staff" chance="7000" />
+  </loot>
+</monster>

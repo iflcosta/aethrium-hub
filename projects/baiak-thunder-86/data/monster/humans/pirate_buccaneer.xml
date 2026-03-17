@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="pirate buccaneer" nameDescription="a pirate buccaneer" race="blood" experience="250" speed="109" manacost="850">
+	<health now="425" max="425" />
+	<look type="97" head="0" body="0" legs="0" feet="0" addons="0" corpse="20474" />
+	<targetchange interval="4000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="50" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-160" />
+		<attack name="physical" interval="2000" chance="20" range="4" target="0" min="0" max="-100">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="16" defense="30" />
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="-5" />
+		<element earthPercent="10" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="10" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Give up!" />
+		<voice sentence="Hiyaa" />
+		<voice sentence="Plundeeeeer!" />
+	</voices>
+	<loot>
+		<item name="torch" chance="10190" />
+		<item name="gold coin" chance="67740" countmax="59" />
+		<item name="worn leather boots" chance="9900" />
+		<item name="sabre" chance="10100" />
+		<item name="throwing knife" chance="9000" countmax="5" />
+		<item name="plate armor" chance="1130" />
+		<item name="battle shield" chance="3850" />
+		<item name="treasure map" chance="1000" />
+		<item name="rum flask" chance="120" />
+		<item name="die" chance="40" />
+		<item name="pirate backpack" chance="430" />
+		<item name="pirate shirt" chance="1200" />
+		<item name="hook" chance="450" />
+		<item name="eye patch" chance="420" />
+		<item name="peg leg" chance="510" />
+		<item name="strong health potion" chance="670" />
+		<item name="compass" chance="9780" />
+	</loot>
+</monster>

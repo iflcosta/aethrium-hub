@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="necromancer servant" nameDescription="a necromancer servant" race="blood" experience="590" speed="105" manacost="0">
+	<health now="600" max="600" />
+	<look type="9" head="0" body="0" legs="0" feet="0" addons="0" corpse="20455" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-45" />
+		<attack name="physical" interval="1000" chance="10" range="7" target="0" min="-5" max="-40">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="11" defense="11">
+		<defense name="healing" interval="2000" chance="25" min="0" max="70">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="0" />
+		<element holyPercent="-5" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="74230" countmax="70" />
+		<item name="poison arrow" chance="74230" countmax="5" />
+		<item name="book of necromantic rituals" chance="74230" />
+		<item name="incantation fragment" chance="100000" />
+		<item name="necromantic robe" chance="54230" />
+		<item name="boots of haste" chance="5000" />
+	</loot>
+</monster>

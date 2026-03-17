@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="stabilizing dread intruder" nameDescription="a stabilizing dread intruder" race="venom" experience="1900" speed="145" manacost="0">
+	<health now="2800" max="2800" />
+	<look type="882" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="2000" chance="25" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="death" interval="2000" chance="25" radius="4" range="4" target="1" min="-200" max="-300">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" target="0" min="-350" max="-450" />
+	</attacks>
+	<defenses armor="46" defense="50">
+		<defense name="healing" interval="2000" chance="5" min="80" max="120">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="80" />
+		<element earthPercent="0" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="-5" />
+		<element deathPercent="70" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Whirr!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="20000" countmax="5" />
+		<item name="energy bar" chance="12200" />
+		<item name="great mana potion" chance="10800" />
+		<item name="strange proto matter" chance="9800" />
+		<item name="solid rage" chance="9400" />
+		<item name="glistening bone" chance="9000" />
+		<item name="ultimate health potion" chance="8700" />
+		<item name="energy drink" chance="8700" />
+		<item name="great spirit potion" chance="8700" />
+		<item name="small amethyst" chance="5000" countmax="2" />
+		<item name="blue crystal splinter" chance="4800" />
+		<item name="small sapphire" chance="4400" countmax="2" />
+		<item name="violet crystal shard" chance="4200" />
+		<item name="small ruby" chance="3400" countmax="2" />
+		<item name="cyan crystal fragment" chance="3300" />
+	</loot>
+</monster>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="twisted shaper" nameDescription="a twisted shaper" race="blood" experience="2050" speed="140" manacost="0">
+	<health now="2500" max="2500" />
+	<look type="932" head="105" body="0" legs="0" feet="94" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-200" />
+		<attack name="physical" interval="2000" chance="10" range="7" target="1" min="-50" max="-100">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="35" length="5" spread="0" target="0" min="0" max="-100">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="8" radius="7" target="0" min="-50" max="-100">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="speed" interval="2000" chance="9" target="1" speedchange="-440" duration="7000">
+			<attribute key="areaEffect" value="giantice" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="400" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="-5" />
+		<element earthPercent="40" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="30" />
+		<element holyPercent="30" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ti Jezz Kur Tar!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="80320" countmax="100" />
+		<item name="platinum coin" chance="50320" countmax="4" />
+		<item name="brown mushroom" chance="5000" countmax="2" />
+		<item name="meat" chance="10000" countmax="2" />
+		<item name="cave turnip" chance="20000" countmax="2" />
+		<item name="orichalcum pearl" chance="5000" countmax="2" />
+		<item name="small ruby" chance="5600" countmax="5" />
+		<item name="onyx chip" chance="4900" />
+		<item name="tarnished rhino figurine" chance="14580" />
+		<item name="great health potion" chance="7300" />
+		<item name="energy ring" chance="7660" />
+		<item name="wand of cosmic energy" chance="3810" />
+		<item name="platinum amulet" chance="370" />
+		<item name="ancient belt buckle" chance="17000" />
+		<item name="cracked alabaster vase" chance="20000" />
+		<item name="ancient coin" chance="4000" />
+	</loot>
+</monster>

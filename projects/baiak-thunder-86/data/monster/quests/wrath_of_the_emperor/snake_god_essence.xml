@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Snake God Essence" nameDescription="a snake god essence" race="blood" experience="7410" speed="150" manacost="0">
+	<health now="65000" max="65000" />
+	<look type="356" head="0" body="0" legs="0" feet="0" addons="0" corpse="12385" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-600" />
+		<attack name="lifedrain" interval="2000" chance="40" length="8" spread="3" target="0" min="0" max="-300">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="earth" interval="2000" chance="50" radius="6" target="0" min="-150" max="-270">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="65">
+		<defense name="healing" interval="2000" chance="25" min="150" max="450">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="AHHH ZHE POWER..." />
+		<voice sentence="ZHE TIME OF ZHE SNAKE HAZ COME!" />
+	</voices>
+</monster>

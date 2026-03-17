@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Versperoth" nameDescription="a versperoth" race="venom" experience="30000" speed="0" manacost="0">
+	<health now="100000" max="100000" />
+	<look type="295" head="0" body="0" legs="0" feet="0" addons="0" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1200" chance="100" skill="120" attack="115" />
+		<attack name="fire" interval="1000" chance="40" length="8" spread="3" range="5" target="0" min="-700" max="-1615">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="melee" interval="1000" chance="25" min="-750" max="-950" />
+	</attacks>
+	<defenses armor="55" defense="55" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="45" />
+		<element earthPercent="0" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="45" />
+		<element holyPercent="40" />
+		<element deathPercent="55" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="GrrroaR!" />
+		<voice sentence="GROWL!" />
+		<voice sentence="Waaaah!" />
+	</voices>
+</monster>

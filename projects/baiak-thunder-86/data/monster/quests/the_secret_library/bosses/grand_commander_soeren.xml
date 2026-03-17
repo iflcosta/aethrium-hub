@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grand Commander Soeren" nameDescription="a grand commander soeren" race="blood" experience="12000" speed="105" manacost="0">
+	<health now="17000" max="17000" />
+	<look type="1071" head="57" body="96" legs="76" feet="105" addons="2" corpse="3128" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-150" max="-700" />
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" min="-200" max="-720">
+			<attribute key="shootEffect" value="royalspear" />
+		</attack>
+		<attack name="holy" interval="1000" chance="14" length="8" spread="0" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="50">
+		<defense name="healing" interval="2000" chance="20" min="200" max="650">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="-25" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Flinch even once, and I will crush every fiber within you!" />
+		<voice sentence="The Falcon reigns supreme!" />
+	</voices>
+	<loot>
+		<item name="small enchanted amethyst" chance="15000" countmax="3" />
+		<item name="platinum coin" chance="50000" countmax="3" />
+		<item name="great health potion" chance="50000" countmax="3" />
+		<item name="small ruby" chance="12700" countmax="3" />
+		<item name="onyx arrow" chance="30000" countmax="3" />
+		<item name="golden armor" chance="1000" />
+		<item name="green gem" chance="1300" />
+		<item name="damaged armor plates" chance="1800" countmax="3" />
+		<item name="falcon crest" chance="400" countmax="3" />
+		<item name="patch of fine cloth" chance="2500" />
+		<item name="falcon coif" chance="200" />
+		<item name="falcon bow" chance="200" />
+	</loot>
+</monster>

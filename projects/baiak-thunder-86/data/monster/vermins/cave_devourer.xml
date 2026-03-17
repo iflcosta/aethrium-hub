@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cave devourer" nameDescription="a cave devourer" race="blood" experience="3380" speed="120" manacost="0">
+	<health now="4500" max="4500" />
+	<look type="1036" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="physical" interval="2000" chance="15" range="7" target="1" min="-190" max="-300">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" length="6" spread="3" range="3" target="0" min="-70" max="-160">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="6" spread="3" range="3" target="0" min="-90" max="-160">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="3" range="7" target="1" min="-230" max="-450">
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="5" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="cave devourer eyes" chance="24580" />
+		<item name="cave devourer maw" chance="27540" />
+		<item name="small enchanted sapphire" chance="8050" />
+		<item name="small enchanted ruby" chance="6780" />
+		<item name="crystalline arrow" chance="23520" countmax="40" />
+		<item name="blue crystal shard" chance="10590" />
+		<item name="violet crystal shard" chance="7630" />
+		<item name="green crystal shard" chance="8900" />
+		<item name="cyan crystal fragment" chance="5720" />
+		<item name="slime heart" chance="13770" countmax="4" />
+		<item name="cave devourer legs" chance="17160" />
+		<item name="stealth ring" chance="2540" />
+		<item name="suspicious device" chance="850" />
+	</loot>
+</monster>

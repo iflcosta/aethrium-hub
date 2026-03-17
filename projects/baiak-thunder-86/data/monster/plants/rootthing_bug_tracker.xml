@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="rootthing bug tracker" nameDescription="a rootthing bug tracker" race="venom" experience="9650" speed="195" manacost="0">
+	<health now="12500" max="12500" />
+	<look type="1763" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-300" />
+		<attack name="physical" interval="2000" chance="14" min="-630" max="-840" />
+		<attack name="physical" interval="2000" chance="20" radius="4" target="1" min="-530" max="-720">
+			<attribute key="areaEffect" value="explosionhit" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" radius="2" range="6" target="1" min="-460" max="-740">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="16" />
+		<attack name="physical" interval="2000" chance="18" min="-400" max="-625" />
+	</attacks>
+	<defenses armor="92" defense="92" />
+	<elements>
+		<element physicalPercent="15" />
+		<element energyPercent="25" />
+		<element earthPercent="100" />
+		<element firePercent="-15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="0" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ktsktskts!" />
+		<voice sentence="BRRRRN!!!" />
+		<voice sentence="FRRRRR!!!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="74620" countmax="44" />
+		<item name="small emerald" chance="6180" />
+<item name="springsprout rod" chance="3170" />
+		<item name="wood cape" chance="1170" />
+		<item name="green gem" chance="1170" />
+		<item name="golden legs" chance="170" />
+		<item name="composite hornbow" chance="170" />
+</loot>
+</monster>

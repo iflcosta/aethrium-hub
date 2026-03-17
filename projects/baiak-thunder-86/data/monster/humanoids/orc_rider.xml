@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="orc rider" nameDescription="a orc rider" race="blood" experience="110" speed="130" manacost="360">
+	<health now="180" max="180" />
+	<look type="4" head="0" body="0" legs="0" feet="0" addons="0" corpse="6010" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-130" />
+	</attacks>
+	<defenses armor="9" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="200" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="20" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="10" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Orc arga Huummmak!" />
+		<voice sentence="Grrrrrrr" />
+	</voices>
+	<loot>
+		<item name="torch" chance="980" />
+		<item name="wolf tooth chain" chance="10210" />
+		<item name="gold coin" chance="46000" countmax="81" />
+		<item name="obsidian lance" chance="1100" />
+		<item name="orcish axe" chance="6880" />
+		<item name="scale armor" chance="610" />
+		<item name="battle shield" chance="9900" />
+		<item name="meat" chance="24000" countmax="3" />
+		<item name="orc tooth" chance="2000" />
+		<item name="warwolf fur" chance="9410" />
+		<item name="orc leather" chance="9760" />
+	</loot>
+</monster>

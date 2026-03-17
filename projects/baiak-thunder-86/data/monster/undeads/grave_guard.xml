@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="grave guard" nameDescription="a grave guard" race="undead" experience="485" speed="100" manacost="0">
+	<health now="720" max="720" />
+	<look type="234" head="0" body="0" legs="0" feet="0" addons="0" corpse="13975" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-147" />
+		<attack name="physical" interval="2000" chance="5" radius="1" target="0">
+			<attribute key="areaEffect" value="bluenote" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="20" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="30" />
+		<element earthPercent="90" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-10" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="30" />
+		<item name="scarab coin" chance="4166" />
+		<item name="daramian waraxe" chance="1170" />
+		<item name="grave flower" chance="70000" />
+		<item name="death ring" chance="1754" />
+		<item name="health potion" chance="20000" />
+		<item name="mana potion" chance="20000" />
+	</loot>
+</monster>

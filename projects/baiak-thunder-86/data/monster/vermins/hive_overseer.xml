@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hive overseer" nameDescription="a hive overseer" race="venom" experience="5500" speed="115" manacost="0">
+	<health now="7500" max="7500" />
+	<look type="458" head="0" body="0" legs="0" feet="0" addons="0" corpse="15354" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-450" />
+		<attack name="earth" interval="2000" chance="20" radius="4" target="0" min="-60" max="-80">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="4" target="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="57" defense="45">
+		<defense name="healing" interval="2000" chance="50" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="500" max="700">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="40" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="10" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Zopp!" />
+		<voice sentence="Kropp!" />
+	</voices>
+	<loot>
+		<item name="small ruby" chance="16000" countmax="2" />
+		<item name="gold coin" chance="40000" countmax="100" />
+		<item name="gold coin" chance="58000" countmax="98" />
+		<item name="platinum coin" chance="84000" countmax="6" />
+		<item name="steel boots" chance="550" />
+		<item name="great mana potion" chance="18000" />
+<item name="ultimate health potion" chance="12000" />
+		<item name="gold ingot" chance="29000" />
+		<item name="kollos shell" chance="28000" />
+		<item name="compound eye" chance="16000" />
+		<item name="calopteryx cape" chance="830" />
+		<item name="carapace shield" chance="920" />
+		<item name="hive scythe" chance="1650" />
+		<item name="gooey mass" chance="13000" countmax="2" />
+		<item name="hive bow" chance="830" />
+	</loot>
+</monster>

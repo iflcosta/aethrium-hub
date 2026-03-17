@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="bony sea devil" nameDescription="a bony sea devil" race="undead" experience="19470" speed="220" manacost="0">
+	<health now="24000" max="24000" />
+	<look type="1294" head="0" body="0" legs="0" feet="0" addons="0" corpse="36453" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900" />
+		<attack name="earth" interval="2000" chance="15" length="5" spread="3" target="0" min="-900" max="-1350">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="energy" interval="2000" chance="10" radius="7" target="0" min="-700" max="-1000">
+			<attribute key="areaEffect" value="bigclouds" />
+		</attack>
+		<attack name="ice" interval="2000" chance="20" range="7" target="1" min="-950" max="-1260">
+			<attribute key="areaEffect" value="iceattack" />
+			<attribute key="shootEffect" value="snowball" />
+		</attack>
+		<attack name="ice" interval="2000" chance="25" radius="5" range="7" target="1" min="-950" max="-1100">
+			<attribute key="areaEffect" value="icearea" />
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" min="-1100" max="-1300" />
+		<attack name="physical" interval="2000" chance="1" target="1" />
+		<attack name="physical" interval="1000" chance="30" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="40" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="60" />
+		<element holyPercent="-10" />
+		<element deathPercent="5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Bling." />
+		<voice sentence="Clank." />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="59290" />
+		<item name="ultimate health potion" chance="19470" countmax="6" />
+		<item name="gold ingot" chance="15040" />
+		<item name="giant shimmering pearl" chance="9730" />
+		<item name="hailstorm rod" chance="7960" />
+		<item name="onyx chip" chance="6190" />
+		<item name="green crystal fragment" chance="5310" />
+		<item name="wand of voodoo" chance="4420" />
+		<item name="violet gem" chance="4420" />
+		<item name="jaws" chance="3540" />
+		<item name="rainbow quartz" chance="2650" countmax="3" />
+		<item name="northwind rod" chance="1770" />
+		<item name="underworld rod" chance="1770" />
+		<item name="skullcracker armor" chance="1770" />
+		<item name="rod" chance="880" />
+		<item name="goblet of gloom" chance="880" />
+		<item name="glacier kilt" chance="880" />
+		<item name="glacial rod" chance="1210" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

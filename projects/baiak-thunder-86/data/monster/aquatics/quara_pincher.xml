@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="quara pincher" nameDescription="a quara pincher" race="blood" experience="1500" speed="198" manacost="0">
+	<health now="1800" max="1800" />
+	<look type="77" head="0" body="0" legs="0" feet="0" addons="0" corpse="6063" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-342">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" range="1" target="0" speedchange="-600" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="85" defense="50" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-25" />
+		<element earthPercent="-10" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Clank! Clank!" />
+		<voice sentence="Clap!" />
+		<voice sentence="Crrrk! Crrrk!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="50" />
+		<item name="platinum coin" chance="40000" />
+		<item name="quara pincers" chance="14285" />
+		<item name="great health potion" chance="10630" />
+		<item name="small ruby" chance="7761" countmax="2" />
+		<item name="halberd" chance="6861" />
+		<item name="shrimp" chance="5245" countmax="5" />
+		<item name="fish fin" chance="1600" />
+		<item name="warrior helmet" chance="1460" />
+		<item name="crown armor" chance="280" />
+		<item name="glacier robe" chance="120" />
+		<item name="giant shrimp" chance="40" />
+	</loot>
+</monster>

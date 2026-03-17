@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mean lost soul" nameDescription="a mean lost soul" race="undead" experience="5580" speed="250" manacost="0">
+	<health now="5000" max="5000" />
+	<look type="1268" head="0" body="14" legs="0" feet="83" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-100" max="-500" />
+		<attack name="earth" interval="1700" chance="15" radius="3" target="1" min="-300" max="-550">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="energy" interval="1700" chance="25" length="4" spread="0" target="0" min="-300" max="-550">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="death" interval="1700" chance="35" radius="3" target="0" min="-300" max="-550">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="80" defense="40" />
+	<elements>
+		<element physicalPercent="55" />
+		<element energyPercent="30" />
+		<element earthPercent="20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-30" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="56040" />
+		<item name="lost soul" chance="36220" />
+		<item name="death toll" chance="4890" />
+		<item name="skull staff" chance="4540" />
+		<item name="machete" chance="3520" />
+		<item name="ensouled essence" chance="2760" />
+		<item name="fire axe" chance="1400" />
+		<item name="ivory comb" chance="1200" />
+		<item name="mercenary sword" chance="1050" />
+		<item name="haunted blade" chance="960" />
+		<item name="warrior's axe" chance="730" />
+		<item name="twiceslicer" chance="310" />
+	</loot>
+</monster>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cyclops drone" nameDescription="a cyclops drone" race="blood" experience="200" speed="99" manacost="650">
+	<health now="325" max="325" />
+	<look type="280" head="0" body="0" legs="0" feet="0" addons="0" corpse="7847" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-105" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="0" min="0" max="-80">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="20" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="20" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Fee! Fie! Foe! Fum!" />
+		<voice sentence="Luttl pest!" />
+		<voice sentence="Me makking you pulp!" />
+		<voice sentence="Humy tasy! Hum hum!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="82000" countmax="30" />
+		<item name="club ring" chance="90" />
+		<item name="halberd" chance="680" />
+		<item name="short sword" chance="8000" />
+		<item name="dark helmet" chance="190" />
+		<item name="plate shield" chance="2000" />
+		<item name="battle shield" chance="1600" />
+		<item name="meat" chance="50430" countmax="2" />
+		<item name="cyclops trophy" chance="120" />
+		<item name="strong health potion" chance="520" />
+		<item name="cyclops toe" chance="6750" />
+	</loot>
+</monster>

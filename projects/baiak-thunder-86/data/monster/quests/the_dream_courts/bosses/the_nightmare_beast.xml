@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Nightmare Beast" nameDescription="a the nightmare beast" race="blood" experience="75000" speed="125" manacost="0">
+	<health now="850000" max="850000" />
+	<look type="1144" head="0" body="0" legs="0" feet="0" addons="0" corpse="32815" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="2000" chance="100" target="1" min="-1000" max="-3500" />
+		<attack name="physical" interval="2000" chance="25" target="0" min="-1000" max="-2100" />
+		<attack name="physical" interval="2000" chance="25" target="0" min="-1000" max="-2000" />
+		<attack name="death" interval="2000" chance="25" radius="5" target="0" min="-700" max="-1000">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="160" defense="160" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="35" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="15" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="collar of blue plasma" chance="6450" />
+		<item name="ring of blue plasma" chance="3230" />
+		<item name="ring of green plasma" chance="16129" />
+		<item name="ring of red plasma" chance="9680" />
+		<item name="collar of green plasma" chance="9680" />
+		<item name="collar of red plasma" chance="12900" />
+		<item name="enchanted sleep shawl" chance="2830" />
+		<item name="red gem" chance="41940" countmax="2" />
+		<item name="abyss hammer" chance="2830" />
+		<item name="arcane staff" chance="3130" />
+		<item name="beast's nightmare-cushion" chance="3770" />
+		<item name="berserk potion" chance="16129" countmax="9" />
+		<item name="blue gem" chance="6450" />
+		<item name="bullseye potion" chance="32259" countmax="19" />
+		<item name="chaos mace" chance="10380" />
+		<item name="crystal coin" chance="22580" countmax="3" />
+		<item name="dark whispers" chance="3230" />
+		<item name="energy bar" chance="91510" />
+		<item name="giant emerald" chance="1890" />
+		<item name="giant ruby" chance="6450" />
+		<item name="giant sapphire" chance="2830" />
+		<item name="giant shimmering pearl" chance="9680" />
+		<item name="gold ingot" chance="16129" />
+		<item name="gold token" chance="64150" />
+		<item name="green gem" chance="19350" />
+		<item name="huge chunk of crude iron" chance="38710" />
+		<item name="ice shield" chance="9680" />
+		<item name="magic sulphur" chance="8490" />
+		<item name="mastermind potion" chance="12900" countmax="18" />
+		<item name="mysterious remains" chance="93400" />
+<item name="piggy bank" chance="100000" />
+		<item name="piggy bank" chance="94340" />
+		<item name="platinum coin" chance="100000" countmax="9" />
+		<item name="purple tendril lantern" chance="6600" />
+		<item name="ring of the sky" chance="4720" />
+		<item name="royal star" chance="48390" countmax="100" />
+		<item name="silver token" chance="98110" countmax="4" />
+		<item name="skull staff" chance="12900" />
+		<item name="soul stone" chance="4720" />
+		<item name="supreme health potion" chance="58060" countmax="29" />
+		<item name="turquoise tendril lantern" chance="7550" />
+<item name="ultimate mana potion" chance="64519" countmax="29" />
+		<item name="ultimate spirit potion" chance="58060" countmax="24" />
+		<item name="violet gem" chance="6450" />
+		<item name="yellow gem" chance="45160" countmax="2" />
+	</loot>
+</monster>

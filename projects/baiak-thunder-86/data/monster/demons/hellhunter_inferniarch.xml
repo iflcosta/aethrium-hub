@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hellhunter inferniarch" nameDescription="a hellhunter inferniarch" race="fire" experience="8100" speed="175" manacost="0">
+	<health now="11300" max="11300" />
+	<look type="1793" head="0" body="0" legs="0" feet="0" addons="0" corpse="2869" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="death" interval="2000" chance="15" range="4" target="1" min="-219" max="-261">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="bolt" />
+		</attack>
+	</attacks>
+	<defenses armor="73" defense="15" />
+	<elements>
+		<element deathPercent="-15" />
+		<element earthPercent="-15" />
+		<element holyPercent="0" />
+		<element firePercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element physicalPercent="10" />
+		<element energyPercent="15" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ardash... El...!" />
+		<voice sentence="Urrrglll!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="5000" countmax="35" />
+		<item name="assassin star" chance="3000" countmax="10" />
+<item name="small amethyst" chance="3000" countmax="4" />
+		<item name="dark helmet" chance="1500" />
+		<item name="sniper arrow" chance="1500" countmax="5" />
+<item name="onyx arrow" chance="1000" countmax="5" />
+		<item name="death ring" chance="900" />
+		<item name="cyan crystal fragment" chance="900" />
+</loot>
+</monster>

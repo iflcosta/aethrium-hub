@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="misguided thief" nameDescription="a misguided thief" race="blood" experience="1200" speed="130" manacost="0">
+	<health now="1800" max="1800" />
+	<look type="684" head="58" body="40" legs="60" feet="116" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-225" />
+		<attack name="fire" interval="2000" chance="20" range="7" target="1" min="-100" max="-150">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="1000" chance="20" min="200" max="450">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-1" />
+		<element energyPercent="0" />
+		<element earthPercent="-1" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-1" />
+		<element holyPercent="1" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I spotted you!" />
+		<voice sentence="Let me show you your destiny!" />
+		<voice sentence="There is no escape now, friend." />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="80" />
+		<item name="strong mana potion" chance="9660" />
+		<item name="red gem" chance="5680" />
+		<item name="ham" chance="58520" />
+		<item name="strong health potion" chance="5680" />
+		<item name="meat" chance="47160" />
+		<item name="yellow gem" chance="6250" />
+		<item name="rubbish amulet" chance="6250" />
+		<item name="blue crystal splinter" chance="570" />
+	</loot>
+</monster>

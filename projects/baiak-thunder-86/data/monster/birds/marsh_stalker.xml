@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="marsh stalker" nameDescription="a marsh stalker" race="blood" experience="50" speed="75" manacost="0">
+	<health now="100" max="100" />
+	<look type="530" head="0" body="0" legs="0" feet="0" addons="0" corpse="19708" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-10" />
+		<attack name="physical" interval="2000" chance="20" radius="1" range="7" target="1" min="0" max="-8">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="explosion" />
+		</attack>
+	</attacks>
+	<defenses armor="3" defense="3" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="-5" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Rrrawk! Rrrrawk!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="64090" countmax="23" />
+		<item name="meat" chance="19950" countmax="2" />
+		<item name="fish" chance="20320" countmax="2" />
+		<item name="worm" chance="14730" countmax="2" />
+		<item name="marsh stalker feather" chance="8650" />
+		<item name="longsword" chance="7560" />
+		<item name="marsh stalker beak" chance="6080" />
+		<item name="rope" chance="4830" />
+		<item name="seeds" chance="110" />
+	</loot>
+</monster>

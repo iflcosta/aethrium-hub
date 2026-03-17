@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="midnight asura" nameDescription="a midnight asura" race="blood" experience="4100" speed="120" manacost="0">
+	<health now="3100" max="3100" />
+	<look type="150" head="0" body="114" legs="90" feet="90" addons="1" corpse="24644" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-387" />
+		<attack name="manadrain" interval="3300" chance="10" range="7" target="1" min="0" max="-70" />
+		<attack name="energy" interval="3700" chance="17" length="5" spread="0" target="0" min="-150" max="-200">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+		<attack name="death" interval="4100" chance="27" length="8" spread="0" target="0" min="-150" max="-300">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2700" chance="15" range="5" target="1" min="-50" max="-200">
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="energy" interval="3100" chance="15" range="1" target="1" min="-50" max="-100">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="1" target="1" speedchange="-800" duration="15000">
+			<attribute key="areaEffect" value="sleep" />
+			<attribute key="shootEffect" value="explosion" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="30" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Death and Darkness!" />
+		<voice sentence="Embrace the night!" />
+		<voice sentence="May night fall upon you!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="70980" countmax="100" />
+		<item name="platinum coin" chance="80500" countmax="6" />
+		<item name="assassin star" chance="6640" countmax="5" />
+		<item name="black pearl" chance="3670" countmax="2" />
+		<item name="crystal ring" chance="440" />
+		<item name="flask of demonic blood" chance="14110" />
+		<item name="demonic essence" chance="9950" />
+		<item name="small diamond" chance="5680" countmax="3" />
+		<item name="small emerald" chance="3240" />
+		<item name="small ruby" chance="3090" />
+		<item name="small sapphire" chance="5550" countmax="3" />
+		<item name="small topaz" chance="2910" />
+		<item name="great health potion" chance="8450" countmax="2" />
+		<item name="white pearl" chance="5660" />
+		<item name="assassin dagger" chance="350" />
+		<item name="blue gem" chance="290" />
+		<item name="blue robe" chance="530" />
+		<item name="gold ingot" chance="140" />
+		<item name="golden lotus brooch" chance="12700" />
+		<item name="necrotic rod" chance="2460" />
+		<item name="oriental shoes" chance="390" />
+		<item name="peacock feather fan" chance="10740" />
+		<item name="skullcracker armor" chance="180" />
+		<item name="silver brooch" chance="3650" />
+		<item name="silver amulet" chance="1050" />
+		<item name="soul orb" chance="14580" />
+		<item name="spellbook of mind control" chance="150" />
+		<item name="tribal mask" chance="2030" />
+		<item name="underworld rod" chance="760" />
+		<item name="yellow gem" chance="870" />
+	</loot>
+</monster>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="goblin assassin" nameDescription="a goblin assassin" race="blood" experience="52" speed="70" manacost="200">
+	<health now="75" max="75" />
+	<look type="296" head="0" body="0" legs="0" feet="0" addons="0" corpse="6002" />
+	<targetchange interval="10000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-15" />
+		<attack name="drunk" interval="2000" chance="10" target="0" duration="10000">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" range="6" target="0" min="0" max="-35">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="6" defense="15">
+		<defense name="invisible" interval="2000" chance="10">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="100" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="20" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="20" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Goblin Powahhh!" />
+		<voice sentence="Me kill you!" />
+		<voice sentence="Me green menace!" />
+		<voice sentence="Gobabunga!" />
+		<voice sentence="Gooobliiiins!" />
+	</voices>
+	<loot>
+		<item name="small stone" chance="9900" countmax="3" />
+		<item name="gold coin" chance="50000" countmax="9" />
+		<item name="bone" chance="13000" />
+		<item name="mouldy cheese" chance="6610" />
+		<item name="dagger" chance="17000" />
+		<item name="short sword" chance="8820" />
+		<item name="bone club" chance="4770" />
+		<item name="leather helmet" chance="13000" />
+		<item name="leather armor" chance="7240" />
+		<item name="small axe" chance="9800" />
+		<item name="fish" chance="12400" />
+	</loot>
+</monster>

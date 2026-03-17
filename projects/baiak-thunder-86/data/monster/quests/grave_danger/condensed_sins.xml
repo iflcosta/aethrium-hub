@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="condensed sins" nameDescription="a condensed sins" race="undead" experience="0" speed="80" manacost="0">
+  <health now="1500" max="1500" />
+  <look type="315" head="0" body="0" legs="0" feet="0" addons="0" corpse="11317" />
+  <targetchange interval="5000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-500" />
+    <attack name="physical" interval="3500" chance="25" radius="4" range="3" target="0" min="-350" max="-600">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="physical" interval="2000" chance="5" range="5" target="0" />
+  </attacks>
+  <defenses armor="10" defense="10" />
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="-10" />
+    <element earthPercent="100" />
+    <element firePercent="-10" />
+    <element lifedrainPercent="100" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="20" />
+    <element holyPercent="0" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="0" />
+    <immunity outfit="0" />
+    <immunity invisible="0" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

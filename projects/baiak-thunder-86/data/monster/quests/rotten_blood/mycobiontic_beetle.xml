@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mycobiontic beetle" nameDescription="a mycobiontic beetle" race="undead" experience="21175" speed="230" manacost="0">
+	<health now="30200" max="30200" />
+	<look type="1620" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1600" />
+		<attack name="earth" interval="2500" chance="20" radius="5" target="1" min="-1100" max="-1400">
+			<attribute key="areaEffect" value="greenenergy" />
+		</attack>
+		<attack name="earth" chance="15" length="8" spread="3" target="0" min="-1200" max="-1600">
+			<attribute key="areaEffect" value="greenenergy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="5" target="0" min="-1400" max="-1700">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" radius="5" target="0" min="-1200" max="-1400">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" min="-900" max="-1300" />
+	</attacks>
+	<defenses armor="116" defense="116" />
+	<elements>
+		<element physicalPercent="25" />
+		<element energyPercent="-15" />
+		<element earthPercent="60" />
+		<element firePercent="35" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-25" />
+		<element holyPercent="-5" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="15540" />
+		<item name="ultimate health potion" chance="43253" countmax="5" />
+		<item name="serpent sword" chance="32253" />
+		<item name="glacier mask" chance="21920" />
+		<item name="small sapphire" chance="34560" countmax="3" />
+<item name="scarab coin" chance="22920" countmax="3" />
+		<item name="buckle" chance="22920" />
+<item name="violet gem" chance="18920" />
+		<item name="blue gem" chance="15920" />
+		<item name="small ruby" chance="24560" countmax="3" />
+	</loot>
+</monster>

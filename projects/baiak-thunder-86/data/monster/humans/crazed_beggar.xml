@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="crazed beggar" nameDescription="a crazed beggar" race="blood" experience="35" speed="77" manacost="200">
+	<health now="100" max="100" />
+	<look type="153" head="40" body="19" legs="21" feet="97" addons="3" corpse="20351" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-25" />
+	</attacks>
+	<defenses armor="4" defense="15" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="20" />
+		<element earthPercent="-10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="10" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hehehe!" />
+		<voice sentence="Raahhh!" />
+		<voice sentence="You are one of THEM! Die!" />
+		<voice sentence="Wanna buy roses??" />
+		<voice sentence="Make it stop!" />
+		<voice sentence="They're coming! They're coming!" />
+		<voice sentence="Gimme money!" />
+	</voices>
+	<loot>
+		<item name="small blue pillow" chance="420" />
+		<item name="lute" chance="360" />
+		<item name="gold coin" chance="99000" countmax="9" />
+		<item name="dwarven ring" chance="120" />
+		<item name="dirty cape" chance="55000" />
+		<item name="wooden hammer" chance="6500" />
+		<item name="wooden spoon" chance="9750" />
+		<item name="rolling pin" chance="5650" />
+		<item name="meat" chance="9500" />
+		<item name="roll" chance="22500" />
+		<item name="red rose" chance="4700" />
+		<item name="sling herb" chance="420" />
+		<item name="rum flask" chance="420" />
+		<item name="very noble-looking watch" chance="300" />
+		<item name="heavily rusted armor" chance="80" />
+	</loot>
+</monster>

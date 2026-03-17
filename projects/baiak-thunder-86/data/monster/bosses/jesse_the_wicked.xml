@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Jesse the Wicked" nameDescription="a jesse the wicked" race="blood" experience="180" speed="110" manacost="0">
+	<health now="280" max="280" />
+	<look type="134" head="95" body="95" legs="95" feet="113" addons="3" corpse="20434" />
+	<targetchange interval="4000" chance="5" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-100" />
+	</attacks>
+	<defenses armor="25" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="That banker never saw it coming!" />
+		<voice sentence="You will not take this gold from me!" />
+		<voice sentence="KEEP YOUR HANDS OFF THAT BAG!" />
+		<voice sentence="Kill him, men!" />
+		<voice sentence="Take from the rich, keep it for yourself. That's my motto." />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="99" />
+		<item name="bag with stolen gold" chance="100000" />
+	</loot>
+</monster>

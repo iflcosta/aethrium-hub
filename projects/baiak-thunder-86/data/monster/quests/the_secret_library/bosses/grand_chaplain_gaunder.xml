@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grand Chaplain Gaunder" nameDescription="a grand chaplain gaunder" race="blood" experience="14000" speed="105" manacost="0">
+	<health now="18000" max="18000" />
+	<look type="1071" head="57" body="96" legs="23" feet="105" addons="1" corpse="31389" />
+	<targetchange interval="3000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-150" max="-850" />
+		<attack name="lifedrain" interval="1500" chance="15" radius="4" range="4" target="0" min="-380" max="-890">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" min="-290" max="-720">
+			<attribute key="shootEffect" value="etherealspear" />
+		</attack>
+		<attack name="holy" interval="1500" chance="14" length="8" spread="0" target="0" min="-300" max="-1000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" radius="3" range="5" target="0" min="-200" max="-700">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="50">
+		<defense name="healing" interval="2000" chance="20" min="200" max="550">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="220" duration="5000">
+			<attribute key="areaEffect" value="poff" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="80" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Witness the might of The Order of the Falcon!" />
+		<voice sentence="Suffer, for you are disobedient!" />
+	</voices>
+	<loot>
+		<item name="flask of demonic blood" chance="50000" countmax="2" />
+		<item name="ham" chance="50000" countmax="2" />
+		<item name="onyx arrow" chance="35000" countmax="3" />
+		<item name="small diamond" chance="30000" countmax="3" />
+		<item name="small emerald" chance="30000" countmax="3" />
+		<item name="small enchanted amethyst" chance="20000" countmax="3" />
+		<item name="damaged armor plates" chance="2350" countmax="3" />
+<item name="knight armor" chance="7000" />
+		<item name="patch of fine cloth" chance="1800" />
+		<item name="spiked squelcher" chance="3200" />
+		<item name="titan axe" chance="2400" />
+		<item name="falcon battleaxe" chance="200" />
+		<item name="falcon longsword" chance="200" />
+		<item name="falcon mace" chance="210" />
+		<item name="falcon plate" chance="100" />
+		<item name="falcon shield" chance="100" />
+	</loot>
+</monster>

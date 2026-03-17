@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="wild warrior" nameDescription="a wild warrior" race="blood" experience="60" speed="95" manacost="270">
+	<health now="135" max="135" />
+	<look type="131" head="38" body="38" legs="38" feet="38" addons="0" corpse="20534" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-70" />
+	</attacks>
+	<defenses armor="8" defense="20">
+		<defense name="speed" interval="2000" chance="15" speedchange="200" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="10" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Gimme your money!" />
+		<voice sentence="An enemy!" />
+	</voices>
+	<loot>
+		<item name="doll" chance="520" />
+		<item name="gold coin" chance="49070" countmax="30" />
+		<item name="axe" chance="30710" />
+		<item name="mace" chance="9800" />
+		<item name="chain helmet" chance="5250" />
+		<item name="iron helmet" chance="580" />
+		<item name="brass armor" chance="2540" />
+		<item name="steel shield" chance="910" />
+		<item name="brass shield" chance="17000" />
+		<item name="egg" chance="9730" countmax="2" />
+	</loot>
+</monster>

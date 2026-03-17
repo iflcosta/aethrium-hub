@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="oozing corpus" nameDescription="a oozing corpus" race="undead" experience="20600" speed="220" manacost="0">
+	<health now="28700" max="28700" />
+	<look type="1625" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1600" />
+		<attack name="physical" interval="2500" chance="20" radius="5" target="1" min="-1300" max="-1700">
+			<attribute key="areaEffect" value="ghostlybite" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="8" spread="3" target="0" min="-1400" max="-1550">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="earth" interval="2000" chance="15" length="8" spread="3" target="0" min="-1100" max="-1550">
+			<attribute key="areaEffect" value="greenenergy" />
+		</attack>
+		<attack name="physical" interval="3000" chance="15" target="1" min="-900" max="-1300" />
+	</attacks>
+	<defenses armor="107" defense="100" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="-25" />
+		<element earthPercent="40" />
+		<element firePercent="25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="9000" />
+<item name="terra boots" chance="12369" />
+		<item name="small amethyst" chance="12859" />
+<item name="blue gem" chance="9808" />
+		<item name="dragonbone staff" chance="6964" />
+<item name="violet gem" chance="5084" />
+		<item name="jade hammer" chance="3073" />
+	</loot>
+</monster>

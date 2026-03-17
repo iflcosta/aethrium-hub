@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="carnivostrich" nameDescription="a carnivostrich" race="blood" experience="7290" speed="168" manacost="0">
+	<health now="8250" max="8250" />
+	<look type="1605" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="3" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" />
+		<attack name="physical" interval="2500" chance="40" range="7" target="1" min="-386" max="-480">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="physical" interval="3000" chance="40" range="7" target="1" min="-100" max="-135">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+		<attack name="death" interval="3500" chance="30" length="7" spread="0" target="0" min="-350" max="-495">
+			<attribute key="areaEffect" value="blacksmoke" />
+		</attack>
+		<attack name="energy" interval="4000" chance="30" length="7" spread="0" target="0" min="-280" max="-320">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="4500" chance="20" range="3" target="1" min="-302" max="-309" />
+		<attack name="physical" interval="5000" chance="20" min="-325" max="-415" />
+	</attacks>
+	<defenses armor="63" defense="50" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="15" />
+		<element earthPercent="0" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-20" />
+		<element deathPercent="5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Yooohhouuu!" />
+		<voice sentence="GRROARR" />
+		<voice sentence="Grrrrrrrr!" />
+		<voice sentence="Yoooohhuuuu!!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="80450" countmax="28" />
+		<item name="small ruby" chance="16390" countmax="8" />
+		<item name="small emerald" chance="8330" countmax="8" />
+		<item name="strong mana potion" chance="4910" countmax="4" />
+<item name="underworld rod" chance="2420" />
+		<item name="wand of voodoo" chance="2110" />
+		<item name="blue gem" chance="2090" />
+		<item name="spellbook of mind control" chance="810" />
+		<item name="boots of haste" chance="620" />
+	</loot>
+</monster>

@@ -1,0 +1,14 @@
+
+> aethrium-hub@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.15.43:3000
+- Environments: .env.local, .env
+
+✓ Starting...
+✓ Ready in 1417ms
+ GET /api/agents 200 in 548ms (compile: 284ms, render: 264ms)
+Deseja finalizar o arquivo em lotes (S/N)? [?25h
+Deseja finalizar o arquivo em lotes (S/N)? 

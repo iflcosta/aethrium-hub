@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="exotic cave spider" nameDescription="a exotic cave spider" race="venom" experience="1400" speed="132" manacost="0">
+	<health now="1900" max="1900" />
+	<look type="1344" head="0" body="0" legs="0" feet="0" addons="0" corpse="38014" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="10" radius="1" range="7" target="1">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" radius="3" range="7" target="1" min="-90" max="-150">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="100000" />
+		<item name="great health potion" chance="9600" />
+		<item name="poison arrow" chance="14600" />
+		<item name="terra boots" chance="4400" />
+		<item name="silver amulet" chance="4550" />
+		<item name="spider silk" chance="2850" />
+		<item name="terra mantle" chance="850" />
+	</loot>
+</monster>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="candy floss elemental" nameDescription="a candy floss elemental" race="undead" experience="3850" speed="105" manacost="0">
+	<health now="3700" max="3700" />
+	<look type="1749" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-350" />
+		<attack name="energy" interval="2000" chance="20" range="7" target="1" min="-150" max="-250">
+			<attribute key="areaEffect" value="starburst" />
+			<attribute key="shootEffect" value="cherrybomb" />
+		</attack>
+		<attack name="ice" interval="2000" chance="20" range="6" target="1" min="-160" max="-300">
+			<attribute key="areaEffect" value="iceattack" />
+			<attribute key="shootEffect" value="smallice" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" radius="2" range="6" target="1" min="-160" max="-300">
+			<attribute key="areaEffect" value="pixieexplosion" />
+			<attribute key="shootEffect" value="smallice" />
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45" />
+	<elements>
+		<element physicalPercent="40" />
+		<element energyPercent="15" />
+		<element earthPercent="-10" />
+		<element firePercent="-15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Come into my fluffy embrace!" />
+		<voice sentence="Want fairy floss? I will feed you up." />
+		<voice sentence="Did you have to come here, little one? I just wanted to lay around and take it easy." />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="95860" countmax="100" />
+		<item name="platinum coin" chance="86660" countmax="11" />
+		<item name="fairy wings" chance="6400" />
+		<item name="energy bar" chance="4100" />
+<item name="opal" chance="3260" />
+		<item name="rainbow quartz" chance="3030" countmax="2" />
+		<item name="violet crystal shard" chance="2450" />
+<item name="violet gem" chance="1500" />
+<item name="springsprout rod" chance="650" />
+		<item name="dead minotaur" chance="310" />
+		<item name="silver amulet" chance="120" />
+	</loot>
+</monster>

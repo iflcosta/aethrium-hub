@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="redeemed soul" nameDescription="a redeemed soul" race="undead" experience="0" speed="70" manacost="0">
+	<health now="250" max="250" />
+	<look type="714" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="60000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="250" />
+	</flags>
+	<attacks />
+	<defenses armor="12" defense="15">
+		<defense name="speed" interval="2000" chance="8" speedchange="240" duration="20000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="100" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="15">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="60" />
+		<element energyPercent="20" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="100" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ting-a-ling." />
+		<voice sentence="Free ... finally." />
+	</voices>
+</monster>

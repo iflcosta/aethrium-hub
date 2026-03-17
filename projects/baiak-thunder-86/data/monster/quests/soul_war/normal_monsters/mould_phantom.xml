@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mould phantom" nameDescription="a mould phantom" race="undead" experience="18330" speed="240" manacost="0">
+	<health now="28000" max="28000" />
+	<look type="1298" head="106" body="60" legs="131" feet="116" addons="0" corpse="36789" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900" />
+		<attack name="physical" interval="2000" chance="15" range="7" min="-1000" max="-1250" />
+		<attack name="earth" interval="3000" chance="20" radius="4" target="0" min="-1100" max="-1350">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+		<attack name="holy" interval="2000" chance="25" range="7" target="1" min="-1030" max="-1350">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="smallholy" />
+		</attack>
+		<attack name="holy" interval="2000" chance="25" radius="4" range="7" target="1" min="-1100" max="-1300">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="smallholy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" min="-400" max="-700" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="0" />
+		<element earthPercent="50" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Everything decomposes." />
+		<voice sentence="I love the smell of rotten flesh." />
+		<voice sentence="The earth will take you back." />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="57370" />
+		<item name="gold ingot" chance="11840" />
+		<item name="wand of starstorm" chance="4440" />
+		<item name="green gem" chance="3800" />
+		<item name="violet gem" chance="3550" />
+		<item name="mould heart" chance="3490" />
+		<item name="wand of defiance" chance="2930" />
+		<item name="blue gem" chance="2440" />
+		<item name="wand of voodoo" chance="2360" />
+		<item name="mould robe" chance="2200" />
+		<item name="collar of blue plasma" chance="1070" />
+		<item name="ring of blue plasma" chance="1040" />
+		<item name="ornate crossbow" chance="840" />
+		<item name="crystal crossbow" chance="620" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

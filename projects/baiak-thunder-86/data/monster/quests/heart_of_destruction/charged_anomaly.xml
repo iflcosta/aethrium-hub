@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="charged anomaly" nameDescription="a charged anomaly" race="venom" experience="0" speed="50" manacost="0">
+  <health now="18000" max="18000" />
+  <look type="876" head="80" body="6" legs="5" feet="80" addons="1" />
+  <targetchange interval="2000" chance="25" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="-900" max="-2100" />
+    <attack name="energy" interval="2000" chance="25" radius="3" target="0" min="-500" max="-900">
+      <attribute key="areaEffect" value="bigclouds" />
+    </attack>
+    <attack name="energy" interval="2000" chance="25" length="7" spread="0" target="0" min="-350" max="-700">
+      <attribute key="areaEffect" value="energyarea" />
+    </attack>
+    <attack name="energy" interval="2000" chance="25" length="7" spread="0" target="0" min="-500" max="-800">
+      <attribute key="areaEffect" value="yellowenergy" />
+    </attack>
+    <attack name="physical" interval="2000" chance="40" target="0" />
+    <attack name="physical" interval="9000" chance="100" target="0" />
+  </attacks>
+  <defenses armor="100" defense="100">
+    <defense name="healing" interval="2000" chance="25">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="100" />
+    <element energyPercent="100" />
+    <element earthPercent="100" />
+    <element firePercent="100" />
+    <element lifedrainPercent="100" />
+    <element manadrainPercent="100" />
+    <element drownPercent="100" />
+    <element icePercent="100" />
+    <element holyPercent="100" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

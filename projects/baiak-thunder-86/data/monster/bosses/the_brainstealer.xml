@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Brainstealer" nameDescription="a the brainstealer" race="undead" experience="72000" speed="425" manacost="0">
+	<health now="300000" max="300000" />
+	<look type="1412" head="94" body="88" legs="88" feet="114" addons="0" corpse="36843" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-900" />
+		<attack name="death" interval="2000" chance="20" radius="4" range="7" target="1" min="-1200" max="-1900">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="4" min="-700" max="-1000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-1200" max="-1600">
+			<attribute key="areaEffect" value="electricalspark" />
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="78">
+		<defense name="healing" interval="2000" chance="15" min="1450" max="5350">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="3" />
+		<element earthPercent="0" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="100000" />
+		<item name="crystal coin" chance="100000" />
+		<item name="violet gem" chance="50000" />
+		<item name="mastermind potion" chance="50000" />
+<item name="moonstone" chance="50000" />
+		<item name="ultimate spirit potion" chance="50000" />
+		<item name="white gem" chance="50000" />
+		<item name="brainstealer's tissue" chance="6000" />
+		<item name="brainstealer's brain" chance="5000" />
+<item name="eldritch cowl" chance="240" />
+		<item name="eldritch hood" chance="225" />
+		<item name="eldritch bow" chance="210" />
+		<item name="eldritch quiver" chance="250" />
+		<item name="eldritch claymore" chance="130" />
+		<item name="eldritch greataxe" chance="110" />
+		<item name="eldritch warmace" chance="320" />
+<item name="eldritch shield" chance="180" />
+		<item name="eldritch cuirass" chance="160" />
+		<item name="eldritch folio" chance="170" />
+		<item name="eldritch tome" chance="190" />
+<item name="eldritch wand" chance="180" />
+		<item name="gilded eldritch claymore" chance="140" />
+		<item name="gilded eldritch greataxe" chance="120" />
+		<item name="gilded eldritch warmace" chance="100" />
+		<item name="gilded eldritch wand" chance="80" />
+<item name="gilded eldritch bow" chance="50" />
+<item name="eldritch crystal" chance="30" />
+	</loot>
+</monster>

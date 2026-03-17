@@ -1,0 +1,464 @@
+--[[
+═══════════════════════════════════════════════════════════════
+    DAILY QUEST SYSTEM
+    Styller Nexus - Baiak Thunder 8.6
+    TFS 1.5 Compatible
+    Version: 1.0
+    
+    Sistema de missões diárias para retenção de players.
+    Streak bonus e rewards escaláveis.
+═══════════════════════════════════════════════════════════════
+]]
+
+-- ============================================================
+-- CONFIGURAÇÕES
+-- ============================================================
+
+local config = {
+    -- Storage Keys
+    STORAGE_DAILY_QUEST = 50600,        -- Quest atual (ID)
+    STORAGE_DAILY_PROGRESS = 50601,     -- Progresso (kills/loots)
+    STORAGE_DAILY_COMPLETED = 50602,    -- Completadas hoje
+    STORAGE_DAILY_STREAK = 50603,       -- Dias consecutivos
+    STORAGE_LAST_QUEST_DAY = 50604,     -- Último dia que pegou quest
+    STORAGE_QUEST_REROLL = 50605,       -- Rerolls disponíveis
+    
+    -- Limites
+    maxDailyQuests = 3,         -- 3 quests por dia
+    streakBonusStart = 3,       -- Bonus começa no dia 3
+    maxStreakBonus = 7,         -- Bonus máximo dia 7+
+    
+    -- Reroll
+    freeRerollsPerDay = 1,      -- 1 reroll grátis/dia
+    rerollCost = 50,            -- 50 points = R$ 5
+    
+    -- Tipos de quest
+    questTypes = {
+        KILL = 1,
+        LOOT = 2,
+        DAMAGE = 3,
+    },
+    
+    -- Pool de quests
+    questPool = {
+        -- KILL QUESTS
+        {type = 1, name = "Demon Slayer", monster = "Demon", amount = 100, reward = {exp = 500000, gold = 50000}},
+        {type = 1, name = "Dragon Hunter", monster = "Dragon Lord", amount = 150, reward = {exp = 300000, gold = 30000}},
+        {type = 1, name = "Hydra Exterminator", monster = "Hydra", amount = 80, reward = {exp = 400000, gold = 40000}},
+        {type = 1, name = "Nightmare Slayer", monster = "Nightmare", amount = 120, reward = {exp = 350000, gold = 35000}},
+        {type = 1, name = "Hero Killer", monster = "Hero", amount = 100, reward = {exp = 380000, gold = 38000}},
+        {type = 1, name = "Serpent Hunter", monster = "Serpent Spawn", amount = 90, reward = {exp = 420000, gold = 42000}},
+        {type = 1, name = "Frost Breaker", monster = "Frost Dragon", amount = 70, reward = {exp = 450000, gold = 45000}},
+        {type = 1, name = "Fury Destroyer", monster = "Fury", amount = 50, reward = {exp = 600000, gold = 60000}},
+        
+        -- LOOT QUESTS
+        {type = 2, name = "Treasure Hunter", item = "Gold Coin", amount = 100000, reward = {exp = 300000, item = 2160, itemCount = 10}},
+        {type = 2, name = "Gem Collector", item = "Small Diamond", amount = 20, reward = {exp = 250000, gold = 25000}},
+        
+        -- DAMAGE QUESTS
+        {type = 3, name = "Heavy Hitter", damage = 1000000, reward = {exp = 500000, gold = 50000}},
+    },
+}
+
+-- ============================================================
+-- FUNÇÕES AUXILIARES
+-- ============================================================
+
+local function getCurrentQuest(player)
+    local questId = player:getStorageValue(config.STORAGE_DAILY_QUEST)
+    if questId <= 0 or questId > #config.questPool then
+        return nil
+    end
+    return config.questPool[questId]
+end
+
+local function getQuestProgress(player)
+    return math.max(0, player:getStorageValue(config.STORAGE_DAILY_PROGRESS))
+end
+
+local function getCompletedToday(player)
+    return math.max(0, player:getStorageValue(config.STORAGE_DAILY_COMPLETED))
+end
+
+local function getStreak(player)
+    return math.max(0, player:getStorageValue(config.STORAGE_DAILY_STREAK))
+end
+
+local function canGetNewQuest(player)
+    local completed = getCompletedToday(player)
+    return completed < config.maxDailyQuests
+end
+
+local function resetDailyIfNeeded(player)
+    local lastDay = player:getStorageValue(config.STORAGE_LAST_QUEST_DAY)
+    local today = os.date("%Y%m%d")
+    local todayNum = tonumber(today)
+    
+    if lastDay ~= todayNum then
+        -- Novo dia!
+        local yesterday = tonumber(os.date("%Y%m%d", os.time() - 86400))
+        
+        if lastDay == yesterday then
+            -- Mantém streak
+            player:setStorageValue(config.STORAGE_DAILY_STREAK, getStreak(player) + 1)
+        else
+            -- Perdeu streak
+            player:setStorageValue(config.STORAGE_DAILY_STREAK, 0)
+        end
+        
+        -- Reset diário
+        player:setStorageValue(config.STORAGE_DAILY_COMPLETED, 0)
+        player:setStorageValue(config.STORAGE_DAILY_QUEST, 0)
+        player:setStorageValue(config.STORAGE_DAILY_PROGRESS, 0)
+        player:setStorageValue(config.STORAGE_QUEST_REROLL, config.freeRerollsPerDay)
+        player:setStorageValue(config.STORAGE_LAST_QUEST_DAY, todayNum)
+    end
+end
+
+local function assignRandomQuest(player)
+    local questId = math.random(1, #config.questPool)
+    player:setStorageValue(config.STORAGE_DAILY_QUEST, questId)
+    player:setStorageValue(config.STORAGE_DAILY_PROGRESS, 0)
+    return config.questPool[questId]
+end
+
+local function calculateStreakBonus(player)
+    local streak = getStreak(player)
+    if streak < config.streakBonusStart then
+        return 1.0
+    end
+    
+    local bonus = math.min(streak - config.streakBonusStart + 1, config.maxStreakBonus - config.streakBonusStart + 1)
+    return 1.0 + (bonus * 0.1)  -- +10% por dia de streak
+end
+
+local function giveQuestReward(player, quest)
+    local streakMultiplier = calculateStreakBonus(player)
+    
+    if quest.reward.exp then
+        local exp = math.floor(quest.reward.exp * streakMultiplier)
+        player:addExperience(exp, true)
+        player:sendTextMessage(MESSAGE_EXPERIENCE, "+" .. exp .. " experience!")
+    end
+    
+    if quest.reward.gold then
+        local gold = math.floor(quest.reward.gold * streakMultiplier)
+        player:addItem(ITEM_CRYSTAL_COIN, math.floor(gold / 10000), true)
+        player:sendTextMessage(MESSAGE_LOOT, "+" .. gold .. " gold!")
+    end
+    
+    if quest.reward.item then
+        player:addItem(quest.reward.item, quest.reward.itemCount or 1, true)
+    end
+    
+    player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+end
+
+-- ============================================================
+-- COMANDO !DAILYQUEST
+-- ============================================================
+
+local dailyQuestCommand = TalkAction("!dailyquest", "!dq")
+
+function dailyQuestCommand.onSay(player, words, param)
+    resetDailyIfNeeded(player)
+    
+    if param == "" or param == "info" then
+        local quest = getCurrentQuest(player)
+        local completed = getCompletedToday(player)
+        local streak = getStreak(player)
+        local streakBonus = calculateStreakBonus(player)
+        local rerolls = player:getStorageValue(config.STORAGE_QUEST_REROLL)
+        
+        if not quest then
+            local message = string.format([[
++--------------------------------+
+    DAILY QUESTS
++--------------------------------+
+  Completed: %d/%d
+  Streak: %d days
+  Streak Bonus: +%d%%
+  Rerolls: %d
+  
+  Type !dailyquest get
+  to receive a new quest!
++--------------------------------+
+            ]],
+                completed,
+                config.maxDailyQuests,
+                streak,
+                math.floor((streakBonus - 1) * 100),
+                rerolls
+            )
+            player:showTextDialog(1948, message)
+            return false
+        end
+        
+        local progress = getQuestProgress(player)
+        local message = string.format([[
++--------------------------------+
+    %s
++--------------------------------+
+  Progress: %d/%d
+  
+  Rewards:
+  - %s XP
+  - %s Gold
+  
+  Streak: %d days (+%d%% bonus)
+  Completed: %d/%d
+  
+  !dq complete - Claim reward
+  !dq reroll - Get new quest
++--------------------------------+
+        ]],
+            quest.name,
+            progress,
+            quest.amount or quest.damage,
+            quest.reward.exp and formatNumber(quest.reward.exp) or "0",
+            quest.reward.gold and formatNumber(quest.reward.gold) or "0",
+            streak,
+            math.floor((streakBonus - 1) * 100),
+            completed,
+            config.maxDailyQuests
+        )
+        
+        player:showTextDialog(1948, message)
+        return false
+    end
+    
+    if param == "get" then
+        if not canGetNewQuest(player) then
+            player:sendCancelMessage("You have completed all daily quests today!")
+            return false
+        end
+        
+        if getCurrentQuest(player) then
+            player:sendCancelMessage("You already have an active quest! Complete or reroll it first.")
+            return false
+        end
+        
+        local quest = assignRandomQuest(player)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+            string.format("New daily quest: %s! Type !dq for details.", quest.name))
+        player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+        return false
+    end
+    
+    if param == "complete" then
+        local quest = getCurrentQuest(player)
+        if not quest then
+            player:sendCancelMessage("You don't have an active quest!")
+            return false
+        end
+        
+        local progress = getQuestProgress(player)
+        local required = quest.amount or quest.damage
+        
+        if progress < required then
+            player:sendCancelMessage(string.format("Quest not completed yet! %d/%d", progress, required))
+            return false
+        end
+        
+        -- Dar reward
+        giveQuestReward(player, quest)
+        
+        -- Marcar como completa
+        player:setStorageValue(config.STORAGE_DAILY_COMPLETED, getCompletedToday(player) + 1)
+        player:setStorageValue(config.STORAGE_DAILY_QUEST, 0)
+        player:setStorageValue(config.STORAGE_DAILY_PROGRESS, 0)
+        
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+            string.format("Quest completed! Streak: %d days", getStreak(player)))
+        
+        return false
+    end
+    
+    if param == "reroll" then
+        local quest = getCurrentQuest(player)
+        if not quest then
+            player:sendCancelMessage("You don't have an active quest!")
+            return false
+        end
+        
+        local rerolls = player:getStorageValue(config.STORAGE_QUEST_REROLL)
+        if rerolls <= 0 then
+            player:sendCancelMessage(string.format("No rerolls left! Buy more for %d points.", config.rerollCost))
+            return false
+        end
+        
+        -- Reroll
+        player:setStorageValue(config.STORAGE_QUEST_REROLL, rerolls - 1)
+        local newQuest = assignRandomQuest(player)
+        
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+            string.format("Quest rerolled! New quest: %s", newQuest.name))
+        player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+        
+        return false
+    end
+    
+    return false
+end
+
+dailyQuestCommand:separator(" ")
+dailyQuestCommand:register()
+
+-- ============================================================
+-- TRACKING (onKill)
+-- ============================================================
+
+local dailyQuestKill = CreatureEvent("DailyQuestKill")
+
+function dailyQuestKill.onKill(player, target)
+    if not target or not target:isMonster() then
+        return true
+    end
+    
+    local quest = getCurrentQuest(player)
+    if not quest or quest.type ~= config.questTypes.KILL then
+        return true
+    end
+    
+    if target:getName():lower() == quest.monster:lower() then
+        local progress = getQuestProgress(player) + 1
+        player:setStorageValue(config.STORAGE_DAILY_PROGRESS, progress)
+        
+        if progress >= quest.amount then
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+                "Daily quest completed! Type !dq complete to claim reward.")
+            player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+        elseif progress % 10 == 0 then
+            player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,
+                string.format("Daily quest: %d/%d %s killed.", progress, quest.amount, quest.monster))
+        end
+    end
+    
+    return true
+end
+
+dailyQuestKill:register()
+
+-- ============================================================
+-- LOGIN EVENT
+-- ============================================================
+
+local dailyQuestLogin = CreatureEvent("DailyQuestLogin")
+
+function dailyQuestLogin.onLogin(player)
+    player:registerEvent("DailyQuestKill")
+    resetDailyIfNeeded(player)
+    
+    local streak = getStreak(player)
+    if streak > 0 then
+        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,
+            string.format("Daily quest streak: %d days! Type !dq for quests.", streak))
+    end
+    
+    return true
+end
+
+dailyQuestLogin:register()
+
+-- ============================================================
+-- HELPER FUNCTION
+-- ============================================================
+
+function formatNumber(n)
+    if n >= 1000000 then
+        return string.format("%.1fM", n / 1000000)
+    elseif n >= 1000 then
+        return string.format("%.1fk", n / 1000)
+    else
+        return tostring(n)
+    end
+end
+
+-- ============================================================
+-- DAMAGE EVENT (HEAVY HITTER FIX - VERSÃO COMPATÍVEL)
+-- ============================================================
+
+local dailyQuestDamage = CreatureEvent("DailyQuestDamage")
+dailyQuestDamage:type("healthchange")
+
+function dailyQuestDamage.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+    -- Se não houver atacante ou não for player, ignora
+    if not attacker or not attacker:isPlayer() then 
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+    
+    -- Se o alvo não for um monstro (evita contar dano em players), ignora
+    if not creature or not creature:isMonster() then
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+
+    -- Verifica se o player tem quest ativa
+    local currentQuestId = attacker:getStorageValue(config.STORAGE_DAILY_QUEST)
+    if currentQuestId <= 0 then 
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+
+    -- Verifica se a quest já foi completada hoje
+    if attacker:getStorageValue(config.STORAGE_DAILY_COMPLETED) >= 1 then
+        return primaryDamage, primaryType, secondaryDamage, secondaryType
+    end
+
+    local quest = questConfig[currentQuestId]
+    
+    -- Só processa se a quest for do tipo DAMAGE
+    if not quest or quest.type ~= "DAMAGE" then 
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+
+    -- Calcula o dano total deste hit
+    local damage = (primaryDamage or 0) + (secondaryDamage or 0)
+    if damage <= 0 then 
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+
+    -- Atualiza o progresso
+    local currentProgress = math.max(0, attacker:getStorageValue(config.STORAGE_DAILY_PROGRESS))
+    
+    -- Se já acabou, não conta mais
+    if currentProgress >= quest.amount then 
+        return primaryDamage, primaryType, secondaryDamage, secondaryType 
+    end
+
+    local newProgress = currentProgress + damage
+    attacker:setStorageValue(config.STORAGE_DAILY_PROGRESS, newProgress)
+
+    -- Mensagens de Feedback (Log de console para não floodar a tela)
+    if newProgress >= quest.amount then
+        attacker:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Daily Quest: Dano necessario atingido! Digite !dq complete.")
+        attacker:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+    else
+        -- Mostra progresso a cada 50k de dano para dar um feedback visual
+        if math.floor(newProgress / 50000) > math.floor(currentProgress / 50000) then
+            attacker:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 
+                string.format("Daily Quest Progress: %s / %s", formatNumber(newProgress), formatNumber(quest.amount)))
+        end
+    end
+
+    return primaryDamage, primaryType, secondaryDamage, secondaryType
+end
+
+dailyQuestDamage:register()
+
+-- ============================================================
+-- LOGIN FIX (REGISTRA O EVENTO NO PLAYER)
+-- ============================================================
+
+-- Procure no seu arquivo original a função "dailyQuestLogin.onLogin"
+-- E adicione a linha: player:registerEvent("DailyQuestDamage")
+-- Ou simplesmente cole este código abaixo que ele sobrescreve o registro:
+
+local dailyQuestLoginFix = CreatureEvent("DailyQuestLoginFix")
+dailyQuestLoginFix:type("login")
+function dailyQuestLoginFix.onLogin(player)
+    player:registerEvent("DailyQuestDamage")
+    return true
+end
+dailyQuestLoginFix:register()
+
+print(">> [Daily Quest System] Loaded successfully!")
+print(">> Commands: !dailyquest (!dq) get/complete/reroll/info")

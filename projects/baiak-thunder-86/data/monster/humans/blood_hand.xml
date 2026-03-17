@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="blood hand" nameDescription="a blood hand" race="blood" experience="750" speed="96" manacost="0">
+	<health now="700" max="700" />
+	<look type="552" head="0" body="0" legs="0" feet="0" addons="0" corpse="21261" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="lifedrain" interval="2000" chance="20" radius="4" target="0" min="-50" max="-100">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" radius="4" target="1" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="6" target="0" min="-120" max="-160">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="48" defense="25">
+		<defense name="healing" interval="2000" chance="20" min="70" max="90">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="10" />
+		<element holyPercent="-10" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Blood for the dark god!" />
+		<voice sentence="Die, filth!" />
+		<voice sentence="For the Blood God!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="necrotic rod" chance="3000" />
+		<item name="boots of haste" chance="210" />
+		<item name="skull staff" chance="130" />
+		<item name="mystic turban" chance="790" />
+		<item name="white piece of cloth" chance="840" />
+		<item name="red piece of cloth" chance="500" />
+		<item name="noble axe" chance="10" />
+		<item name="strong mana potion" chance="5590" />
+		<item name="spellbook of enlightenment" chance="790" />
+		<item name="book of necromantic rituals" chance="9340" />
+		<item name="red gem" chance="710" />
+		<item name="lancet" chance="10680" />
+		<item name="horoscope" chance="7950" />
+		<item name="blood tincture in a vial" chance="15460" />
+		<item name="incantation notes" chance="8820" />
+		<item name="pieces of magic chalk" chance="6120" />
+	</loot>
+</monster>

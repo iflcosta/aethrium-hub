@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="iks yapunac" nameDescription="a iks yapunac" race="blood" experience="3125" speed="120" manacost="0">
+	<health now="3125" max="3125" />
+	<look type="1702" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-250">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" min="-175" max="-300" />
+		<attack name="death" interval="2000" chance="17" range="5" target="1" min="-140" max="-260">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45" />
+	<elements>
+		<element physicalPercent="15" />
+		<element energyPercent="-10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="15" />
+		<element deathPercent="-20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="MIT-MAH!" />
+		<voice sentence="Grrrmh..." />
+		<voice sentence="CHAHAAAR!!!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="10" />
+		<item name="gold coin" chance="100000" countmax="50" />
+		<item name="giant shimmering pearl" chance="14830" />
+		<item name="great health potion" chance="14530" />
+		<item name="tiger eye" chance="4820" />
+		<item name="green crystal splinter" chance="4190" />
+		<item name="brown crystal splinter" chance="4160" />
+		<item name="opal" chance="3450" countmax="2" />
+		<item name="gearwheel chain" chance="3150" />
+		<item name="onyx chip" chance="2490" />
+<item name="spiked squelcher" chance="1700" />
+</loot>
+</monster>

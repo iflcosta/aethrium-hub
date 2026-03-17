@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lost gnome" nameDescription="a lost gnome" race="blood" experience="0" speed="100" manacost="0">
+	<health now="10000" max="10000" />
+	<look type="493" head="10" body="32" legs="15" feet="7" addons="0" corpse="33011" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks />
+	<defenses armor="45" defense="33" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Are we there yet?" />
+		<voice sentence="Think I saw a nice gem back there, I need to..." />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="10000" countmax="2" />
+		<item name="heavy old tome" chance="10000" countmax="2" />
+	</loot>
+</monster>

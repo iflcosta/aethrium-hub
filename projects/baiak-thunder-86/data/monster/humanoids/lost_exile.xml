@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lost exile" nameDescription="a lost exile" race="blood" experience="1800" speed="125" manacost="0">
+	<health now="1600" max="1600" />
+	<look type="537" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-120" />
+		<attack name="physical" interval="2000" chance="15" length="6" spread="0" range="3" target="0" min="-150" max="-350">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" length="5" spread="5" range="3" target="0" min="-150" max="-250">
+			<attribute key="areaEffect" value="smoke" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" length="5" spread="5" range="3" target="0" min="-150" max="-290">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" target="0" min="-70" max="-250" />
+		<attack name="drunk" interval="2000" chance="10" range="7" target="0" duration="5000">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="20" min="0" max="160">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="-10" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="**" />
+		<voice sentence="**" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="60240" countmax="2" />
+		<item name="strong health potion" chance="10950" countmax="2" />
+		<item name="great mana potion" chance="8330" countmax="2" />
+		<item name="brown mushroom" chance="16900" countmax="2" />
+		<item name="coal" chance="13100" />
+		<item name="holy ash" chance="13100" />
+		<item name="small topaz" chance="10240" />
+		<item name="lost husher's staff" chance="6900" />
+		<item name="skull shatterer" chance="7620" />
+		<item name="wimp tooth chain" chance="11900" />
+		<item name="red hair dye" chance="12620" />
+		<item name="basalt fetish" chance="8100" />
+		<item name="bonecarving knife" chance="8100" />
+		<item name="basalt figurine" chance="8100" />
+		<item name="bone fetish" chance="8881" />
+		<item name="dwarven ring" chance="1043" />
+		<item name="guardian shield" chance="1430" />
+		<item name="buckle" chance="1900" />
+		<item name="clay lump" chance="710" />
+		<item name="knight axe" chance="950" />
+		<item name="terra boots" chance="240" />
+		<item name="suspicious device" chance="250" />
+		<item name="tower shield" chance="240" />
+		<item name="terra legs" chance="240" />
+		<item name="fire axe" chance="710" />
+		<item name="skull staff" chance="480" />
+		<item name="spiked squelcher" chance="240" />
+	</loot>
+</monster>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="necromancer" nameDescription="a necromancer" race="blood" experience="580" speed="94" manacost="0">
+	<health now="580" max="580" />
+	<look type="9" head="0" body="0" legs="0" feet="0" addons="0" corpse="20458" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="death" interval="2000" chance="20" range="1" target="1" min="-10" max="-120">
+			<attribute key="areaEffect" value="smallclouds" />
+			<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" range="7" target="0" min="-35" max="-95">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="25">
+		<defense name="healing" interval="2000" chance="25" min="42" max="68">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="20" />
+		<element earthPercent="100" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="10" />
+		<element holyPercent="-5" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Taste the sweetness of death!" />
+		<voice sentence="Your corpse will be mine." />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="30050" countmax="90" />
+		<item name="boots of haste" chance="210" />
+		<item name="clerical mace" chance="390" />
+		<item name="skull staff" chance="100" />
+		<item name="poison arrow" chance="15000" countmax="5" />
+		<item name="mystic turban" chance="500" />
+		<item name="green mushroom" chance="1470" />
+		<item name="noble axe" chance="10" />
+		<item name="strong mana potion" chance="300" />
+		<item name="spellbook of warding" chance="130" />
+		<item name="book of necromantic rituals" chance="10130" />
+		<item name="necromantic robe" chance="1001" />
+	</loot>
+</monster>

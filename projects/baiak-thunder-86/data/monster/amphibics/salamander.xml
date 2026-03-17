@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="salamander" nameDescription="a salamander" race="blood" experience="25" speed="60" manacost="0">
+	<health now="70" max="70" />
+	<look type="529" head="0" body="0" legs="0" feet="0" addons="0" corpse="19707" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="10" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+	</attacks>
+	<defenses armor="3" defense="5">
+		<defense name="healing" interval="6000" chance="20" min="0" max="4">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Chrrch!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="72000" countmax="15" />
+		<item name="gold coin" chance="72000" countmax="15" />
+		<item name="mace" chance="3780" />
+		<item name="rope" chance="5190" />
+		<item name="bow" chance="740" />
+		<item name="brass helmet" chance="2180" />
+		<item name="arrow" chance="7890" countmax="3" />
+		<item name="health potion" chance="1480" />
+		<item name="scimitar" chance="490" />
+	</loot>
+</monster>

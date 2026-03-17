@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cave rat" nameDescription="a cave rat" race="blood" experience="10" speed="75" manacost="200">
+	<health now="30" max="30" />
+	<look type="56" head="0" body="0" legs="0" feet="0" addons="0" corpse="5964" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="3" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-10" />
+	</attacks>
+	<defenses armor="1" defense="5" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Meep!" />
+		<voice sentence="Meeeeep!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="85000" countmax="2" />
+		<item name="cookie" chance="750" />
+		<item name="cheese" chance="30000" />
+		<item name="worm" chance="9700" countmax="2" />
+	</loot>
+</monster>

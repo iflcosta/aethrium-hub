@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="emerald tortoise" nameDescription="a emerald tortoise" race="blood" experience="12129" speed="179" manacost="0">
+	<health now="22300" max="22300" />
+	<look type="1550" head="85" body="1" legs="85" feet="105" addons="3" corpse="44322" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1250" />
+		<attack name="physical" interval="5000" chance="37" range="3" target="1" min="-750" max="-1000" />
+		<attack name="energy" interval="2700" chance="35" range="5" target="1" min="-500" max="-600">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="3500" chance="35" min="-550" max="-1000" />
+		<attack name="physical" interval="4500" chance="20" min="-550" max="-700" />
+		<attack name="physical" interval="3800" chance="30" min="-400" max="-600" />
+		<attack name="energy" interval="4100" chance="30" radius="3" target="0" min="-450" max="-750">
+			<attribute key="areaEffect" value="blueenergyspark" />
+		</attack>
+	</attacks>
+	<defenses armor="97" defense="110" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Shllpp..." />
+	</voices>
+	<loot>
+		<item name="Emerald Tortoise Shell" chance="28590" />
+		<item name="Crystal Coin" chance="15520" countmax="3" />
+		<item name="Great Spirit Potion" chance="13360" countmax="2" />
+		<item name="Blue Crystal Shard" chance="4030" />
+		<item name="Green Crystal Fragment" chance="3950" />
+		<item name="Violet Gem" chance="3950" />
+		<item name="Red Crystal Fragment" chance="3350" />
+		<item name="Yellow Gem" chance="3320" />
+		<item name="White Pearl" chance="3240" />
+		<item name="Green Crystal Shard" chance="2900" />
+		<item name="Green Gem" chance="2870" />
+		<item name="Orichalcum Pearl" chance="2640" countmax="2" />
+<item name="Red Gem" chance="2420" />
+		<item name="Black Pearl" chance="2160" countmax="2" />
+	</loot>
+</monster>

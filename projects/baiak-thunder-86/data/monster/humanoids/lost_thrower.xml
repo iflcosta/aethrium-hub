@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lost thrower" nameDescription="a lost thrower" race="blood" experience="1500" speed="120" manacost="0">
+	<health now="1700" max="1700" />
+	<look type="539" head="0" body="0" legs="0" feet="0" addons="0" corpse="19998" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-301" />
+		<attack name="physical" interval="2000" chance="20" radius="1" range="7" target="1" min="0" max="-250">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="throwingstar" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" radius="2" range="7" target="0">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="2" range="7" target="1" min="-150" max="-300">
+			<attribute key="areaEffect" value="stun" />
+			<attribute key="shootEffect" value="whirlwindclub" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" radius="3" target="1" duration="6000">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="30">
+		<defense name="healing" interval="2000" chance="5" min="100" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="10">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="37" />
+		<item name="platinum coin" chance="70000" countmax="2" />
+		<item name="brown mushroom" chance="14500" countmax="2" />
+		<item name="iron ore" chance="9470" />
+		<item name="great mana potion" chance="13470" />
+		<item name="great health potion" chance="14730" />
+		<item name="coal" chance="12180" />
+		<item name="buckle" chance="850" />
+		<item name="broken throwing axe" chance="1390" />
+		<item name="helmet of the lost" chance="13560" />
+		<item name="lost bracers" chance="14860" />
+		<item name="mad froth" chance="11810" />
+		<item name="basalt fetish" chance="6150" />
+		<item name="basalt figurine" chance="7900" />
+	</loot>
+</monster>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Barbaria" nameDescription="a barbaria" race="blood" experience="355" speed="140" manacost="0">
+	<health now="345" max="345" />
+	<look type="264" head="78" body="97" legs="95" feet="121" addons="0" corpse="6081" />
+	<targetchange interval="60000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="60" attack="20" />
+		<attack name="physical" interval="2000" chance="34" radius="1" range="7" target="1" min="-30" max="-80">
+			<attribute key="shootEffect" value="snowball" />
+		</attack>
+		<attack name="energy" interval="3000" chance="20" range="7" target="0" min="-35" max="-70">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10">
+		<defense name="healing" interval="1000" chance="25" min="50" max="80">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="To me, creatures of the wild!" />
+		<voice sentence="My instincts tell me about your cowardice." />
+		<voice sentence="Mine is the power of rage!" />
+		<voice sentence="I'll be triumphant!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="48000" countmax="35" />
+		<item name="chain armor" chance="11000" />
+		<item name="hunting spear" chance="12500" />
+		<item name="fur bag" chance="1000" />
+		<item name="torch" chance="25000" />
+		<item name="book" chance="15000" />
+	</loot>
+</monster>

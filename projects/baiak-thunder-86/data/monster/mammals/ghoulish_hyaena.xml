@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="ghoulish hyaena" nameDescription="a ghoulish hyaena" race="blood" experience="195" speed="102" manacost="0">
+  <health now="400" max="400" />
+  <look type="94" head="0" body="0" legs="0" feet="0" addons="0" corpse="6026" />
+  <targetchange interval="5000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="1" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="30" />
+  </flags>
+  <attacks>
+    <attack name="physical" interval="4000" chance="15" />
+    <attack name="physical" interval="2000" chance="15" target="0" />
+  </attacks>
+  <defenses armor="21" defense="20">
+    <defense name="speed" interval="2000" chance="15" speedchange="3000" duration="2000" />
+  </defenses>
+  <elements>
+    <element physicalPercent="-5" />
+    <element energyPercent="0" />
+    <element earthPercent="60" />
+    <element firePercent="-15" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="-10" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Grawrrr!!" />
+    <voice sentence="Hoouu!" />
+  </voices>
+  <loot>
+    <item name="small ruby" chance="2700" countmax="2" />
+    <item name="gold coin" chance="89000" countmax="40" />
+    <item name="meat" chance="51060" countmax="3" />
+    <item name="worm" chance="65000" countmax="7" />
+    <item name="health potion" chance="19840" />
+  </loot>
+</monster>

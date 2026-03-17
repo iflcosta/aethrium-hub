@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zugurosh" nameDescription="a zugurosh" race="fire" experience="10000" speed="165" manacost="0">
+	<health now="90500" max="90500" />
+	<look type="12" head="3" body="18" legs="19" feet="91" addons="0" corpse="6068" />
+	<targetchange interval="5000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="4500" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-800" />
+		<attack name="lifedrain" interval="2000" chance="10" range="4" target="1" min="0" max="-500">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" length="7" spread="3" target="0" min="0" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="4" target="0" min="0" max="-100">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="physical" interval="3000" chance="20" radius="4" target="1" min="-10" max="-10">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="manadrain" interval="1000" chance="13" radius="5" target="0" min="-60" max="-200">
+			<attribute key="areaEffect" value="watersplash" />
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="55">
+		<defense name="healing" interval="2000" chance="50" min="40" max="60">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="50" min="400" max="600">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="invisible" interval="1000" chance="5">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="30" />
+		<element earthPercent="30" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="30" />
+		<element holyPercent="30" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You will run out of resources soon enough!" />
+		<voice sentence="One little mistake and you're all are mine!" />
+		<voice sentence="I sense your strength fading!" />
+		<voice sentence="I know you will show a weakness!" />
+		<voice sentence="Your fear will make you prone to mistakes!" />
+	</voices>
+	<loot>
+		<item name="demonic essence" chance="100000" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="slightly rusted legs" chance="54000" />
+		<item name="slightly rusted armor" chance="45000" />
+		<item name="great mana potion" chance="27000" />
+		<item name="great spirit potion" chance="26000" />
+		<item name="great health potion" chance="23000" />
+		<item name="ultimate health potion" chance="22000" />
+		<item name="gold ingot" chance="21000" />
+		<item name="platinum coin" chance="21000" countmax="30" />
+		<item name="jewel case" chance="21000" />
+		<item name="soul orb" chance="21000" countmax="10" />
+		<item name="talon" chance="18000" countmax="30" />
+		<item name="red piece of cloth" chance="17000" countmax="10" />
+		<item name="silver brooch" chance="17000" />
+		<item name="blue piece of cloth" chance="15000" countmax="10" />
+		<item name="white piece of cloth" chance="15000" countmax="10" />
+		<item name="green piece of cloth" chance="14000" countmax="10" />
+		<item name="yellow piece of cloth" chance="14000" countmax="10" />
+		<item name="brown piece of cloth" chance="12000" countmax="10" />
+		<item name="demon horn" chance="9700" countmax="2" />
+		<item name="boots of haste" chance="8700" />
+		<item name="amulet of loss" chance="6000" />
+		<item name="steel boots" chance="4500" />
+		<item name="golden boots" chance="1500" />
+	</loot>
+</monster>

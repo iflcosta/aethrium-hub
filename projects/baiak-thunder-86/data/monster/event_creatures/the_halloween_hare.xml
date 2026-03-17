@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Halloween Hare" nameDescription="a the halloween hare" race="blood" experience="0" speed="75" manacost="0">
+  <health now="2000" max="2000" />
+  <look type="74" head="0" body="0" legs="0" feet="0" addons="0" />
+  <targetchange interval="2000" chance="95" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="2" />
+    <flag staticattack="10" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="0" />
+    <attack name="outfit" interval="2000" chance="6" radius="3" target="0" duration="6000" monster="bat">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="Thornback tortoise">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="6" radius="3" target="0" duration="6000" monster="orc">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="snake">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="6" radius="3" target="0" duration="6000" monster="warlock">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="witch">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="necromancer">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="dwarf geomancer">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="monk">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="crab">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="ghost">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="minotaur mage">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="green frog">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="5" radius="3" target="0" duration="6000" monster="parrot">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="outfit" interval="2000" chance="15" radius="3" target="0" duration="6000">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+  </attacks>
+  <defenses armor="1244" defense="1244">
+    <defense name="healing" interval="1000" chance="50" min="1500" max="2000">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="100" />
+    <element energyPercent="100" />
+    <element earthPercent="100" />
+    <element firePercent="100" />
+    <element lifedrainPercent="100" />
+    <element manadrainPercent="0" />
+    <element drownPercent="100" />
+    <element icePercent="100" />
+    <element holyPercent="100" />
+    <element deathPercent="100" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="1" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

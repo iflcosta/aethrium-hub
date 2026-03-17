@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="black sphinx acolyte" nameDescription="a black sphinx acolyte" race="blood" experience="7200" speed="155" manacost="0">
+	<health now="8100" max="8100" />
+	<look type="1200" head="95" body="95" legs="94" feet="95" addons="0" corpse="34079" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="10" radius="3" target="0" min="-300" max="-400">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="death" interval="2000" chance="13" radius="3" range="4" target="1" min="-400" max="-450">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="10" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-30" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Darkness is the mother of all knowledge!" />
+		<voice sentence="Get thee gone, unworthy!" />
+		<voice sentence="The Black Sphinx will prevail!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="5" />
+		<item name="blue crystal shard" chance="5000" />
+		<item name="snakebite rod" chance="4700" />
+		<item name="underworld rod" chance="3400" />
+		<item name="violet gem" chance="2600" />
+		<item name="opal" chance="2200" countmax="2" />
+		<item name="wand of voodoo" chance="2200" />
+		<item name="empty honey glass" chance="3400" />
+		<item name="small enchanted emerald" chance="1500" countmax="3" />
+	</loot>
+</monster>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dharalion" nameDescription="a dharalion" race="blood" experience="570" speed="120" manacost="0">
+	<health now="380" max="380" />
+	<look type="203" head="0" body="0" legs="0" feet="0" addons="0" corpse="6011" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="30" attack="28" />
+		<attack name="manadrain" interval="1000" chance="15" range="7" target="0" min="-30" max="-60" />
+		<attack name="energy" interval="1000" chance="13" range="7" target="0" min="-70" max="-90">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="physical" interval="1000" chance="10" range="7" target="0" min="-80" max="-151">
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="physical" interval="1000" chance="13" range="7" target="0">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="healing" interval="1000" chance="20" min="90" max="120">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="7" speedchange="300" duration="10000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Feel my wrath!" />
+		<voice sentence="No one will stop my ascension!" />
+		<voice sentence="My powers are divine!" />
+		<voice sentence="You desecrated this temple!" />
+		<voice sentence="Muahahaha!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="holy orchid" chance="100000" />
+		<item name="elvish talisman" chance="88000" />
+		<item name="elven astral observer" chance="82000" />
+		<item name="yellow gem" chance="41790" />
+		<item name="blank rune" chance="25370" />
+		<item name="melon" chance="22390" />
+		<item name="bread" chance="16420" />
+		<item name="elven amulet" chance="14930" />
+		<item name="great mana potion" chance="13430" />
+		<item name="life crystal" chance="13430" />
+		<item name="sling herb" chance="8960" />
+		<item name="cornucopia" chance="7460" />
+		<item name="green tunic" chance="4480" />
+		<item name="royal spear" chance="1490" countmax="2" />
+	</loot>
+</monster>

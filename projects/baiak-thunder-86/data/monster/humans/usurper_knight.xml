@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="usurper knight" nameDescription="a usurper knight" race="blood" experience="6900" speed="130" manacost="0">
+	<health now="8200" max="8200" />
+	<look type="1316" head="76" body="57" legs="76" feet="95" addons="1" corpse="36832" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-500">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="death" interval="6000" chance="14" radius="3" target="0" min="-150" max="-300">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="ice" interval="6000" chance="20" length="4" spread="0" target="0" min="-150" max="-400">
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="physical" interval="8000" chance="17" range="4" target="1" min="-200" max="-450">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="83" defense="86">
+		<defense name="healing" interval="4000" chance="40" min="200" max="550">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="35" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="15" />
+		<element deathPercent="-15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="This town is ours now!" />
+		<voice sentence="Do you really think you can stand?" />
+		<voice sentence="You don't deserve Bounac!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="89725" countmax="5" />
+		<item name="leather legs" chance="27060" />
+		<item name="meat" chance="16582" />
+		<item name="lion cloak patch" chance="11190" />
+		<item name="violet gem" chance="6002" />
+		<item name="gold ingot" chance="5799" />
+		<item name="lion crest" chance="5697" />
+		<item name="knight legs" chance="5290" />
+		<item name="great mana potion" chance="4680" />
+		<item name="blue gem" chance="4171" />
+		<item name="green gem" chance="2238" />
+		<item name="magma legs" chance="610" />
+	</loot>
+</monster>

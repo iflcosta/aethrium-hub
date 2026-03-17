@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="courage leech" nameDescription="a courage leech" race="undead" experience="18900" speed="226" manacost="0">
+	<health now="27000" max="27000" />
+	<look type="1315" head="0" body="0" legs="0" feet="0" addons="0" corpse="36565" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-700" />
+		<attack name="energy" interval="2000" chance="17" radius="4" target="1" min="-1100" max="-1400">
+			<attribute key="areaEffect" value="energyarea" />
+			<attribute key="shootEffect" value="etherealspear" />
+		</attack>
+		<attack name="energy" interval="3000" chance="15" radius="4" target="0" min="-1100" max="-1400">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="energy" interval="3000" chance="15" length="7" spread="0" target="0" min="-900" max="-1100">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="holy" interval="2000" chance="20" range="7" target="1" min="-1100" max="-1300">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="smallholy" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="3" target="1" min="-900" max="-1000" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="50" />
+		<element earthPercent="-20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="30" />
+		<element deathPercent="-25" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hiss." />
+		<voice sentence="Zap! Zap!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="70910" />
+		<item name="ultimate health potion" chance="11820" countmax="7" />
+		<item name="lightning pendant" chance="3640" />
+		<item name="lightning legs" chance="3640" />
+		<item name="lightning headband" chance="2730" />
+		<item name="hammer of wrath" chance="1820" />
+		<item name="jade hammer" chance="910" />
+		<item name="dreaded cleaver" chance="910" />
+		<item name="onyx flail" chance="910" />
+		<item name="gold ring" chance="910" />
+		<item name="butcher's axe" chance="910" />
+		<item name="stone skin amulet" chance="910" />
+		<item name="nightmare blade" chance="1190" />
+		<item name="demonrage sword" chance="600" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

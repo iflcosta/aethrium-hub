@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Feroxa" nameDescription="a feroxa" race="blood" experience="0" speed="175" manacost="0">
+	<health now="150000" max="150000" />
+	<look type="731" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="2000" chance="2" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-1400" max="-1800" />
+		<attack name="death" interval="2000" chance="20" radius="6" target="0" min="-700" max="-1050">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" length="9" spread="0" target="0" min="-700" max="-1250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="7" target="0" min="-450" max="-700">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="55">
+		<defense name="speed" interval="2000" chance="12" speedchange="1250" duration="10000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="blue crystal shard" chance="10000" countmax="5" />
+		<item name="violet crystal shard" chance="10000" countmax="5" />
+		<item name="blue crystal splinter" chance="10000" countmax="5" />
+		<item name="blue gem" chance="2500" />
+		<item name="red gem" chance="2500" />
+		<item name="boots of haste" chance="1500" />
+		<item name="platinum coin" chance="100000" countmax="50" />
+		<item name="ultimate health potion" chance="10000" countmax="5" />
+		<item name="great mana potion" chance="10000" countmax="5" />
+		<item name="great health potion" chance="10000" countmax="5" />
+		<item name="werewolf helmet" chance="10000" />
+		<item name="werewolf amulet" chance="1500" />
+		<item name="wolf backpack" chance="1500" />
+		<item name="angelic axe" chance="1500" />
+		<item name="dreaded cleaver" chance="1500" />
+		<item name="fur armor" chance="1500" />
+		<item name="badger boots" chance="1500" />
+		<item name="trophy of feroxa" chance="12000" />
+	</loot>
+</monster>

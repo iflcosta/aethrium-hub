@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hulking prehemoth" nameDescription="a hulking prehemoth" race="blood" experience="12690" speed="191" manacost="0">
+	<health now="20700" max="20700" />
+	<look type="1553" head="85" body="1" legs="85" feet="105" addons="3" corpse="44331" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1250" />
+		<attack name="physical" interval="3500" chance="38" range="4" target="1" min="-850" max="-1700">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="energy" interval="4100" chance="30" radius="5" target="0" min="-600" max="-1200">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+	</attacks>
+	<defenses armor="84" defense="84" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="30" />
+		<element earthPercent="0" />
+		<element firePercent="40" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-30" />
+		<element holyPercent="-30" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="SMAASH!" />
+	</voices>
+	<loot>
+		<item name="Crystal Coin" chance="28240" />
+		<item name="Prehemoth Horns" chance="19870" />
+		<item name="Prehemoth Claw" chance="16149" countmax="2" />
+		<item name="Ultimate Health Potion" chance="16120" />
+		<item name="Furry Club" chance="7050" />
+		<item name="War Hammer" chance="4660" />
+		<item name="War Axe" chance="3040" />
+		<item name="Doublet" chance="2880" />
+		<item name="Silver Brooch" chance="1160" />
+		<item name="Emerald Bangle" chance="780" />
+	</loot>
+</monster>

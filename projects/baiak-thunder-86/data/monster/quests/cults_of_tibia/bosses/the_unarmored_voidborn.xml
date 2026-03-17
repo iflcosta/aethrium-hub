@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Unarmored Voidborn" nameDescription="a the unarmored voidborn" race="undead" experience="15000" speed="125" manacost="0">
+	<health now="250000" max="250000" />
+	<look type="987" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="50" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-550" />
+		<attack name="death" interval="2000" chance="20" length="7" spread="5" target="0" min="0" max="-400">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="energy" interval="2000" chance="30" radius="5" target="0" min="-250" max="-440">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50" />
+	<elements>
+		<element physicalPercent="-300" />
+		<element energyPercent="-255" />
+		<element earthPercent="-255" />
+		<element firePercent="-255" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-300" />
+		<element holyPercent="-300" />
+		<element deathPercent="-300" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="magic sulphur" chance="8920" countmax="10" />
+		<item name="gold ingot" chance="21200" countmax="10" />
+<item name="berserker" chance="8920" />
+		<item name="abyss hammer" chance="7620" />
+		<item name="skull helmet" chance="9700" />
+		<item name="silver token" chance="2732" />
+		<item name="gold token" chance="1532" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="29840" countmax="25" />
+		<item name="yellow gem" chance="29460" />
+		<item name="blue gem" chance="21892" />
+		<item name="skull fetish" chance="7270" />
+		<item name="bonebreaker" chance="9510" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="small diamond" chance="12760" countmax="10" />
+		<item name="small amethyst" chance="14700" countmax="10" />
+		<item name="small topaz" chance="11520" countmax="10" />
+		<item name="small sapphire" chance="13790" countmax="10" />
+		<item name="small emerald" chance="14700" countmax="10" />
+		<item name="small amethyst" chance="12259" countmax="10" />
+		<item name="energy bar" chance="16872" countmax="3" />
+		<item name="ultimate health potion" chance="27652" countmax="10" />
+		<item name="great mana potion" chance="33721" countmax="10" />
+		<item name="great spirit potion" chance="25690" countmax="5" />
+		<item name="collar of blue plasma" chance="12798" />
+		<item name="piece of royal steel" chance="15890" />
+		<item name="shadow sceptre" chance="7890" />
+		<item name="ring of red plasma" chance="14542" />
+		<item name="terra hood" chance="16892" />
+	</loot>
+</monster>

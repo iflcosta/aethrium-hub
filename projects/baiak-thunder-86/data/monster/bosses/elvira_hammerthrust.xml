@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Elvira Hammerthrust" nameDescription="a elvira hammerthrust" race="blood" experience="165" speed="103" manacost="0">
+	<health now="245" max="245" />
+	<look type="70" head="0" body="0" legs="0" feet="0" addons="0" corpse="6013" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-140" />
+	</attacks>
+	<defenses armor="15" defense="30" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="0" />
+		<element earthPercent="20" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Didn't think a dwarf girl could be so pretty and strong at the same time, did you?" />
+		<voice sentence="Hail no one except for me!" />
+		<voice sentence="You won't get this bag, I worked hard for this!" />
+		<voice sentence="Keep your hands off!" />
+		<voice sentence="How did you find us?!" />
+	</voices>
+	<loot>
+		<item name="bag with stolen gold" chance="100000" />
+		<item name="platinum coin" chance="75000" countmax="100" />
+	</loot>
+</monster>

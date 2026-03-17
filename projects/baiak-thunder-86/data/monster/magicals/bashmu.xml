@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="bashmu" nameDescription="a bashmu" race="blood" experience="5000" speed="200" manacost="0">
+	<health now="8200" max="8200" />
+	<look type="1408" head="0" body="50" legs="42" feet="79" addons="3" corpse="39460" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-600" />
+		<attack name="energy" interval="2000" chance="50" length="4" spread="0" target="0" min="-400" max="-800">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+		<attack name="energy" interval="2000" chance="40" radius="3" range="3" target="0" min="-400" max="-500">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" range="7" target="1" min="-400" max="-800">
+			<attribute key="shootEffect" value="eartharrow" />
+		</attack>
+	</attacks>
+	<defenses armor="72" defense="72">
+		<defense name="healing" interval="2000" chance="15" min="250" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="340" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="5" />
+		<element earthPercent="20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="-10" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="69350" countmax="24" />
+		<item name="guardian halberd" chance="9160" />
+		<item name="bashmu feather" chance="5320" />
+		<item name="bashmu tongue" chance="4950" />
+		<item name="sacred tree amulet" chance="4280" />
+		<item name="great spirit potion" chance="3840" countmax="4" />
+		<item name="green crystal shard" chance="3470" countmax="3" />
+		<item name="blue crystal shard" chance="2950" countmax="3" />
+		<item name="small diamond" chance="2950" countmax="6" />
+		<item name="violet gem" chance="2730" />
+		<item name="bashmu fang" chance="2070" />
+		<item name="rainbow quartz" chance="1770" />
+		<item name="terra amulet" chance="1770" />
+		<item name="glacier amulet" chance="960" />
+		<item name="glorious axe" chance="810" />
+		<item name="collar of red plasma" chance="660" />
+		<item name="haunted blade" chance="590" />
+		<item name="magma amulet" chance="520" />
+		<item name="collar of blue plasma" chance="440" />
+	</loot>
+</monster>

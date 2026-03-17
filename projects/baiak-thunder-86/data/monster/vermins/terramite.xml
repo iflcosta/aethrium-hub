@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="terramite" nameDescription="a terramite" race="venom" experience="160" speed="111" manacost="730">
+	<health now="365" max="365" />
+	<look type="346" head="0" body="0" legs="0" feet="0" addons="0" corpse="11347" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-100" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-5" max="-16">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="20" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="-5" />
+		<element earthPercent="20" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Zrp zrp!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="97520" countmax="45" />
+		<item name="terramite shell" chance="7730" />
+		<item name="terramite eggs" chance="4680" countmax="3" />
+		<item name="terramite legs" chance="14880" />
+	</loot>
+</monster>

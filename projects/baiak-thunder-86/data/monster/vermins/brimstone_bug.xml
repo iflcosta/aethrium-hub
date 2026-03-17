@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="brimstone bug" nameDescription="a brimstone bug" race="venom" experience="900" speed="120" manacost="0">
+	<health now="1300" max="1300" />
+	<look type="352" head="0" body="0" legs="0" feet="0" addons="0" corpse="12527" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="speed" interval="2000" chance="20" range="7" target="0" speedchange="-600" duration="10000">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="earth" interval="2000" chance="5" radius="6" target="0" min="-140" max="-310">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" length="6" spread="3" target="0" min="-130" max="-200">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" min="-80" max="-120" />
+	</attacks>
+	<defenses armor="38" defense="25" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-10" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Chrrr!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="small emerald" chance="2702" countmax="4" />
+		<item name="stealth ring" chance="892" />
+		<item name="platinum amulet" chance="110" />
+		<item name="magic sulphur" chance="1639" />
+		<item name="strong health potion" chance="9003" />
+		<item name="strong mana potion" chance="9025" />
+		<item name="poisonous slime" chance="50000" />
+		<item name="lump of earth" chance="20000" />
+		<item name="sulphurous stone" chance="14970" />
+		<item name="brimstone fangs" chance="5710" />
+		<item name="brimstone shell" chance="10000" />
+	</loot>
+</monster>

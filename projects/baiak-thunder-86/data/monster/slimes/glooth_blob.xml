@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="glooth blob" nameDescription="a glooth blob" race="venom" experience="700" speed="80" manacost="0">
+	<health now="750" max="750" />
+	<look type="614" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" />
+		<attack name="physical" interval="2000" chance="13" radius="4" target="0" min="-400" max="-480">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="11" radius="3" target="1" min="-85" max="-180">
+			<attribute key="areaEffect" value="greenenergy" />
+			<attribute key="shootEffect" value="envenomedarrow" />
+		</attack>
+		<attack name="earth" interval="2000" chance="10" range="7" target="1" min="-60" max="-105">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="10" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="70" />
+		<item name="glob of glooth" chance="15410" />
+		<item name="small sapphire" chance="3310" countmax="2" />
+		<item name="small topaz" chance="3420" countmax="2" />
+		<item name="glooth amulet" chance="400" />
+		<item name="glooth blade" chance="510" />
+		<item name="glooth club" chance="580" />
+		<item name="glooth axe" chance="560" />
+	</loot>
+</monster>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="destroyer" nameDescription="a destroyer" race="undead" experience="2500" speed="150" manacost="0">
+	<health now="3700" max="3700" />
+	<look type="236" head="0" body="0" legs="0" feet="0" addons="0" corpse="6320" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-500" />
+		<attack name="physical" interval="2000" chance="15" range="7" target="0" min="0" max="-200">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="30">
+		<defense name="speed" interval="2000" chance="15" speedchange="420" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="100" />
+		<element earthPercent="20" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-15" />
+		<element holyPercent="-3" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="COME HERE AND DIE!" />
+		<voice sentence="Destructiooooon!" />
+		<voice sentence="It's a good day to destroy!" />
+	</voices>
+	<loot>
+		<item name="crystal necklace" chance="500" />
+		<item name="gold coin" chance="92500" countmax="100" />
+		<item name="small amethyst" chance="5850" countmax="2" />
+		<item name="platinum coin" chance="2250" countmax="3" />
+		<item name="mind stone" chance="70" />
+		<item name="giant sword" chance="1250" />
+		<item name="crowbar" chance="10500" />
+		<item name="plate armor" chance="3400" />
+		<item name="dark armor" chance="6250" />
+		<item name="burst arrow" chance="8350" countmax="12" />
+		<item name="pick" chance="4850" />
+		<item name="steel boots" chance="300" />
+		<item name="meat" chance="40000" countmax="6" />
+		<item name="skull helmet" chance="10" />
+		<item name="soul orb" chance="5350" />
+		<item name="death ring" chance="250" />
+		<item name="demonic essence" chance="13850" />
+		<item name="dreaded cleaver" chance="400" />
+		<item name="chaos mace" chance="800" />
+		<item name="great health potion" chance="1000" />
+		<item name="metal spike" chance="4850" />
+	</loot>
+</monster>

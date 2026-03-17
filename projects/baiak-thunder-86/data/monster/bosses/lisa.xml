@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lisa" nameDescription="a lisa" race="venom" experience="18000" speed="100" manacost="0">
+	<health now="55000" max="55000" />
+	<look type="604" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="2000" chance="3" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" />
+		<attack name="lifedrain" interval="2000" chance="20" radius="1" range="7" target="1" min="-200" max="-400">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="greenstar" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="6" range="7" target="1">
+			<attribute key="areaEffect" value="bigplants" />
+			<attribute key="shootEffect" value="smallearth" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="6" range="7" target="1">
+			<attribute key="areaEffect" value="plantattack" />
+			<attribute key="shootEffect" value="smallearth" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="13" radius="8" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="12" target="0" />
+		<attack name="physical" interval="2000" chance="15" target="0" />
+		<attack name="physical" interval="2000" chance="11" target="0" min="-400" max="-900" />
+	</attacks>
+	<defenses armor="15" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="bowl of glooth soup" chance="55000" countmax="5" />
+		<item name="glooth sandwich" chance="34500" countmax="5" />
+		<item name="great health potion" chance="33000" countmax="5" />
+		<item name="great mana potion" chance="33000" countmax="5" />
+		<item name="great spirit potion" chance="33000" countmax="5" />
+		<item name="glooth steak" chance="28000" countmax="5" />
+		<item name="slimy leaf tentacle" chance="22000" countmax="3" />
+		<item name="small amethyst" chance="21000" countmax="5" />
+		<item name="small diamond" chance="18000" countmax="5" />
+		<item name="small ruby" chance="16000" countmax="5" />
+		<item name="small topaz" chance="14800" countmax="5" />
+		<item name="glooth club" chance="10500" />
+		<item name="glooth spear" chance="9900" />
+		<item name="glooth whip" chance="9500" />
+		<item name="glooth amulet" chance="9000" />
+		<item name="glooth axe" chance="8000" />
+		<item name="glooth blade" chance="7000" />
+		<item name="glooth cape" chance="6000" />
+		<item name="red gem" chance="2600" />
+		<item name="yellow gem" chance="2500" />
+		<item name="lisa's doll" chance="300" />
+	</loot>
+</monster>

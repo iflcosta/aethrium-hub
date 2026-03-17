@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="chakoya windcaller" nameDescription="a chakoya windcaller" race="blood" experience="48" speed="71" manacost="200">
+	<health now="84" max="84" />
+	<look type="260" head="0" body="0" legs="0" feet="0" addons="0" corpse="7320" />
+	<targetchange interval="60000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-22" />
+		<attack name="ice" interval="2000" chance="15" range="7" target="0" min="-16" max="-32">
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="3" target="0" min="-130" max="-160">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="ice" interval="2000" chance="10" length="5" spread="2" target="0" min="-9" max="-30">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+	</attacks>
+	<defenses armor="7" defense="10">
+		<defense name="invisible" interval="2000" chance="15">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-15" />
+		<element earthPercent="0" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="20" />
+		<element deathPercent="-8" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Siqsiq ji jusipa!" />
+		<voice sentence="Jagura taluka taqua!" />
+		<voice sentence="Mupi! Si siyoqua jinuma!" />
+		<voice sentence="Quatu nguraka!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="71170" countmax="27" />
+		<item name="brass helmet" chance="4390" />
+		<item name="bone shield" chance="960" />
+		<item name="fish" chance="30790" countmax="3" />
+		<item name="northern pike" chance="40" />
+		<item name="rainbow trout" chance="40" />
+		<item name="green perch" chance="110" />
+		<item name="fireproof horn" chance="410" />
+	</loot>
+</monster>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="frost dragon" nameDescription="a frost dragon" race="undead" experience="2100" speed="106" manacost="0">
+	<health now="1800" max="1800" />
+	<look type="248" head="0" body="0" legs="0" feet="0" addons="0" corpse="7091" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="250" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-225" />
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="3" target="0" min="-175" max="-380">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="speed" interval="2000" chance="5" radius="3" target="0" speedchange="-700" duration="12000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" length="7" spread="3" target="0" speedchange="-850" duration="18000">
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="ice" interval="2000" chance="5" radius="3" target="0" min="-60" max="-120">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+		<attack name="ice" interval="2000" chance="10" radius="4" target="1" min="-100" max="-240">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" length="1" spread="3" target="0" min="0" max="-220">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="4" target="1" speedchange="-600" duration="12000">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+	</attacks>
+	<defenses armor="38" defense="45">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="290" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="YOU WILL FREEZE!" />
+		<voice sentence="ZCHHHHH!" />
+		<voice sentence="I am so cool." />
+		<voice sentence="Chill out!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="99110" countmax="100" />
+		<item name="dragon ham" chance="83040" countmax="2" />
+		<item name="green mushroom" chance="10710" />
+		<item name="ice cube" chance="6250" />
+		<item name="book" chance="8500" />
+		<item name="power bolt" chance="5360" countmax="6" />
+		<item name="golden mug" chance="5360" />
+		<item name="energy ring" chance="2680" />
+		<item name="small sapphire" chance="1790" />
+		<item name="strange helmet" chance="890" />
+		<item name="life crystal" chance="890" />
+		<item name="shard" chance="520" />
+		<item name="ice rapier" chance="310" />
+		<item name="tower shield" chance="290" />
+		<item name="royal helmet" chance="230" />
+		<item name="dragon scale mail" chance="100" />
+		<item name="dragon slayer" chance="100" />
+	</loot>
+</monster>

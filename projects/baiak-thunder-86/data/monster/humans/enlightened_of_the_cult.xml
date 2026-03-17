@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="enlightened of the cult" nameDescription="a enlightened of the cult" race="blood" experience="500" speed="100" manacost="0">
+	<health now="700" max="700" />
+	<look type="193" head="0" body="0" legs="0" feet="0" addons="0" corpse="20391" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="50" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="lifedrain" interval="2000" chance="25" radius="1" range="1" target="1" min="-70" max="-185">
+			<attribute key="areaEffect" value="holyarea" />
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" range="7" target="1" duration="5000">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" range="7" target="1" speedchange="-360" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="25">
+		<defense name="healing" interval="2000" chance="25" min="60" max="90">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="15">
+			<attribute key="areaEffect" value="yellowenergy" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="-5" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="20" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Praise to my master Urgith!" />
+		<voice sentence="You will rise as my servant!" />
+		<voice sentence="Praise to my masters! Long live the triangle!" />
+		<voice sentence="You will die in the name of the triangle!" />
+	</voices>
+	<loot>
+		<item name="book" chance="910" />
+		<item name="piggy bank" chance="130" />
+		<item name="small sapphire" chance="550" />
+		<item name="gold coin" chance="64550" countmax="70" />
+		<item name="energy ring" chance="450" />
+		<item name="platinum amulet" chance="200" />
+		<item name="wand of inferno" chance="180" />
+		<item name="protection amulet" chance="790" />
+		<item name="skull staff" chance="350" />
+		<item name="blue robe" chance="40" />
+		<item name="jewelled backpack" chance="100" />
+		<item name="pirate voodoo doll" chance="430" />
+		<item name="music sheet" chance="490" />
+		<item name="amber staff" chance="100" />
+		<item name="strong mana potion" chance="740" />
+		<item name="cultish mask" chance="10250" />
+		<item name="cultish symbol" chance="890" />
+		<item name="broken key ring" chance="100" />
+	</loot>
+</monster>

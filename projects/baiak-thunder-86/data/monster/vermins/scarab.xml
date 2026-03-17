@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="scarab" nameDescription="a scarab" race="venom" experience="120" speed="80" manacost="640">
+	<health now="320" max="320" />
+	<look type="83" head="0" body="0" legs="0" feet="0" addons="0" corpse="6024" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="80" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-75" />
+		<attack name="earth" interval="2000" chance="10" range="1" target="0" min="0" max="-35">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="1" target="0" />
+	</attacks>
+	<defenses armor="21" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="200" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="-18" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="86800" countmax="52" />
+		<item name="small emerald" chance="413" />
+		<item name="small amethyst" chance="540" />
+		<item name="scarab coin" chance="1098" />
+		<item name="daramian mace" chance="245" />
+		<item name="meat" chance="40000" countmax="2" />
+		<item name="piece of scarab shell" chance="4950" />
+	</loot>
+</monster>

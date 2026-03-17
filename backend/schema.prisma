@@ -1,0 +1,108 @@
+generator client_py {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AgentRole {
+  CTO
+  BACKEND
+  FRONTEND
+  QA
+  SUPPORT
+  CM
+  MAPPER
+  BALANCER
+  DEVOPS
+  RESEARCH
+}
+
+enum TaskStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum LogLevel {
+  INFO
+  WARN
+  ERROR
+  DEBUG
+}
+
+model Agent {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  displayName String
+  model       String
+  role        AgentRole
+  color       String
+  isOnline    Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  tasks       Task[]      @relation("TaskOwner")
+  handoffs    Task[]      @relation("TaskHandoff")
+  logs        AgentLog[]
+}
+
+model Task {
+  id              String      @id @default(cuid())
+  title           String
+  description     String?
+  status          TaskStatus  @default(PENDING)
+  priority        Int         @default(0)
+  contextSnapshot Json?
+  ownerId         String
+  owner           Agent       @relation("TaskOwner", fields: [ownerId], references: [id])
+  handoffTargetId String?
+  handoffTarget   Agent?      @relation("TaskHandoff", fields: [handoffTargetId], references: [id])
+  parentTaskId    String?
+  executions      Execution[]
+  logs            AgentLog[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Execution {
+  id            String    @id @default(cuid())
+  taskId        String
+  task          Task      @relation(fields: [taskId], references: [id])
+  agentSlug     String
+  model         String
+  promptTokens  Int
+  compTokens    Int
+  thoughtChunks Json?
+  status        TaskStatus @default(RUNNING)
+  sandboxId     String?
+  result        Json?
+  error         String?
+  startedAt     DateTime  @default(now())
+  finishedAt    DateTime?
+}
+
+model AgentLog {
+  id      String   @id @default(cuid())
+  agentId String
+  agent   Agent    @relation(fields: [agentId], references: [id])
+  taskId  String?
+  task    Task?    @relation(fields: [taskId], references: [id])
+  level   LogLevel @default(INFO)
+  event   String
+  payload Json?
+  ts      DateTime @default(now())
+}
+
+model KnowledgeChunk {
+  id            String   @id @default(cuid())
+  source        String
+  chunkIndex    Int
+  content       String
+  pineconeVecId String   @unique
+  metadata      Json
+}

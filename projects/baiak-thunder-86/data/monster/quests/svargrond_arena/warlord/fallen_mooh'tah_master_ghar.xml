@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Fallen Mooh'Tah Master Ghar" nameDescription="a fallen mooh'tah master ghar" race="blood" experience="4400" speed="95" manacost="0">
+	<health now="7990" max="7990" />
+	<look type="611" head="0" body="0" legs="0" feet="0" addons="0" corpse="7349" />
+	<targetchange interval="0" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="fire" interval="6000" chance="30" length="8" spread="0" target="0" min="-80" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="3000" chance="45" radius="5" target="1" min="-80" max="-400">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="death" interval="4000" chance="30" target="0" min="-80" max="-270">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="physical" interval="4500" chance="40" range="10" target="0" min="-10" max="-200">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="5000" chance="30" length="8" spread="0" target="0" min="-60" max="-300">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="33" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="60" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I will finish you!" />
+		<voice sentence="You are no match for a master of the Mooh'Tha!" />
+		<voice sentence="I might be fallen but you will fall before me!" />
+	</voices>
+</monster>

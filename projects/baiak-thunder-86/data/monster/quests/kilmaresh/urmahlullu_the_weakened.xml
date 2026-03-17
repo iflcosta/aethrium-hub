@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Urmahlullu the Weakened" nameDescription="a urmahlullu the weakened" race="blood" experience="55000" speed="95" manacost="0">
+	<health now="512000" max="512000" />
+	<look type="1197" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-50" max="-1100" />
+		<attack name="fire" interval="3000" chance="20" radius="4" target="0" min="-500" max="-800">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" radius="3" target="0" min="-550" max="-800">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="18" target="0" min="-450" max="-600" />
+	</attacks>
+	<defenses armor="84" defense="84" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You will regret this!" />
+		<voice sentence="Now you have to die!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="9" />
+		<item name="green gem" chance="100000" countmax="2" />
+		<item name="energy bar" chance="100000" />
+		<item name="ultimate mana potion" chance="73080" countmax="31" />
+		<item name="supreme health potion" chance="53850" countmax="28" />
+		<item name="red gem" chance="53850" countmax="2" />
+		<item name="lightning pendant" chance="30770" />
+		<item name="berserk potion" chance="23080" countmax="15" />
+		<item name="bullseye potion" chance="23080" countmax="15" />
+		<item name="magma coat" chance="23080" />
+		<item name="royal star" chance="19230" countmax="100" />
+		<item name="flash arrow" chance="19230" countmax="100" />
+		<item name="ultimate spirit potion" chance="19230" countmax="8" />
+		<item name="magma amulet" chance="19230" />
+		<item name="gold ingot" chance="19230" />
+		<item name="blue gem" chance="15380" />
+		<item name="magma monocle" chance="15380" />
+		<item name="yellow gem" chance="15380" />
+		<item name="crystal coin" chance="11540" countmax="5" />
+		<item name="silver token" chance="7690" countmax="5" />
+		<item name="violet gem" chance="7690" />
+		<item name="urmahlullu's paw" chance="7690" />
+		<item name="giant shimmering pearl" chance="7690" />
+		<item name="mastermind potion" chance="3850" />
+		<item name="tagralt blade" chance="1850" />
+		<item name="giant sapphire" chance="3850" />
+		<item name="ring of secret thoughts" chance="3850" />
+		<item name="sunray emblem" chance="3850" />
+		<item name="urmahlullu's mane" chance="3850" />
+		<item name="winged boots" chance="1850" />
+		<item name="urmahlullu's tail" chance="6980" />
+		<item name="lightning legs" chance="6400" />
+		<item name="giant emerald" chance="3490" />
+		<item name="giant ruby" chance="3490" />
+		<item name="enchanted theurgic amulet" chance="1740" />
+		<item name="sun medal" chance="580" />
+		<item name="golden bijou" chance="580" />
+		<item name="winged backpack" chance="250" />
+		<item name="rainbow necklace" chance="1160" />
+		<item name="enchanted theurgic amulet" chance="160" />
+		<item name="sun medal" chance="160" />
+		<item name="sunray emblem" chance="160" />
+	</loot>
+</monster>

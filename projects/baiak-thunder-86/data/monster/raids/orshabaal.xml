@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Orshabaal" nameDescription="a orshabaal" race="fire" experience="10000" speed="270" manacost="0">
+	<health now="22500" max="22500" />
+	<look type="201" head="0" body="0" legs="0" feet="0" addons="0" corpse="2916" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="2500" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1990" />
+		<attack name="manadrain" interval="1000" chance="13" range="7" target="0" min="-300" max="-600" />
+		<attack name="manadrain" interval="1000" chance="6" radius="5" target="0" min="-150" max="-350">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="1000" chance="6" radius="5" target="0">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="34" radius="7" range="7" target="1" min="-310" max="-600">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="1000" chance="10" radius="4" range="7" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="1000" chance="15" length="8" spread="3" target="0" min="-500" max="-850">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="90" defense="111">
+		<defense name="healing" interval="1000" chance="9" min="1500" max="2500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="17" min="600" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="5" speedchange="1901" duration="7000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="80" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-1" />
+		<element holyPercent="-1" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="PRAISED BE MY MASTERS, THE RUTHLESS SEVEN!" />
+		<voice sentence="YOU ARE DOOMED!" />
+		<voice sentence="ORSHABAAL IS BACK!" />
+		<voice sentence="Be prepared for the day my masters will come for you!" />
+		<voice sentence="SOULS FOR ORSHABAAL!" />
+	</voices>
+	<loot>
+		<item name="purple tome" chance="20000" />
+		<item name="golden mug" chance="12500" />
+		<item name="crystal necklace" chance="20000" />
+		<item name="white pearl" chance="33333" countmax="15" />
+		<item name="black pearl" chance="25000" countmax="8" />
+		<item name="small diamond" chance="20000" countmax="5" />
+		<item name="small sapphire" chance="33333" countmax="8" />
+		<item name="small emerald" chance="25000" countmax="7" />
+		<item name="small amethyst" chance="20000" countmax="17" />
+		<item name="talon" chance="20000" countmax="3" />
+		<item name="platinum coin" chance="100000" countmax="69" />
+		<item name="green gem" chance="6666" />
+		<item name="blue gem" chance="20000" />
+		<item name="magic light wand" chance="6666" />
+		<item name="might ring" chance="6666" />
+		<item name="silver amulet" chance="20000" />
+		<item name="platinum amulet" chance="12500" />
+		<item name="strange symbol" chance="20000" />
+		<item name="orb" chance="6666" />
+		<item name="life crystal" chance="12500" />
+		<item name="mind stone" chance="20000" />
+		<item name="boots of haste" chance="12500" />
+		<item name="protection amulet" chance="20000" />
+		<item name="ring of healing" chance="33333" />
+		<item name="two handed sword" chance="12500" />
+		<item name="giant sword" chance="25000" />
+		<item name="silver dagger" chance="6666" />
+		<item name="golden sickle" chance="6666" />
+		<item name="fire axe" chance="12500" />
+		<item name="dragon hammer" chance="6666" />
+		<item name="devil helmet" chance="33333" />
+		<item name="golden legs" chance="12500" />
+		<item name="magic plate armor" chance="6666" />
+		<item name="mastermind shield" chance="6666" />
+		<item name="demon shield" chance="25000" />
+		<item name="Orshabaal's brain" chance="6666" />
+		<item name="thunder hammer" chance="6666" />
+		<item name="demon horn" chance="50000" />
+		<item name="death ring" chance="50000" />
+		<item name="demonic essence" chance="100000" />
+		<item name="assassin star" chance="12500" countmax="42" />
+		<item name="great mana potion" chance="33333" />
+		<item name="great health potion" chance="20000" />
+		<item name="great spirit potion" chance="12500" />
+		<item name="ultimate health potion" chance="33333" />
+		<item name="gold ingot" chance="6666" />
+	</loot>
+</monster>

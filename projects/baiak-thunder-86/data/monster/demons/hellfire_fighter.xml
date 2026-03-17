@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hellfire fighter" nameDescription="a hellfire fighter" race="fire" experience="3800" speed="165" manacost="0">
+	<health now="3800" max="3800" />
+	<look type="243" head="0" body="0" legs="0" feet="0" addons="0" corpse="6324" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-520" />
+		<attack name="physical" interval="2000" chance="10" radius="3" range="7" target="0">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="8" spread="0" target="0" min="-392" max="-1500">
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="3" range="7" target="0" min="-60" max="-330">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" />
+	</attacks>
+	<defenses armor="62" defense="35" />
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="20" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-25" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="emerald bangle" chance="2200" />
+		<item name="demonbone amulet" chance="190" />
+		<item name="small diamond" chance="1400" />
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="40000" countmax="100" />
+		<item name="gold coin" chance="10000" countmax="46" />
+		<item name="wand of inferno" chance="9450" />
+		<item name="burnt scroll" chance="50000" />
+		<item name="blank rune" chance="30000" countmax="2" />
+		<item name="fire sword" chance="4140" />
+		<item name="fire axe" chance="440" />
+		<item name="soul orb" chance="12150" />
+		<item name="demonic essence" chance="14500" />
+		<item name="magma legs" chance="682" />
+		<item name="magma coat" chance="380" />
+		<item name="fiery heart" chance="9570" />
+		<item name="piece of hellfire armor" chance="5060" />
+		<item name="coal" chance="670" />
+		<item name="eternal flames" chance="380" />
+	</loot>
+</monster>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="walking pillar" nameDescription="a walking pillar" race="undead" experience="24300" speed="190" manacost="0">
+	<health now="38000" max="38000" />
+	<look type="1656" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="50" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1500" />
+		<attack name="energy" interval="2000" chance="10" length="8" spread="3" target="0" min="-1400" max="-1650">
+			<attribute key="areaEffect" value="blueenergyspark" />
+		</attack>
+		<attack name="holy" chance="20" radius="5" target="1" min="-1500" max="-1800">
+			<attribute key="areaEffect" value="purplesmoke" />
+		</attack>
+		<attack name="holy" interval="2000" chance="10" radius="5" target="1" min="-1200" max="-1200">
+			<attribute key="areaEffect" value="ghostlybite" />
+		</attack>
+		<attack name="physical" interval="2000" chance="5" target="1" min="-800" max="1200" />
+		<attack name="physical" interval="3500" chance="10" target="0" min="-1100" max="-1600" />
+	</attacks>
+	<defenses armor="120" defense="120" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="60" />
+		<element earthPercent="-15" />
+		<element firePercent="-15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="45" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="TREEMBLE" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="12186" />
+<item name="magma clump" chance="11440" />
+<item name="coal" chance="8489" countmax="4" />
+<item name="onyx chip" chance="12831" countmax="2" />
+		<item name="strange helmet" chance="11001" />
+		<item name="fire sword" chance="8347" />
+		<item name="ultimate mana potion" chance="9687" countmax="3" />
+		<item name="blue gem" chance="5868" />
+		<item name="magma legs" chance="14497" />
+		<item name="white gem" chance="9936" />
+	</loot>
+</monster>

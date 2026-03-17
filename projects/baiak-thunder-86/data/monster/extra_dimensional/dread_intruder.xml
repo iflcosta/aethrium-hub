@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dread intruder" nameDescription="a dread intruder" race="venom" experience="2400" speed="165" manacost="0">
+	<health now="4500" max="4500" />
+	<look type="882" head="0" body="0" legs="0" feet="0" addons="0" corpse="26134" />
+	<targetchange interval="2000" chance="25" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-500" />
+		<attack name="physical" interval="2000" chance="20" radius="5" target="0" min="-400" max="-600">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="death" interval="2000" chance="25" radius="4" range="4" target="1" min="-250" max="-400">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" target="0" min="-350" max="-550" />
+	</attacks>
+	<defenses armor="50" defense="50">
+		<defense name="healing" interval="2000" chance="5" min="80" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="90" />
+		<element earthPercent="0" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="-10" />
+		<element deathPercent="80" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Whirr!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="gold coin" chance="100000" countmax="89" />
+		<item name="platinum coin" chance="100000" countmax="8" />
+		<item name="energy drink" chance="15000" />
+		<item name="energy bar" chance="15000" />
+		<item name="frozen lightning" chance="15000" />
+		<item name="instable proto matter" chance="8000" />
+		<item name="great spirit potion" chance="14000" />
+		<item name="ultimate health potion" chance="13500" />
+		<item name="great mana potion" chance="12700" />
+		<item name="energy ball" chance="11800" />
+		<item name="odd organ" chance="9600" />
+		<item name="blue crystal splinter" chance="9500" />
+		<item name="cyan crystal fragment" chance="6200" />
+		<item name="small ruby" chance="5400" countmax="2" />
+		<item name="small sapphire" chance="5400" countmax="2" />
+		<item name="small amethyst" chance="5000" countmax="2" />
+		<item name="violet crystal shard" chance="4500" />
+		<item name="violet gem" chance="1000" />
+		<item name="ring of red plasma" chance="450" />
+		<item name="collar of blue plasma" chance="230" />
+		<item name="collar of green plasma" chance="230" />
+		<item name="ring of blue plasma" chance="230" />
+	</loot>
+</monster>

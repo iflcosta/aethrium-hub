@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="fire devil" nameDescription="a fire devil" race="blood" experience="145" speed="90" manacost="400">
+	<health now="200" max="200" />
+	<look type="40" head="0" body="0" legs="0" feet="0" addons="0" corpse="5985" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-35" />
+		<attack name="fire" interval="2000" chance="20" radius="4" range="7" target="1" min="-60" max="-90">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="2" range="7" target="1" min="-20" max="-50">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="13" defense="10" />
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="30" />
+		<element earthPercent="20" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-20" />
+		<element holyPercent="-10" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hot, eh?" />
+		<voice sentence="Hell, oh, hell!" />
+	</voices>
+	<loot>
+		<item name="torch" chance="10000" />
+		<item name="torch" chance="1420" countmax="2" />
+		<item name="small amethyst" chance="300" />
+		<item name="necrotic rod" chance="460" />
+		<item name="blank rune" chance="10950" />
+		<item name="double axe" chance="1500" />
+		<item name="scimitar" chance="3000" />
+		<item name="guardian shield" chance="210" />
+		<item name="cleaver" chance="1100" />
+		<item name="small pitchfork" chance="19770" />
+	</loot>
+</monster>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="blood crab" nameDescription="a blood crab" race="blood" experience="160" speed="80" manacost="580">
+	<health now="290" max="290" />
+	<look type="200" head="0" body="0" legs="0" feet="0" addons="0" corpse="6075" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-110">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="28" defense="28" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="-5" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="85750" countmax="20" />
+		<item name="fish" chance="14300" />
+		<item name="bloody pincers" chance="6190" />
+		<item name="chain armor" chance="5240" />
+		<item name="brass legs" chance="2120" />
+		<item name="white pearl" chance="530" />
+	</loot>
+</monster>

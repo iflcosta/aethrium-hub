@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ferumbras Mortal Shell" nameDescription="a ferumbras mortal shell" race="venom" experience="2000000" speed="195" manacost="0">
+	<health now="300000" max="300000" />
+	<look type="229" head="0" body="0" legs="0" feet="0" addons="0" corpse="6078" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="2500" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="90" attack="200" />
+		<attack name="physical" interval="2000" chance="20" radius="6" target="0" min="-250" max="-520">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="18" target="0" />
+		<attack name="manadrain" interval="2000" chance="16" radius="6" target="0" min="-225" max="-410">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" radius="9" target="0" min="-425" max="-810">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="energy" interval="2000" chance="21" radius="9" target="0" min="-400" max="-650">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="21" radius="6" target="0" min="-200" max="-450">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" />
+		<attack name="lifedrain" interval="2000" chance="17" length="8" spread="0" target="0" min="-590" max="-1050">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="120">
+		<defense name="healing" interval="2000" chance="23" min="600" max="2490">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="3" min="20000" max="35000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="14" speedchange="700" duration="7000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="10">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="65" />
+		<element earthPercent="65" />
+		<element firePercent="65" />
+		<element lifedrainPercent="65" />
+		<element manadrainPercent="65" />
+		<element drownPercent="0" />
+		<element icePercent="65" />
+		<element holyPercent="65" />
+		<element deathPercent="65" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="INSECTS!" />
+		<voice sentence="If you strike me down, I shall become more powerful than you could possibly imagine!" />
+		<voice sentence="I' STILL POWERFUL ENOUGH TO CRUSH YOU!" />
+		<voice sentence="I WILL MAKE ALL OF YOU SUFFER!" />
+		<voice sentence="THE POWER WAS MINE!" />
+	</voices>
+	<loot>
+		<item name="lightning legs" chance="800" />
+		<item name="greenwood coat" chance="400" />
+		<item name="small sapphire" chance="10000" countmax="10" />
+		<item name="bloody edge" chance="800" />
+		<item name="chaos mace" chance="800" />
+		<item name="golden armor" chance="800" />
+		<item name="emerald sword" chance="400" />
+		<item name="boots of homecoming" chance="800" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="small emerald" chance="10000" countmax="10" />
+<item name="red gem" chance="1000" />
+		<item name="velvet mantle" chance="300" />
+		<item name="emerald bangle" chance="1000" />
+		<item name="skullcrusher" chance="300" />
+		<item name="small amethyst" chance="10000" countmax="10" />
+		<item name="ferumbras' staff" chance="800" />
+		<item name="jade hammer" chance="800" />
+		<item name="white pearl" chance="10000" countmax="5" />
+		<item name="nightmare blade" chance="600" />
+		<item name="phoenix shield" chance="800" />
+		<item name="demon shield" chance="800" />
+		<item name="elven parchment" chance="150" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="glacier kilt" chance="800" />
+		<item name="magic plate armor" chance="400" />
+		<item name="death gaze" chance="100" />
+		<item name="berserker" chance="800" />
+		<item name="rift bow" chance="500" />
+		<item name="demonwing axe" chance="300" />
+		<item name="rift tapestry" chance="3000" />
+		<item name="queen's sceptre" chance="800" />
+		<item name="blue gem" chance="800" />
+		<item name="platinum coin" chance="100000" countmax="25" />
+		<item name="obsidian truncheon" chance="400" />
+		<item name="abyss hammer" chance="800" />
+		<item name="ferumbras' hat" chance="100" />
+		<item name="ferumbras' mana keg" chance="800" />
+		<item name="demonrage sword" chance="800" />
+		<item name="green gem" chance="4000" />
+		<item name="mastermind shield" chance="600" />
+		<item name="impaler" chance="800" />
+		<item name="silver token" chance="100000" countmax="3" />
+		<item name="black pearl" chance="10000" countmax="5" />
+		<item name="small diamond" chance="10000" countmax="10" />
+		<item name="scroll of ascension" chance="800" />
+		<item name="small topaz" chance="10000" countmax="10" />
+		<item name="ferumbras' amulet" chance="800" />
+		<item name="rift crossbow" chance="500" />
+		<item name="divine plate" chance="800" />
+		<item name="great axe" chance="700" />
+		<item name="great shield" chance="100" />
+		<item name="magma legs" chance="800" />
+		<item name="gold ingot" chance="800" />
+		<item name="havoc blade" chance="800" />
+		<item name="ornamented axe" chance="400" />
+		<item name="folded rift carpet" chance="3500" />
+	</loot>
+</monster>

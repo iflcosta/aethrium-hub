@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="minion of Versperoth" nameDescription="a minion of versperoth" race="fire" experience="0" speed="155" manacost="0">
+  <health now="9000" max="9000" />
+  <look type="491" head="0" body="0" legs="0" feet="0" addons="0" />
+  <targetchange interval="5000" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="0" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-390" />
+    <attack name="fire" interval="2000" chance="15" length="8" spread="0" target="0" min="-350" max="-700">
+      <attribute key="areaEffect" value="fireattack" />
+    </attack>
+    <attack name="manadrain" interval="2000" chance="10" length="8" spread="0" target="0" min="-600" max="-1300">
+      <attribute key="areaEffect" value="mortarea" />
+    </attack>
+    <attack name="physical" interval="2000" chance="15" target="0" />
+    <attack name="fire" interval="2000" chance="15" radius="4" target="1" min="-220" max="-350">
+      <attribute key="areaEffect" value="firearea" />
+    </attack>
+    <attack name="speed" interval="2000" chance="10" length="5" spread="3" target="0" speedchange="-300" duration="10000">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+    <attack name="fire" interval="2000" chance="30" radius="3" target="0" min="-280" max="-350">
+      <attribute key="areaEffect" value="fire" />
+    </attack>
+  </attacks>
+  <defenses armor="60" defense="60" />
+  <elements>
+    <element physicalPercent="30" />
+    <element energyPercent="30" />
+    <element earthPercent="100" />
+    <element firePercent="100" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="-5" />
+    <element holyPercent="0" />
+    <element deathPercent="35" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Grrrrunt" />
+  </voices>
+</monster>

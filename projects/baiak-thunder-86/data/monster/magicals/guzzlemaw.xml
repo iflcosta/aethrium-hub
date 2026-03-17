@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="guzzlemaw" nameDescription="a guzzlemaw" race="blood" experience="6050" speed="200" manacost="0">
+	<health now="6400" max="6400" />
+	<look type="584" head="0" body="0" legs="0" feet="0" addons="0" corpse="22485" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-499" />
+		<attack name="physical" interval="2000" chance="10" radius="3" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" target="0" min="0" max="-900">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="2" target="1" min="0" max="-500">
+			<attribute key="areaEffect" value="stones" />
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="6" target="0" speedchange="-800" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" target="0" min="0" max="-800">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="74" defense="50">
+		<defense name="healing" interval="2000" chance="20" min="250" max="425">
+			<attribute key="areaEffect" value="poison" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="15" />
+		<element earthPercent="20" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="-5" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="7" />
+		<item name="banana skin" chance="10700" />
+		<item name="piece of iron" chance="10500" />
+		<item name="fishbone" chance="9500" />
+		<item name="skull" chance="10400" />
+		<item name="bone" chance="9200" />
+		<item name="big bone" chance="4500" />
+		<item name="two handed sword" chance="2700" />
+		<item name="fish" chance="7000" countmax="3" />
+		<item name="ham" chance="10000" />
+		<item name="iron ore" chance="3000" />
+		<item name="fish fin" chance="5000" />
+		<item name="hardened bone" chance="5700" />
+		<item name="fish tail" chance="9400" />
+		<item name="assassin dagger" chance="1000" />
+		<item name="haunted blade" chance="2000" />
+		<item name="nightmare blade" chance="380" />
+		<item name="great mana potion" chance="17000" countmax="3" />
+		<item name="great health potion" chance="18500" countmax="2" />
+<item name="violet crystal shard" chance="3000" />
+		<item name="brown crystal splinter" chance="12000" countmax="2" />
+		<item name="red crystal fragment" chance="7600" />
+		<item name="crystal rubbish" chance="12000" />
+		<item name="cluster of solace" chance="8920" />
+		<item name="frazzle tongue" chance="15000" />
+		<item name="frazzle skin" chance="14000" />
+	</loot>
+</monster>

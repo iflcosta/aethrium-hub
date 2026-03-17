@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Azerus" nameDescription="a azerus" race="blood" experience="6000" speed="143" manacost="0">
+	<health now="26000" max="26000" />
+	<look type="309" head="0" body="0" legs="0" feet="0" addons="0" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-900" />
+		<attack name="manadrain" interval="2000" chance="15" radius="4" range="7" target="0" min="0" max="-3800">
+			<attribute key="areaEffect" value="bigclouds" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" range="7" target="0" min="0" max="-524">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="8" spread="0" target="0" min="-300" max="-1050">
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="65">
+		<defense name="healing" interval="2000" chance="11" min="400" max="900">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="15" />
+		<element earthPercent="15" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="15" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="The ultimate will finally consume this unworthy existence!" />
+		<voice sentence="My masters and I will tear down barriers and join the ultimate in its realm!" />
+		<voice sentence="The power of the Yalahari will all be mine!" />
+		<voice sentence="We will open the rift for a new time to come!" />
+		<voice sentence="He who has returned from beyond has taught me secrets you can't even grasp!" />
+		<voice sentence="The end of times has come!" />
+		<voice sentence="The great machinator will make his entrance soon!" />
+		<voice sentence="You might scratch my shields but they will never break!" />
+		<voice sentence="You can't hope to penetrate my shields!" />
+		<voice sentence="Do you really think you could beat me?" />
+		<voice sentence="Even without Yalahari shields, I'm still invincible!" />
+		<voice sentence="Creation must be undone! We will join the ultimate in the annihiliverse!" />
+		<voice sentence="The rift is tearing at me, I can't control it much longer ... Master, where are you?" />
+		<voice sentence="Even gods are HIS pawns and HE laughs about creation! And you are trying to stop his minions?" />
+		<voice sentence="Don't you understand? Gods, Yalarahi, Humans we are all doing HIS bidding all the time!" />
+	</voices>
+</monster>

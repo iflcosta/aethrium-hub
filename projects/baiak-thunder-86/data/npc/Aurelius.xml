@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Aurelius" script="lottery_master.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="132" head="0" body="114" legs="114" feet="0" addons="3" />
+	<parameters>
+		<parameter key="message_greet" value="Saudações, |PLAYERNAME|! Deseja tentar a sorte na Grand Lottery? Próximo sorteio: Sábado às 20h. Diga {buy}, {check} ou {info}." />
+	</parameters>
+</npc>

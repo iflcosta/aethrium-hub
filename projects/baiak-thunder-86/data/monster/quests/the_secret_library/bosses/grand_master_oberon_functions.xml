@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="grand_master_oberon_functions" nameDescription="a grand_master_oberon_functions" race="blood" experience="0" speed="200" manacost="0">
+	<health now="0" max="0" />
+	<look type="0" head="0" body="0" legs="0" feet="0" addons="0" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="0" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks />
+	<defenses armor="0" defense="0" />
+</monster>

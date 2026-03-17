@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="juvenile bashmu" nameDescription="a juvenile bashmu" race="blood" experience="4500" speed="195" manacost="0">
+	<health now="7500" max="7500" />
+	<look type="1408" head="0" body="112" legs="3" feet="79" addons="0" corpse="39623" />
+	<targetchange interval="2000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="energy" interval="2000" chance="50" length="4" spread="0" target="0" min="-300" max="-400">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+		<attack name="energy" interval="2000" chance="40" radius="3" range="3" target="0" min="-400" max="-500">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" range="7" target="1" min="-400" max="-500">
+			<attribute key="shootEffect" value="eartharrow" />
+		</attack>
+	</attacks>
+	<defenses armor="75" defense="75">
+		<defense name="healing" interval="2000" chance="20" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="5" />
+		<element earthPercent="5" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="-20" />
+		<element deathPercent="5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="70000" countmax="19" />
+		<item name="great spirit potion" chance="14700" countmax="4" />
+		<item name="ultimate health potion" chance="1300" countmax="4" />
+		<item name="blue crystal shard" chance="6160" countmax="3" />
+		<item name="bashmu tongue" chance="5840" countmax="3" />
+		<item name="bashmu feather" chance="4620" countmax="2" />
+		<item name="green crystal shard" chance="3666" />
+		<item name="cyan crystal fragment" chance="3340" />
+		<item name="red gem" chance="2390" />
+		<item name="violet gem" chance="2340" />
+		<item name="lightning legs" chance="2230" />
+		<item name="diamond sceptre" chance="2180" />
+		<item name="lightning pendant" chance="2180" />
+		<item name="bashmu fang" chance="2120" />
+		<item name="yellow gem" chance="2070" />
+		<item name="war hammer" chance="1540" />
+		<item name="violet crystal shard" chance="1490" />
+		<item name="dragonbone staff" chance="1430" />
+		<item name="amber staff" chance="1270" />
+		<item name="lightning boots" chance="1270" />
+		<item name="green gem" chance="1220" />
+		<item name="spellweaver's robe" chance="1110" />
+		<item name="pair of iron fists" chance="1010" />
+		<item name="skull staff" chance="960" />
+		<item name="crystal mace" chance="800" />
+		<item name="chaos mace" chance="530" />
+	</loot>
+</monster>

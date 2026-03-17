@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="humongous fungus" nameDescription="a humongous fungus" race="blood" experience="2900" speed="130" manacost="0">
+	<health now="3400" max="3400" />
+	<look type="488" head="0" body="0" legs="0" feet="0" addons="0" corpse="18382" />
+	<targetchange interval="4000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-330" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="0" min="-180" max="-350">
+			<attribute key="areaEffect" value="smallplants" />
+			<attribute key="shootEffect" value="smallearth" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="4" target="0" />
+		<attack name="physical" interval="2000" chance="10" length="8" spread="0" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="5" spread="0" target="0" min="-130" max="-260">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="3" range="7" target="0" min="-400" max="-640">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="0">
+		<defense name="healing" interval="2000" chance="10" min="225" max="380">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="15" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="5" />
+		<element deathPercent="35" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Munch munch munch!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="6" />
+		<item name="mushroom pie" chance="17130" countmax="3" />
+		<item name="brown piece of cloth" chance="15120" />
+		<item name="drill bolt" chance="15120" countmax="15" />
+		<item name="humongous chunk" chance="10470" />
+		<item name="white piece of cloth" chance="10230" />
+		<item name="strong health potion" chance="5040" countmax="2" />
+		<item name="great mana potion" chance="4960" countmax="2" />
+		<item name="great health potion" chance="4950" countmax="2" />
+		<item name="strong mana potion" chance="4930" countmax="2" />
+		<item name="mana potion" chance="4750" countmax="3" />
+		<item name="blue piece of cloth" chance="4440" />
+		<item name="red piece of cloth" chance="2670" />
+		<item name="terra amulet" chance="2180" />
+		<item name="terra boots" chance="1950" />
+		<item name="angelic axe" chance="1420" />
+		<item name="terra legs" chance="1160" />
+		<item name="terra mantle" chance="870" />
+		<item name="muck rod" chance="640" />
+		<item name="mushroom backpack" chance="20" />
+		<item name="mycological bow" chance="140" />
+	</loot>
+</monster>

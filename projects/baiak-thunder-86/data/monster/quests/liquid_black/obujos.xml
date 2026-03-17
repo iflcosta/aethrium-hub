@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Obujos" nameDescription="a obujos" race="blood" experience="20000" speed="280" manacost="0">
+	<health now="35000" max="35000" />
+	<look type="445" head="0" body="0" legs="0" feet="0" addons="0" corpse="15224" />
+	<targetchange interval="2000" chance="50" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="60" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="death" interval="3000" chance="23" radius="7" range="7" target="1" min="-200" max="-800">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="manadrain" interval="3500" chance="20" radius="6" range="7" target="1" min="-200" max="-600">
+			<attribute key="areaEffect" value="bigclouds" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="earth" interval="2000" chance="25" radius="1" range="7" target="1" min="-200" max="-800">
+			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="shootEffect" value="poisonarrow" />
+		</attack>
+		<attack name="ice" interval="1200" chance="7" length="8" spread="3" target="0" min="-600" max="-1300">
+			<attribute key="areaEffect" value="giantice" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="14" length="8" spread="3" target="0" min="-600" max="-1600">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="1000" chance="15" min="800" max="2200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="25" />
+		<element energyPercent="15" />
+		<element earthPercent="100" />
+		<element firePercent="60" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="60" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="QJELL KEJH!!" />
+		<voice sentence="JN OBU!!" />
+	</voices>
+	<loot>
+		<item name="deepling axe" chance="14285" />
+		<item name="depth scutum" chance="100000" />
+		<item name="ornate legs" chance="14285" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quests>
+	<quest name="Medusa Anihi" startstorageid="91143" startstoragevalue="1">
+		<mission name="Defeat the Medusas" storageid="91143" startvalue="1" endvalue="1">
+			<missionstate id="1" description="You have completed the Medusa Annihilator and claimed your reward!" />
+		</mission>
+	</quest>
+
+
+	<quest name="Crusader Helmet (Lvl 150+)" startstorageid="91146" startstoragevalue="1">
+		<mission name="Crusader Reward" storageid="91146" startvalue="1" endvalue="1">
+			<missionstate id="1" description="You have claimed the special Crusader Helmet reward." />
+		</mission>
+	</quest>
+
+	<quest name="Special Reward (Lvl 150+)" startstorageid="91147" startstoragevalue="1">
+		<mission name="Claim Reward" storageid="91147" startvalue="1" endvalue="1">
+			<missionstate id="1" description="You have claimed the special Level 150+ reward." />
+		</mission>
+	</quest>
+</quests>

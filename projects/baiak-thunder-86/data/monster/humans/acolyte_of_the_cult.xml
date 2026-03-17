@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="acolyte of the cult" nameDescription="a acolyte of the cult" race="blood" experience="300" speed="100" manacost="0">
+	<health now="390" max="390" />
+	<look type="194" head="95" body="100" legs="100" feet="19" addons="0" corpse="20322" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="lifedrain" interval="2000" chance="20" radius="1" range="7" target="1" min="-60" max="-120">
+			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="5" radius="1" range="7" target="1" duration="3000">
+			<attribute key="areaEffect" value="holydamage" />
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="15">
+		<defense name="healing" interval="2000" chance="15" min="40" max="60">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="-10" />
+		<element earthPercent="20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="20" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Praise the voodoo!" />
+		<voice sentence="Power to the cult!" />
+		<voice sentence="Feel the power of the cult!" />
+	</voices>
+	<loot>
+		<item name="book" chance="730" />
+		<item name="gold coin" chance="66940" countmax="40" />
+		<item name="small emerald" chance="550" />
+		<item name="life ring" chance="560" />
+		<item name="terra rod" chance="250" />
+		<item name="dragon necklace" chance="1050" />
+		<item name="morning star" chance="4990" />
+		<item name="pirate voodoo doll" chance="1060" />
+		<item name="music sheet" chance="480" />
+		<item name="cultish robe" chance="8070" />
+		<item name="cultish symbol" chance="40" />
+		<item name="rope belt" chance="10420" />
+		<item name="broken key ring" chance="60" />
+	</loot>
+</monster>

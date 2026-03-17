@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="quara raider" nameDescription="a quara raider" race="undead" experience="8150" speed="215" manacost="0">
+	<health now="12500" max="12500" />
+	<look type="1759" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="2000" chance="11" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-250" max="-320" />
+		<attack name="physical" interval="2000" chance="20" target="0" min="-1250" max="-1400" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="-650" max="-900" />
+		<attack name="physical" interval="2000" chance="18" target="0" min="-1350" max="-1600" />
+		<attack name="physical" interval="2000" chance="18" target="0" min="-1350" max="-1600" />
+	</attacks>
+	<defenses armor="95" defense="95">
+		<defense name="healing" interval="2000" chance="7" min="800" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="-10" />
+		<element earthPercent="-15" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="&lt;blubber&gt;" />
+		<voice sentence="Gloh! Gloooh!" />
+		<voice sentence="Boohacha!!!" />
+	</voices>
+	<loot>
+<item name="red gem" chance="5340" />
+<item name="Skull Staff" chance="1480" />
+		<item name="blue gem" chance="1140" />
+		<item name="Glacier Robe" chance="910" />
+		<item name="Crystalline Armor" chance="510" />
+		<item name="Quara Pincers" chance="510" />
+		<item name="Abyss Hammer" chance="170" />
+<item name="platinum coin" chance="10000" countmax="25" />
+	</loot>
+</monster>

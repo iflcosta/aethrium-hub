@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Pale Count" nameDescription="a the pale count" race="blood" experience="28000" speed="250" manacost="0">
+	<health now="50000" max="50000" />
+	<look type="557" head="0" body="0" legs="0" feet="0" addons="0" corpse="21279" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="80" attack="120" />
+		<attack name="speed" interval="1000" chance="17" radius="4" range="7" target="1" speedchange="-600" duration="1500">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="ice" interval="2000" chance="21" radius="2" range="6" target="1" min="-130" max="-350">
+			<attribute key="areaEffect" value="giantice" />
+			<attribute key="shootEffect" value="smallice" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" range="7" target="0" min="-60" max="-120">
+			<attribute key="areaEffect" value="carniphila" />
+			<attribute key="shootEffect" value="earth" />
+		</attack>
+	</attacks>
+	<defenses armor="75" defense="75" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="30" />
+		<element earthPercent="0" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="30" />
+		<element holyPercent="-10" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Feel the hungry kiss of death!" />
+		<voice sentence="The monsters in the mirror will come eat your dreams." />
+		<voice sentence="Your pitiful life has come to an end!" />
+		<voice sentence="I will squish you like a maggot and suck you dry!" />
+		<voice sentence="Yield to the inevitable!" />
+		<voice sentence="Some day I shall see my beautiful face in a mirror again." />
+	</voices>
+	<loot>
+		<item name="vampire lord token" chance="100000" />
+		<item name="vampire's cape chain" chance="100000" />
+		<item name="vampire's signet ring" chance="5000" />
+		<item name="blood preservation" chance="50000" />
+		<item name="vampire teeth" chance="50000" />
+		<item name="silver raid token" chance="5000" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="5" />
+		<item name="strong mana potion" chance="50000" countmax="3" />
+		<item name="strong health potion" chance="50000" countmax="3" />
+		<item name="stealth ring" chance="10000" />
+		<item name="ring of healing" chance="10000" />
+		<item name="white piece of cloth" chance="10000" />
+		<item name="red piece of cloth" chance="10000" />
+		<item name="blue piece of cloth" chance="10000" />
+		<item name="chaos mace" chance="5000" />
+		<item name="epee" chance="10000" />
+		<item name="dreaded cleaver" chance="5000" />
+		<item name="spellbook of lost souls" chance="5000" />
+		<item name="haunted mirror piece" chance="5000" />
+		<item name="vampire shield" chance="5000" />
+		<item name="vampire silk slippers" chance="5000" />
+		<item name="small diamond" chance="50000" countmax="5" />
+		<item name="black pearl" chance="50000" countmax="5" />
+		<item name="small sapphire" chance="50000" countmax="5" />
+		<item name="small emerald" chance="50000" countmax="5" />
+		<item name="violet gem" chance="10000" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

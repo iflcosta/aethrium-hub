@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="falcon knight" nameDescription="a falcon knight" race="blood" experience="6300" speed="110" manacost="0">
+	<health now="9000" max="9000" />
+	<look type="1071" head="57" body="96" legs="38" feet="105" addons="1" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="18" radius="2" target="0" min="-400" max="-500">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="holy" interval="2000" chance="14" length="5" spread="0" target="0" min="-290" max="-360">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="86" defense="86" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-10" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Mmmhaarrrgh!" />
+	</voices>
+	<loot>
+		<item name="ham" chance="70080" countmax="8" />
+		<item name="soul orb" chance="35000" />
+		<item name="great mana potion" chance="33000" countmax="3" />
+		<item name="great health potion" chance="33000" countmax="3" />
+		<item name="flask of demonic blood" chance="30000" countmax="4" />
+		<item name="small amethyst" chance="24950" countmax="3" />
+		<item name="assassin star" chance="24670" countmax="10" />
+		<item name="small diamond" chance="15700" countmax="3" />
+		<item name="small ruby" chance="15333" countmax="3" />
+		<item name="small emerald" chance="15110" countmax="3" />
+		<item name="onyx arrow" chance="14480" countmax="15" />
+		<item name="small topaz" chance="4580" countmax="3" />
+		<item name="titan axe" chance="3000" />
+<item name="spiked squelcher" chance="2200" />
+		<item name="knight armor" chance="1980" />
+		<item name="falcon crest" chance="1250" />
+		<item name="war axe" chance="1230" />
+		<item name="violet gem" chance="1060" />
+		<item name="damaged armor plates" chance="990" />
+		<item name="green gem" chance="880" />
+		<item name="golden armor" chance="840" />
+		<item name="mastermind shield" chance="620" />
+		<item name="heavy mace" chance="460" />
+		<item name="closed trap" chance="370" />
+		<item name="demonbone amulet" chance="100" />
+	</loot>
+</monster>

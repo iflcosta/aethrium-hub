@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mutated Zalamon" nameDescription="a mutated zalamon" race="venom" experience="10980" speed="119" manacost="0">
+	<health now="155000" max="155000" />
+	<look type="357" head="0" body="0" legs="0" feet="0" addons="0" corpse="2920" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="0" min="0" max="-815">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="10" radius="4" target="1" min="-100" max="-300">
+			<attribute key="areaEffect" value="poison" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="speed" interval="4000" chance="20" range="7" target="1" speedchange="-350" duration="12000">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="65">
+		<defense name="healing" interval="2000" chance="9" min="20" max="560">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="energy" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="energy" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="energy" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="energy" />
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" duration="10000">
+			<attribute key="areaEffect" value="energy" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+</monster>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lovely frazzlemaw" nameDescription="a lovely frazzlemaw" race="blood" experience="3400" speed="200" manacost="0">
+	<health now="4100" max="4100" />
+	<look type="594" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="90" attack="80" />
+		<attack name="physical" interval="2000" chance="12" radius="3" target="0" min="0" max="-400">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="13" length="5" spread="0" target="1" min="-100" max="-700">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="16" radius="2" target="1" min="-400" max="-600">
+			<attribute key="areaEffect" value="stones" />
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" target="0" />
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="13" min="250" max="425">
+			<attribute key="areaEffect" value="poison" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="100" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="100" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Mwaaaahnducate youuuuuu *gurgle*, mwaaah!" />
+		<voice sentence="Mmmwahmwahmwahah, mwaaah!" />
+		<voice sentence="MMMWAHMWAHMWAHMWAAAAH!" />
+	</voices>
+	<loot>
+		<item name="cluster of solace" chance="4490" />
+		<item name="frazzle tongue" chance="18560" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="great health potion" chance="14490" countmax="2" />
+		<item name="great mana potion" chance="14810" countmax="3" />
+		<item name="platinum coin" chance="100000" countmax="7" />
+		<item name="banana skin" chance="9920" />
+		<item name="piece of iron" chance="10210" />
+		<item name="fishbone" chance="10040" />
+		<item name="skull" chance="12380" />
+		<item name="bone" chance="9510" />
+		<item name="big bone" chance="5360" />
+		<item name="fish" chance="6780" countmax="3" />
+		<item name="ham" chance="5960" countmax="2" />
+		<item name="iron ore" chance="3000" />
+		<item name="fish fin" chance="4650" />
+		<item name="hardened bone" chance="5190" />
+		<item name="fish tail" chance="10670" />
+		<item name="assassin dagger" chance="990" />
+		<item name="haunted blade" chance="2110" />
+		<item name="two handed sword" chance="3170" />
+		<item name="nightmare blade" chance="1030" />
+		<item name="gold ingot" chance="2330" />
+		<item name="sai" chance="1600" />
+		<item name="violet crystal shard" chance="3000" />
+		<item name="brown crystal splinter" chance="15640" />
+		<item name="red crystal fragment" chance="5230" />
+		<item name="remains of a crude dream" chance="9640" />
+		<item name="frazzle skin" chance="15990" />
+		<item name="remains of a fish" chance="9430" />
+	</loot>
+</monster>

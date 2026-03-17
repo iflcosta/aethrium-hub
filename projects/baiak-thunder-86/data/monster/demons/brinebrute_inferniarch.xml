@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="brinebrute inferniarch" nameDescription="a brinebrute inferniarch" race="fire" experience="20300" speed="160" manacost="0">
+	<health now="32000" max="32000" />
+	<look type="1794" head="0" body="0" legs="0" feet="0" addons="0" corpse="2869" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-520" max="-600" />
+	</attacks>
+	<defenses armor="80" defense="15">
+		<defense name="healing" interval="2000" chance="5" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-10" />
+		<element earthPercent="-10" />
+		<element holyPercent="0" />
+		<element firePercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element energyPercent="15" />
+		<element physicalPercent="20" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Garrr...Garrr!" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="5000" countmax="40" />
+		<item name="red gem" chance="1500" />
+		<item name="green crystal shard" chance="900" countmax="2" />
+		<item name="blue crystal splinter" chance="300" />
+		<item name="ultimate health potion" chance="1500" countmax="3" />
+<item name="crusader helmet" chance="800" />
+		<item name="great spirit potion" chance="1500" countmax="5" />
+		<item name="blue crystal shard" chance="300" countmax="2" />
+		<item name="green crystal splinter" chance="300" />
+		<item name="stone skin amulet" chance="500" />
+<item name="gold ring" chance="200" />
+		<item name="demon shield" chance="150" />
+<item name="small sapphire" chance="1500" countmax="4" />
+		<item name="violet crystal shard" chance="1500" countmax="2" />
+		<item name="brown crystal splinter" chance="300" />
+		<item name="might ring" chance="900" />
+		<item name="ring of healing" chance="900" />
+		<item name="giant sword" chance="300" />
+<item name="demonrage sword" chance="300" />
+	</loot>
+</monster>

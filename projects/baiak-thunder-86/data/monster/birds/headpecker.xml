@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="headpecker" nameDescription="a headpecker" race="blood" experience="12026" speed="217" manacost="0">
+	<health now="16300" max="16300" />
+	<look type="1557" head="85" body="1" legs="85" feet="105" addons="3" corpse="44350" />
+	<targetchange interval="4000" chance="70" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1000" />
+		<attack name="earth" interval="2500" chance="37" range="1" target="1" min="-700" max="-1100">
+			<attribute key="areaEffect" value="blacksmoke" />
+		</attack>
+		<attack name="physical" interval="4200" chance="35" length="4" spread="3" target="0" min="-700" max="-1050">
+			<attribute key="areaEffect" value="slash" />
+		</attack>
+		<attack name="physical" interval="3500" chance="35" min="-700" max="-850" />
+	</attacks>
+	<defenses armor="68" defense="100" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="100" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="Crystal Coin" chance="35160" />
+		<item name="Headpecker Beak" chance="11360" />
+		<item name="Headpecker Feather" chance="7620" countmax="5" />
+		<item name="Furry Club" chance="5560" />
+		<item name="Carrot" chance="4950" countmax="3" />
+		<item name="Knife" chance="4260" />
+		<item name="Spike Sword" chance="4040" />
+		<item name="War Hammer" chance="2290" />
+		<item name="Titan Axe" chance="1720" />
+		<item name="Blue Gem" chance="1560" />
+		<item name="Wand of Starstorm" chance="980" />
+		<item name="Gold Ingot" chance="910" />
+	</loot>
+</monster>

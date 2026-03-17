@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mercury blob" nameDescription="a mercury blob" race="undead" experience="180" speed="75" manacost="0">
+	<health now="150" max="150" />
+	<look type="316" head="0" body="0" legs="0" feet="0" addons="0" corpse="9961" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-75" />
+		<attack name="drunk" interval="2000" chance="10" range="7" target="1" duration="3000">
+			<attribute key="areaEffect" value="stun" />
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" range="7" target="1" min="-10" max="-30">
+			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="3" defense="1">
+		<defense name="healing" interval="2000" chance="5" min="20" max="30">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="0" />
+		<element earthPercent="65" />
+		<element firePercent="10" />
+		<element lifedrainPercent="80" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="15" />
+		<element holyPercent="65" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Crackle" />
+	</voices>
+	<loot>
+		<item name="glob of mercury" chance="18750" />
+	</loot>
+</monster>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lord of the Elements" nameDescription="a lord of the elements" race="undead" experience="8000" speed="185" manacost="0">
+	<health now="8000" max="8000" />
+	<look type="243" head="0" body="0" legs="0" feet="0" addons="0" corpse="9009" />
+	<targetchange interval="5000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-690" />
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="1000" chance="25" min="100" max="195">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="outfit" interval="1500" chance="40" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="outfit" interval="1500" chance="40" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="outfit" interval="1500" chance="40" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="outfit" interval="1500" chance="40" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="30" />
+		<element earthPercent="45" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="30" />
+		<element holyPercent="100" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="WHO DARES CALLING ME?" />
+		<voice sentence="I'LL FREEZE YOU THEN I CRUSH YOU!" />
+	</voices>
+	<loot>
+		<item name="small sapphire" chance="7142" countmax="4" />
+		<item name="small ruby" chance="11111" countmax="4" />
+		<item name="small emerald" chance="11111" countmax="4" />
+		<item name="small amethyst" chance="11111" countmax="3" />
+		<item name="platinum coin" chance="50000" countmax="9" />
+		<item name="earthborn titan armor" chance="2063" />
+		<item name="gold ingot" chance="25000" />
+	</loot>
+</monster>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dragonling" nameDescription="a dragonling" race="blood" experience="2200" speed="230" manacost="0">
+	<health now="2600" max="2600" />
+	<look type="505" head="0" body="0" legs="0" feet="0" addons="0" corpse="18441" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="900" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-210" />
+		<attack name="physical" interval="2000" chance="10" target="0" min="-120" max="-250" />
+		<attack name="energy" interval="2000" chance="20" radius="3" target="0" min="-115" max="-180">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" radius="3" target="0" min="-95" max="-150">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-700" duration="16000">
+			<attribute key="areaEffect" value="stun" />
+			<attribute key="shootEffect" value="explosion" />
+		</attack>
+	</attacks>
+	<defenses armor="58" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="100" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="5" />
+		<element earthPercent="-10" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="FI?" />
+		<voice sentence="FCHHHHH" />
+		<voice sentence="SQUAWK!" />
+		<voice sentence="FIYAH" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="37500" countmax="100" />
+		<item name="gold coin" chance="37500" countmax="100" />
+		<item name="gold coin" chance="37500" countmax="27" />
+		<item name="strong health potion" chance="24480" countmax="2" />
+		<item name="strong mana potion" chance="16900" countmax="2" />
+		<item name="blazing bone" chance="12410" />
+	</loot>
+</monster>

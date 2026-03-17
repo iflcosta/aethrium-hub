@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="draptor" nameDescription="a draptor" race="blood" experience="2400" speed="340" manacost="0">
+	<health now="3000" max="3000" />
+	<look type="382" head="0" body="0" legs="0" feet="0" addons="0" corpse="13316" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="350" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-150" />
+		<attack name="energy" interval="3000" chance="30" radius="3" target="0" min="-130" max="-310">
+			<attribute key="areaEffect" value="yellowenergy" />
+		</attack>
+		<attack name="energy" interval="3000" chance="35" range="7" target="0" min="-200" max="-300">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="fire" interval="2500" chance="17" length="8" spread="3" target="0" min="-70" max="-250">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="37">
+		<defense name="healing" interval="1000" chance="25" min="57" max="93">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="12" speedchange="457" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-20" />
+		<element energyPercent="100" />
+		<element earthPercent="-20" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="EEHEEHEEHEEH" />
+		<voice sentence="SCREEEEECH" />
+		<voice sentence="GRRR" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="33750" countmax="90" />
+		<item name="gold coin" chance="33750" countmax="60" />
+		<item name="strong health potion" chance="3150" />
+		<item name="strong mana potion" chance="4150" />
+		<item name="dragon robe" chance="950" />
+		<item name="draptor scales" chance="6650" />
+	</loot>
+</monster>

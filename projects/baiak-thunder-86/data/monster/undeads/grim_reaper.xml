@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="grim reaper" nameDescription="a grim reaper" race="undead" experience="5500" speed="160" manacost="0">
+	<health now="3900" max="3900" />
+	<look type="300" head="0" body="0" legs="0" feet="0" addons="0" corpse="8955" />
+	<targetchange interval="5000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-320" />
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" min="0" max="-165">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="death" interval="2000" chance="10" length="8" spread="0" target="0" min="-350" max="-720">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" length="7" spread="0" target="0" min="0" max="-300">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="10" radius="4" target="0" min="-225" max="-275">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="130" max="205" />
+		<defense name="speed" interval="2000" chance="15" speedchange="450" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="25" />
+		<element energyPercent="-10" />
+		<element earthPercent="40" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="65" />
+		<element holyPercent="-10" />
+		<element deathPercent="80" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Death!" />
+		<voice sentence="Come a little closer!" />
+		<voice sentence="The end is near!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="99000" countmax="100" />
+		<item name="platinum coin" chance="5200" countmax="4" />
+		<item name="magic light wand" chance="4850" />
+		<item name="dark shield" chance="3000" />
+		<item name="scythe" chance="9000" />
+		<item name="orichalcum pearl" chance="1400" countmax="4" />
+		<item name="death ring" chance="330" />
+		<item name="demonic essence" chance="10600" />
+		<item name="flask of demonic blood" chance="35000" />
+		<item name="nightmare blade" chance="880" />
+		<item name="great mana potion" chance="10000" />
+		<item name="glacier kilt" chance="330" />
+		<item name="ultimate health potion" chance="9600" />
+		<item name="skullcracker armor" chance="270" />
+		<item name="underworld rod" chance="910" />
+		<item name="slightly rusted armor" chance="2500" />
+		<item name="mystical hourglass" chance="5300" />
+	</loot>
+</monster>

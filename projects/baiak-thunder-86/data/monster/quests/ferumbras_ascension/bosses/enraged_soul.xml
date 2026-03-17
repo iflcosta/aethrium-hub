@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="enraged soul" nameDescription="a enraged soul" race="undead" experience="120" speed="80" manacost="0">
+	<health now="150" max="150" />
+	<look type="568" head="0" body="0" legs="0" feet="0" addons="0" corpse="21368" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="30" attack="40" />
+		<attack name="lifedrain" interval="2000" chance="15" range="1" target="1" min="-25" max="-45">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10" />
+	<elements>
+		<element physicalPercent="100" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="0" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="morning star" chance="10610" />
+		<item name="combat knife" chance="7020" />
+		<item name="shadow herb" chance="14400" />
+		<item name="cape" chance="8810" />
+		<item name="book" chance="1310" />
+		<item name="white piece of cloth" chance="1940" />
+		<item name="ghostly tissue" chance="1870" />
+		<item name="ancient shield" chance="860" />
+		<item name="stealth ring" chance="180" />
+	</loot>
+</monster>

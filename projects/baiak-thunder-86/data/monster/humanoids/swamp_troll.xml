@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="swamp troll" nameDescription="a swamp troll" race="venom" experience="25" speed="64" manacost="200">
+	<health now="55" max="55" />
+	<look type="76" head="0" body="0" legs="0" feet="0" addons="0" corpse="6018" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+	</attacks>
+	<defenses armor="6" defense="15" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="15" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Me strong! Me ate spinach!" />
+		<voice sentence="Groar!" />
+		<voice sentence="Grrrr" />
+	</voices>
+	<loot>
+		<item name="torch" chance="15000" />
+		<item name="gold coin" chance="50300" countmax="5" />
+		<item name="mouldy cheese" chance="10000" />
+		<item name="spear" chance="13000" />
+		<item name="fishing rod" chance="60" />
+		<item name="leather boots" chance="9500" />
+		<item name="fish" chance="60000" />
+		<item name="troll green" chance="1200" />
+		<item name="wood" chance="2140" />
+		<item name="swamp grass" chance="3100" />
+		<item name="medicine pouch" chance="2160" />
+	</loot>
+</monster>

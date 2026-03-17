@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zamulosh" nameDescription="a zamulosh" race="undead" experience="500000" speed="160" manacost="0">
+	<health now="300000" max="300000" />
+	<look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="22495" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="3000" chance="100" min="-1500" max="-2300" />
+		<attack name="death" interval="1000" chance="10" length="12" spread="3" target="0" min="-700" max="-800">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" length="12" spread="3" target="0" min="-2600" max="-3300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="6" spread="2" target="0" min="-900" max="-1500">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="35" radius="8" target="0" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="25" min="220" max="535">
+			<attribute key="areaEffect" value="yellowenergy" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="-1" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="-1" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I AM ZAMULOSH!" />
+	</voices>
+	<loot>
+		<item name="silver token" chance="100000" />
+		<item name="gold coin" chance="98000" countmax="100" />
+<item name="small sapphire" chance="12000" countmax="9" />
+		<item name="white pearl" chance="12000" countmax="8" />
+		<item name="small amethyst" chance="10000" countmax="5" />
+		<item name="small topaz" chance="10000" countmax="8" />
+		<item name="platinum coin" chance="8000" countmax="58" />
+		<item name="demonic essence" chance="11000" />
+		<item name="green crystal splinter" chance="10000" countmax="6" />
+		<item name="brown crystal splinter" chance="10000" countmax="6" />
+		<item name="blue crystal splinter" chance="10000" countmax="6" />
+		<item name="red gem" chance="1000" />
+		<item name="yellow gem" chance="1000" />
+		<item name="green gem" chance="1000" />
+		<item name="blue gem" chance="1000" />
+		<item name="time ring" chance="6000" />
+		<item name="ring of healing" chance="6000" />
+		<item name="rift crossbow" chance="770" />
+		<item name="crystalline armor" chance="770" />
+		<item name="rift shield" chance="670" />
+		<item name="maimer" chance="500" />
+		<item name="stone wall" chance="500" />
+	</loot>
+</monster>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sharpclaw" nameDescription="a sharpclaw" race="blood" experience="3000" speed="125" manacost="0">
+	<health now="3300" max="3300" />
+	<look type="1031" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-290" />
+		<attack name="physical" interval="1000" chance="20" range="7" target="0" min="100" max="720">
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" range="7" target="0" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="death" interval="1000" chance="14" length="5" spread="0" target="0" min="-100" max="-700">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="outfit" interval="1000" chance="1" radius="1" target="1" duration="2000" monster="Werebadger" />
+		<attack name="physical" interval="2000" chance="5" range="1" target="0" />
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="4000" chance="15" min="150" max="345">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="15">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="50" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Never underestimate a badger!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="10" />
+		<item name="brown mushroom" chance="100000" countmax="9" />
+		<item name="onyx chip" chance="100000" countmax="9" />
+		<item name="small enchanted amethyst" chance="100000" countmax="9" />
+		<item name="beetroot" chance="100000" countmax="9" />
+		<item name="great mana potion" chance="100000" countmax="9" />
+		<item name="platinum amulet" chance="100000" />
+		<item name="ring of healing" chance="100000" />
+		<item name="troll green" chance="100000" countmax="9" />
+		<item name="ultimate mana potion" chance="100000" countmax="9" />
+		<item name="werebadger claws" chance="100000" countmax="9" />
+		<item name="werebadger skull" chance="100000" countmax="9" />
+		<item name="badger boots" chance="400" />
+		<item name="underworld rod" chance="400" />
+		<item name="wand of voodoo" chance="400" />
+		<item name="wolf backpack" chance="250" />
+	</loot>
+</monster>

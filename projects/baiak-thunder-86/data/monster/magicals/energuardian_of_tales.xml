@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="energuardian of tales" nameDescription="a energuardian of tales" race="undead" experience="11361" speed="210" manacost="0">
+	<health now="14000" max="14000" />
+	<look type="1063" head="86" body="85" legs="82" feet="93" addons="3" corpse="3013" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-10" max="-550" />
+		<attack name="energy" interval="1000" chance="13" radius="3" target="0" min="-100" max="-555">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+	</attacks>
+	<defenses armor="77" defense="40" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="100" />
+		<element earthPercent="-12" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Die, enervating mortal!" />
+		<voice sentence="Let the energy flow!" />
+	</voices>
+	<loot>
+		<item name="book page" chance="10000" countmax="5" />
+		<item name="glowing rune" chance="10000" countmax="5" />
+		<item name="small amethyst" chance="10000" countmax="5" />
+		<item name="flash arrow" chance="10000" countmax="5" />
+		<item name="lightning legs" chance="250" />
+		<item name="spellbook of warding" chance="350" />
+		<item name="ultimate health potion" chance="10000" countmax="5" />
+		<item name="ultimate mana potion" chance="10000" countmax="5" />
+		<item name="wand of starstorm" chance="300" />
+	</loot>
+</monster>

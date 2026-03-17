@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bulltaur Brute" nameDescription="a bulltaur brute" race="blood" experience="4700" speed="170" manacost="0">
+	<health now="6560" max="6560" />
+	<look type="1717" head="0" body="0" legs="0" feet="0" addons="0" corpse="3128" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-170" max="-300" />
+		<attack name="physical" interval="2000" chance="15" radius="1" range="3" target="1" min="-450" max="-600">
+			<attribute key="areaEffect" value="slash" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="1" range="3" target="1" min="-400" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="100" />
+	<elements>
+		<element physicalPercent="30" />
+		<element energyPercent="-5" />
+		<element earthPercent="-20" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="10" />
+		<element holyPercent="-10" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity drunk="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="It's hammer time!" />
+		<voice sentence="I'll do some downsizing!" />
+		<voice sentence="This will be a smash hit!!" />
+	</voices>
+	<loot>
+		<item name="dead pharaoh" chance="53709" countmax="33" />
+		<item name="exaltation forge" chance="13883" />
+		<item name="grass" chance="10239" countmax="3" />
+		<item name="small stream" chance="2950" />
+		<item name="dead deer" chance="2516" />
+		<item name="dead skunk" chance="1432" />
+		<item name="dead pharaoh" chance="1258" />
+		<item name="dead marid" chance="954" />
+		<item name="dead marid" chance="824" />
+		<item name="ant trail" chance="694" />
+	</loot>
+</monster>

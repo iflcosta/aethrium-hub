@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="floating savant" nameDescription="a floating savant" race="undead" experience="8000" speed="165" manacost="0">
+	<health now="8000" max="8000" />
+	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-100" max="-200" />
+		<attack name="fire" interval="2000" chance="15" range="7" target="0" min="-390" max="-480">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="2000" chance="14" range="7" target="0" min="-390" max="-480">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="fire" interval="2000" chance="12" radius="3" target="0" min="-300" max="-400">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="4" spread="0" target="0" min="-490" max="-630">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+	</attacks>
+	<defenses armor="74" defense="40" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="tssooosh tsoooosh tssoooosh!" />
+		<voice sentence="We didn't stop the fire!" />
+	</voices>
+	<loot>
+		<item name="small enchanted ruby" chance="10000" countmax="5" />
+		<item name="red crystal fragment" chance="10000" countmax="2" />
+		<item name="red gem" chance="10000" countmax="3" />
+		<item name="red piece of cloth" chance="10000" countmax="3" />
+		<item name="flask of demonic blood" chance="12000" countmax="5" />
+		<item name="demonic essence" chance="10000" countmax="5" />
+		<item name="pick" chance="10000" />
+		<item name="sample of monster blood" chance="10000" countmax="5" />
+	</loot>
+</monster>

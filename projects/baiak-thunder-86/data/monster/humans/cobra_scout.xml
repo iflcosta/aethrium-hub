@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="cobra scout" nameDescription="a cobra scout" race="blood" experience="7310" speed="150" manacost="0">
+	<health now="8500" max="8500" />
+	<look type="1217" head="1" body="1" legs="102" feet="78" addons="2" corpse="34291" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-500" />
+		<attack name="earth" interval="2000" chance="22" target="1" min="-350" max="-450">
+			<attribute key="shootEffect" value="sniperarrow" />
+		</attack>
+		<attack name="earth" interval="2000" chance="16" radius="4" target="1" min="-300" max="-420">
+			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="shootEffect" value="poisonarrow" />
+		</attack>
+		<attack name="physical" interval="2000" chance="12" radius="3" target="0" min="-300" max="-380">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+	</attacks>
+	<defenses armor="81" defense="81" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Think I can't see you? Think again..." />
+		<voice sentence="You don't stand a chance!" />
+		<voice sentence="What are you looking for?" />
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="74000" countmax="9" />
+		<item name="earth arrow" chance="19490" countmax="28" />
+		<item name="stone skin amulet" chance="6800" />
+		<item name="gold ingot" chance="5750" />
+		<item name="cheesy figurine" chance="13800" />
+		<item name="opal" chance="23800" countmax="5" />
+		<item name="cobra crest" chance="15450" />
+		<item name="small emerald" chance="3000" countmax="2" />
+		<item name="violet gem" chance="1300" />
+		<item name="yellow gem" chance="3060" />
+		<item name="green gem" chance="1210" />
+		<item name="red gem" chance="4800" />
+		<item name="sacred tree amulet" chance="5100" />
+		<item name="green crystal shard" chance="2130" />
+		<item name="ring of red plasma" chance="740" />
+	</loot>
+</monster>

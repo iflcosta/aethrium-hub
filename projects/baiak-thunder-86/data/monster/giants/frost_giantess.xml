@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="frost giantess" nameDescription="a frost giantess" race="blood" experience="150" speed="97" manacost="550">
+	<health now="275" max="275" />
+	<look type="265" head="0" body="0" legs="0" feet="0" addons="0" corpse="7330" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="60" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-60" />
+		<attack name="physical" interval="2000" chance="30" range="7" target="0" min="0" max="-90">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="0" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="10" />
+		<element deathPercent="-3" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ymirs Mjalle!" />
+		<voice sentence="No run so much, must stay fat!" />
+		<voice sentence="HÃ¯Â¿Â½rre Sjan Flan!" />
+		<voice sentence="Damned fast food." />
+		<voice sentence="Come kiss the cook!" />
+	</voices>
+	<loot>
+		<item name="small stone" chance="10360" countmax="3" />
+		<item name="gold coin" chance="80000" countmax="40" />
+		<item name="club ring" chance="70" />
+		<item name="short sword" chance="7960" />
+		<item name="dark helmet" chance="170" />
+		<item name="battle shield" chance="1490" />
+		<item name="ham" chance="20990" countmax="2" />
+		<item name="shard" chance="100" />
+		<item name="ice cube" chance="2008" />
+		<item name="norse shield" chance="320" />
+		<item name="mana potion" chance="950" />
+		<item name="frost giant pelt" chance="4800" />
+	</loot>
+</monster>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dragon lord hatchling" nameDescription="a dragon lord hatchling" race="blood" experience="645" speed="84" manacost="0">
+	<health now="750" max="750" />
+	<look type="272" head="0" body="0" legs="0" feet="0" addons="0" corpse="7622" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="30" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-90" />
+		<attack name="fire" interval="2000" chance="10" length="5" spread="2" target="0" min="-90" max="-125">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="4" range="7" target="1" min="-55" max="-105">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="3" range="7" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="15" min="26" max="48">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-5" />
+		<element earthPercent="75" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Fchu?" />
+		<voice sentence="Rooawwrr" />
+	</voices>
+	<loot>
+		<item name="dragon ham" chance="77910" />
+		<item name="gold coin" chance="72690" countmax="100" />
+		<item name="mana potion" chance="1200" />
+		<item name="green mushroom" chance="490" />
+		<item name="magma boots" chance="100" />
+	</loot>
+</monster>

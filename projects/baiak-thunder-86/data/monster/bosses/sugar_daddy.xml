@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sugar Daddy" nameDescription="a sugar daddy" race="blood" experience="15550" speed="250" manacost="0">
+	<health now="9500" max="9500" />
+	<look type="1764" head="0" body="0" legs="0" feet="0" addons="2" corpse="3128" />
+	<targetchange interval="2000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="98" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="20" min="0" max="-550" />
+		<attack name="death" interval="2000" chance="20" range="6" target="1" min="-300" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="energy" interval="2000" chance="18" radius="12" target="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="pixieexplosion" />
+		</attack>
+		<attack name="earth" interval="2000" chance="18" radius="12" target="0" min="-250" max="-410">
+			<attribute key="areaEffect" value="hearts" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="25" min="400" max="1500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="25" />
+		<element earthPercent="20" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="SUGAR!!!" />
+		<voice sentence="Sweet vengeance!" />
+		<voice sentence="Let me have a bite!" />
+		<voice sentence="YOU HAVE BAD BREATH, TAKE A MINT!!!" />
+		<voice sentence="I LOOOOOOVE CHOCOLATE TRUFFLES!!!" />
+		<voice sentence="Yummy!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="95" />
+		<item name="platinum coin" chance="100000" countmax="11" />
+		<item name="small enchanted sapphire" chance="8900" />
+		<item name="red gem" chance="94465" />
+		<item name="white gem" chance="5600" />
+</loot>
+</monster>

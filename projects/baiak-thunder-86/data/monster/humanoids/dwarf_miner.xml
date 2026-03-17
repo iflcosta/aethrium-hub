@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="dwarf miner" nameDescription="a dwarf miner" race="blood" experience="60" speed="85" manacost="240">
+	<health now="120" max="120" />
+	<look type="160" head="77" body="101" legs="97" feet="115" addons="0" corpse="6007" />
+	<targetchange interval="0" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-35" />
+	</attacks>
+	<defenses armor="7" defense="10" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Work, work!" />
+		<voice sentence="Intruders in the mines!" />
+		<voice sentence="Mine, all mine!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="33333" countmax="10" />
+		<item name="dwarven ring" chance="793" />
+		<item name="axe" chance="14285" />
+		<item name="studded armor" chance="6666" />
+		<item name="pick" chance="11111" />
+		<item name="leather legs" chance="9090" />
+		<item name="meat" chance="3846" />
+		<item name="iron ore" chance="793" />
+	</loot>
+</monster>

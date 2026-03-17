@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Neferi the Spy" nameDescription="a neferi the spy" race="blood" experience="19650" speed="115" manacost="0">
+	<health now="28000" max="28000" />
+	<look type="149" head="95" body="121" legs="94" feet="1" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-150" max="-350" />
+		<attack name="earth" interval="2000" chance="60" radius="3" target="0" min="-700" max="-1100">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="3" range="5" target="1" min="-650" max="-800">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="60" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="0" />
+		<element deathPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="4366" />
+		<item name="terra rod" chance="2276" />
+		<item name="dagger" chance="1791" />
+		<item name="ultimate health potion" chance="1119" countmax="4" />
+		<item name="gold ingot" chance="1045" />
+		<item name="great spirit potion" chance="784" countmax="2" />
+		<item name="fire sword" chance="746" />
+		<item name="terra boots" chance="522" />
+		<item name="hailstorm rod" chance="485" />
+		<item name="lightning headband" chance="410" />
+		<item name="terra hood" chance="373" />
+		<item name="knight axe" chance="336" />
+		<item name="lightning legs" chance="336" />
+		<item name="ring of red plasma" chance="299" />
+		<item name="spellbook of warding" chance="261" />
+		<item name="glacier shoes" chance="224" />
+		<item name="knight armor" chance="224" />
+		<item name="eye-embroidered veil" chance="187" />
+		<item name="violet crystal shard" chance="187" />
+		<item name="glacier mask" chance="149" />
+		<item name="sea horse figurine" chance="149" />
+		<item name="stealth ring" chance="149" />
+		<item name="violet gem" chance="149" />
+		<item name="golden mask" chance="75" />
+	</loot>
+</monster>

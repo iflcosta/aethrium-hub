@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gnomevil" nameDescription="a gnomevil" race="blood" experience="400000" speed="235" manacost="0">
+	<health now="250000" max="250000" />
+	<look type="504" head="0" body="0" legs="0" feet="0" addons="0" corpse="18443" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="50" />
+		<flag runonhealth="10000" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1300" chance="100" skill="80" attack="140" />
+		<attack name="speed" interval="2000" chance="20" range="7" target="0" speedchange="-400" duration="2500">
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+		<attack name="fire" interval="2000" chance="100" range="7" target="0" min="-820" max="-950">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="9" length="8" spread="3" target="0" min="-230" max="-500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="energy" interval="1000" chance="12" range="3" target="1" min="-350" max="-800">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="35">
+		<defense name="healing" interval="1000" chance="25" min="1000" max="4000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="50" />
+		<element deathPercent="27" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I'm feeling grrrreat!" />
+		<voice sentence="I've seen the light! And it was all engulfing fire!" />
+		<voice sentence="No more Mr. Nicegnome!" />
+		<voice sentence="Taste the power of the dark side!" />
+	</voices>
+	<loot>
+		<item name="crystalline axe" chance="7030" />
+		<item name="crystal crossbow" chance="9120" />
+		<item name="gnomevil's hat" chance="99150" />
+		<item name="shiny blade" chance="6690" />
+		<item name="mycological bow" chance="8400" />
+		<item name="mycological mace" chance="7120" />
+		<item name="crystalline sword" chance="14100" />
+		<item name="decorative ribbon" chance="3710" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="sabretooth" nameDescription="a sabretooth" race="blood" experience="11931" speed="225" manacost="0">
+	<health now="17300" max="17300" />
+	<look type="1549" head="85" body="1" legs="85" feet="105" addons="3" corpse="44318" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1100" />
+		<attack name="physical" interval="5000" chance="35" min="-600" max="-1000" />
+		<attack name="physical" interval="3500" chance="30" range="1" target="1" min="-800" max="-1500">
+			<attribute key="areaEffect" value="bigscratch" />
+		</attack>
+		<attack name="fire" interval="2700" chance="35" range="1" target="1" min="-900" max="-1350" />
+	</attacks>
+	<defenses armor="63" defense="110" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="10" />
+		<element earthPercent="-10" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="Sabretooth Fur" chance="23640" />
+		<item name="Crystal Coin" chance="23350" countmax="2" />
+		<item name="Elven Amulet" chance="5010" />
+		<item name="Wand of Inferno" chance="4720" />
+		<item name="Dragon Necklace" chance="3850" />
+		<item name="Magma Coat" chance="3820" />
+		<item name="Sacred Tree Amulet" chance="2730" />
+		<item name="Fire Sword" chance="2650" />
+		<item name="Wand of Dragonbreath" chance="2330" />
+		<item name="Metal Spats" chance="2260" />
+	</loot>
+</monster>

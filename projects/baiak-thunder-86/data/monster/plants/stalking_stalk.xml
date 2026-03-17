@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="stalking stalk" nameDescription="a stalking stalk" race="blood" experience="11569" speed="190" manacost="0">
+	<health now="17100" max="17100" />
+	<look type="1554" head="85" body="1" legs="85" feet="105" addons="3" corpse="44334" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="2" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400">
+			<attribute key="areaEffect" value="carniphila" />
+		</attack>
+		<attack name="fire" interval="4000" chance="40" range="7" target="1" min="-800" max="-1050">
+			<attribute key="areaEffect" value="fire" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="earth" interval="2900" chance="25" radius="4" target="0" min="-850" max="-1130">
+			<attribute key="areaEffect" value="plantattack" />
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="110" />
+	<elements>
+		<element physicalPercent="-25" />
+		<element energyPercent="0" />
+		<element earthPercent="25" />
+		<element firePercent="25" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Sizzzle..." />
+	</voices>
+	<loot>
+		<item name="Stalking Seeds" chance="21520" />
+		<item name="Crystal Coin" chance="16570" countmax="3" />
+		<item name="Small Diamond" chance="7140" countmax="3" />
+		<item name="Green Crystal Fragment" chance="5030" />
+		<item name="Dragon Necklace" chance="4540" />
+		<item name="Opal" chance="3960" countmax="2" />
+		<item name="Magma Coat" chance="2160" />
+		<item name="Bow" chance="2000" />
+		<item name="Green Gem" chance="1780" />
+		<item name="Warrior's Axe" chance="1700" />
+		<item name="Muck Rod" chance="1310" />
+	</loot>
+</monster>

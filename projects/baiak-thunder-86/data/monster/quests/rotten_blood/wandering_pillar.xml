@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="wandering pillar" nameDescription="a wandering pillar" race="undead" experience="23200" speed="190" manacost="0">
+	<health now="37000" max="37000" />
+	<look type="1657" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="50" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1200" />
+		<attack name="energy" interval="2000" chance="20" length="8" spread="3" target="0" min="-1400" max="-1650">
+			<attribute key="areaEffect" value="blueenergyspark" />
+		</attack>
+		<attack name="energy" chance="20" radius="5" target="0" min="-1100" max="-1500">
+			<attribute key="areaEffect" value="pinkbeam" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" radius="5" target="1" min="-1400" max="-1700">
+			<attribute key="areaEffect" value="hitbyfire" />
+		</attack>
+		<attack name="physical" interval="3000" chance="15" min="-900" max="-1250" />
+	</attacks>
+	<defenses armor="120" defense="120" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="60" />
+		<element earthPercent="-15" />
+		<element firePercent="-15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="45" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="POWERRR!!" />
+		<voice sentence="DARKNESS. DEATH. ENERGIES." />
+		<voice sentence="TREMMMBLE!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="6629" />
+<item name="sulphurous stone" chance="5873" />
+		<item name="magma boots" chance="5080" />
+		<item name="coal" chance="9802" countmax="4" />
+		<item name="dark helmet" chance="7490" />
+		<item name="magma coat" chance="11753" />
+		<item name="onyx chip" chance="9311" countmax="2" />
+<item name="fire sword" chance="8319" />
+		<item name="magma clump" chance="6260" />
+		<item name="red gem" chance="9915" />
+		<item name="green gem" chance="12864" />
+</loot>
+</monster>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="quara plunderer" nameDescription="a quara plunderer" race="undead" experience="10800" speed="205" manacost="0">
+	<health now="13500" max="13500" />
+	<look type="1758" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-350" max="-500" />
+		<attack name="ice" interval="2000" chance="25" radius="4" range="7" target="0" min="-800" max="-1100">
+			<attribute key="areaEffect" value="icearea" />
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" target="0" min="-1100" max="-1700" />
+		<attack name="physical" interval="2000" chance="20" target="0" min="-850" max="-1150" />
+	</attacks>
+	<defenses armor="90" defense="95" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="15" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Tssssh!!!" />
+		<voice sentence="BLUP! BLUP!" />
+		<voice sentence="Burp!" />
+	</voices>
+	<loot>
+<item name="red gem" chance="4940" />
+		<item name="blue gem" chance="4900" />
+		<item name="Haunted Blade" chance="350" />
+		<item name="platinum coin" chance="10000" countmax="25" />
+	</loot>
+</monster>

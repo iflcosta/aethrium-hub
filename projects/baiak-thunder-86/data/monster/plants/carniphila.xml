@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="carniphila" nameDescription="a carniphila" race="venom" experience="150" speed="55" manacost="0">
+	<health now="255" max="255" />
+	<look type="120" head="0" body="0" legs="0" feet="0" addons="0" corpse="6047" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="0" min="-60" max="-95">
+			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" range="7" target="0" speedchange="-800" duration="30000">
+			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="10" radius="3" target="0" min="-40" max="-130">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="22" defense="15" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="10" />
+		<element earthPercent="100" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="90000" countmax="40" />
+		<item name="corncob" chance="890" />
+		<item name="dark mushroom" chance="7692" />
+		<item name="sling herb" chance="446" countmax="2" />
+		<item name="shadow herb" chance="880" />
+		<item name="seeds" chance="490" />
+		<item name="carniphila seeds" chance="4166" />
+		<item name="carrot on a stick" chance="170" />
+	</loot>
+</monster>

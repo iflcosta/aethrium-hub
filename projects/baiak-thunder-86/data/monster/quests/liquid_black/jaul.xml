@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Jaul" nameDescription="a jaul" race="blood" experience="30000" speed="220" manacost="0">
+	<health now="90000" max="90000" />
+	<look type="444" head="0" body="0" legs="0" feet="0" addons="0" corpse="15220" />
+	<targetchange interval="2000" chance="50" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="60" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="fire" interval="2200" chance="19" radius="7" range="7" target="1" min="0" max="-1000">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="manadrain" interval="3000" chance="32" radius="7" range="7" target="1" min="-200" max="-800">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="earth" interval="1300" chance="27" radius="3" target="0" min="0" max="-600">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="death" interval="1200" chance="6" length="8" spread="3" target="0" min="-300" max="-900">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="5" length="8" spread="3" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="ice" interval="1000" chance="5" length="8" spread="3" target="0" min="-1000" max="-2000">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="lifedrain" interval="4000" chance="10" length="8" spread="3" target="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="watersplash" />
+		</attack>
+		<attack name="speed" interval="1900" chance="14" radius="1" range="7" target="1" speedchange="-700" duration="15000" />
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="5000" chance="7" min="12000" max="19000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="1" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="DIE!! KENH!!" />
+		<voice sentence="QJELL AFAR GOU JEY!!" />
+	</voices>
+	<loot>
+		<item name="deepling axe" chance="25000" />
+		<item name="ornate chestplate" chance="25000" />
+		<item name="depth lorica" chance="20000" />
+		<item id="15408" chance="33333" /><!-- depth galea -->
+		<item name="depth calcei" chance="14285" />
+		<item name="ornate legs" chance="7142" />
+		<item name="ornate shield" chance="50000" />
+		<item name="ornate mace" chance="14285" />
+	</loot>
+
+	<script>
+		<event name="BossRoomKill"/>
+	</script>
+</monster>

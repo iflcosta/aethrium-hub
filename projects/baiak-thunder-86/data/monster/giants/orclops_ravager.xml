@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="orclops ravager" nameDescription="a orclops ravager" race="blood" experience="1100" speed="130" manacost="0">
+	<health now="1200" max="1200" />
+	<look type="935" head="94" body="1" legs="80" feet="94" addons="0" corpse="3128" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-240" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="-180" max="-220">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="25">
+		<defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="17" min="80" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="100" />
+		<element firePercent="20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="50" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Crushing! Smashing! Ripping! Yeah!!" />
+		<voice sentence="It's clobberin time!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="50320" countmax="100" />
+		<item name="platinum coin" chance="50320" />
+		<item name="strong health potion" chance="50320" />
+		<item name="mysterious fetish" chance="50320" />
+		<item name="orcish axe" chance="20000" />
+		<item name="red mushroom" chance="50320" countmax="3" />
+		<item name="reinvigorating seeds" chance="6000" />
+		<item name="bone toothpick" chance="4900" />
+		<item name="beetle carapace" chance="1800" />
+		<item name="bug meat" chance="12750" />
+		<item name="black pearl" chance="2510" countmax="2" />
+		<item name="small ruby" chance="1940" countmax="2" />
+		<item name="spiked squelcher" chance="1000" />
+		<item name="onion" chance="8870" />
+		<item name="small topaz" chance="9700" />
+		<item name="brown crystal splinter" chance="15290" countmax="3" />
+		<item name="pair of iron fists" chance="910" />
+		<item name="war drum" chance="910" />
+		<item name="berserk potion" chance="910" />
+		<item name="dreaded cleaver" chance="300" />
+	</loot>
+</monster>

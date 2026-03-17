@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="clay guardian" nameDescription="a clay guardian" race="undead" experience="400" speed="115" manacost="0">
+	<health now="625" max="625" />
+	<look type="333" head="0" body="0" legs="0" feet="0" addons="0" corpse="13972" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="60" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-125" />
+		<attack name="earth" interval="2000" chance="20" range="7" target="0" min="-30" max="-150">
+			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="shootEffect" value="smallearth" />
+		</attack>
+		<attack name="earth" interval="2000" chance="50" radius="3" target="0" min="-20" max="-30">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="42" defense="25">
+		<defense name="healing" interval="2000" chance="10" min="40" max="130">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="25" />
+		<element energyPercent="30" />
+		<element earthPercent="100" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="20" />
+		<element holyPercent="0" />
+		<element deathPercent="40" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="small stone" chance="10000" countmax="10" />
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="63" />
+		<item name="blank rune" chance="25000" />
+		<item name="earth arrow" chance="5555" countmax="8" />
+		<item name="small topaz" chance="320" />
+		<item name="lump of earth" chance="25000" />
+		<item name="clay lump" chance="1100" />
+	</loot>
+</monster>

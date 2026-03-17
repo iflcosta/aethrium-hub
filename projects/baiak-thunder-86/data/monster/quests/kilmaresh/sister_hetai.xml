@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sister Hetai" nameDescription="a sister hetai" race="blood" experience="20500" speed="115" manacost="0">
+	<health now="25000" max="25000" />
+	<look type="1199" head="114" body="19" legs="94" feet="78" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-270" max="-500" />
+		<attack name="physical" interval="2000" chance="40" target="1" min="-500" max="-650" />
+		<attack name="fire" interval="2000" chance="70" radius="2" target="1" min="-350" max="-500">
+			<attribute key="areaEffect" value="explosionhit" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="2000" chance="30" radius="4" target="0" min="-500" max="-750">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="60" />
+	<elements>
+		<element physicalPercent="5" />
+		<element energyPercent="15" />
+		<element earthPercent="0" />
+		<element firePercent="10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-25" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="dagger" chance="5052" />
+		<item name="crystal coin" chance="4323" />
+		<item name="sacred tree amulet" chance="781" />
+		<item name="gold ingot" chance="677" />
+		<item name="lightning headband" chance="469" />
+		<item name="underworld rod" chance="469" />
+		<item name="violet gem" chance="469" />
+		<item name="wand of cosmic energy" chance="469" />
+		<item name="onyx chip" chance="417" />
+		<item name="rainbow quartz" chance="417" />
+		<item name="small diamond" chance="417" />
+		<item name="wand of inferno" chance="417" />
+		<item name="knight armor" chance="365" />
+		<item name="lightning pendant" chance="365" />
+		<item name="small emerald" chance="365" />
+		<item name="focus cape" chance="313" />
+		<item name="magma coat" chance="313" />
+		<item name="ring of healing" chance="313" />
+		<item name="wand of starstorm" chance="313" />
+		<item name="magma boots" chance="260" />
+		<item name="metal spats" chance="260" />
+		<item name="warrior's shield" chance="260" />
+		<item name="dwarven ring" chance="208" />
+		<item name="golden mask" chance="208" />
+		<item name="terra hood" chance="208" />
+		<item name="eye-embroidered veil" chance="156" />
+		<item name="ring of green plasma" chance="156" />
+		<item name="terra boots" chance="156" />
+		<item name="yellow gem" chance="156" />
+		<item name="lightning legs" chance="104" />
+		<item name="sea horse figurine" chance="104" />
+		<item name="tagralt-inlaid scabbard" chance="52" />
+	</loot>
+</monster>

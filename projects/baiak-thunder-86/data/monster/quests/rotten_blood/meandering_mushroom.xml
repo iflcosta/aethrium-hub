@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="meandering mushroom" nameDescription="a meandering mushroom" race="undead" experience="21980" speed="205" manacost="0">
+	<health now="29100" max="29100" />
+	<look type="1621" head="0" body="0" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="5000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="85" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1150" />
+		<attack name="death" interval="2500" chance="15" radius="5" target="1" min="-1800" max="-1900">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2500" chance="15" radius="5" target="1" min="-1700" max="-1700">
+			<attribute key="areaEffect" value="insects" />
+		</attack>
+		<attack name="ice" interval="2500" chance="20" length="8" spread="5" target="0" min="-1100" max="-1300">
+			<attribute key="areaEffect" value="blacksmoke" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" target="0" min="-900" max="-1500" />
+	</attacks>
+	<defenses armor="115" defense="115" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="25" />
+		<element earthPercent="-20" />
+		<element firePercent="-10" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="40" />
+		<element holyPercent="-15" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="crystal coin" chance="11755" />
+<item name="white mushroom" chance="12998" countmax="3" />
+<item name="wand of decay" chance="14668" />
+		<item name="red gem" chance="10406" />
+<item name="dark mushroom" chance="12313" countmax="3" />
+		<item name="yellow gem" chance="13520" />
+		<item name="brown mushroom" chance="6422" countmax="3" />
+		<item name="terra amulet" chance="13122" />
+	</loot>
+</monster>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Terofar" nameDescription="a terofar" race="blood" experience="24000" speed="220" manacost="0">
+	<health now="40000" max="40000" />
+	<look type="12" head="19" body="0" legs="77" feet="79" addons="0" corpse="6017" />
+	<targetchange interval="2000" chance="25" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="180" attack="100" />
+		<attack name="death" interval="2000" chance="30" length="8" spread="0" target="0" min="-700" max="-1500">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="physical" interval="2000" chance="18" radius="1" range="7" target="1" min="0" max="-750">
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="2000" chance="30" min="300" max="500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="18" speedchange="784" duration="7000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="50" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Terofar cast a greater death curse on you!" />
+		<voice sentence="IT TOOK AN ARMY OF YOUR KIND TO DEFEAT THE WARDEN. NOW YOU ARE ALONE!" />
+		<voice sentence="THE WARDS ARE FAILING! MY ESCAPE IS ONLY A MATTER OF TIME!!" />
+		<voice sentence="FEELS GOOD TO BE BACK IN ACTION!" />
+	</voices>
+	<loot>
+		<item name="cluster of solace" chance="100000" />
+		<item name="unrealized dream" chance="100000" />
+		<item name="dream matter" chance="100000" />
+		<item name="demonic essence" chance="100000" />
+		<item name="demon horn" chance="100000" />
+		<item name="dream warden mask" chance="3560" />
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="100000" countmax="50" />
+		<item name="great mana potion" chance="33330" countmax="10" />
+		<item name="ultimate health potion" chance="3890" countmax="10" />
+		<item name="great spirit potion" chance="2780" countmax="5" />
+		<item name="blue crystal shard" chance="22220" countmax="8" />
+		<item name="violet crystal shard" chance="33330" countmax="8" />
+		<item name="green crystal shard" chance="44440" countmax="8" />
+		<item name="gold ingot" chance="16670" />
+<item name="demon shield" chance="11110" />
+		<item name="guardian shield" chance="22220" />
+		<item name="crown shield" chance="11110" />
+		<item name="mastermind shield" chance="960" />
+		<item name="paladin armor" chance="5560" />
+		<item name="voltage armor" chance="11110" />
+		<item name="lavos armor" chance="6110" />
+		<item name="green gem" chance="16670" />
+		<item name="blue gem" chance="11110" />
+		<item name="earthborn titan armor" chance="410" />
+		<item name="magic plate armor" chance="610" />
+		<item name="steel boots" chance="910" />
+		<item name="royal helmet" chance="910" />
+		<item name="terra boots" chance="2910" />
+		<item name="boots of haste" chance="1910" />
+		<item name="skull helmet" chance="1910" />
+	</loot>
+</monster>

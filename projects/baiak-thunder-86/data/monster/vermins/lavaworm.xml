@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="lavaworm" nameDescription="a lavaworm" race="fire" experience="6500" speed="120" manacost="0">
+	<health now="7500" max="7500" />
+	<look type="1394" head="0" body="0" legs="0" feet="0" addons="0" corpse="39335" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-600" />
+		<attack name="death" interval="2750" chance="20" range="5" target="1" min="-600" max="-760">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="fire" interval="2000" chance="60" radius="4" target="0" min="-700" max="-780">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="2750" chance="30" radius="3" range="5" target="1" min="-550" max="-700">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="15" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-15" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="70000" countmax="24" />
+		<item name="gold ingot" chance="18430" countmax="2" />
+		<item name="violet crystal shard" chance="15630" countmax="3" />
+		<item name="lavaworm spike roots" chance="20310" countmax="3" />
+		<item name="violet gem" chance="6750" />
+		<item name="lavaworm spikes" chance="4230" />
+		<item name="green gem" chance="4130" />
+		<item name="butterfly ring" chance="3120" />
+		<item name="underworld rod" chance="2920" />
+		<item name="lavaworm jaws" chance="2620" />
+		<item name="blue crystal shard" chance="2520" />
+		<item name="warrior helmet" chance="1560" />
+		<item name="wand of voodoo" chance="1560" />
+		<item name="crusader helmet" chance="1560" />
+		<item name="strange helmet" chance="500" />
+	</loot>
+</monster>

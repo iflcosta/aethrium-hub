@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="brachiodemon" nameDescription="a brachiodemon" race="blood" experience="15770" speed="220" manacost="0">
+	<health now="25000" max="25000" />
+	<look type="1299" head="0" body="0" legs="0" feet="0" addons="0" corpse="36473" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-950" />
+		<attack name="fire" interval="2000" chance="24" radius="4" target="0" min="-1100" max="-1550">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="22" radius="4" target="0" min="-900" max="-1280">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="10" range="7" target="1" min="-1150" max="-1460" />
+		<attack name="death" interval="2000" chance="15" radius="4" range="7" target="1" min="-950" max="-1100">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="physical" interval="1000" chance="30" />
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="30" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-25" />
+		<element holyPercent="-35" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Feel the heat!" />
+		<voice sentence="Hand over your life." />
+		<voice sentence="I can give you a hand... or two." />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="58990" />
+		<item name="ultimate health potion" chance="29110" countmax="4" />
+		<item name="hand" chance="5490" />
+<item name="epee" chance="3290" />
+		<item name="crystal mace" chance="1690" />
+		<item name="noble axe" chance="1600" />
+		<item name="spellbook of mind control" chance="1180" />
+		<item name="skull staff" chance="930" />
+		<item name="ring of green plasma" chance="930" />
+		<item name="royal helmet" chance="840" />
+		<item name="jade hammer" chance="840" />
+		<item name="metal bat" chance="760" />
+		<item name="diabolic skull" chance="590" />
+		<item name="fire axe" chance="590" />
+		<item name="crystalline sword" chance="420" />
+		<item name="butcher's axe" chance="420" />
+		<item name="mastermind shield" chance="420" />
+		<item name="assassin dagger" chance="340" />
+		<item name="alloy legs" chance="170" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

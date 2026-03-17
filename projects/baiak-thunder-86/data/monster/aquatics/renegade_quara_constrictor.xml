@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="renegade quara constrictor" nameDescription="a renegade quara constrictor" race="blood" experience="1250" speed="190" manacost="0">
+  <health now="1500" max="1500" />
+  <look type="46" head="0" body="0" legs="0" feet="0" addons="0" corpse="6065" />
+  <targetchange interval="2000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="1" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="20" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" skill="60" attack="40">
+      <attribute key="areaEffect" value="redshimmer" />
+    </attack>
+    <attack name="physical" interval="2000" chance="10" target="0" />
+    <attack name="physical" interval="2000" chance="10" range="1" target="0" />
+  </attacks>
+  <defenses armor="35" defense="20">
+    <defense name="healing" interval="3000" chance="35" min="150" max="300">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="-25" />
+    <element earthPercent="-10" />
+    <element firePercent="100" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="100" />
+    <element icePercent="100" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="0" />
+    <immunity bleed="0" />
+  </immunities>
+  <loot>
+    <item name="platinum coin" chance="79280" countmax="3" />
+    <item name="quara tentacle" chance="15240" />
+    <item name="mind stone" chance="6880" />
+    <item name="ring of healing" chance="5580" />
+    <item name="great mana potion" chance="5390" countmax="5" />
+    <item name="shrimp" chance="5300" countmax="4" />
+    <item name="small amethyst" chance="5200" countmax="2" />
+    <item name="small ruby" chance="4650" countmax="2" />
+    <item name="assassin star" chance="4460" countmax="7" />
+    <item name="vortex bolt" chance="3720" countmax="10" />
+    <item name="violet crystal shard" chance="1210" />
+    <item name="northwind rod" chance="740" />
+    <item name="fish fin" chance="370" />
+    <item name="piggy bank" chance="190" />
+  </loot>
+</monster>

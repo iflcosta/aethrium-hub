@@ -1,0 +1,484 @@
+--[[
+    SISTEMA DE UPGRADE DE ITENS - Comando !upgrade
+    Baiak Thunder (Refatorado - Fase 1)
+]]
+
+local upgradeCmd = TalkAction("!upgrade")
+
+local UPGRADE_SLOTS = {
+    {slot = CONST_SLOT_HEAD, name = "Capacete"},
+    {slot = CONST_SLOT_ARMOR, name = "Armadura"},
+    {slot = CONST_SLOT_LEGS, name = "Pernas"},
+    {slot = CONST_SLOT_FEET, name = "Botas"},
+    {slot = CONST_SLOT_LEFT, name = "Mao Esquerda"},
+    {slot = CONST_SLOT_RIGHT, name = "Mao Direita"},
+}
+
+-- ============================================================
+-- FORWARD DECLARATIONS
+-- ============================================================
+local sendMainMenu
+local sendTierSlotMenu
+local sendTierUpgradeMenu
+local processTierUpgrade
+local sendAttributeSlotMenu
+local sendAttributeSelectSlotMenu
+local sendAttributeConfirmMenu
+local processAttributeUpgrade
+local sendProtectionMenu
+local sendStatusMenu
+
+-- ============================================================
+-- MENU PRINCIPAL
+-- ============================================================
+function sendMainMenu(player)
+    local function buttonCallback(player, button, choice)
+        if not choice then return end
+        if button.text == "Selecionar" then
+            if choice.id == 1 then sendTierSlotMenu(player)
+            elseif choice.id == 2 then sendAttributeSlotMenu(player)
+            elseif choice.id == 3 then sendProtectionMenu(player)
+            elseif choice.id == 4 then sendStatusMenu(player)
+            end
+        end
+    end
+    
+    local hasProt = UPGRADE_SYSTEM:hasProtection(player)
+    
+    local window = ModalWindow {
+        title = "Sistema de Upgrade",
+        message = "Escolha uma opcao:\nAuto-Protecao Atual: " .. (hasProt and "[ATIVADA]" or "[DESATIVADA]")
+    }
+    
+    window:addButton("Selecionar", buttonCallback)
+    window:addButton("Fechar")
+    
+    window:addChoice("Upgrade de Tier (+1 a +10)")
+    window:addChoice("Gerenciar Atributos (Slots)")
+    window:addChoice("Alternar Auto-Protecao")
+    window:addChoice("Ver Status Geral")
+    
+    window:setDefaultEnterButton("Selecionar")
+    window:setDefaultEscapeButton("Fechar")
+    
+    window:sendToPlayer(player)
+end
+
+-- ============================================================
+-- TIER: SELEÇÃO DE EQUIPAMENTO
+-- ============================================================
+function sendTierSlotMenu(player)
+    local function buttonCallback(player, button, choice)
+        if button.text == "Voltar" then return sendMainMenu(player) end
+        if button.text == "Selecionar" then
+            if not choice then return end
+            local slotData = UPGRADE_SLOTS[choice.id]
+            if slotData then sendTierUpgradeMenu(player, slotData.slot, slotData.name) end
+        end
+    end
+    
+    local window = ModalWindow { title = "Upgrade de Tier", message = "Selecione o slot:\n" }
+    window:addButton("Voltar", buttonCallback)
+    window:addButton("Fechar")
+    window:addButton("Selecionar", buttonCallback)
+    
+    for i, slotData in ipairs(UPGRADE_SLOTS) do
+        local item = player:getSlotItem(slotData.slot)
+        local itemName = "Vazio"
+        if item then itemName = UPGRADE_SYSTEM:formatItemName(item) end
+        window:addChoice(slotData.name .. ": " .. itemName)
+    end
+    
+    window:setDefaultEnterButton("Selecionar")
+    window:setDefaultEscapeButton("Fechar")
+    window:sendToPlayer(player)
+end
+
+-- ============================================================
+-- TIER: CONFIRMAÇÃO E LÓGICA
+-- ============================================================
+function sendTierUpgradeMenu(player, slot, slotName)
+    local item = player:getSlotItem(slot)
+    if not item then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.noItem)
+        return sendTierSlotMenu(player)
+    end
+    
+    if UPGRADE_SYSTEM:isCracked(item) then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.itemCracked)
+        return sendTierSlotMenu(player)
+    end
+    
+    if not UPGRADE_SYSTEM:canUpgradeItem(item, slot) then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.cantUpgrade)
+        return sendTierSlotMenu(player)
+    end
+    
+    local currentTier = UPGRADE_SYSTEM:getItemTier(item)
+    local nextTier = currentTier + 1
+    
+    if nextTier > UPGRADE_SYSTEM.tiers.maxTier then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, string.format(UPGRADE_SYSTEM.messages.maxTier, UPGRADE_SYSTEM.tiers.maxTier))
+        return sendTierSlotMenu(player)
+    end
+    
+    local tierData = UPGRADE_SYSTEM.tiers.upgrades[nextTier]
+    local isMinor = (currentTier < 5)
+    local reqCrystalId = isMinor and UPGRADE_SYSTEM.items.minorCrystal or UPGRADE_SYSTEM.items.flawlessCrystal
+    local reqCrystalName = isMinor and "Minor Crystal" or "Flawless Crystal"
+    
+    local hasProtection = UPGRADE_SYSTEM:hasProtection(player)
+    
+    local function buttonCallback(player, button, choice)
+        if button.text == "Voltar" then return sendTierSlotMenu(player) end
+        if button.text == "Confirmar" then processTierUpgrade(player, slot) end
+    end
+    
+    local protectionTxt = "DESATIVADA"
+    local pentalyTxt = ""
+    if hasProtection then
+        protectionTxt = "ATIVADA (Requer 1 Protection Scroll no inv)"
+        pentalyTxt = "Nenhuma (Protegido)"
+    else
+        if tierData.penalty == 0 then pentalyTxt = "Nenhuma (Safe Tier)"
+        elseif tierData.penalty == 1 then pentalyTxt = "-1 Tier"
+        else pentalyTxt = "-2 Tiers" end
+    end
+    
+    local msg = string.format([[
+Item: %s
+Tier Atual: +%d -> Proximo: +%d
+
+Custo:
+- %s: 1
+- Gold: %s
+
+Chance de Sucesso: %d%%
+Auto Protecao: %s
+Em caso de falha: %s
+]], UPGRADE_SYSTEM:formatItemName(item), currentTier, nextTier, reqCrystalName, UPGRADE_SYSTEM:formatNumber(tierData.gold), tierData.chance, protectionTxt, pentalyTxt)
+    
+    local window = ModalWindow { title = "Confirmar Tier", message = msg }
+    window:addButton("Voltar", buttonCallback)
+    window:addButton("Fechar")
+    window:addButton("Confirmar", buttonCallback)
+    window:addChoice("Tentar Upgrade")
+    window:setDefaultEnterButton("Confirmar")
+    window:sendToPlayer(player)
+end
+
+function processTierUpgrade(player, slot)
+    local item = player:getSlotItem(slot)
+    if not item then return end
+    if UPGRADE_SYSTEM:isCracked(item) then return player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.itemCracked) end
+    
+    local currentTier = UPGRADE_SYSTEM:getItemTier(item)
+    local nextTier = currentTier + 1
+    if nextTier > UPGRADE_SYSTEM.tiers.maxTier then return end
+    
+    local tierData = UPGRADE_SYSTEM.tiers.upgrades[nextTier]
+    if player:getMoney() < tierData.gold then
+        return player:sendTextMessage(MESSAGE_STATUS_SMALL, string.format(UPGRADE_SYSTEM.messages.noGold, UPGRADE_SYSTEM:formatNumber(tierData.gold)))
+    end
+    
+    local isMinor = (currentTier < 5)
+    local reqCrystalId = isMinor and UPGRADE_SYSTEM.items.minorCrystal or UPGRADE_SYSTEM.items.flawlessCrystal
+    if player:getItemCount(reqCrystalId) < 1 then
+        return player:sendTextMessage(MESSAGE_STATUS_SMALL, isMinor and "Falta Minor Crystal." or "Falta Flawless Crystal.")
+    end
+    
+    -- Consume protection scroll if toggle is on
+    local hasProtection = UPGRADE_SYSTEM:hasProtection(player)
+    local savedByProt = false
+    if hasProtection then
+        if player:getItemCount(UPGRADE_SYSTEM.items.protectionScroll) >= 1 then
+            player:removeItem(UPGRADE_SYSTEM.items.protectionScroll, 1)
+            savedByProt = true
+        else
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "[Aviso] Protecao ativa, mas voce nao tinha o scroll. Upgrade sera feito sem protecao.")
+        end
+    end
+    
+    player:removeMoney(tierData.gold)
+    player:removeItem(reqCrystalId, 1)
+    
+    if math.random(100) <= tierData.chance then
+        UPGRADE_SYSTEM:setItemTier(item, nextTier)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format(UPGRADE_SYSTEM.messages.upgradeSuccess, nextTier))
+        player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+    else
+        if savedByProt then
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, UPGRADE_SYSTEM.messages.upgradeFailProtected)
+            player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+        else
+            if tierData.penalty == 0 then
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, UPGRADE_SYSTEM.messages.upgradeFailSafe)
+            else
+                local newTier = math.max(0, currentTier - tierData.penalty)
+                UPGRADE_SYSTEM:setItemTier(item, newTier)
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format(UPGRADE_SYSTEM.messages.upgradeFail, newTier))
+            end
+            player:getPosition():sendMagicEffect(CONST_ME_POFF)
+        end
+    end
+end
+
+-- ============================================================
+-- ATRIBUTOS: SELEÇÃO DE EQUIPAMENTO
+-- ============================================================
+function sendAttributeSlotMenu(player)
+    local function buttonCallback(player, button, choice)
+        if button.text == "Voltar" then return sendMainMenu(player) end
+        if button.text == "Selecionar" then
+            if not choice then return end
+            local slotData = UPGRADE_SLOTS[choice.id]
+            if slotData then sendAttributeSelectSlotMenu(player, slotData.slot, slotData.name) end
+        end
+    end
+    
+    local window = ModalWindow { title = "Gerenciar Atributos", message = "Selecione o equipamento:\n" }
+    window:addButton("Voltar", buttonCallback)
+    window:addButton("Fechar")
+    window:addButton("Selecionar", buttonCallback)
+    
+    for i, slotData in ipairs(UPGRADE_SLOTS) do
+        local item = player:getSlotItem(slotData.slot)
+        local itemName = item and UPGRADE_SYSTEM:formatItemName(item) or "Vazio"
+        window:addChoice(slotData.name .. ": " .. itemName)
+    end
+    
+    window:setDefaultEnterButton("Selecionar")
+    window:sendToPlayer(player)
+end
+
+-- ============================================================
+-- ATRIBUTOS: SELEÇÃO DE SLOT 1 OU 2
+-- ============================================================
+function sendAttributeSelectSlotMenu(player, slot, slotName)
+    local item = player:getSlotItem(slot)
+    if not item then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.noItem)
+        return sendAttributeSlotMenu(player)
+    end
+    
+    if UPGRADE_SYSTEM:isCracked(item) then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.itemCracked)
+        return sendAttributeSlotMenu(player)
+    end
+    
+    if not UPGRADE_SYSTEM:canUpgradeItem(item, slot) then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, UPGRADE_SYSTEM.messages.cantUpgrade)
+        return sendAttributeSlotMenu(player)
+    end
+    
+    local function buttonCallback(player, button, choice)
+        if button.text == "Voltar" then return sendAttributeSlotMenu(player) end
+        if button.text == "Selecionar" then
+            if not choice then return end
+            sendAttributeConfirmMenu(player, slot, choice.id)
+        end
+    end
+    
+    local window = ModalWindow { title = "Slots de Atributo", message = "Esolha o slot para melhorar/descobrir:\n" }
+    window:addButton("Voltar", buttonCallback)
+    window:addButton("Fechar")
+    window:addButton("Selecionar", buttonCallback)
+    
+    for i = 1, UPGRADE_SYSTEM.attributes.maxSlots do
+        local attrData = UPGRADE_SYSTEM:getSlotAttribute(item, i)
+        if attrData then
+            local def = UPGRADE_SYSTEM.attributes.list[attrData.key]
+            local name = def and def.name or attrData.key
+            window:addChoice("Slot " .. i .. ": " .. name .. " (Lv." .. attrData.level .. "/" .. UPGRADE_SYSTEM.attributes.maxLevel .. ")")
+        else
+            window:addChoice("Slot " .. i .. ": VAZIO (Descobrir)")
+        end
+    end
+    
+    window:setDefaultEnterButton("Selecionar")
+    window:sendToPlayer(player)
+end
+
+-- ============================================================
+-- ATRIBUTOS: CONFIRMAÇÃO
+-- ============================================================
+function sendAttributeConfirmMenu(player, slot, attrSlotIdx)
+    local item = player:getSlotItem(slot)
+    if not item then return end
+    if UPGRADE_SYSTEM:isCracked(item) then return end
+    
+    local attrData = UPGRADE_SYSTEM:getSlotAttribute(item, attrSlotIdx)
+    local targetLevel = attrData and (attrData.level + 1) or 1
+    
+    if targetLevel > UPGRADE_SYSTEM.attributes.maxLevel then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, "Este slot ja esta no nível maximo!")
+        return sendAttributeSelectSlotMenu(player, slot, "")
+    end
+    
+    local isBasicStone = (targetLevel <= 3)
+    local reqStoneName = isBasicStone and "Basic Attribute Stone" or "Greater Attribute Stone"
+    local levelData = UPGRADE_SYSTEM.attributes.levels[targetLevel]
+    
+    local function buttonCallback(player, button, choice)
+        if button.text == "Voltar" then return sendAttributeSelectSlotMenu(player, slot, "") end
+        if button.text == "Confirmar" then processAttributeUpgrade(player, slot, attrSlotIdx) end
+    end
+    
+    local hasProtection = UPGRADE_SYSTEM:hasProtection(player)
+    local protectionTxt = "DESATIVADA"
+    if hasProtection then protectionTxt = "ATIVADA (Previne Quebra, consome 1 Protection Scroll)" end
+    
+    local currentText = attrData and string.format("%s Lv.%d", UPGRADE_SYSTEM.attributes.list[attrData.key].name, attrData.level) or "VAZIO"
+    local targetText = attrData and string.format("Lv.%d", targetLevel) or "Descoberta (RNG Lv.1)"
+    
+    local msg = string.format([[
+Slot: %d
+Atual: %s
+Objetivo: %s
+
+Custo:
+- %s: 1
+- Gold: %s
+
+Chances:
+- Sucesso: %d%%
+- Falha Comum (Pedra quebra): %d%%
+- Falha Critica (Trincar Item): %d%%
+
+Auto Protecao: %s
+]], attrSlotIdx, currentText, targetText, reqStoneName, UPGRADE_SYSTEM:formatNumber(UPGRADE_SYSTEM.attributes.goldCost), levelData.success, levelData.commonFail, levelData.criticalFail, protectionTxt)
+
+    local window = ModalWindow { title = "Upgrade Slot " .. attrSlotIdx, message = msg }
+    window:addButton("Voltar", buttonCallback)
+    window:addButton("Fechar")
+    window:addButton("Confirmar", buttonCallback)
+    window:addChoice("Tentar Evolucao")
+    window:setDefaultEnterButton("Confirmar")
+    window:sendToPlayer(player)
+end
+
+function processAttributeUpgrade(player, equipSlot, attrSlotIdx)
+    local item = player:getSlotItem(equipSlot)
+    if not item then return end
+    if UPGRADE_SYSTEM:isCracked(item) then return end
+    
+    local attrData = UPGRADE_SYSTEM:getSlotAttribute(item, attrSlotIdx)
+    local targetLevel = attrData and (attrData.level + 1) or 1
+    
+    if targetLevel > UPGRADE_SYSTEM.attributes.maxLevel then return end
+    
+    local goldReq = UPGRADE_SYSTEM.attributes.goldCost
+    if player:getMoney() < goldReq then
+        return player:sendTextMessage(MESSAGE_STATUS_SMALL, string.format(UPGRADE_SYSTEM.messages.noGold, UPGRADE_SYSTEM:formatNumber(goldReq)))
+    end
+    
+    local isBasicStone = (targetLevel <= 3)
+    local reqStoneId = isBasicStone and UPGRADE_SYSTEM.items.basicAttributeStone or UPGRADE_SYSTEM.items.greaterAttributeStone
+    
+    if player:getItemCount(reqStoneId) < 1 then
+        return player:sendTextMessage(MESSAGE_STATUS_SMALL, isBasicStone and UPGRADE_SYSTEM.messages.noBasic or UPGRADE_SYSTEM.messages.noGreater)
+    end
+    
+    local levelData = UPGRADE_SYSTEM.attributes.levels[targetLevel]
+    
+    -- Consume protection
+    local hasProtection = UPGRADE_SYSTEM:hasProtection(player)
+    local savedByProt = false
+    if hasProtection then
+        if player:getItemCount(UPGRADE_SYSTEM.items.protectionScroll) >= 1 then
+            player:removeItem(UPGRADE_SYSTEM.items.protectionScroll, 1)
+            savedByProt = true
+        else
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "[Aviso] Protecao ativa, mas voce nao tinha o scroll. Tentando sem protecao!")
+        end
+    end
+    
+    player:removeMoney(goldReq)
+    player:removeItem(reqStoneId, 1)
+    
+    local roll = math.random(100)
+    
+    if roll <= levelData.success then
+        -- SUCESSO
+        if not attrData then
+            -- Descobrir
+            local validAttrs = UPGRADE_SYSTEM:getValidAttributesForItem(item, player:getVocation():getId())
+            if #validAttrs == 0 then
+                player:sendTextMessage(MESSAGE_STATUS_SMALL, "Este item nao suporta nenhum atributo para sua vocacao.")
+                return
+            end
+            local chosen = validAttrs[math.random(#validAttrs)]
+            UPGRADE_SYSTEM:setSlotAttribute(item, attrSlotIdx, chosen, 1)
+            local def = UPGRADE_SYSTEM.attributes.list[chosen]
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format(UPGRADE_SYSTEM.messages.attrDiscover, def.name, attrSlotIdx))
+        else
+            -- Evoluir
+            UPGRADE_SYSTEM:setSlotAttribute(item, attrSlotIdx, attrData.key, targetLevel)
+            local def = UPGRADE_SYSTEM.attributes.list[attrData.key]
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format(UPGRADE_SYSTEM.messages.attrSuccess, def.name, targetLevel))
+        end
+        player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+        
+    elseif roll <= (levelData.success + levelData.commonFail) then
+        -- FALHA COMUM
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, UPGRADE_SYSTEM.messages.attrFailCommon)
+        player:getPosition():sendMagicEffect(CONST_ME_POFF)
+    else
+        -- FALHA CRITICA
+        if savedByProt then
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, UPGRADE_SYSTEM.messages.attrFailProtected)
+            player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+        else
+            UPGRADE_SYSTEM:setCracked(item, true)
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, UPGRADE_SYSTEM.messages.attrFailCritical)
+            player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONHIT)
+        end
+    end
+end
+
+-- ============================================================
+-- AUTO-PROTECTION TOGGLE
+-- ============================================================
+function sendProtectionMenu(player)
+    local isActive = UPGRADE_SYSTEM:hasProtection(player)
+    UPGRADE_SYSTEM:setProtection(player, not isActive)
+    
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Auto-Protecao " .. (not isActive and "ATIVADA" or "DESATIVADA") .. "!")
+    player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+    sendMainMenu(player)
+end
+
+-- ============================================================
+-- STATUS GERAL
+-- ============================================================
+function sendStatusMenu(player)
+    local hasProtection = UPGRADE_SYSTEM:hasProtection(player)
+    local text = "=== STATUS GERAL ===\n"
+    text = text .. "Auto-Protecao: " .. (hasProtection and "ATIVADA" or "DESATIVA") .. "\n\n"
+    
+    for _, slotData in ipairs(UPGRADE_SLOTS) do
+        local item = player:getSlotItem(slotData.slot)
+        local itemName = item and UPGRADE_SYSTEM:formatItemName(item) or "Vazio"
+        text = text .. slotData.name .. ": " .. itemName .. "\n"
+    end
+    
+    text = text .. "\n=== LIMITES GLOBAIS ===\n"
+    text = text .. "P. Dodge/Crit/Refl: 15%\n"
+    text = text .. "Leech: 15%(EK/RP), 10%(MS/ED)\n"
+    text = text .. "Max HP/Mana: 20%\n"
+    
+    player:showTextDialog(2160, text)
+end
+
+-- ============================================================
+-- COMANDO PRINCIPAL
+-- ============================================================
+upgradeCmd:onSay(function(player, words, param)
+    sendMainMenu(player)
+    return false
+end)
+
+upgradeCmd:separator(" ")
+upgradeCmd:register()
+
+print("[Upgrade System] Comando !upgrade Fase 1 registrado com sucesso!")

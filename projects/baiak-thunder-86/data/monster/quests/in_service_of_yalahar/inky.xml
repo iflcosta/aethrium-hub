@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Inky" nameDescription="a inky" race="blood" experience="700" speed="120" manacost="0">
+  <health now="750" max="750" />
+  <look type="46" head="0" body="0" legs="0" feet="0" addons="0" corpse="6065" />
+  <targetchange interval="5000" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="physical" interval="4000" chance="15" />
+    <attack name="lifedrain" interval="2000" chance="15" radius="3" target="0" min="0" max="-87">
+      <attribute key="areaEffect" value="mortarea" />
+    </attack>
+    <attack name="ice" interval="2000" chance="19" radius="3" target="0" min="0" max="-80">
+      <attribute key="areaEffect" value="icearea" />
+      <attribute key="shootEffect" value="poison" />
+    </attack>
+    <attack name="ice" interval="2000" chance="7" radius="4" target="0" min="-56" max="-87">
+      <attribute key="areaEffect" value="icearea" />
+    </attack>
+    <attack name="physical" interval="2000" chance="10" range="1" target="0" />
+  </attacks>
+  <defenses armor="15" defense="15" />
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="-5" />
+    <element earthPercent="90" />
+    <element firePercent="100" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="100" />
+    <element icePercent="100" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Tssss!" />
+    <voice sentence="Gaaahhh!" />
+    <voice sentence="Gluh! Gluh!" />
+    <voice sentence="Boohaa!" />
+  </voices>
+  <loot>
+    <item name="gold coin" chance="12000" countmax="13" />
+  </loot>
+</monster>

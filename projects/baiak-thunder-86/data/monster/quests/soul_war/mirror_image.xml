@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mirror image" nameDescription="a mirror image" race="blood" experience="27000" speed="117" manacost="0">
+  <health now="35000" max="35000" />
+  <look type="136" head="76" body="114" legs="76" feet="76" addons="0" />
+  <targetchange interval="4000" chance="0" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="4" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-700" />
+    <attack name="ice" interval="2000" chance="20" radius="4" range="7" target="1" min="-800" max="-1100">
+      <attribute key="areaEffect" value="bigclouds" />
+      <attribute key="shootEffect" value="ice" />
+    </attack>
+    <attack name="holy" interval="2000" chance="17" radius="4" target="0" min="-950" max="-1400">
+      <attribute key="areaEffect" value="holyarea" />
+    </attack>
+    <attack name="holy" interval="2000" chance="20" range="7" target="1" min="-1080" max="-1350">
+      <attribute key="areaEffect" value="holydamage" />
+      <attribute key="shootEffect" value="holy" />
+    </attack>
+    <attack name="physical" interval="2000" chance="15" range="7" min="-900" max="-1300" />
+  </attacks>
+  <defenses armor="0" defense="75" />
+  <elements>
+    <element physicalPercent="1" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="-1" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="1" />
+    <element holyPercent="1" />
+    <element deathPercent="-1" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="1" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Delusional!" />
+    <voice sentence="I'll be your worst nightmare" />
+    <voice sentence="The mirrors can't contain the night." />
+    <voice sentence="What a lovely reflection." />
+  </voices>
+</monster>

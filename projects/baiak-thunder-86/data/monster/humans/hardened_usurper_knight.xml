@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="hardened usurper knight" nameDescription="a hardened usurper knight" race="blood" experience="0" speed="130" manacost="0">
+  <health now="8200" max="8200" />
+  <look type="1317" head="57" body="38" legs="76" feet="76" addons="1" />
+  <targetchange interval="4000" chance="10" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-500">
+      <attribute key="areaEffect" value="redshimmer" />
+    </attack>
+    <attack name="death" interval="6000" chance="9" radius="3" target="0" min="-150" max="-300">
+      <attribute key="areaEffect" value="mortarea" />
+    </attack>
+    <attack name="ice" interval="6000" chance="13" length="4" spread="0" target="0" min="-150" max="-400">
+      <attribute key="areaEffect" value="iceattack" />
+    </attack>
+    <attack name="physical" interval="8000" chance="12" range="4" target="1" min="-200" max="-450">
+      <attribute key="areaEffect" value="energy" />
+    </attack>
+  </attacks>
+  <defenses armor="0" defense="86">
+    <defense name="healing" interval="4000" chance="40" min="200" max="550">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="10" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="stolen knowledge of healing" nameDescription="a stolen knowledge of healing" race="undead" experience="0" speed="75" manacost="0">
+  <health now="10000" max="10000" />
+  <look type="1061" head="0" body="0" legs="0" feet="0" addons="0" />
+  <targetchange interval="5000" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="0" max="-200" />
+    <attack name="physical" interval="1000" chance="15" range="7" target="0" min="0" max="-180">
+      <attribute key="areaEffect" value="poff" />
+      <attribute key="shootEffect" value="snowball" />
+    </attack>
+    <attack name="energy" interval="1000" chance="12" length="3" spread="0" target="0" min="0" max="-175">
+      <attribute key="areaEffect" value="poff" />
+    </attack>
+  </attacks>
+  <defenses armor="28" defense="33" />
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="0" />
+    <element earthPercent="0" />
+    <element firePercent="0" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

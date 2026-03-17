@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="pirat cutthroat" nameDescription="a pirat cutthroat" race="blood" experience="1800" speed="160" manacost="0">
+	<health now="2600" max="2600" />
+	<look type="1346" head="2" body="96" legs="78" feet="96" addons="1" corpse="38028" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-450" />
+		<attack name="physical" interval="2000" chance="18" length="4" spread="3" target="0" min="-110" max="-190">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		<attack name="energy" interval="2000" chance="10" radius="3" target="0" min="-120" max="-175">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="72" defense="68" />
+	<elements>
+		<element physicalPercent="10" />
+		<element energyPercent="20" />
+		<element earthPercent="-20" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="great health potion" chance="44810" countmax="4" />
+		<item name="ice rapier" chance="25950" />
+		<item name="knight axe" chance="12500" />
+		<item name="crystal sword" chance="19420" />
+		<item name="pirate coin" chance="17810" countmax="10" />
+		<item name="crowbar" chance="7810" />
+		<item name="knight armor" chance="9550" />
+		<item name="focus cape" chance="8250" />
+		<item name="pirat's tail" chance="2120" />
+		<item name="shark fins" chance="1750" />
+	</loot>
+</monster>

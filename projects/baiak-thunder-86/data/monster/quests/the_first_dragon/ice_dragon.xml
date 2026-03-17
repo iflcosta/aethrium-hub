@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="ice dragon" nameDescription="a ice dragon" race="undead" experience="2300" speed="106" manacost="0">
+	<health now="2500" max="2500" />
+	<look type="947" head="0" body="9" legs="0" feet="0" addons="0" corpse="3013" />
+	<targetchange interval="2000" chance="5" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="350" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" skill="78" attack="50" />
+		<attack name="speed" interval="2000" chance="18" radius="4" range="7" target="1" min="0" max="-400" duration="20000">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+		<attack name="ice" interval="2000" chance="15" radius="3" range="7" target="0" min="-50" max="-120">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+		<attack name="speed" interval="2000" chance="12" length="7" spread="3" target="0" min="0" max="-400" duration="20000">
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="12" length="8" spread="3" target="0" min="-150" max="-380">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="22" defense="35">
+		<defense name="healing" interval="2000" chance="16" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="0" />
+		<element earthPercent="50" />
+		<element firePercent="-30" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="gold coin" chance="96850" countmax="100" />
+		<item name="dragon ham" chance="80020" countmax="2" />
+		<item name="shiver arrow" chance="78200" countmax="10" />
+		<item name="great mana potion" chance="40200" countmax="2" />
+		<item name="small sapphire" chance="52100" />
+		<item name="dragon blood" chance="18680" />
+		<item name="dragon tongue" chance="11400" />
+		<item name="energy ring" chance="49900" />
+		<item name="glacier mask" chance="11900" />
+		<item name="golden mug" chance="21700" />
+		<item name="hailstorm rod" chance="21700" />
+		<item name="ice cube" chance="43400" />
+		<item name="glacier amulet" chance="540" />
+		<item name="life crystal" chance="540" />
+		<item name="shard" chance="1090" />
+		<item name="dragon scale mail" chance="330" />
+	</loot>
+</monster>

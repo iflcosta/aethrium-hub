@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="shadow fiend" nameDescription="a shadow fiend" race="undead" experience="500" speed="180" manacost="0">
+  <health now="3200" max="3200" />
+  <look type="320" head="0" body="0" legs="0" feet="0" addons="0" corpse="24256" />
+  <targetchange interval="10" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="physical" interval="4000" chance="15" />
+    <attack name="lifedrain" interval="2000" chance="20" range="7" target="1" min="-200" max="-300">
+      <attribute key="areaEffect" value="mortarea" />
+    </attack>
+    <attack name="physical" interval="2000" chance="19" range="7" target="0" />
+  </attacks>
+  <defenses armor="30" defense="35">
+    <defense name="healing" interval="2000" chance="13" min="150" max="185">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="0" />
+    <element energyPercent="-10" />
+    <element earthPercent="0" />
+    <element firePercent="-20" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="0" />
+    <element deathPercent="0" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+</monster>

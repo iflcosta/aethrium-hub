@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="quara constrictor scout" nameDescription="a quara constrictor scout" race="blood" experience="200" speed="75" manacost="900">
+	<health now="450" max="450" />
+	<look type="46" head="0" body="0" legs="0" feet="0" addons="0" corpse="6065" />
+	<targetchange interval="4000" chance="5" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="45" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-135">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" radius="3" target="0" min="0" max="-80">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="14" defense="15" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
+		<element firePercent="100" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="0" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Tssss!" />
+		<voice sentence="Gaaahhh!" />
+		<voice sentence="Gluh! Gluh!" />
+		<voice sentence="Boohaa!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="87620" countmax="100" />
+		<item name="quara tentacle" chance="14620" />
+		<item name="longsword" chance="6910" />
+		<item name="shrimp" chance="5140" countmax="3" />
+		<item name="brass armor" chance="4810" />
+		<item name="small amethyst" chance="3060" />
+		<item name="fish fin" chance="490" />
+	</loot>
+</monster>

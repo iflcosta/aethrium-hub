@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="infernal phantom" nameDescription="a infernal phantom" race="undead" experience="15770" speed="200" manacost="0">
+	<health now="26000" max="26000" />
+	<look type="1298" head="114" body="80" legs="94" feet="78" addons="0" corpse="36781" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-800" />
+		<attack name="fire" interval="2000" chance="15" range="7" target="1" min="-950" max="-1300">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" min="-700" max="-900" />
+		<attack name="death" interval="3000" chance="20" radius="4" target="0" min="-900" max="-1350">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="6" spread="3" target="0" min="-980" max="-1250">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="death" interval="3000" chance="24" radius="3" range="7" target="1" min="-850" max="-1200">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="100" />
+	<elements>
+		<element physicalPercent="-10" />
+		<element energyPercent="1" />
+		<element earthPercent="-10" />
+		<element firePercent="80" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-20" />
+		<element holyPercent="-20" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ashes to ashes." />
+		<voice sentence="Burn, baby! Burn!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="61900" />
+		<item name="terra rod" chance="34070" />
+		<item name="ultimate health potion" chance="24400" countmax="4" />
+		<item name="hailstorm rod" chance="7460" />
+		<item name="springsprout rod" chance="4640" />
+		<item name="infernal heart" chance="4440" />
+		<item name="underworld rod" chance="3830" />
+		<item name="fire axe" chance="3630" />
+		<item name="wand of starstorm" chance="3430" />
+		<item name="glorious axe" chance="3230" />
+		<item name="infernal robe" chance="2620" />
+		<item name="chaos mace" chance="2420" />
+		<item name="titan axe" chance="2020" />
+		<item name="wand of voodoo" chance="1610" />
+		<item name="crystal mace" chance="1610" />
+		<item name="war axe" chance="1410" />
+		<item name="warrior's axe" chance="1410" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

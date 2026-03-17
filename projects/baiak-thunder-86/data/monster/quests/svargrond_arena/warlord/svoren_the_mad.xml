@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Svoren the Mad" nameDescription="a svoren the mad" race="blood" experience="3000" speed="90" manacost="0">
+	<health now="6310" max="6310" />
+	<look type="254" head="80" body="61" legs="43" feet="5" addons="0" corpse="7349" />
+	<targetchange interval="0" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-525" />
+		<attack name="speed" interval="3500" chance="35" radius="1" range="1" target="1" speedchange="-250" duration="40">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="27" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="100" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="100" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="No mommy NO, Leave me alone!" />
+		<voice sentence="Not that tower again!" />
+		<voice sentence="The cat has grown some horns!" />
+		<voice sentence="What was I doing here again?" />
+		<voice sentence="Are we there soon mommy?" />
+		<voice sentence="Ah madness I embrace you!" />
+	</voices>
+</monster>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Faceless Bane" nameDescription="a faceless bane" race="blood" experience="20000" speed="125" manacost="0">
+	<health now="35000" max="35000" />
+	<look type="1119" head="0" body="2" legs="95" feet="97" addons="0" corpse="32669" />
+	<targetchange interval="4000" chance="20" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-575" />
+		<attack name="fire" interval="2000" chance="65" radius="3" target="0" min="-350" max="-500">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="death" interval="2000" chance="45" radius="4" target="0" min="-335" max="-450">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="25" length="7" target="0" min="-330" max="-380">
+			<attribute key="areaEffect" value="explosionarea" />
+		</attack>
+		<attack name="fire" interval="2000" chance="35" radius="4" range="4" target="1" min="-300" max="-410">
+			<attribute key="areaEffect" value="firearea" />
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" radius="1" range="4" target="1" min="-385" max="-535">
+			<attribute key="areaEffect" value="energyarea" />
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="5" />
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-20" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="red gem" chance="16670" />
+		<item name="blue gem" chance="2630" />
+		<item name="book backpack" chance="880" />
+		<item name="crowbar" chance="16670" />
+		<item name="cyan crystal fragment" chance="13160" />
+		<item name="dagger" chance="48250" />
+		<item name="dream blossom staff" chance="1750" />
+		<item name="ectoplasmic shield" chance="1750" />
+		<item name="enchanted pendulet" chance="1750" />
+		<item name="giant shimmering pearl" chance="880" />
+		<item name="gold ingot" chance="8330" />
+		<item name="green crystal shard" chance="4390" />
+		<item name="green gem" chance="8330" />
+		<item name="hailstorm rod" chance="9650" />
+		<item name="hexagonal ruby" chance="880" />
+		<item name="ice rapier" chance="18420" />
+		<item name="knife" chance="12280" />
+		<item name="life crystal" chance="10530" />
+		<item name="lightning pendant" chance="2630" />
+		<item name="moonlight rod" chance="5260" />
+		<item name="necrotic rod" chance="2630" />
+		<item name="orb" chance="2630" />
+		<item name="platinum coin" chance="83330" countmax="19" />
+		<item name="red crystal fragment" chance="16670" />
+		<item name="small sapphire" chance="33330" countmax="4" />
+		<item name="snakebite rod" chance="7020" />
+		<item name="spear" chance="16670" countmax="3" />
+		<item name="spirit guide" chance="1750" />
+		<item name="springsprout rod" chance="880" />
+		<item name="strange talisman" chance="2630" />
+		<item name="terra rod" chance="22810" />
+		<item name="twin hooks" chance="13160" />
+		<item name="underworld rod" chance="3510" />
+		<item name="violet crystal shard" chance="2630" />
+		<item name="violet gem" chance="1750" />
+		<item name="wand of everblazing" chance="880" />
+		<item name="yellow gem" chance="16670" />
+	</loot>
+</monster>

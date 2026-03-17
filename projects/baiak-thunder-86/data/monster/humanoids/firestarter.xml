@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="firestarter" nameDescription="a firestarter" race="blood" experience="80" speed="100" manacost="0">
+	<health now="180" max="180" />
+	<look type="159" head="94" body="77" legs="78" feet="79" addons="0" corpse="20599" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-15" />
+		<attack name="fire" interval="2000" chance="15" radius="1" target="1" min="0" max="-21">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="burstarrow" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" radius="1" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="0" />
+		<element earthPercent="5" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-10" />
+		<element holyPercent="20" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="FIRE!" />
+		<voice sentence="BURN!" />
+		<voice sentence="DEATH to the FALSE GOD!!" />
+		<voice sentence="You shall burn in the thornfires!!" />
+		<voice sentence="DOWN with the followers of the bog!!" />
+		<voice sentence="Hey, what's that burnt stench... isn't that... YOU?" />
+		<voice sentence="Set everything on fire!!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="79000" countmax="35" />
+		<item name="longsword" chance="6000" />
+		<item name="bow" chance="4000" />
+		<item name="grapes" chance="20000" />
+		<item name="heaven blossom" chance="930" />
+		<item name="elvish bow" chance="100" />
+		<item name="flaming arrow" chance="30000" countmax="12" />
+		<item name="elvish talisman" chance="5000" />
+		<item name="coal" chance="15280" />
+		<item name="flintstone" chance="340" />
+	</loot>
+</monster>

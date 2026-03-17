@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="pirate cutthroat" nameDescription="a pirate cutthroat" race="blood" experience="175" speed="107" manacost="0">
+	<health now="325" max="325" />
+	<look type="96" head="0" body="0" legs="0" feet="0" addons="0" corpse="20482" />
+	<targetchange interval="4000" chance="15" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="physical" interval="2000" chance="20" radius="1" range="3" target="1" min="0" max="-95">
+			<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="shootEffect" value="explosion" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="10" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="20" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Give up!" />
+		<voice sentence="Plundeeeeer!" />
+		<voice sentence="Hiyaa!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="78000" countmax="50" />
+		<item name="scale armor" chance="3000" />
+		<item name="steel shield" chance="2800" />
+		<item name="treasure map" chance="1000" />
+		<item name="rum flask" chance="90" />
+		<item name="light shovel" chance="2000" />
+		<item name="die" chance="110" />
+		<item name="pirate knee breeches" chance="980" />
+		<item name="pirate bag" chance="1000" />
+		<item name="hook" chance="550" />
+		<item name="eye patch" chance="450" />
+		<item name="peg leg" chance="500" />
+		<item name="compass" chance="10120" />
+	</loot>
+</monster>

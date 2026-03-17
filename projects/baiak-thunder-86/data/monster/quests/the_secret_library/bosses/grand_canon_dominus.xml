@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grand Canon Dominus" nameDescription="a grand canon dominus" race="blood" experience="11000" speed="105" manacost="0">
+	<health now="15000" max="15000" />
+	<look type="1071" head="57" body="96" legs="96" feet="105" addons="0" corpse="3128" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-150" max="-700" />
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" min="-100" max="-720">
+			<attribute key="shootEffect" value="etherealspear" />
+		</attack>
+		<attack name="holy" interval="2000" chance="14" length="8" spread="0" target="0" min="-100" max="-1000">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" radius="3" range="5" target="0" min="-200" max="-700">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" radius="3" range="5" target="0" min="-200" max="-700">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="50">
+		<defense name="healing" interval="2000" chance="20" min="200" max="550">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="220" duration="5000">
+			<attribute key="areaEffect" value="poff" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="60" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="0" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" chance="100000" countmax="5" />
+		<item name="great health potion" chance="100000" countmax="3" />
+		<item name="assassin star" chance="100000" countmax="2" />
+		<item name="small amethyst" chance="100000" countmax="2" />
+		<item name="golden armor" chance="1700" />
+		<item name="mastermind shield" chance="1100" />
+		<item name="patch of fine cloth" chance="1000" />
+		<item name="red gem" chance="1800" />
+		<item name="violet gem" chance="1850" />
+		<item name="falcon bow" chance="180" />
+		<item name="falcon wand" chance="180" />
+		<item name="falcon plate" chance="100" />
+	</loot>
+</monster>

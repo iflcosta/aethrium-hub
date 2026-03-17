@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="mutated human" nameDescription="a mutated human" race="blood" experience="150" speed="77" manacost="0">
+	<health now="240" max="240" />
+	<look type="323" head="0" body="0" legs="0" feet="0" addons="0" corpse="9107" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="death" interval="2000" chance="15" length="3" spread="1" target="0" min="-50" max="-60">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" target="1" min="-190" max="-280">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" range="7" target="1" speedchange="-600" duration="30000">
+			<attribute key="areaEffect" value="stun" />
+		</attack>
+	</attacks>
+	<defenses armor="14" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="220" duration="5000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="0" />
+		<element lifedrainPercent="100" />
+		<element manadrainPercent="0" />
+		<element drownPercent="100" />
+		<element icePercent="20" />
+		<element holyPercent="-25" />
+		<element deathPercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Take that creature off my back!! I can feel it!" />
+		<voice sentence="You will regret interrupting my studies!" />
+		<voice sentence="You will be the next infected one... CRAAAHHH!" />
+		<voice sentence="Science... is a curse." />
+		<voice sentence="Run as fast as you can." />
+		<voice sentence="Oh by the gods! What is this... aaaaaargh!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="44000" countmax="80" />
+		<item name="gold coin" chance="44000" countmax="50" />
+		<item name="strange talisman" chance="4980" />
+		<item name="silver amulet" chance="70" />
+		<item name="fishbone" chance="10050" />
+		<item name="sword" chance="5030" />
+		<item name="scale armor" chance="8080" />
+		<item name="cheese" chance="8000" />
+		<item name="fern" chance="420" />
+		<item name="worm" chance="7110" countmax="2" />
+		<item name="peanut" chance="580" />
+		<item name="heavily rusted armor" chance="190" />
+		<item name="mutated flesh" chance="19940" />
+	</loot>
+</monster>

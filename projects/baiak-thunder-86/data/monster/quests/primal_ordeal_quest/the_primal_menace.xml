@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Primal Menace" nameDescription="a the primal menace" race="blood" experience="0" speed="180" manacost="0">
+	<health now="400000" max="400000" />
+	<look type="1566" head="0" body="0" legs="0" feet="0" addons="0" corpse="44561" />
+	<targetchange interval="2000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="95" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="-0" max="-763" />
+		<attack name="earth" interval="4000" chance="25" length="10" spread="3" target="0" min="-1500" max="-2200">
+			<attribute key="areaEffect" value="carniphila" />
+		</attack>
+		<attack name="fire" interval="2500" chance="35" length="10" spread="3" target="0" min="-700" max="-1000">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="physical" interval="3500" chance="25" target="0" min="-250" max="-300" />
+		<attack name="energy" interval="5000" chance="25" range="4" target="0" min="-1200" max="-1300">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="earth" interval="2700" chance="35" range="4" target="1" min="-600" max="-1800">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="80" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="-5" />
+		<element earthPercent="100" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="50" />
+		<element holyPercent="40" />
+		<element deathPercent="0" />
+	</elements>
+</monster>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="many faces" nameDescription="a many faces" race="undead" experience="18870" speed="215" manacost="0">
+	<health now="30000" max="30000" />
+	<look type="1296" head="0" body="0" legs="0" feet="0" addons="0" corpse="36457" />
+	<targetchange interval="4000" chance="0" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-1300" />
+		<attack name="ice" interval="4000" chance="33" range="7" target="1" min="-1220" max="-1400">
+			<attribute key="areaEffect" value="iceattack" />
+			<attribute key="shootEffect" value="snowball" />
+		</attack>
+		<attack name="ice" interval="5000" chance="44" radius="5" range="7" target="1" min="-1000" max="-1450">
+			<attribute key="areaEffect" value="icearea" />
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+		<attack name="holy" interval="9500" chance="59" radius="4" target="0" min="-1050" max="-1300">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="physical" interval="10000" chance="59" range="7" min="-1150" max="-1300" />
+		<attack name="physical" interval="1000" chance="30" />
+	</attacks>
+	<defenses armor="105" defense="105" />
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="30" />
+		<element holyPercent="50" />
+		<element deathPercent="-30" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="I have a head start." />
+		<voice sentence="Look into my eyes! No, the other ones!" />
+		<voice sentence="The mirrors can't contain the night!" />
+	</voices>
+	<loot>
+		<item name="crystal coin" chance="76710" />
+		<item name="ultimate health potion" chance="14920" countmax="7" />
+		<item name="apron" chance="7990" />
+		<item name="hailstorm rod" chance="7610" />
+		<item name="stone skin amulet" chance="5780" />
+		<item name="green gem" chance="5710" />
+		<item name="northwind rod" chance="5630" />
+		<item name="sacred tree amulet" chance="5560" />
+		<item name="violet gem" chance="5100" />
+		<item name="blue gem" chance="5020" />
+		<item name="ring of red plasma" chance="4870" />
+<item name="glacier shoes" chance="2510" />
+		<item name="glacier robe" chance="2130" />
+		<item name="gruesome fan" chance="610" />
+		<item name="glacial rod" chance="610" />
+		<item name="bag you desire" chance="15" />
+	</loot>
+</monster>

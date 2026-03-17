@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="melting frozen horror" nameDescription="a melting frozen horror" race="undead" experience="65000" speed="120" manacost="0">
+  <health now="70000" max="70000" />
+  <look type="261" head="0" body="0" legs="0" feet="0" addons="0" corpse="7282" />
+  <targetchange interval="2000" chance="5" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="0" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" chance="100" min="-70" max="-300" />
+    <attack name="physical" interval="2000" chance="15" target="0" />
+    <attack name="ice" interval="2000" chance="15" radius="3" range="7" target="1" min="-750" max="-1050">
+      <attribute key="areaEffect" value="poff" />
+      <attribute key="shootEffect" value="ice" />
+    </attack>
+    <attack name="physical" interval="2000" chance="11" target="0" />
+    <attack name="physical" interval="2000" chance="10" target="0" />
+  </attacks>
+  <defenses armor="60" defense="60">
+    <defense name="healing" interval="2000" chance="20">
+      <attribute key="areaEffect" value="poff" />
+    </defense>
+  </defenses>
+  <elements>
+    <element physicalPercent="1" />
+    <element energyPercent="-5" />
+    <element earthPercent="0" />
+    <element firePercent="-15" />
+    <element lifedrainPercent="0" />
+    <element manadrainPercent="0" />
+    <element drownPercent="0" />
+    <element icePercent="0" />
+    <element holyPercent="0" />
+    <element deathPercent="-1" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity outfit="0" />
+    <immunity invisible="1" />
+    <immunity bleed="0" />
+  </immunities>
+  <voices interval="5000" chance="10">
+    <voice sentence="Chrrrrrk! Chrrrk!" />
+  </voices>
+  <loot>
+    <item name="gold coin" chance="100000" countmax="100" />
+    <item name="gold coin" chance="100000" countmax="11" />
+    <item name="frosty heart" chance="14111" />
+    <item name="ice cube" chance="5100" />
+    <item name="ice rapier" chance="320" />
+    <item name="crystal sword" chance="580" />
+    <item name="small diamond" chance="730" />
+    <item name="violet crystal shard" chance="9660" countmax="5" />
+    <item name="blue gem" chance="5000" />
+    <item name="ultimate health potion" chance="19500" countmax="3" />
+    <item name="green crystal shard" chance="9660" countmax="5" />
+    <item name="pair of earmuffs" chance="9660" />
+    <item name="instable proto matter" chance="9660" />
+    <item name="crystal mace" chance="9660" />
+    <item name="crystalline sword" chance="9660" />
+    <item name="shiny blade" chance="200" />
+    <item name="ornate crossbow" chance="200" />
+    <item name="frozen plate" chance="500" />
+    <item name="part of a rune" chance="500" />
+    <item name="runic ice shield" chance="200" />
+    <item name="gold token" chance="100000" />
+    <item name="silver token" chance="100000" />
+    <item name="spark sphere" chance="100000" />
+  </loot>
+</monster>

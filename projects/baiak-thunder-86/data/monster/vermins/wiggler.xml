@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="wiggler" nameDescription="a wiggler" race="venom" experience="900" speed="180" manacost="0">
+	<health now="1200" max="1200" />
+	<look type="510" head="0" body="0" legs="0" feet="0" addons="0" corpse="18483" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="359" />
+	</flags>
+	<attacks>
+		<attack name="physical" interval="4000" chance="15" />
+		<attack name="earth" interval="2000" chance="10" length="4" spread="3" target="0" min="-180" max="-270">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="physical" interval="2000" chance="10" range="7" target="0" min="-160" max="-200">
+			<attribute key="areaEffect" value="smallplants" />
+			<attribute key="shootEffect" value="poisonarrow" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" length="3" spread="2" target="0" speedchange="-700" duration="30000">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="510" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="5" />
+		<element earthPercent="100" />
+		<element firePercent="-5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Zzzrp" />
+		<voice sentence="Crick! Crick!" />
+	</voices>
+	<loot>
+		<item name="gold coin" chance="100000" countmax="100" />
+		<item name="platinum coin" chance="14790" />
+		<item name="terra rod" chance="850" />
+		<item name="serpent sword" chance="1360" />
+		<item name="black shield" chance="1320" />
+		<item name="white mushroom" chance="7142" countmax="5" />
+		<item name="blue piece of cloth" chance="2080" />
+		<item name="yellow piece of cloth" chance="2160" />
+		<item name="strong health potion" chance="4930" />
+		<item name="strong mana potion" chance="5250" />
+		<item name="crystalline arrow" chance="15540" countmax="5" />
+		<item name="green crystal splinter" chance="3600" />
+		<item name="green crystal fragment" chance="2070" />
+		<item name="drill bolt" chance="15260" countmax="5" />
+	</loot>
+</monster>

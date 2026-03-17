@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="shrieking cry-stal" nameDescription="a shrieking cry-stal" race="energy" experience="13560" speed="207" manacost="0">
+	<health now="20650" max="20650" />
+	<look type="1560" head="85" body="1" legs="85" feet="105" addons="3" corpse="44362" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="3" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-400" />
+		<attack name="energy" interval="5000" chance="47" range="6" min="-650" max="-900">
+			<attribute key="shootEffect" value="energyball" />
+		</attack>
+		<attack name="death" interval="3500" chance="30" radius="6" target="0" min="-500" max="-700">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="3" target="1" min="-425" max="-550" />
+		<attack name="energy" interval="3000" chance="30" length="5" spread="2" target="0" min="-700" max="-1000">
+			<attribute key="areaEffect" value="purplenote" />
+		</attack>
+		<attack name="physical" interval="2000" chance="1" target="1" />
+	</attacks>
+	<defenses armor="95" defense="110" />
+	<elements>
+		<element physicalPercent="20" />
+		<element energyPercent="10" />
+		<element earthPercent="-5" />
+		<element firePercent="5" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="5" />
+		<element holyPercent="100" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="La-la-la..AAAHHHH!!!" />
+		<voice sentence="SCREEECH..." />
+	</voices>
+	<loot>
+		<item name="Crystal Coin" chance="23440" countmax="2" />
+		<item name="Great Spirit Potion" chance="20760" />
+		<item name="Cry-Stal" chance="12560" countmax="2" />
+		<item name="Small Diamond" chance="6020" countmax="3" />
+		<item name="Rusted Armor" chance="5580" />
+		<item name="Green Crystal Fragment" chance="4290" />
+		<item name="Terra Boots" chance="4290" />
+		<item name="Protection Amulet" chance="2270" />
+		<item name="Violet Gem" chance="1250" />
+		<item name="Gold Ring" chance="600" />
+		<item name="Green Gem" chance="420" />
+		<item name="Ring of the Sky" chance="210" />
+	</loot>
+</monster>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="weeper" nameDescription="a weeper" race="fire" experience="5800" speed="170" manacost="0">
+	<health now="6800" max="6800" />
+	<look type="489" head="0" body="0" legs="0" feet="0" addons="0" corpse="17251" />
+	<targetchange interval="4000" chance="10" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-450" />
+		<attack name="fire" interval="2000" chance="15" length="8" spread="0" target="0" min="-400" max="-1000">
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="fire" interval="3000" chance="100" radius="3" target="0" min="-80" max="-250">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" length="5" spread="0" target="0" speedchange="-600" duration="30000">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="50">
+		<defense name="invisible" interval="2000" chance="5">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="0" />
+		<element earthPercent="100" />
+		<element firePercent="100" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="-5" />
+		<element holyPercent="0" />
+		<element deathPercent="30" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Moooaaan" />
+	</voices>
+	<loot>
+		<item name="small ruby" chance="15690" countmax="3" />
+		<item name="gold coin" chance="50000" countmax="100" />
+		<item name="gold coin" chance="50000" countmax="99" />
+		<item name="platinum coin" chance="100000" countmax="7" />
+		<item name="fire sword" chance="3280" />
+		<item name="fire axe" chance="2150" />
+		<item name="great mana potion" chance="14800" countmax="2" />
+		<item name="magma legs" chance="790" />
+		<item name="magma coat" chance="790" />
+		<item name="ultimate health potion" chance="15440" countmax="2" />
+		<item name="fiery heart" chance="13570" />
+		<item name="coal" chance="1320" />
+		<item name="wand of everblazing" chance="1480" />
+		<item name="violet crystal shard" chance="5430" />
+		<item name="brown crystal splinter" chance="12100" countmax="2" />
+		<item name="red crystal fragment" chance="8880" />
+		<item name="magma clump" chance="13240" />
+		<item name="blazing bone" chance="14890" />
+		<item name="eye of a weeper" chance="15870" />
+		<item name="prismatic bolt" chance="10900" countmax="5" />
+	</loot>
+</monster>

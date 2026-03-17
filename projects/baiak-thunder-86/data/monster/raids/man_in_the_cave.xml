@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="man in the cave" nameDescription="a man in the cave" race="blood" experience="777" speed="105" manacost="0">
+	<health now="485" max="485" />
+	<look type="128" head="77" body="59" legs="20" feet="76" addons="1" corpse="20446" />
+	<targetchange interval="5000" chance="8" />
+	<strategy attack="100" defense="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="50" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" min="0" max="-62" />
+		<attack name="physical" interval="2000" chance="20" range="7" target="0" min="0" max="-95">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="12" speedchange="250" duration="4000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="25" min="10" max="50">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="0" />
+		<element energyPercent="0" />
+		<element earthPercent="0" />
+		<element firePercent="0" />
+		<element lifedrainPercent="0" />
+		<element manadrainPercent="0" />
+		<element drownPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="0" />
+		<immunity outfit="0" />
+		<immunity invisible="1" />
+		<immunity bleed="0" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="THE MONKS ARE MINE!" />
+		<voice sentence="I will rope you up! All of you!" />
+		<voice sentence="Have you seen my old pal Frack?" />
+		<voice sentence="A MIC to rule them all!" />
+		<voice sentence="Let me put my rope around your neck!" />
+	</voices>
+	<loot>
+		<item name="rope" chance="100000" countmax="3" />
+		<item name="mercenary sword" chance="38000" />
+		<item name="brown piece of cloth" chance="30000" />
+		<item name="gold coin" chance="30000" countmax="39" />
+		<item name="fur cap" chance="15000" />
+		<item name="shard" chance="8000" />
+	</loot>
+</monster>
