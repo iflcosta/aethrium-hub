@@ -7,9 +7,9 @@ from contextlib import asynccontextmanager
 from db import prisma
 from scheduler import start_scheduler, stop_scheduler
 
-# Explicitly load the backend/.env file
+# Explicitly load the backend/.env file and override system variables
 env_path = Path(__file__).parent / ".env"
-load_dotenv(dotenv_path=env_path)
+load_dotenv(dotenv_path=env_path, override=True)
 
 if not os.getenv("PINECONE_API_KEY"):
     print("[WARNING] PINECONE_API_KEY not found in environment!")
