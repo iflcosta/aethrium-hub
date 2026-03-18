@@ -23,6 +23,25 @@ class MeetingMessageRequest(BaseModel):
     task_id: str
     message: str
 
+class ModelUpdateRequest(BaseModel):
+    model: str
+
+@router.put("/{slug}/model")
+async def update_agent_model(slug: str, body: ModelUpdateRequest):
+    if slug not in agents:
+        return {"error": "Agent not found"}, 404
+    
+    # Update in-memory registry
+    agents[slug].model = body.model
+    
+    # Update Database
+    await prisma.agent.update(
+        where={"slug": slug},
+        data={"model": body.model}
+    )
+        
+    return {"slug": slug, "model": body.model, "updated": True}
+
 @router.post("/{slug}/run")
 async def run_agent(slug: str, body: RunRequest):
     if slug not in agents:

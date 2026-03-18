@@ -1,0 +1,6 @@
+backend/
+projects/
+*.md
+.env*
+prisma/seed.ts
+prisma/update-models.ts

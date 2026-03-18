@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Aethrium Hub — OTServ Studio",
   description: "AI-powered OTServ development studio dashboard",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

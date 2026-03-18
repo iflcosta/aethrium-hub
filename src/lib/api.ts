@@ -90,4 +90,15 @@ export const backendApi = {
     fetch(`${BACKEND_URL}/projects/${project_slug}/index`, {
       method: 'DELETE'
     }).then(r => r.json()),
+
+  getAgents: () =>
+    fetch(`${BACKEND_URL}/agents/`)
+      .then(r => r.json()),
+
+  updateAgentModel: (slug: string, model: string) =>
+    fetch(`${BACKEND_URL}/agents/${slug}/model`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model })
+    }).then(r => r.json()),
 }
