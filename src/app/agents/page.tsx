@@ -5,6 +5,7 @@ import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
 import { SectionHeader } from "@/components/section-header";
 import { mockAgents } from "@/lib/mock/agents";
+import { backendApi, BACKEND_URL } from "@/lib/api";
 
 interface Agent {
   slug: string;
@@ -39,7 +40,7 @@ function ThoughtStreamPanel({ slug }: { slug: string }) {
       evtRef.current = null;
       return;
     }
-    const es = new EventSource(`/api/agents/${slug}/stream`);
+    const es = new EventSource(`${BACKEND_URL}/agents/${slug}/stream`);
     evtRef.current = es;
     es.onmessage = (e) => {
       const data = JSON.parse(e.data);
@@ -85,8 +86,7 @@ export default function AgentsPage() {
   const agentMeta = mockAgents;
 
   useEffect(() => {
-    fetch("/api/agents")
-      .then((r) => r.json())
+    backendApi.getAgents()
       .then(setAgents)
       .catch(() => {});
   }, []);

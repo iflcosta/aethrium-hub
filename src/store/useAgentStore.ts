@@ -1,5 +1,15 @@
 import { create } from "zustand";
-import { Agent } from "@prisma/client";
+import { backendApi } from "@/lib/api";
+
+interface Agent {
+  slug: string;
+  displayName: string;
+  model: string;
+  role: string;
+  color: string;
+  isOnline: boolean;
+  avatar?: string;
+}
 
 interface AgentState {
   agents: Agent[];
@@ -21,11 +31,7 @@ export const useAgentStore = create<AgentState>((set) => ({
   fetchAgents: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch("/api/agents");
-      if (!response.ok) {
-        throw new Error("Failed to fetch agents");
-      }
-      const data = await response.json();
+      const data = await backendApi.getAgents();
       set({ agents: data, isLoading: false });
     } catch (error) {
       set({ error: (error as Error).message, isLoading: false });

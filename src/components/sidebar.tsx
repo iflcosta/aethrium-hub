@@ -8,6 +8,7 @@ import {
   LayoutDashboard, Bot, ListTodo, DollarSign, Users, Cpu,
   Map, Sword, Bug, ScrollText, Settings, Zap
 } from "lucide-react";
+import { backendApi } from "@/lib/api";
 
 interface Agent {
   slug: string;
@@ -59,8 +60,8 @@ export function Sidebar() {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const res = await fetch("/api/agents");
-        if (res.ok) setAgents(await res.json());
+        const data = await backendApi.getAgents();
+        setAgents(data);
       } catch {}
     };
     fetchAgents();

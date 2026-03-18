@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: aethrium-backend
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && prisma generate
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.10
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_INDEX
+        sync: false
+      - key: E2B_API_KEY
+        sync: false
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: N8N_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
