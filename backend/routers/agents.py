@@ -3,8 +3,8 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import Dict, Any
 
-from backend.graphs.studio_graph import agents
-from backend.db import prisma
+from graphs.studio_graph import agents
+from db import prisma
 from prisma import Json
 
 router = APIRouter(prefix="/agents", tags=["Agents"])

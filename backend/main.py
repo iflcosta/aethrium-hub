@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
-from backend.db import prisma
-from backend.scheduler import start_scheduler, stop_scheduler
+from db import prisma
+from scheduler import start_scheduler, stop_scheduler
 
 # Explicitly load the backend/.env file
 env_path = Path(__file__).parent / ".env"
@@ -46,7 +46,7 @@ app.add_middleware(
 )
 
 # Include routers here later
-from backend.routers import agents, stream, tasks, projects, webhooks
+from routers import agents, stream, tasks, projects, webhooks
 app.include_router(agents.router)
 app.include_router(stream.router)
 app.include_router(tasks.router)

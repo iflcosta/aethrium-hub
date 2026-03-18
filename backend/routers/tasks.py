@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
-from backend.db import prisma
+from db import prisma
 from prisma import Json
 import json
 

@@ -1,4 +1,4 @@
-from backend.db import prisma
+from db import prisma
 
 async def get_task(task_id: str):
     """Fetch task with owner and executions"""

@@ -2,16 +2,16 @@ from typing import TypedDict, List, Optional
 from langgraph.graph import StateGraph, START, END
 
 # Import all agents
-from backend.agents.carlos import CarlosAgent
-from backend.agents.rafael import RafaelAgent
-from backend.agents.viktor import ViktorAgent
-from backend.agents.sophia import SophiaAgent
-from backend.agents.mariana import MarianaAgent
-from backend.agents.lucas import LucasAgent
-from backend.agents.beatriz import BeatrizAgent
-from backend.agents.thiago import ThiagoAgent
-from backend.agents.amanda import AmandaAgent
-from backend.agents.leonardo import LeonardoAgent
+from agents.carlos import CarlosAgent
+from agents.rafael import RafaelAgent
+from agents.viktor import ViktorAgent
+from agents.sophia import SophiaAgent
+from agents.mariana import MarianaAgent
+from agents.lucas import LucasAgent
+from agents.beatriz import BeatrizAgent
+from agents.thiago import ThiagoAgent
+from agents.amanda import AmandaAgent
+from agents.leonardo import LeonardoAgent
 
 # Instantiate agents
 agents = {

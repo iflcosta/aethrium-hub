@@ -2,7 +2,7 @@ import asyncio
 import json
 from fastapi import APIRouter, Request
 from sse_starlette.sse import EventSourceResponse
-from backend.db import prisma
+from db import prisma
 
 router = APIRouter(prefix="/stream", tags=["Stream"])
 

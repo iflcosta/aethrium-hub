@@ -1,6 +1,6 @@
-from backend.rag.chunker import chunk_project
-from backend.rag.pinecone_client import PineconeClient
-from backend.db import prisma
+from rag.chunker import chunk_project
+from rag.pinecone_client import PineconeClient
+from db import prisma
 
 async def index_project(project_slug: str,
                         project_path: str) -> dict:

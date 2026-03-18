@@ -1,10 +1,10 @@
 import json
 from typing import AsyncGenerator
 from prisma import Prisma
-from backend.tools.prisma_tools import update_task_status, log_agent_event
-from backend.integrations.discord import notify_task_completed, notify_urgent
-from backend.integrations.sandbox import run_lua_test
-from backend.integrations.vision import analyze_map_image, analyze_map_from_base64
+from tools.prisma_tools import update_task_status, log_agent_event
+from integrations.discord import notify_task_completed, notify_urgent
+from integrations.sandbox import run_lua_test
+from integrations.vision import analyze_map_image, analyze_map_from_base64
 import os
 from dotenv import load_dotenv
 
@@ -13,7 +13,7 @@ load_dotenv()
 # Avoid global instance if we want to ensure thread/async safety in background tasks
 # Instead, we should probably receive a connected instance or ensure it's connected
 # But for simplicity, let's keep it but ensure we don't 're-initialize' wrongly.
-from backend.db import prisma
+from db import prisma
 
 STUDIO_CONTEXT = """
 You are part of Aethrium Studio — an AI-powered game development studio
@@ -84,7 +84,7 @@ class BaseAgent:
         
         try:
             # Prepare messages
-            from backend.rag.indexer import query_rag
+            from rag.indexer import query_rag
             project_slug = context.get("project_slug")
             prompt = context.get("prompt", "")
 

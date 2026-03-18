@@ -1,7 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, Query
-from backend.rag.indexer import index_project, query_rag
+from rag.indexer import index_project, query_rag, delete_index, get_status, list_indices
 from pydantic import BaseModel
-from backend.db import prisma
+from db import prisma
 
 router = APIRouter(prefix="/projects", tags=["Projects"])
 
@@ -49,7 +49,7 @@ async def query_project(req: QueryRequest):
 
 @router.delete("/{project_slug}/index")
 async def delete_index(project_slug: str):
-    from backend.rag.pinecone_client import PineconeClient
+    from rag.pinecone_client import PineconeClient
     PineconeClient().delete_project(project_slug)
     
     # Raw SQL for deletion to avoid JSON filter issues

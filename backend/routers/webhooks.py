@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Request
-from backend.integrations.discord import (
+from integrations.discord import (
     notify_task_completed,
     notify_urgent,
     notify_system_deployed,
     notify_server_status
 )
-from backend.integrations.vision import analyze_map_image, analyze_map_from_base64
+from integrations.vision import analyze_map_image, analyze_map_from_base64
 import json
 from pydantic import BaseModel
 from typing import Optional
@@ -49,7 +49,7 @@ async def webhook_vip_activated(request: Request):
 @router.post("/test/discord")
 async def test_discord(request: Request):
     """Test Discord notification"""
-    from backend.integrations.discord import send_discord_notification
+    from integrations.discord import send_discord_notification
     await send_discord_notification(
         title="🧪 Teste do Aethrium Hub",
         message="Integração com Discord funcionando corretamente!",

@@ -1,4 +1,4 @@
-from backend.rag.chunker import chunk_project
+from rag.chunker import chunk_project
 import os
 
 project_path = "C:/Users/Iago Lopes/.gemini/antigravity/scratch/aethrium-hub/projects/baiak-thunder-86"
