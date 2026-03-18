@@ -57,7 +57,7 @@ async def test_sophia():
                 print(f"Execution status: {exec_rec.status}")
 
 if __name__ == "__main__":
-    from backend.db import prisma
+    from db import prisma
     async def run_all():
         await prisma.connect()
         await test_sophia()
