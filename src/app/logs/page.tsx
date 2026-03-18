@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { mockLogs, logTypeColors, type LogEntry, type LogType } from "@/lib/mock/logs";
 import { Download, Pause, Play } from "lucide-react";
+import { BACKEND_URL } from "@/lib/api";
 
 const allTypes: LogType[] = ["LOGIN", "LOGOUT", "COMBAT", "TRADE", "VIP", "RESET", "SYSTEM"];
 
@@ -16,7 +17,7 @@ export default function LogsPage() {
 
   // Live stream
   useEffect(() => {
-    const evtSource = new EventSource("/api/logs/stream");
+    const evtSource = new EventSource(`${BACKEND_URL}/logs/stream`);
     evtSource.onmessage = (e) => {
       const entry = JSON.parse(e.data);
       setLogs((prev) => [...prev.slice(-200), entry]);

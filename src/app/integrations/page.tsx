@@ -258,7 +258,7 @@ function WebhookItem({ label, url }: { label: string, url: string }) {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
-    navigator.clipboard.writeText(`http://localhost:8001${url}`);
+    navigator.clipboard.writeText(`${BACKEND_URL}${url}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
