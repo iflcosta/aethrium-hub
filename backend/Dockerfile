@@ -1,5 +1,9 @@
 FROM python:3.11-slim
 
+# Set environment variables
+ENV PRISMA_ENGINE_TYPE="binary"
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
 # Install system dependencies
@@ -10,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     openssl \
     ca-certificates \
     libffi-dev \
+    zlib1g \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
