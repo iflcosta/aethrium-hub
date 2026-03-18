@@ -1,5 +1,5 @@
 from fastapi import APIRouter, BackgroundTasks, Query
-from rag.indexer import index_project, query_rag, delete_index, get_status, list_indices
+from rag.indexer import index_project, query_rag
 from pydantic import BaseModel
 from db import prisma
 
