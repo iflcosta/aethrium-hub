@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 # Generate Prisma client
-RUN python -m prisma generate
+RUN DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" python -m prisma generate
 
 # Expose port
 EXPOSE 8000
