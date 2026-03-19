@@ -32,6 +32,12 @@ async def lifespan(app: FastAPI):
     print(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
     print(f"[INFO] Database URL (masked): {masked_url}")
     
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if api_key:
+        print(f"[INFO] GOOGLE_API_KEY found (length: {len(api_key)}, prefix: {api_key[:8]}...)")
+    else:
+        print("[ERROR] GOOGLE_API_KEY NOT FOUND!")
+
     try:
         print("[INFO] Connecting to Prisma...")
         await prisma.connect()
@@ -61,7 +67,8 @@ app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
 
 @app.get("/debug-logs")
 async def get_debug_logs():
-    return {"logs": DEBUG_LOGS}
+    # Return last 100 logs to avoid huge payload
+    return {"logs": DEBUG_LOGS[-100:]}
 
 @app.post("/test-cors")
 async def test_cors():
