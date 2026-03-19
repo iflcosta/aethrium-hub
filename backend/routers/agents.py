@@ -4,7 +4,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import Dict, Any, List
 
-from main import log_event
+from utils import log_event
 from graphs.studio_graph import agents
 from db import prisma
 from prisma import Json

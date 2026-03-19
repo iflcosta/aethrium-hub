@@ -1,12 +1,13 @@
 import os
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
-from datetime import datetime
 from db import prisma
 from scheduler import start_scheduler, stop_scheduler
+from utils import log_event, DEBUG_LOGS
 
 # Explicitly load the backend/.env file and override system variables
 env_path = Path(__file__).parent / ".env"
@@ -49,16 +50,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
 
-# Simple in-memory logger for debugging without Render Dashboard
-DEBUG_LOGS = []
-
-def log_event(message: str):
-    timestamp = datetime.now().isoformat()
-    DEBUG_LOGS.append(f"[{timestamp}] {message}")
-    if len(DEBUG_LOGS) > 100:
-        DEBUG_LOGS.pop(0)
-    print(message)
-
 @app.get("/debug-logs")
 async def get_debug_logs():
     return {"logs": DEBUG_LOGS}
@@ -68,14 +59,25 @@ async def test_cors():
     log_event("Received /test-cors POST request")
     return {"status": "CORS should be working if you can see this"}
 
-# Update CORS to allow requests from any origin (Failsafe)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Raw ASGI middleware: injects CORS headers on EVERY response (including 500 crashes)
+@app.middleware("http")
+async def add_cors_headers(request: Request, call_next):
+    origin = request.headers.get("origin", "*")
+    if request.method == "OPTIONS":
+        return Response(
+            status_code=200,
+            headers={
+                "Access-Control-Allow-Origin": origin,
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Max-Age": "86400",
+            }
+        )
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = origin
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    return response
 
 # Include routers here later
 from routers import agents, stream, tasks, projects, webhooks
