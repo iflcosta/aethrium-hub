@@ -29,21 +29,26 @@ async def lifespan(app: FastAPI):
     if db_url and "@" in db_url:
         parts = db_url.split("@")
         masked_url = f"***@{parts[1]}"
-    print(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
-    print(f"[INFO] Database URL (masked): {masked_url}")
+    log_event(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
+    log_event(f"[INFO] Database URL (masked): {masked_url}")
     
     api_key = os.getenv("GOOGLE_API_KEY")
     if api_key:
-        print(f"[INFO] GOOGLE_API_KEY found (length: {len(api_key)}, prefix: {api_key[:8]}...)")
+        log_event(f"[INFO] GOOGLE_API_KEY found (length: {len(api_key)}, prefix: {api_key[:8]}...)")
     else:
-        print("[ERROR] GOOGLE_API_KEY NOT FOUND!")
+        log_event("[ERROR] GOOGLE_API_KEY NOT FOUND!")
+
+    if not os.getenv("PINECONE_API_KEY"):
+        log_event("[WARNING] PINECONE_API_KEY not found in environment!")
+    else:
+        log_event("[INFO] PINECONE_API_KEY loaded successfully.")
 
     try:
-        print("[INFO] Connecting to Prisma...")
+        log_event("[INFO] Connecting to Prisma...")
         await prisma.connect()
-        print("[INFO] Prisma connected successfully")
+        log_event("[INFO] Prisma connected successfully")
     except Exception as e:
-        print(f"[ERROR] Prisma connection failed: {e}")
+        log_event(f"[ERROR] Prisma connection failed: {e}")
         # We don't raise here so the app can at least start and serve health checks
         # Though the app will be degraded.
     

@@ -60,17 +60,17 @@ async def run_agent(slug: str, body: RunRequest):
     # To match the requirements: "starts LangGraph graph in background, returns execution_id"
     # we need the run() method to be triggered.
     
-    # Ensure the task exists to satisfy Foreign Key constraint
+    log_event(f"T1: Finding task {body.task_id}")
     task = await prisma.task.find_unique(where={"id": body.task_id})
     if not task:
+        log_event(f"T1.1: Task not found, creating one")
         # We need a valid ownerId. Let's find the agent in the DB.
         agent_db = await prisma.agent.find_unique(where={"slug": slug})
         if not agent_db:
             agent_db = await prisma.agent.find_unique(where={"slug": "carlos"})
         
         if not agent_db:
-            # Critical fallback: if no agents exist in DB, we can't create a task.
-            # In a real app, we'd ensure seed is run.
+            log_event(f"E1: Database not seeded: no agents found")
             return {"error": "Database not seeded: no agents found"}, 500
             
         task = await prisma.task.create(
@@ -82,6 +82,7 @@ async def run_agent(slug: str, body: RunRequest):
             }
         )
 
+    log_event(f"T2: Creating execution record for {slug}")
     execution = await prisma.execution.create(
         data={
             "taskId": task.id,
@@ -92,15 +93,19 @@ async def run_agent(slug: str, body: RunRequest):
             "thoughtChunks": Json([]) 
         }
     )
+    log_event(f"T3: Execution created: {execution.id}")
     
     async def process_run(ex_id: str):
         try:
+            log_event(f"BG: Starting agent {slug} run process")
             # We inject execution_id into context so BaseAgent.run can use/update it 
             # instead of creating a new one. (Requires small update in base_agent later)
             async for chunk in agent.run(body.task_id, {**body.context, "prompt": body.prompt, "execution_id": ex_id}):
                 pass 
         except Exception as e:
-            print(f"Agent run failed: {e}")
+            log_event(f"BG: Agent run failed: {e}")
+            import traceback
+            traceback.print_exc()
 
     asyncio.create_task(process_run(execution.id))
     
