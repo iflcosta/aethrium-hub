@@ -10,9 +10,10 @@ from db import prisma
 from scheduler import start_scheduler, stop_scheduler
 from utils import log_event, DEBUG_LOGS
 
-# Explicitly load the backend/.env file and override system variables
+# Explicitly load the backend/.env file (if it exists) but DO NOT override OS environment variables
+# (This ensures Render dashboard variables take priority over any file accidentally in the image)
 env_path = Path(__file__).parent / ".env"
-load_dotenv(dotenv_path=env_path, override=True)
+load_dotenv(dotenv_path=env_path)
 
 if not os.getenv("PINECONE_API_KEY"):
     print("[WARNING] PINECONE_API_KEY not found in environment!")
@@ -23,7 +24,14 @@ else:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup logic
+    db_url = os.getenv("DATABASE_URL", "")
+    masked_url = db_url
+    if db_url and "@" in db_url:
+        parts = db_url.split("@")
+        masked_url = f"***@{parts[1]}"
     print(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
+    print(f"[INFO] Database URL (masked): {masked_url}")
+    
     try:
         print("[INFO] Connecting to Prisma...")
         await prisma.connect()

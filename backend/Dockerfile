@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # Set environment variables
-ENV PRISMA_ENGINE_TYPE="library"
+ENV PRISMA_ENGINE_TYPE="binary"
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
