@@ -70,6 +70,20 @@ app.include_router(tasks.router)
 app.include_router(projects.router)
 app.include_router(webhooks.router)
 
+@app.get("/")
+async def root():
+    return {
+        "status": "ok", 
+        "message": "Aethrium Studio API is running",
+        "version": "1.0.0",
+        "documentation": "/docs"
+    }
+
 @app.get("/health")
 async def health_check():
-    return {"status": "ok"}
+    db_status = "connected" if prisma.is_connected() else "disconnected"
+    return {
+        "status": "ok",
+        "database": db_status,
+        "environment": os.getenv("RENDER_SERVICE_ID", "local")
+    }
