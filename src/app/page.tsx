@@ -176,7 +176,7 @@ export default function OverviewPage() {
           <StatusIndicator 
             label="Backend" 
             status={health?.status === "ok" ? "healthy" : "unreachable"} 
-            url={health?.status === "ok" ? (isProduction ? "render-api.aethrium.app" : "localhost:8001") : "API Offline"} 
+            url={health?.status === "ok" ? (isProduction ? "aethrium-hub.onrender.com" : "localhost:8001") : "API Offline"} 
             icon={Server}
           />
           <StatusIndicator 

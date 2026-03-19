@@ -1,4 +1,5 @@
 import os
+import json
 from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -71,9 +72,26 @@ async def add_cors_headers(request: Request, call_next):
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Max-Age": "86400",
+                "Access-Control-Allow-Credentials": "false",
             }
         )
-    response = await call_next(request)
+    
+    try:
+        response = await call_next(request)
+    except Exception as e:
+        log_event(f"Unhandled server error: {str(e)}")
+        # On crash, return a 500 with CORS headers
+        return Response(
+            content=json.dumps({"error": "Internal Server Error", "detail": str(e)}),
+            status_code=500,
+            headers={
+                "Access-Control-Allow-Origin": origin,
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "*",
+                "Content-Type": "application/json"
+            }
+        )
+        
     response.headers["Access-Control-Allow-Origin"] = origin
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "*"
