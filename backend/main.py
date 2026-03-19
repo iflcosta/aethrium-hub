@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
+from datetime import datetime
 from db import prisma
 from scheduler import start_scheduler, stop_scheduler
 
@@ -47,6 +48,25 @@ async def lifespan(app: FastAPI):
         pass
 
 app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
+
+# Simple in-memory logger for debugging without Render Dashboard
+DEBUG_LOGS = []
+
+def log_event(message: str):
+    timestamp = datetime.now().isoformat()
+    DEBUG_LOGS.append(f"[{timestamp}] {message}")
+    if len(DEBUG_LOGS) > 100:
+        DEBUG_LOGS.pop(0)
+    print(message)
+
+@app.get("/debug-logs")
+async def get_debug_logs():
+    return {"logs": DEBUG_LOGS}
+
+@app.post("/test-cors")
+async def test_cors():
+    log_event("Received /test-cors POST request")
+    return {"status": "CORS should be working if you can see this"}
 
 # Update CORS to allow requests from any origin (Failsafe)
 app.add_middleware(

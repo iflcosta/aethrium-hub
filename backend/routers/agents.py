@@ -1,8 +1,10 @@
 import asyncio
+from datetime import datetime
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Dict, Any
+from typing import Dict, Any, List
 
+from main import log_event
 from graphs.studio_graph import agents
 from db import prisma
 from prisma import Json
@@ -44,6 +46,7 @@ async def update_agent_model(slug: str, body: ModelUpdateRequest):
 
 @router.post("/{slug}/run")
 async def run_agent(slug: str, body: RunRequest):
+    log_event(f"Request: POST /agents/{slug}/run - task_id: {body.task_id}")
     if slug not in agents:
         return {"error": "Agent not found"}, 404
         
