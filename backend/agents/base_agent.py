@@ -134,7 +134,7 @@ class BaseAgent:
             chunks = []
             
             # Try primary model
-            active_model = "gemini-3.1-flash-lite-preview"
+            active_model = self.model
             print(f"[MODEL_RUN] Attempting {self.slug} with model {active_model}")
             
             try:

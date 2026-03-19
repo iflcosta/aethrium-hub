@@ -3,7 +3,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 class LeonardoAgent(BaseAgent):
     slug = "leonardo"
     display_name = "Leonardo"
-    model = "gemini-3.1-flash-lite-preview"
+    model = "gemini-2.5-flash"
     role = "RESEARCH"
 
     @property
