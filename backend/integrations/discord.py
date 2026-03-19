@@ -31,7 +31,10 @@ async def send_discord_notification(
     async with httpx.AsyncClient() as client:
         try:
             response = await client.post(DISCORD_WEBHOOK_URL, json=payload)
-            if response.status_code != 204:
+            if response.status_code == 429:
+                retry_after = response.headers.get("Retry-After", "unknown")
+                print(f"[DISCORD] Rate limited (429). Retry after {retry_after}s.")
+            elif response.status_code not in [200, 204]:
                 print(f"[DISCORD] Failed to send: {response.status_code}")
             else:
                 print(f"[DISCORD] Notification sent: {title}")
