@@ -53,9 +53,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
+        "http://localhost:8001",
         "http://127.0.0.1:3000",
         "https://aethrium-hub.vercel.app",
-        "https://*.vercel.app",
+        "https://aethrium-hub-git-main-iagopuma0-7322s-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
