@@ -20,14 +20,31 @@ else:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup logic
-    await prisma.connect()
-    start_scheduler()
-    print("[INFO] Scheduler started")
+    print(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
+    try:
+        print("[INFO] Connecting to Prisma...")
+        await prisma.connect()
+        print("[INFO] Prisma connected successfully")
+    except Exception as e:
+        print(f"[ERROR] Prisma connection failed: {e}")
+        # We don't raise here so the app can at least start and serve health checks
+        # Though the app will be degraded.
+    
+    try:
+        start_scheduler()
+        print("[INFO] Scheduler started")
+    except Exception as e:
+        print(f"[ERROR] Scheduler failed to start: {e}")
+        
     yield
     # Shutdown logic
     stop_scheduler()
     print("[INFO] Scheduler stopped")
-    await prisma.disconnect()
+    try:
+        await prisma.disconnect()
+        print("[INFO] Prisma disconnected")
+    except:
+        pass
 
 app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
 
