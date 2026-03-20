@@ -48,5 +48,13 @@ __pycache__/
 .venv/
 .env
 .env.local
+.env.local
 .env.*.local
+
+# automation
+env_vars_render.json
+update_render_env.ps1
+
+# logs
+prod_debug_logs_v*
 
