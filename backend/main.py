@@ -7,7 +7,7 @@ from fastapi.responses import Response
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
 from db import prisma, connect_db, disconnect_db
-from scheduler import start_scheduler, stop_scheduler
+from scheduler import start_scheduler, stop_scheduler, get_scheduler_status, trigger_job
 from utils import log_event, DEBUG_LOGS
 
 # Explicitly load the backend/.env file (if it exists) but DO NOT override OS environment variables
@@ -109,6 +109,14 @@ async def root():
         "version": "1.0.0",
         "documentation": "/docs"
     }
+
+@app.get("/scheduler/status")
+async def scheduler_status():
+    return get_scheduler_status()
+
+@app.post("/scheduler/trigger/{key}")
+async def scheduler_trigger(key: str):
+    return await trigger_job(key)
 
 @app.get("/health")
 async def health_check():

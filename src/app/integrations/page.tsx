@@ -1,17 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { 
-  Zap, 
-  MessageSquare, 
-  ExternalLink, 
-  Play, 
-  Image as ImageIcon, 
-  CheckCircle2, 
-  XCircle, 
+import {
+  Zap,
+  MessageSquare,
+  ExternalLink,
+  Play,
+  Image as ImageIcon,
+  CheckCircle2,
+  XCircle,
   Loader2,
   Copy,
-  Terminal
+  Terminal,
+  Clock,
+  RefreshCw
 } from "lucide-react";
 import { BACKEND_URL } from "@/lib/api";
 
@@ -24,14 +26,35 @@ export default function IntegrationsPage() {
   const [visionResult, setVisionResult] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isSandboxTesting, setIsSandboxTesting] = useState(false);
+  const [schedulerJobs, setSchedulerJobs] = useState<any[]>([]);
+  const [triggeringJob, setTriggeringJob] = useState<string | null>(null);
+
+  const fetchSchedulerStatus = async () => {
+    try {
+      const res = await fetch(`${BACKEND_URL}/scheduler/status`);
+      if (res.ok) {
+        const data = await res.json();
+        setSchedulerJobs(data.jobs || []);
+      }
+    } catch {}
+  };
+
+  const triggerJob = async (key: string) => {
+    setTriggeringJob(key);
+    try {
+      await fetch(`${BACKEND_URL}/scheduler/trigger/${key}`, { method: "POST" });
+      setTimeout(fetchSchedulerStatus, 2000);
+    } catch {}
+    finally { setTriggeringJob(null); }
+  };
 
   useEffect(() => {
-    // Initial status checks
     const checkStatuses = async () => {
-      setDiscordStatus("connected"); // Simplified for now since we have the URL
-      setSandboxStatus("connected"); // Simplified
+      setDiscordStatus("connected");
+      setSandboxStatus("connected");
     };
     checkStatuses();
+    fetchSchedulerStatus();
   }, []);
 
   const testDiscord = async () => {
@@ -176,6 +199,59 @@ export default function IntegrationsPage() {
               <WebhookItem label="Task Completed" url="/webhooks/n8n/task-completed" />
               <WebhookItem label="Server Status" url="/webhooks/n8n/server-status" />
             </div>
+          </div>
+        </div>
+
+        {/* Autonomous Scheduler Card */}
+        <div className="bg-[#111111] border border-[#222] rounded-xl p-6 hover:border-purple-500/30 transition-all col-span-1 md:col-span-2">
+          <div className="flex justify-between items-start mb-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-purple-500/10 rounded-lg">
+                <Clock className="w-6 h-6 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white">Agendador Autônomo</h3>
+                <p className="text-xs text-[#888780]">Tarefas automáticas dos agentes — sem intervenção humana</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <button onClick={fetchSchedulerStatus} className="p-1.5 text-[#444] hover:text-white transition-colors">
+                <RefreshCw className="w-3.5 h-3.5" />
+              </button>
+              <StatusBadge status="connected" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {schedulerJobs.length === 0 ? (
+              <p className="text-xs text-[#444] col-span-3 italic">Carregando jobs...</p>
+            ) : schedulerJobs.map((job) => (
+              <div key={job.key} className="bg-[#0d0d0d] border border-[#1a1a1a] rounded-lg p-4 space-y-3">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs font-bold text-white uppercase tracking-wide">{job.agent}</p>
+                    <p className="text-[10px] text-[#555] mt-0.5">{job.schedule}</p>
+                  </div>
+                  <div className={cn(
+                    "w-1.5 h-1.5 rounded-full mt-1",
+                    job.last_run ? "bg-[#1D9E75]" : "bg-[#333]"
+                  )} />
+                </div>
+                <p className="text-[10px] text-[#555]">
+                  {job.last_run ? `Último run: ${job.last_run}` : "Nunca executou"}
+                </p>
+                <button
+                  onClick={() => triggerJob(job.key)}
+                  disabled={triggeringJob === job.key}
+                  className="w-full py-1.5 bg-[#1a1a1a] border border-[#2a2a2a] hover:border-purple-500/50 text-[10px] font-bold text-[#777] hover:text-white rounded transition-all flex items-center justify-center gap-1.5 disabled:opacity-40"
+                >
+                  {triggeringJob === job.key
+                    ? <><Loader2 className="w-3 h-3 animate-spin" /> Disparando...</>
+                    : <><Play className="w-3 h-3" /> Disparar agora</>
+                  }
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
