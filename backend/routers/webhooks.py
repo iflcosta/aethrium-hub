@@ -49,12 +49,15 @@ async def webhook_vip_activated(request: Request):
 @router.post("/test/discord")
 async def test_discord(request: Request):
     """Test Discord notification"""
-    from integrations.discord import send_discord_notification
+    from integrations.discord import send_discord_notification, DISCORD_WEBHOOK_URL
+    if not DISCORD_WEBHOOK_URL:
+        return {"status": "error", "message": "DISCORD_WEBHOOK_URL not configured"}
     await send_discord_notification(
         title="🧪 Teste do Aethrium Hub",
         message="Integração com Discord funcionando corretamente!",
         color=0x7F77DD
     )
+    return {"status": "ok"}
 class VisionRequest(BaseModel):
     image_base64: Optional[str] = None
     image_path: Optional[str] = None

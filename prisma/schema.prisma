@@ -2,11 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator client_py {
-  provider      = "prisma-client-py"
-  interface     = "asyncio"
-  binaryTargets = ["native", "linux-musl", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
-}
 
 datasource db {
   provider = "postgresql"

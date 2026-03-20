@@ -19,6 +19,7 @@ export default function IntegrationsPage() {
   const [discordStatus, setDiscordStatus] = useState<"connected" | "disconnected" | "loading">("loading");
   const [sandboxStatus, setSandboxStatus] = useState<"connected" | "disconnected" | "loading">("loading");
   const [lastDiscordTest, setLastDiscordTest] = useState<string | null>(null);
+  const [discordError, setDiscordError] = useState<string | null>(null);
   const [sandboxResult, setSandboxResult] = useState<any>(null);
   const [visionResult, setVisionResult] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -34,11 +35,17 @@ export default function IntegrationsPage() {
   }, []);
 
   const testDiscord = async () => {
+    setDiscordError(null);
     try {
       const res = await fetch(`${BACKEND_URL}/webhooks/test/discord`, { method: "POST" });
-      if (res.ok) setLastDiscordTest(new Date().toLocaleTimeString());
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.status === "ok") {
+        setLastDiscordTest(new Date().toLocaleTimeString());
+      } else {
+        setDiscordError(data.message || "Falha ao enviar notificação");
+      }
     } catch (err) {
-      console.error(err);
+      setDiscordError("Não foi possível conectar ao backend");
     }
   };
 
@@ -118,6 +125,12 @@ export default function IntegrationsPage() {
               <p className="text-[10px] text-[#1D9E75] flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" />
                 Último teste bem-sucedido às {lastDiscordTest}
+              </p>
+            )}
+            {discordError && (
+              <p className="text-[10px] text-[#E24B4A] flex items-center gap-1">
+                <XCircle className="w-3 h-3" />
+                {discordError}
               </p>
             )}
             <div className="pt-4 border-t border-[#222]">
