@@ -2,17 +2,12 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Send, 
-  Trash2, 
-  ChevronRight, 
+import {
+  Send,
+  ChevronRight,
   ChevronLeft,
-  ShieldAlert, 
-  CheckCircle2, 
-  AlertCircle,
-  Users,
+  ShieldAlert,
   MessageSquare,
-  ListTodo,
   X
 } from 'lucide-react'
 import { useCommandStore, CommandMode, Message } from '@/store/useCommandStore'
@@ -62,7 +57,6 @@ export const CommandCenter = () => {
     selectedAgentsForMeeting,
     unreads,
     threads,
-    activeExecutionId,
     isStreaming,
     toggle,
     setIsOpen,
@@ -72,7 +66,6 @@ export const CommandCenter = () => {
     toggleAgentForMeeting,
     addMessage,
     updateMessage,
-    clearThread,
     setActiveExecutionId,
     setIsStreaming,
     getCurrentThread
@@ -168,7 +161,8 @@ export const CommandCenter = () => {
         task_id: taskId,
         prompt: prompt,
         context: {
-          history: history
+          history: history,
+          project_slug: "baiak-thunder-86",
         }
       })
 
@@ -293,7 +287,7 @@ export const CommandCenter = () => {
   const handleStartMeeting = async () => {
     if (!meetingTopic.trim()) return
     try {
-      const res = await backendApi.startMeeting({
+      await backendApi.startMeeting({
           topic: meetingTopic,
           agent_slugs: selectedAgentsForMeeting,
           context: {}
