@@ -6,8 +6,15 @@ class PineconeClient:
     def __init__(self):
         self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
         self.index_name = os.getenv("PINECONE_INDEX", "aethrium-studio")
-        self.index = self.pc.Index(self.index_name)
-        self.embeddings = GoogleGenerativeAIEmbeddings(model="text-embedding-004")
+        host = os.getenv("PINECONE_HOST")
+        if host:
+            self.index = self.pc.Index(host=host)
+        else:
+            self.index = self.pc.Index(self.index_name)
+        self.embeddings = GoogleGenerativeAIEmbeddings(
+            model="text-embedding-004",
+            google_api_key=os.getenv("GOOGLE_API_KEY")
+        )
 
     def upsert_chunks(self, chunks: list[dict]):
         # Batch collect texts for embedding
