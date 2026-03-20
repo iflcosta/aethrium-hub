@@ -1,12 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { SectionHeader } from "@/components/section-header";
 import { StatusBadge } from "@/components/status-badge";
 import Link from "next/link";
 import { ExternalLink, Database, RefreshCcw, Trash2, Search, Play, FileText, CheckCircle2, Loader2, X } from "lucide-react";
 import { backendApi } from '@/lib/api';
-import { cn } from '@/lib/utils';
 
 interface SystemCard {
   name: string;
@@ -84,7 +83,7 @@ export default function SystemsPage() {
   const [projectStatus, setProjectStatus] = useState<{chunks_indexed: number} | null>(null);
   const [isIndexing, setIsIndexing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [projectPath, setProjectPath] = useState("C:/Users/Iago Lopes/.gemini/antigravity/scratch/aethrium-hub/projects/baiak-thunder-86");
+  const [projectPath, setProjectPath] = useState("/app/projects/baiak-thunder-86");
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -107,8 +106,6 @@ export default function SystemsPage() {
   const handleIndex = async () => {
     try {
       setIsIndexing(true);
-      // Moved to backend/projects, so it's in /app/projects inside Docker
-      const projectPath = process.env.NEXT_PUBLIC_PROJECT_PATH || '/app/projects/baiak-thunder-86';
       await backendApi.indexProject('baiak-thunder-86', projectPath);
       alert('Indexação iniciada em segundo plano!');
     } catch (err) {
@@ -392,6 +389,3 @@ export default function SystemsPage() {
   );
 }
 
-const systems_original = [
-  ...systems
-];
