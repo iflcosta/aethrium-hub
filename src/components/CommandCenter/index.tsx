@@ -185,24 +185,74 @@ export const CommandCenter = () => {
 
       let fullResponse = ''
       console.log(`[DEBUG] Starting stream for ${execution_id}`)
-      backendApi.streamExecution(execution_id, 
+      backendApi.streamExecution(
+        execution_id,
         (chunk) => {
           console.log(`[DEBUG] Received chunk for ${execution_id}:`, chunk)
           fullResponse += chunk.delta || ''
           updateMessage(selectedAgent, gentId, { content: fullResponse })
         },
-        (delivery) => {
-          console.log(`[DEBUG] Stream done for ${execution_id}`)
+        (delivery, handoff) => {
+          console.log(`[DEBUG] Stream done for ${execution_id}`, handoff ? `→ handoff to ${handoff.to}` : '')
           setIsStreaming(false)
           setActiveExecutionId(null)
+
           if (delivery) {
-             addMessage(selectedAgent, {
-               id: "delivery-" + Math.random().toString(36),
-               agentSlug: selectedAgent,
-               content: delivery,
-               timestamp: new Date(),
-               type: 'delivery'
-             })
+            addMessage(selectedAgent, {
+              id: "delivery-" + Math.random().toString(36),
+              agentSlug: selectedAgent,
+              content: delivery,
+              timestamp: new Date(),
+              type: 'delivery'
+            })
+          }
+
+          // Auto-follow handoff (e.g. Rafael → Sophia)
+          if (handoff) {
+            const fromAgent = selectedAgent
+            const toAgent = handoff.to
+
+            // Handoff notice in current thread
+            addMessage(fromAgent, {
+              id: "handoff-" + Math.random().toString(36),
+              agentSlug: fromAgent,
+              content: `↪ Handoff automático para **${toAgent}** para QA`,
+              timestamp: new Date(),
+              type: 'handoff'
+            })
+
+            // Switch to target agent and start streaming
+            setSelectedAgent(toAgent)
+            setIsStreaming(true)
+            const sophiaId = "agent-" + Math.random().toString(36)
+            addMessage(toAgent, {
+              id: sophiaId,
+              agentSlug: toAgent,
+              content: '',
+              timestamp: new Date(),
+              type: 'message'
+            })
+
+            let sophiaResponse = ''
+            backendApi.streamExecution(
+              handoff.execution_id,
+              (chunk) => {
+                sophiaResponse += chunk.delta || ''
+                updateMessage(toAgent, sophiaId, { content: sophiaResponse })
+              },
+              (sophiaDelivery) => {
+                setIsStreaming(false)
+                if (sophiaDelivery) {
+                  addMessage(toAgent, {
+                    id: "delivery-" + Math.random().toString(36),
+                    agentSlug: toAgent,
+                    content: sophiaDelivery,
+                    timestamp: new Date(),
+                    type: 'delivery'
+                  })
+                }
+              }
+            )
           }
         }
       )

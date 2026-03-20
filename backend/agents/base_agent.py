@@ -1,4 +1,6 @@
+import asyncio
 import json
+import re
 from typing import AsyncGenerator
 from prisma import Prisma
 from tools.prisma_tools import update_task_status, log_agent_event
@@ -168,7 +170,16 @@ class BaseAgent:
 
             full_response = "".join(chunks)
             print(f"[DEBUG] Gemini response received: {len(full_response)} chars")
-            
+
+            # Streaming delta to DB in realtime (for SSE poll to pick up)
+            from datetime import datetime as _dt
+            _now = _dt.utcnow().isoformat()
+            _live_chunk = {"seq": 0, "delta": full_response, "ts": _now}
+            await prisma.execution.update(
+                where={"id": execution.id},
+                data={"thoughtChunks": Json([json.dumps(_live_chunk)])}
+            )
+
             # E2B Sandbox Hook (Sophia)
             if self.slug == "sophia" and "```lua" in full_response:
                 import re
@@ -197,25 +208,40 @@ class BaseAgent:
                 await notify_urgent(full_response, self.display_name)
             from datetime import datetime
             now_iso = datetime.utcnow().isoformat()
-            
-            # 1. Append full text as a single thoughtChunk (as requested)
+
+            # Auto-handoff: Rafael → Sophia when Lua code is present
+            handoff_info = None
+            if (
+                self.slug == "rafael"
+                and "```lua" in full_response
+                and not context.get("handoff_from")
+            ):
+                handoff_info = await self._setup_sophia_handoff(task_id, full_response, context)
+                if handoff_info:
+                    print(f"[HANDOFF] Rafael → Sophia | execution={handoff_info['execution_id']}")
+                    asyncio.create_task(
+                        self._run_sophia_handoff(handoff_info, task_id, full_response, context)
+                    )
+
+            # 1. Append full text as a single thoughtChunk
             thought_chunk = {"seq": 0, "delta": full_response, "ts": now_iso}
             all_chunks = chunks + [json.dumps(thought_chunk)]
-            
-            # 2. Save result as {"text": ...}
+
+            # 2. Save result
             result_obj = {"text": full_response}
             if self.slug == "carlos" or "meeting_topic" in context:
-                 result_obj["final_delivery"] = full_response
-                 # Discord Hook (Task Completed)
-                 await notify_task_completed(context.get("title", "Task"), self.display_name, full_response)
-                
+                result_obj["final_delivery"] = full_response
+                await notify_task_completed(context.get("title", "Task"), self.display_name, full_response)
+            if handoff_info:
+                result_obj["handoff"] = handoff_info
+
             await prisma.execution.update(
                 where={"id": execution.id},
                 data={
                     "status": "COMPLETED",
                     "finishedAt": datetime.utcnow(),
                     "thoughtChunks": Json(all_chunks),
-                    "result": Json(result_obj), 
+                    "result": Json(result_obj),
                     "model": active_model
                 }
             )
@@ -234,6 +260,67 @@ class BaseAgent:
             raise e
 
     async def handoff(self, task_id: str, target_slug: str, reason: str):
-        # Update Task status and (if schema allowed it) handoffTargetId
         await update_task_status(task_id, "HANDOFF_PENDING")
         await log_agent_event(self.slug, task_id, "handoff_initiated", {"target": target_slug, "reason": reason})
+
+    async def _setup_sophia_handoff(self, parent_task_id: str, rafael_output: str, context: dict) -> dict | None:
+        """Creates Sophia's Task + Execution in the DB and returns handoff info."""
+        from prisma import Json
+        sophia_db = await prisma.agent.find_unique(where={"slug": "sophia"})
+        if not sophia_db:
+            print("[HANDOFF] Sophia not found in DB, skipping")
+            return None
+
+        sophia_task = await prisma.task.create(data={
+            "title": f"QA — {context.get('title', 'código de Rafael')}",
+            "description": "Handoff automático: Rafael → Sophia",
+            "ownerId": sophia_db.id,
+            "parentTaskId": parent_task_id,
+            "status": "RUNNING",
+            "priority": 2,
+        })
+
+        sophia_execution = await prisma.execution.create(data={
+            "taskId": sophia_task.id,
+            "agentSlug": "sophia",
+            "model": "gemini-3-flash-preview",
+            "promptTokens": 0,
+            "compTokens": 0,
+            "thoughtChunks": Json([]),
+        })
+
+        return {
+            "to": "sophia",
+            "execution_id": sophia_execution.id,
+            "task_id": sophia_task.id,
+        }
+
+    async def _run_sophia_handoff(self, handoff_info: dict, parent_task_id: str, rafael_output: str, context: dict):
+        """Runs Sophia as a background task to QA Rafael's Lua code."""
+        from graphs.studio_graph import agents as all_agents
+        sophia = all_agents.get("sophia")
+        if not sophia:
+            return
+
+        lua_blocks = re.findall(r"```lua\n(.*?)\n```", rafael_output, re.DOTALL)
+        lua_combined = "\n\n".join(lua_blocks) if lua_blocks else rafael_output[:1000]
+
+        sophia_prompt = (
+            "Rafael implementou o seguinte código Lua. Faça o QA completo.\n\n"
+            f"```lua\n{lua_combined}\n```\n\n"
+            f"Contexto do Rafael:\n{rafael_output[:600]}\n\n"
+            "Escreva testes em blocos ```lua ``` para execução automática no sandbox E2B. "
+            "Produza os blocos: [PLANO DE TESTES], [CASOS DE BORDA], [RESULTADO], [BUGS ENCONTRADOS]."
+        )
+
+        try:
+            async for _ in sophia.run(handoff_info["task_id"], {
+                "prompt": sophia_prompt,
+                "execution_id": handoff_info["execution_id"],
+                "handoff_from": "rafael",
+                "parent_task_id": parent_task_id,
+            }):
+                pass
+            print(f"[HANDOFF] Sophia QA done for execution={handoff_info['execution_id']}")
+        except Exception as e:
+            print(f"[HANDOFF] Sophia QA failed: {e}")

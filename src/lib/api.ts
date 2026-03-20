@@ -23,13 +23,17 @@ export const backendApi = {
     }
   },
 
-  streamExecution: (executionId: string, onChunk: (chunk: any) => void, onDone: (delivery: string) => void) => {
+  streamExecution: (
+    executionId: string,
+    onChunk: (chunk: any) => void,
+    onDone: (delivery: string, handoff?: { to: string; execution_id: string; task_id: string }) => void
+  ) => {
     const es = new EventSource(`${BACKEND_URL}/stream/${executionId}`)
     es.onmessage = (e) => {
       try {
         const data = JSON.parse(e.data)
         if (data.type === 'done') {
-          onDone(data.final_delivery)
+          onDone(data.final_delivery, data.handoff ?? undefined)
           es.close()
         } else {
           onChunk(data)

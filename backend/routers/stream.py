@@ -58,8 +58,17 @@ async def stream_execution(execution_id: str, request: Request):
                     # Fallback to join the chunks if it's a single agent run
                     final_delivery = "".join(final_chunks)
 
+                done_payload: dict = {"type": "done", "final_delivery": final_delivery}
+                if execution.result:
+                    try:
+                        res_obj = json.loads(execution.result) if isinstance(execution.result, str) else execution.result
+                        if "handoff" in res_obj:
+                            done_payload["handoff"] = res_obj["handoff"]
+                    except Exception:
+                        pass
+
                 print(f"[SSE] Sending done for {execution_id}. Length: {len(final_delivery)}")
-                yield {"data": json.dumps({"type": "done", "final_delivery": final_delivery})}
+                yield {"data": json.dumps(done_payload)}
                 break
                 
             await asyncio.sleep(0.5)
