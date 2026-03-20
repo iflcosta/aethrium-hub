@@ -123,13 +123,20 @@ class BaseAgent:
 
             enhanced_system = self.system_prompt + rag_context + vision_analysis
 
+            # Prepare messages with history memory (Part 8)
+            from langchain_core.messages import AIMessage
+            messages = [SystemMessage(content=enhanced_system)]
+            
+            history = context.get("history", [])
+            for h in history:
+                if h.get("role") == "user":
+                    messages.append(HumanMessage(content=h.get("content", "")))
+                else:
+                    messages.append(AIMessage(content=h.get("content", "")))
+
             ctx_str = json.dumps(context, indent=2)
             full_content = f"Context:\n{ctx_str}\n\nTask:\n{prompt}"
-            
-            messages = [
-                SystemMessage(content=enhanced_system),
-                HumanMessage(content=full_content)
-            ]
+            messages.append(HumanMessage(content=full_content))
             
             chunks = []
             

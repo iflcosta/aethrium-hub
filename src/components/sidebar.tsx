@@ -42,8 +42,6 @@ const navItems = [
   { href: "/systems", label: "Systems", icon: Cpu },
   { href: "/roadmap", label: "Roadmap", icon: Map },
   { href: "/integrations", label: "Integrations", icon: Zap },
-  { href: "/editor/items", label: "Items", icon: Sword },
-  { href: "/editor/monsters", label: "Monsters", icon: Bug },
   { href: "/logs", label: "Logs", icon: ScrollText },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
@@ -55,19 +53,6 @@ const agentColorMap: Record<string, string> = {
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [agents, setAgents] = useState<Agent[]>([]);
-
-  useEffect(() => {
-    const fetchAgents = async () => {
-      try {
-        const data = await backendApi.getAgents();
-        setAgents(data);
-      } catch {}
-    };
-    fetchAgents();
-    const interval = setInterval(fetchAgents, 10000);
-    return () => clearInterval(interval);
-  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -114,40 +99,6 @@ export function Sidebar() {
           })}
         </ul>
       </nav>
-
-      {/* Agent Status */}
-      <div className="border-t border-[#222222] px-4 py-3">
-        <p className="text-[10px] text-[#888780] uppercase tracking-wider mb-2">
-          Agents
-        </p>
-        <div className="space-y-1.5 max-h-48 overflow-y-auto pr-2 no-scrollbar">
-          {agents.map((agent, idx) => (
-            <div key={agent.slug || idx} className="group flex items-center gap-2.5 px-2 py-1.5 rounded-md hover:bg-[#1a1a1a]/40 transition-colors cursor-pointer">
-              <div className="relative shrink-0">
-                <span
-                  className={cn(
-                    "w-2 h-2 rounded-full block",
-                    agent.isOnline ? "bg-[#1D9E75]" : "bg-[#888780]/40"
-                  )}
-                />
-              </div>
-              <div className="flex flex-col min-w-0 flex-1 leading-tight">
-                <span
-                  className={cn(
-                    "text-[11px] font-medium truncate",
-                    agent.isOnline ? "text-[#e5e5e5]" : "text-[#888780]/60"
-                  )}
-                >
-                  {agent.displayName}
-                </span>
-                <span className="text-[9px] text-[#555] font-mono uppercase tracking-tighter truncate group-hover:text-purple-400 transitions-colors">
-                  {roleLabels[agent.role] || agent.role}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </aside>
   );
 }

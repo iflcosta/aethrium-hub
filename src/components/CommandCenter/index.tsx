@@ -20,65 +20,35 @@ import { backendApi } from '@/lib/api'
 import { mockAgents } from "@/lib/mock/agents"
 import { AgentAvatar } from "@/components/agent-avatar"
 import { cn } from '@/lib/utils'
+import ReactMarkdown from 'react-markdown'
 
-const BoldText = ({ content }: { content: string }) => {
-  const parts = content.split(/(\*\*.*?\*\*)/g)
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          return <strong key={i} className="font-bold text-[#eee]">{part.slice(2, -2)}</strong>
-        }
-        return part
-      })}
-    </>
-  )
-}
+// Removed BoldText and replaced with ReactMarkdown
 
 const MessageContent = ({ content }: { content: string }) => {
-  const tags = [
-    { name: 'ANÁLISE', color: 'text-gray-400 bg-gray-400/10 border-gray-400/20' },
-    { name: 'REVISÃO', color: 'text-gray-400 bg-gray-400/10 border-gray-400/20' },
-    { name: 'VALIDAÇÃO', color: 'text-blue-400 bg-blue-400/10 border-blue-400/20' },
-    { name: 'AJUSTES', color: 'text-amber-400 bg-amber-400/10 border-amber-400/20' },
-    { name: 'ENTREGA', color: 'text-purple-400 bg-purple-500/10 border-purple-500/20 text-[11px] font-bold shadow-purple-500/10 shadow-sm' },
-    { name: 'URGENTE', color: 'text-red-400 bg-red-400/10 border-red-400/20 font-bold' },
-  ]
+  const isDelivery = content.includes('[ENTREGA]') || content.includes('[ENTREGA FINAL]')
 
-  const lines = content.split('\n')
-  
   return (
-    <div className="space-y-1.5">
-      {lines.map((line, lIdx) => {
-        const trimmed = line.trim()
-        const tagMatch = tags.find(t => trimmed.startsWith(`[${t.name}]`))
-        
-        if (tagMatch) {
-          const rest = line.replace(`[${tagMatch.name}]`, '').trim()
-          return (
-            <div key={lIdx} className="mt-3 first:mt-0 mb-1">
-              <span className={cn(
-                "px-2 py-0.5 rounded border text-[9px] uppercase font-mono tracking-tight inline-flex items-center gap-1.5", 
-                tagMatch.color
-              )}>
-                <span className="w-1 h-1 rounded-full bg-current opacity-50" />
-                {tagMatch.name}
-              </span>
-              {rest && (
-                <div className="mt-1.5 pl-1 opacity-90 leading-relaxed">
-                  <BoldText content={rest} />
-                </div>
-              )}
-            </div>
+    <div className={cn(
+      "markdown-content space-y-2",
+      isDelivery && "border-l-2 border-purple-500/50 pl-3 py-1 bg-purple-500/5 rounded-r"
+    )}>
+      <ReactMarkdown
+        components={{
+          h3: ({ node, ...props }) => <h3 className="text-sm font-bold text-white mt-4 mb-2 first:mt-0" {...props} />,
+          strong: ({ node, ...props }) => <strong className="font-bold text-white" {...props} />,
+          p: ({ node, ...props }) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+          ul: ({ node, ...props }) => <ul className="list-disc ml-4 mb-3 space-y-1" {...props} />,
+          li: ({ node, ...props }) => <li className="text-[11px]" {...props} />,
+          code: ({ node, ...props }) => (
+            <code className="bg-[#000] px-1.5 py-0.5 rounded text-[10px] font-mono text-purple-300 border border-white/10" {...props} />
+          ),
+          pre: ({ node, ...props }) => (
+            <pre className="bg-[#000] p-3 rounded-lg border border-white/5 my-3 overflow-x-auto text-[11px] font-mono" {...props} />
           )
-        }
-
-        return (
-          <div key={lIdx} className="leading-relaxed">
-            <BoldText content={line} />
-          </div>
-        )
-      })}
+        }}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   )
 }
@@ -187,10 +157,19 @@ export const CommandCenter = () => {
       const taskId = `chat-${crypto.randomUUID()}`
       console.log('Generated taskId:', taskId)
       
+      // Prepare history for memory (Part 8)
+      const currentThread = threads[selectedAgent] || []
+      const history = currentThread.slice(-10).map(m => ({
+        role: m.agentSlug === 'user' ? 'user' : 'assistant',
+        content: m.content
+      }))
+
       const { execution_id } = await backendApi.runAgent(selectedAgent, {
         task_id: taskId,
         prompt: prompt,
-        context: {}
+        context: {
+          history: history
+        }
       })
 
       setActiveExecutionId(execution_id)

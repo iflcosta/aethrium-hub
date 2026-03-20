@@ -105,13 +105,14 @@ export default function SystemsPage() {
   }, []);
 
   const handleIndex = async () => {
-    console.log('Indexing project:', "baiak-thunder-86", projectPath);
-    setIsIndexing(true);
     try {
-      await backendApi.indexProject("baiak-thunder-86", projectPath);
-      setIsModalOpen(false);
+      setIsIndexing(true);
+      // Moved to backend/projects, so it's in /app/projects inside Docker
+      const projectPath = process.env.NEXT_PUBLIC_PROJECT_PATH || '/app/projects/baiak-thunder-86';
+      await backendApi.indexProject('baiak-thunder-86', projectPath);
+      alert('Indexação iniciada em segundo plano!');
     } catch (err) {
-      console.error(err);
+      alert('Erro ao iniciar indexação');
     } finally {
       setIsIndexing(false);
     }

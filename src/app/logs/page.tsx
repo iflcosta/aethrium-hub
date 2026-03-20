@@ -113,32 +113,17 @@ export default function LogsPage() {
         />
       </div>
 
-      {/* Log Viewer */}
-      <div
-        ref={scrollRef}
-        className="bg-[#111111] border border-[#222222] rounded-lg overflow-y-auto font-mono text-[11px] leading-6"
-        style={{ height: "calc(100vh - 220px)" }}
-      >
-        {filtered.map((log) => (
-          <div
-            key={log.id}
-            className="flex items-start gap-2 px-3 py-0.5 hover:bg-[#1a1a1a] border-b border-[#222222]/30"
-          >
-            <span className="text-[#888780]/50 shrink-0 w-16">
-              {log.timestamp.slice(11, 19)}
-            </span>
-            <span
-              className="shrink-0 w-14 text-center text-[10px] font-medium rounded px-1"
-              style={{
-                backgroundColor: logTypeColors[log.type] + "20",
-                color: logTypeColors[log.type],
-              }}
-            >
-              {log.type}
-            </span>
-            <span className="text-[#e5e5e5]/80">{log.message}</span>
-          </div>
-        ))}
+      {/* Log Viewer Placeholder */}
+      <div className="bg-[#111111] border border-[#222222] rounded-lg p-12 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
+        <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
+          <Play className="text-purple-500 w-6 h-6 animate-pulse" />
+        </div>
+        <div>
+          <h3 className="text-white font-medium">Aguardando servidor online</h3>
+          <p className="text-xs text-[#888780] mt-1 max-w-xs">
+            O fluxo de logs em tempo real começará assim que houver uma conexão ativa com o servidor de jogo.
+          </p>
+        </div>
       </div>
     </div>
   );

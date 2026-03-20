@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     openssl \
     ca-certificates \
+    postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
