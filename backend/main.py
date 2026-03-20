@@ -24,19 +24,25 @@ else:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup logic
+    log_event("[STARTUP] Initializing ecosystem...")
+    log_event("[STARTUP] Connecting to database...")
     await connect_db()
     
     try:
+        log_event("[STARTUP] Starting scheduler...")
         start_scheduler()
-        print("[INFO] Scheduler started")
+        log_event("[STARTUP] Scheduler started")
     except Exception as e:
-        print(f"[ERROR] Scheduler failed to start: {e}")
+        log_event(f"[ERROR] Scheduler failed to start: {e}")
         
+    log_event("[STARTUP] Application startup complete")
     yield
     # Shutdown logic
+    log_event("[SHUTDOWN] Stopping processes...")
     stop_scheduler()
-    print("[INFO] Scheduler stopped")
+    log_event("[SHUTDOWN] Scheduler stopped")
     await disconnect_db()
+    log_event("[SHUTDOWN] Cleanup complete")
 
 app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
 
