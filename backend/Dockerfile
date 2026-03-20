@@ -10,17 +10,18 @@ RUN apt-get update && apt-get install -y \
     openssl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-
+COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# Copy all backend code
+COPY backend/ ./
 
-# Generate Prisma client for Linux platform
-ENV PRISMA_BINARY_PLATFORM=linux
-RUN python -m prisma generate
+# Copy prisma schema from root (context is root)
+COPY prisma/ ./prisma/
+
+ENV PRISMA_BINARY_PLATFORM=debian-openssl-3.0.x
+RUN python -m prisma generate --schema=./prisma/schema.prisma
 
 EXPOSE 8000
-
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
