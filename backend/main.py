@@ -121,8 +121,13 @@ async def scheduler_trigger(key: str):
 @app.get("/health")
 async def health_check():
     db_status = "connected" if prisma.is_connected() else "disconnected"
+    pinecone_host = os.getenv("PINECONE_HOST", "")
+    pinecone_index = os.getenv("PINECONE_INDEX", "aethrium-studio")
     return {
         "status": "ok",
         "database": db_status,
-        "environment": os.getenv("RENDER_SERVICE_ID", "local")
+        "environment": os.getenv("RENDER_SERVICE_ID", "local"),
+        "pinecone_index": pinecone_index,
+        "pinecone_host_set": bool(pinecone_host),
+        "pinecone_host_prefix": pinecone_host[:30] + "..." if pinecone_host else None,
     }
