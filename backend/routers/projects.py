@@ -47,6 +47,83 @@ async def query_project(req: QueryRequest):
     )
     return {"results": results, "count": len(results)}
 
+@router.get("/index/{project_slug}/diagnose")
+async def diagnose_indexing(project_slug: str):
+    """Step-by-step diagnostic: path, embeddings, pinecone, db."""
+    import os
+    from pathlib import Path
+    from rag.chunker import chunk_project
+    from rag.pinecone_client import PineconeClient
+
+    result = {}
+    project_path = f"/app/projects/{project_slug}"
+
+    # 1. Path check
+    p = Path(project_path)
+    result["path_exists"] = p.exists()
+    if p.exists():
+        files = list(p.rglob("*"))
+        result["total_files"] = len(files)
+        result["sample_files"] = [str(f) for f in files[:5]]
+    else:
+        result["error"] = f"Path not found: {project_path}"
+        return result
+
+    # 2. Chunking
+    try:
+        chunks = chunk_project(project_path, project_slug)
+        result["chunks_extracted"] = len(chunks)
+        result["sample_chunk_id"] = chunks[0]["id"] if chunks else None
+    except Exception as e:
+        result["chunking_error"] = str(e)
+        return result
+
+    if not chunks:
+        result["error"] = "No chunks extracted — no supported files found"
+        return result
+
+    # 3. Embeddings test (1 chunk)
+    try:
+        pc = PineconeClient()
+        from langchain_google_genai import GoogleGenerativeAIEmbeddings
+        emb = GoogleGenerativeAIEmbeddings(model="text-embedding-004")
+        vec = emb.embed_query(chunks[0]["text"][:200])
+        result["embedding_dim"] = len(vec)
+        result["embedding_ok"] = True
+    except Exception as e:
+        result["embedding_error"] = str(e)
+        return result
+
+    # 4. Pinecone test upsert (1 chunk)
+    try:
+        pc.upsert_chunks([chunks[0]])
+        result["pinecone_upsert_ok"] = True
+    except Exception as e:
+        result["pinecone_error"] = str(e)
+        return result
+
+    # 5. DB test write
+    try:
+        c = chunks[0]
+        await prisma.knowledgechunk.upsert(
+            where={"pineconeVecId": c["id"] + ":diag"},
+            data={
+                "create": {
+                    "source": c["metadata"]["source"],
+                    "chunkIndex": c["metadata"]["chunk_index"],
+                    "content": c["text"][:100],
+                    "pineconeVecId": c["id"] + ":diag",
+                    "metadata": c["metadata"],
+                },
+                "update": {"content": c["text"][:100]}
+            }
+        )
+        result["db_write_ok"] = True
+    except Exception as e:
+        result["db_error"] = str(e)
+
+    return result
+
 @router.delete("/{project_slug}/index")
 async def delete_index(project_slug: str):
     from rag.pinecone_client import PineconeClient
