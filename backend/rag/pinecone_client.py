@@ -12,7 +12,7 @@ class PineconeClient:
         else:
             self.index = self.pc.Index(self.index_name)
         self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="text-embedding-004",
+            model="models/text-embedding-004",
             google_api_key=os.getenv("GOOGLE_API_KEY")
         )
 
