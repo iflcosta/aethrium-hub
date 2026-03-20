@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
-from db import prisma
+from db import prisma, connect_db, disconnect_db
 from scheduler import start_scheduler, stop_scheduler
 from utils import log_event, DEBUG_LOGS
 
@@ -24,33 +24,7 @@ else:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup logic
-    db_url = os.getenv("DATABASE_URL", "")
-    masked_url = db_url
-    if db_url and "@" in db_url:
-        parts = db_url.split("@")
-        masked_url = f"***@{parts[1]}"
-    log_event(f"[INFO] Starting backend... env: {os.getenv('RENDER_SERVICE_ID', 'local')}")
-    log_event(f"[INFO] Database URL (masked): {masked_url}")
-    
-    api_key = os.getenv("GOOGLE_API_KEY")
-    if api_key:
-        log_event(f"[INFO] GOOGLE_API_KEY found (length: {len(api_key)}, prefix: {api_key[:8]}...)")
-    else:
-        log_event("[ERROR] GOOGLE_API_KEY NOT FOUND!")
-
-    if not os.getenv("PINECONE_API_KEY"):
-        log_event("[WARNING] PINECONE_API_KEY not found in environment!")
-    else:
-        log_event("[INFO] PINECONE_API_KEY loaded successfully.")
-
-    try:
-        log_event("[INFO] Connecting to Prisma...")
-        await prisma.connect()
-        log_event("[INFO] Prisma connected successfully")
-    except Exception as e:
-        log_event(f"[ERROR] Prisma connection failed: {e}")
-        # We don't raise here so the app can at least start and serve health checks
-        # Though the app will be degraded.
+    await connect_db()
     
     try:
         start_scheduler()
@@ -62,11 +36,7 @@ async def lifespan(app: FastAPI):
     # Shutdown logic
     stop_scheduler()
     print("[INFO] Scheduler stopped")
-    try:
-        await prisma.disconnect()
-        print("[INFO] Prisma disconnected")
-    except:
-        pass
+    await disconnect_db()
 
 app = FastAPI(title="Aethrium Studio LangGraph API", lifespan=lifespan)
 
