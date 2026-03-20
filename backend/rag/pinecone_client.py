@@ -26,7 +26,7 @@ class PineconeClient:
             vectors.append((
                 chunk["id"],
                 vector,
-                chunk.get("metadata", {})
+                {**chunk.get("metadata", {}), "text": chunk["text"][:500]}
             ))
             
         self.index.upsert(vectors=vectors)
