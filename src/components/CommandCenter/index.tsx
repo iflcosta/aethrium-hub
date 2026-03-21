@@ -191,14 +191,12 @@ export const CommandCenter = () => {
           setIsStreaming(false)
           setActiveExecutionId(null)
 
-          if (delivery) {
-            addMessage(selectedAgent, {
-              id: "delivery-" + Math.random().toString(36),
-              agentSlug: selectedAgent,
-              content: delivery,
-              timestamp: new Date(),
-              type: 'delivery'
-            })
+          // Promove a mensagem de streaming existente para "delivery" (evita duplicação)
+          // Se não chegaram chunks (fullResponse vazio), usa o delivery do backend como fallback
+          if (fullResponse) {
+            updateMessage(selectedAgent, gentId, { type: 'delivery', content: fullResponse })
+          } else if (delivery) {
+            updateMessage(selectedAgent, gentId, { type: 'delivery', content: delivery })
           }
 
           // Auto-follow handoff (e.g. Rafael → Sophia)
@@ -236,14 +234,10 @@ export const CommandCenter = () => {
               },
               (sophiaDelivery) => {
                 setIsStreaming(false)
-                if (sophiaDelivery) {
-                  addMessage(toAgent, {
-                    id: "delivery-" + Math.random().toString(36),
-                    agentSlug: toAgent,
-                    content: sophiaDelivery,
-                    timestamp: new Date(),
-                    type: 'delivery'
-                  })
+                if (sophiaResponse) {
+                  updateMessage(toAgent, sophiaId, { type: 'delivery', content: sophiaResponse })
+                } else if (sophiaDelivery) {
+                  updateMessage(toAgent, sophiaId, { type: 'delivery', content: sophiaDelivery })
                 }
               }
             )
