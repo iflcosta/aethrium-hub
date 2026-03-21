@@ -1,3 +1,4 @@
+import asyncio
 from rag.chunker import chunk_project
 from rag.pinecone_client import PineconeClient
 from db import prisma
@@ -19,7 +20,8 @@ async def index_project(project_slug: str,
         for i in range(0, len(chunks), batch_size):
             batch = chunks[i:i + batch_size]
             try:
-                client.upsert_chunks(batch)
+                # Run sync upsert (has time.sleep) in thread so event loop stays free
+                await asyncio.to_thread(client.upsert_chunks, batch)
                 print(f"[INDEXER] Batch {i//batch_size + 1} synced to Pinecone")
             except Exception as e:
                 print(f"[INDEXER] ERROR in Pinecone batch {i//batch_size + 1}: {e}")
@@ -69,7 +71,10 @@ async def query_rag(query_text: str,
         filter_dict["project"] = {"$eq": project_slug}
     if agent_slug:
         filter_dict["agent"] = {"$eq": agent_slug}
-    return client.query(
-        query_text, top_k=top_k,
-        filter=filter_dict if filter_dict else None
+    # Run sync query (has time.sleep/requests) in thread so event loop stays free
+    return await asyncio.to_thread(
+        client.query,
+        query_text,
+        top_k,
+        filter_dict if filter_dict else None
     )
