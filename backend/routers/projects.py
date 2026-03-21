@@ -92,6 +92,8 @@ async def diagnose_indexing(project_slug: str):
     ]
     probe_results = {}
     working_model = None
+    first_error_body = None
+    result["api_key_prefix"] = api_key[:8] + "..." if api_key else "NOT SET"
     for m in probe_models:
         for version in ["v1beta", "v1"]:
             url = f"https://generativelanguage.googleapis.com/{version}/{m}:batchEmbedContents"
@@ -100,9 +102,12 @@ async def diagnose_indexing(project_slug: str):
                 probe_results[f"{m}@{version}"] = r.status_code
                 if r.status_code == 200 and working_model is None:
                     working_model = (m, version)
+                elif first_error_body is None:
+                    first_error_body = r.text[:500]
             except Exception as ex:
                 probe_results[f"{m}@{version}"] = str(ex)
     result["embedding_probe"] = probe_results
+    result["first_error_body"] = first_error_body
     if working_model is None:
         result["embedding_error"] = "No embedding model returned 200 — see embedding_probe for details"
         return result
