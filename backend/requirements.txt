@@ -12,5 +12,8 @@ pydantic==2.10.0
 pydantic-core==2.27.0
 apscheduler==3.10.4
 pinecone==5.0.0
+sentence-transformers==2.7.0
+torch==2.3.0+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
 e2b-code-interpreter==1.0.0
 pillow==10.4.0

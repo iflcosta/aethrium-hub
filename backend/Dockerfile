@@ -17,6 +17,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
+# Pre-download sentence transformer model at build time (cached in image)
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+
 COPY . .
 
 ENV PRISMA_BINARY_PLATFORM=debian-openssl-3.0.x
