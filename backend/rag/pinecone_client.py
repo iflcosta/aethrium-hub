@@ -9,7 +9,7 @@ INDEX_DIM = 1024
 
 
 def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[float]:
-    """Call Google's embedContent API for a single text."""
+    """Call Google's embedContent API with retry on rate limit."""
     api_key = os.getenv("GOOGLE_API_KEY")
     payload = {
         "model": EMBED_MODEL,
@@ -17,23 +17,29 @@ def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[flo
         "taskType": task_type,
         "outputDimensionality": INDEX_DIM,
     }
-    resp = requests.post(
-        f"{GOOGLE_EMBED_URL}:embedContent",
-        json=payload,
-        params={"key": api_key},
-        timeout=30,
-    )
+    for attempt in range(6):
+        resp = requests.post(
+            f"{GOOGLE_EMBED_URL}:embedContent",
+            json=payload,
+            params={"key": api_key},
+            timeout=30,
+        )
+        if resp.status_code == 429:
+            wait = 2 ** attempt  # 1, 2, 4, 8, 16, 32s
+            print(f"[EMBED] Rate limited, retrying in {wait}s...")
+            time.sleep(wait)
+            continue
+        resp.raise_for_status()
+        return resp.json()["embedding"]["values"]
     resp.raise_for_status()
-    return resp.json()["embedding"]["values"]
 
 
 def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
-    """Embed multiple texts sequentially, pausing every 10 to respect rate limits."""
+    """Embed multiple texts sequentially with rate limit respect."""
     embeddings = []
     for i, text in enumerate(texts):
         embeddings.append(_google_embed_one(text, task_type))
-        if (i + 1) % 10 == 0:
-            time.sleep(1)
+        time.sleep(0.5)  # 2 req/s sustained to stay within free tier limits
     return embeddings
 
 
