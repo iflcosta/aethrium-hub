@@ -5,6 +5,23 @@ from db import prisma
 
 router = APIRouter(prefix="/projects", tags=["Projects"])
 
+@router.get("/embedding-test")
+async def embedding_test():
+    """Standalone test: call Google embedding API directly and return result."""
+    import os, requests as _req
+    api_key = os.getenv("GOOGLE_API_KEY")
+    result = {"api_key_prefix": api_key[:8] + "..." if api_key else "NOT SET"}
+    models = ["models/text-embedding-004", "models/embedding-001"]
+    for m in models:
+        for version in ["v1beta", "v1"]:
+            url = f"https://generativelanguage.googleapis.com/{version}/{m}:batchEmbedContents"
+            try:
+                r = _req.post(url, json={"requests": [{"model": m, "content": {"parts": [{"text": "hello world"}]}, "taskType": "RETRIEVAL_QUERY"}]}, params={"key": api_key}, timeout=10)
+                result[f"{m}@{version}"] = {"status": r.status_code, "body": r.text[:300]}
+            except Exception as ex:
+                result[f"{m}@{version}"] = {"error": str(ex)}
+    return result
+
 class IndexProjectRequest(BaseModel):
     project_slug: str
     project_path: str

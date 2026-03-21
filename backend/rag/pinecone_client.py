@@ -1,45 +1,40 @@
 from pinecone import Pinecone
 import requests
 import os
+import time
 
-EMBED_MODEL = "models/text-embedding-004"
+EMBED_MODEL = "models/gemini-embedding-001"
 GOOGLE_EMBED_URL = f"https://generativelanguage.googleapis.com/v1beta/{EMBED_MODEL}"
-INDEX_DIM = 1024  # Pinecone index was created with 1024 dimensions
-
-
-def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
-    """Call Google's batchEmbedContents v1 API directly."""
-    api_key = os.getenv("GOOGLE_API_KEY")
-    payload = {
-        "requests": [
-            {
-                "model": EMBED_MODEL,
-                "content": {"parts": [{"text": t[:1500]}]},
-                "taskType": task_type,
-            }
-            for t in texts
-        ]
-    }
-    resp = requests.post(
-        f"{GOOGLE_EMBED_URL}:batchEmbedContents",
-        json=payload,
-        params={"key": api_key},
-        timeout=60,
-    )
-    resp.raise_for_status()
-    return [e["values"] for e in resp.json()["embeddings"]]
+INDEX_DIM = 1024
 
 
 def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[float]:
-    """Embed a single text by reusing the batch endpoint with one item."""
-    return _google_embed_batch([text], task_type=task_type)[0]
+    """Call Google's embedContent API for a single text."""
+    api_key = os.getenv("GOOGLE_API_KEY")
+    payload = {
+        "model": EMBED_MODEL,
+        "content": {"parts": [{"text": text[:8000]}]},
+        "taskType": task_type,
+        "outputDimensionality": INDEX_DIM,
+    }
+    resp = requests.post(
+        f"{GOOGLE_EMBED_URL}:embedContent",
+        json=payload,
+        params={"key": api_key},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json()["embedding"]["values"]
 
 
-def _pad(vector: list[float]) -> list[float]:
-    """Pad or truncate to INDEX_DIM (1024)."""
-    if len(vector) < INDEX_DIM:
-        return vector + [0.0] * (INDEX_DIM - len(vector))
-    return vector[:INDEX_DIM]
+def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
+    """Embed multiple texts sequentially, pausing every 10 to respect rate limits."""
+    embeddings = []
+    for i, text in enumerate(texts):
+        embeddings.append(_google_embed_one(text, task_type))
+        if (i + 1) % 10 == 0:
+            time.sleep(1)
+    return embeddings
 
 
 class PineconeClient:
@@ -58,7 +53,7 @@ class PineconeClient:
         vectors = [
             (
                 c["id"],
-                _pad(embeddings[i]),
+                embeddings[i],
                 {**c.get("metadata", {}), "text": c["text"][:500]},
             )
             for i, c in enumerate(chunks)
@@ -67,7 +62,7 @@ class PineconeClient:
 
     def query(self, text: str, top_k: int = 5, filter: dict = None) -> list[dict]:
         try:
-            vec = _pad(_google_embed_one(text))
+            vec = _google_embed_one(text)
             results = self.index.query(
                 vector=vec,
                 top_k=top_k,
@@ -91,6 +86,5 @@ class PineconeClient:
     def delete_project(self, project_slug: str):
         self.index.delete(filter={"project": {"$eq": project_slug}})
 
-    # Expose for diagnostic endpoint
     def _embed_query(self, text: str) -> list[float]:
         return _google_embed_one(text, task_type="RETRIEVAL_QUERY")
