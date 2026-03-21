@@ -19,19 +19,12 @@ import {
 } from "lucide-react";
 import { backendApi } from "@/lib/api";
 
-const MODELS = [
-  "gemini-1.5-flash-lite-preview-0930",
-  "gemini-1.5-flash",
-  "gemini-1.5-pro"
-];
-
-// Map user values to actual model strings if needed, but the prompt says:
-// gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-2.0-flash
-// Since these are future/placeholder names, I will use them as requested.
-const DISPLAY_MODELS = [
-  "gemini-3.1-flash-lite-preview",
-  "gemini-2.5-flash",
-  "gemini-2.0-flash"
+const GROQ_MODELS = [
+  "llama-3.3-70b-versatile",
+  "llama-3.1-8b-instant",
+  "llama-3.1-70b-versatile",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
 ];
 
 export default function SettingsPage() {
@@ -136,7 +129,7 @@ export default function SettingsPage() {
                       disabled={saving === agent.slug}
                       className="bg-zinc-900/50 border border-white/20 text-white text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2 hover:border-white/40 transition-all outline-none"
                     >
-                      {DISPLAY_MODELS.map(m => (
+                      {GROQ_MODELS.map(m => (
                         <option key={m} value={m}>{m}</option>
                       ))}
                     </select>

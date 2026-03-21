@@ -109,6 +109,9 @@ export const backendApi = {
     fetch(`${BACKEND_URL}/agents/${slug}/executions?limit=${limit}`)
       .then(r => r.json()),
 
+  deleteTask: (taskId: string) =>
+    fetch(`${BACKEND_URL}/tasks/${taskId}`, { method: 'DELETE' }).then(r => r.json()),
+
   getAgents: () =>
     fetch(`${BACKEND_URL}/agents/`)
       .then(r => r.json()),

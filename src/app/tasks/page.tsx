@@ -5,7 +5,7 @@ import { backendApi } from "@/lib/api";
 import { SectionHeader } from "@/components/section-header";
 import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
-import { X, ChevronRight, Loader2 } from "lucide-react";
+import { X, ChevronRight, Loader2, Trash2 } from "lucide-react";
 
 type TaskStatus = "PENDING" | "RUNNING" | "COMPLETED" | "FAILED";
 
@@ -55,6 +55,8 @@ export default function TasksPage() {
   const [loading, setLoading] = useState(true);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [jsonOpen, setJsonOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -71,6 +73,21 @@ export default function TasksPage() {
     const interval = setInterval(load, 30_000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleDelete = async () => {
+    if (!selectedTask) return;
+    setDeleting(true);
+    try {
+      await backendApi.deleteTask(selectedTask.id);
+      setTasks(prev => prev.filter(t => t.id !== selectedTask.id));
+      setSelectedTask(null);
+      setConfirmDelete(false);
+    } catch (err) {
+      console.error("Failed to delete task", err);
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -151,7 +168,7 @@ export default function TasksPage() {
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-white">Task Details</h3>
             <button
-              onClick={() => setSelectedTask(null)}
+              onClick={() => { setSelectedTask(null); setConfirmDelete(false); }}
               className="p-1 rounded hover:bg-[#1a1a1a] text-[#888780] hover:text-white"
             >
               <X className="w-4 h-4" />
@@ -199,6 +216,38 @@ export default function TasksPage() {
                 )}
               </div>
             )}
+
+            {/* Delete Section */}
+            <div className="border-t border-[#222222] pt-4">
+              {!confirmDelete ? (
+                <button
+                  onClick={() => setConfirmDelete(true)}
+                  className="w-full flex items-center justify-center gap-2 text-xs px-3 py-1.5 rounded border border-[#D85A30]/30 text-[#D85A30]/70 hover:bg-[#D85A30]/10 hover:text-[#D85A30] hover:border-[#D85A30]/60 transition-colors"
+                >
+                  <Trash2 className="w-3 h-3" /> Deletar tarefa
+                </button>
+              ) : (
+                <div className="space-y-2">
+                  <p className="text-xs text-[#D85A30] text-center">Confirmar exclusão? Esta ação também remove as execuções.</p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setConfirmDelete(false)}
+                      className="flex-1 text-xs px-3 py-1.5 rounded bg-[#1a1a1a] border border-[#222222] text-[#888780] hover:text-white transition-colors"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      onClick={handleDelete}
+                      disabled={deleting}
+                      className="flex-1 text-xs px-3 py-1.5 rounded bg-[#D85A30] text-white hover:bg-[#c04e27] disabled:opacity-50 transition-colors flex items-center justify-center gap-1"
+                    >
+                      {deleting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
+                      {deleting ? "Deletando..." : "Confirmar"}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Handoff Section */}
             <div className="border-t border-[#222222] pt-4">

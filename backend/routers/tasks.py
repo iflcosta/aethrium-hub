@@ -34,6 +34,13 @@ async def get_tasks(
     )
     return tasks
 
+@router.delete("/{task_id}")
+async def delete_task(task_id: str):
+    await prisma.execution.delete_many(where={"taskId": task_id})
+    await prisma.agentlog.delete_many(where={"taskId": task_id})
+    await prisma.task.delete(where={"id": task_id})
+    return {"deleted": task_id}
+
 @router.post("/")
 async def create_task(body: CreateTaskRequest):
     # Map string priority to Int for database

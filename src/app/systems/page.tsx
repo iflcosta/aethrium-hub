@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { SectionHeader } from "@/components/section-header";
 import { StatusBadge } from "@/components/status-badge";
 import Link from "next/link";
-import { ExternalLink, Database, RefreshCcw, Trash2, Search, Play, FileText, CheckCircle2, Loader2, X } from "lucide-react";
+import { ExternalLink, Database, Search, FileText, CheckCircle2, Loader2, RefreshCcw } from "lucide-react";
 import { backendApi } from '@/lib/api';
 
 interface SystemCard {
@@ -81,49 +81,23 @@ const statusColors: Record<string, string> = {
 
 export default function SystemsPage() {
   const [projectStatus, setProjectStatus] = useState<{chunks_indexed: number} | null>(null);
-  const [isIndexing, setIsIndexing] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [projectPath, setProjectPath] = useState("/app/projects/baiak-thunder-86");
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  const fetchStatus = async () => {
-    try {
-      const data = await backendApi.getProjectStatus("baiak-thunder-86");
-      setProjectStatus(data);
-    } catch (err) {
-      console.error("Failed to fetch status", err);
-    }
-  };
-
   useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        const data = await backendApi.getProjectStatus("baiak-thunder-86");
+        setProjectStatus(data);
+      } catch (err) {
+        console.error("Failed to fetch status", err);
+      }
+    };
     fetchStatus();
-    const interval = setInterval(fetchStatus, 5000);
+    const interval = setInterval(fetchStatus, 10000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleIndex = async () => {
-    try {
-      setIsIndexing(true);
-      await backendApi.indexProject('baiak-thunder-86', projectPath);
-      alert('Indexação iniciada em segundo plano!');
-    } catch (err) {
-      alert('Erro ao iniciar indexação');
-    } finally {
-      setIsIndexing(false);
-    }
-  };
-
-  const handleDeleteIndex = async () => {
-    if (!confirm("Tem certeza que deseja remover o índice RAG deste projeto?")) return;
-    try {
-      await backendApi.deleteProjectIndex("baiak-thunder-86");
-      fetchStatus();
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   const handleSearch = async () => {
     if (!query.trim()) return;
@@ -217,22 +191,7 @@ export default function SystemsPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                 <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] hover:bg-[#222] text-[#eee] rounded-md text-[11px] font-bold transition-all flex items-center gap-2"
-                 >
-                   <Play size={12} className="text-purple-400" /> {projectStatus?.chunks_indexed ? "Re-indexar" : "Indexar Projeto"}
-                 </button>
-                 {projectStatus && projectStatus.chunks_indexed > 0 && (
-                   <button 
-                    onClick={handleDeleteIndex}
-                    className="p-1.5 hover:bg-red-500/10 text-[#444] hover:text-red-400 rounded-md transition-all"
-                   >
-                     <Trash2 size={14} />
-                   </button>
-                 )}
-              </div>
+              <span className="text-[10px] text-[#555] italic">Indexação via CLI</span>
             </div>
 
             <div className="p-6 grid grid-cols-3 gap-4 bg-[#0a0a0a]/50">
@@ -335,56 +294,6 @@ export default function SystemsPage() {
         </div>
       </div>
 
-      {/* Index Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-[#111] border border-[#222] rounded-xl w-full max-w-lg shadow-2xl overflow-hidden">
-            <div className="p-6 border-b border-[#222] flex items-center justify-between">
-               <h3 className="text-sm font-bold text-white uppercase tracking-tight">Indexar Projeto</h3>
-               <button onClick={() => setIsModalOpen(false)} className="text-[#444] hover:text-white transition-colors">
-                 <X size={20} />
-               </button>
-            </div>
-            
-            <div className="p-6 space-y-4">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-[#555] uppercase">Slug do Projeto</label>
-                <input 
-                  disabled
-                  value="baiak-thunder-86"
-                  className="w-full bg-[#0a0a0a] border border-[#222] rounded-lg px-4 py-2 text-xs text-[#555] font-mono"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-[#555] uppercase">Caminho no Sistema</label>
-                <input 
-                  value={projectPath}
-                  onChange={e => setProjectPath(e.target.value)}
-                  className="w-full bg-[#0d0d0d] border border-[#333] focus:border-purple-500 rounded-lg px-4 py-2 text-xs text-[#eee] focus:outline-none focus:ring-1 focus:ring-purple-500/50"
-                  placeholder="C:/caminho/do/projeto"
-                />
-              </div>
-
-              <div className="pt-4">
-                <button 
-                  onClick={handleIndex}
-                  disabled={isIndexing}
-                  className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-[#1a1a1a] text-white rounded-lg py-3 text-sm font-bold transition-all shadow-xl shadow-purple-500/10 flex items-center justify-center gap-2"
-                >
-                  {isIndexing ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" /> Indexando arquivos...
-                    </>
-                  ) : (
-                    "Confirmar e Iniciar Indexação →"
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
