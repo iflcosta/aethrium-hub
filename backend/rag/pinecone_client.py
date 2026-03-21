@@ -9,17 +9,17 @@ _model = None
 def _get_model():
     global _model
     if _model is None:
-        from sentence_transformers import SentenceTransformer
-        _model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        from fastembed import TextEmbedding
+        _model = TextEmbedding("sentence-transformers/all-MiniLM-L6-v2")
     return _model
 
 
 def _embed_one(text: str) -> list[float]:
-    return _get_model().encode(text, normalize_embeddings=True).tolist()
+    return list(list(_get_model().embed([text]))[0])
 
 
 def _embed_batch(texts: list[str]) -> list[list[float]]:
-    return _get_model().encode(texts, normalize_embeddings=True, batch_size=32).tolist()
+    return [list(v) for v in _get_model().embed(texts)]
 
 
 class PineconeClient:
