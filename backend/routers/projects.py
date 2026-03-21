@@ -82,12 +82,10 @@ async def diagnose_indexing(project_slug: str):
         result["error"] = "No chunks extracted — no supported files found"
         return result
 
-    # 3. Embeddings test (1 chunk)
+    # 3. Embeddings test (1 chunk) via PineconeClient directly
     try:
         pc = PineconeClient()
-        from langchain_google_genai import GoogleGenerativeAIEmbeddings
-        emb = GoogleGenerativeAIEmbeddings(model="text-embedding-004")
-        vec = emb.embed_query(chunks[0]["text"][:200])
+        vec = pc._embed_query(chunks[0]["text"][:200])
         result["embedding_dim"] = len(vec)
         result["embedding_ok"] = True
     except Exception as e:
