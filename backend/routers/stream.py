@@ -23,7 +23,7 @@ async def stream_execution(execution_id: str, request: Request):
                 
             try:
                 chunks = json.loads(execution.thoughtChunks) if execution.thoughtChunks else []
-            except:
+            except Exception:
                 chunks = []
                 
             for i in range(last_chunk_index, len(chunks)):
@@ -38,7 +38,7 @@ async def stream_execution(execution_id: str, request: Request):
                 execution = await prisma.execution.find_unique(where={"id": execution_id})
                 try:
                     final_chunks = json.loads(execution.thoughtChunks) if execution.thoughtChunks else []
-                except:
+                except Exception:
                     final_chunks = []
                 
                 for i in range(last_chunk_index, len(final_chunks)):
@@ -52,7 +52,7 @@ async def stream_execution(execution_id: str, request: Request):
                         res_obj = json.loads(execution.result) if isinstance(execution.result, str) else execution.result
                         # Prefer "text" as per new BaseAgent logic, fallback to "final_delivery"
                         final_delivery = res_obj.get("text") or res_obj.get("final_delivery", "")
-                    except:
+                    except Exception:
                         final_delivery = "".join(final_chunks)
                 else:
                     # Fallback to join the chunks if it's a single agent run

@@ -31,7 +31,7 @@ def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[flo
             continue
         resp.raise_for_status()
         return resp.json()["embedding"]["values"]
-    resp.raise_for_status()
+    raise RuntimeError(f"[EMBED] Embedding failed after 6 retries (last status: {resp.status_code})")
 
 
 def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
