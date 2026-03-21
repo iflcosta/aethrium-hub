@@ -113,13 +113,10 @@ async def run_agent(slug: str, body: RunRequest):
 
 @router.post("/meeting/start")
 async def start_meeting(body: MeetingRequest):
-    # Removed redundant internal prisma = Prisma() calls
-    
-    # 1. Create a Task with title = topic, owner = carlos
     carlos_agent = await prisma.agent.find_unique(where={"slug": "carlos"})
     if not carlos_agent:
         return {"error": "Carlos agent not found in DB"}, 500
-        
+
     meeting_task = await prisma.task.create(
         data={
             "title": body.topic,
@@ -128,28 +125,25 @@ async def start_meeting(body: MeetingRequest):
             "status": "RUNNING"
         }
     )
-    
-    execution_ids = {}
-    
-    # 2. For each agent in agent_slugs (except carlos)
+
+    specialist_execution_ids = {}
+
+    # Rodar especialistas em paralelo (exceto Carlos)
     for slug in body.agent_slugs:
         if slug == "carlos" or slug not in agents:
             continue
-            
+
         agent = agents[slug]
         agent_db = await prisma.agent.find_unique(where={"slug": slug})
-        
-        # Create subtask
+
         subtask = await prisma.task.create(
             data={
-                "title": f"Contribuição de {agent.display_name} para a reunião",
+                "title": f"Contribuição de {agent.display_name}",
                 "ownerId": agent_db.id if agent_db else carlos_agent.id,
                 "parentTaskId": meeting_task.id,
                 "status": "RUNNING"
             }
         )
-
-        # Create Execution
         execution = await prisma.execution.create(
             data={
                 "taskId": subtask.id,
@@ -160,29 +154,110 @@ async def start_meeting(body: MeetingRequest):
                 "thoughtChunks": Json([])
             }
         )
-        execution_ids[slug] = execution.id
-        
-        async def process_meeting_run(ag, t_id, ex_id, prmpt):
+        specialist_execution_ids[slug] = execution.id
+
+        async def run_specialist(ag, t_id, ex_id):
             try:
-                # Same approach, run and consume directly
-                async for chunk in ag.run(t_id, {"prompt": prmpt, "execution_id": ex_id, "meeting_topic": body.topic}):
+                async for _ in ag.run(t_id, {
+                    "prompt": body.topic,
+                    "execution_id": ex_id,
+                    "meeting_topic": body.topic,
+                    **body.context
+                }):
                     pass
             except Exception as e:
-                print(f"Meeting run failed for {ag.slug}: {e}")
+                print(f"[MEETING] {ag.slug} falhou: {e}")
 
-        asyncio.create_task(process_meeting_run(agent, subtask.id, execution.id, body.topic))
-        
-    # In a full flow, Carlos would wait for all to finish, then summarize.
-    # For now, we return the tasks so the UI can stream them.
+        asyncio.create_task(run_specialist(agent, subtask.id, execution.id))
+
+    # Criar execução do Carlos (síntese) — começa após especialistas terminarem
+    carlos_execution = await prisma.execution.create(
+        data={
+            "taskId": meeting_task.id,
+            "agentSlug": "carlos",
+            "model": agents["carlos"].model,
+            "promptTokens": 0,
+            "compTokens": 0,
+            "thoughtChunks": Json([])
+        }
+    )
+
+    asyncio.create_task(_synthesis_coordinator(
+        topic=body.topic,
+        specialist_execution_ids=list(specialist_execution_ids.values()),
+        carlos_execution_id=carlos_execution.id,
+        meeting_task_id=meeting_task.id,
+        context=body.context
+    ))
+
     return {
         "task_id": meeting_task.id,
-        "execution_ids": execution_ids
+        "execution_ids": specialist_execution_ids,
+        "carlos_execution_id": carlos_execution.id
     }
+
+
+async def _synthesis_coordinator(
+    topic: str,
+    specialist_execution_ids: list,
+    carlos_execution_id: str,
+    meeting_task_id: str,
+    context: dict
+):
+    """Espera todos os especialistas terminarem e roda Carlos para sintetizar."""
+    import json as _json
+
+    # Espera até 5 minutos
+    for _ in range(100):
+        await asyncio.sleep(3)
+        if not specialist_execution_ids:
+            break
+        executions = await prisma.execution.find_many(
+            where={"id": {"in": specialist_execution_ids}}
+        )
+        if all(e.status in ["COMPLETED", "FAILED"] for e in executions):
+            break
+
+    # Coleta respostas
+    executions = await prisma.execution.find_many(
+        where={"id": {"in": specialist_execution_ids}}
+    )
+    responses = []
+    for e in executions:
+        if e.status == "COMPLETED" and e.result:
+            res = e.result if isinstance(e.result, dict) else _json.loads(e.result)
+            text = res.get("text", "").strip()
+            if text:
+                responses.append(f"**{e.agentSlug.capitalize()}**: {text[:1500]}")
+
+    if not responses:
+        responses = ["Nenhum especialista respondeu a tempo."]
+
+    synthesis_prompt = (
+        f"Tópico da reunião: {topic}\n\n"
+        f"Respostas dos especialistas:\n\n"
+        + "\n\n---\n\n".join(responses)
+        + "\n\n---\n\n"
+        "Com base nas perspectivas acima, sintetize uma decisão técnica consolidada. "
+        "Identifique consensos, conflitos e próximos passos claros. "
+        "Seja direto e prático."
+    )
+
+    try:
+        async for _ in agents["carlos"].run(meeting_task_id, {
+            "prompt": synthesis_prompt,
+            "execution_id": carlos_execution_id,
+            "meeting_topic": topic,
+            **context
+        }):
+            pass
+        print(f"[MEETING] Síntese do Carlos concluída.")
+    except Exception as e:
+        print(f"[MEETING] Carlos falhou na síntese: {e}")
+
 
 @router.post("/meeting/message")
 async def meeting_message(body: MeetingMessageRequest):
-    # Sends follow-up message to all agents in the meeting.
-    # Placeholder for the expanded meeting logic.
     return {"status": "Message queued to meeting"}
 
 @router.get("/")

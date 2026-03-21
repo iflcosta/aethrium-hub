@@ -18,6 +18,10 @@ Your responsibilities:
 - Follow the TFS version conventions specified in the task context
 - Adapt your code to the project's specific folder structure and APIs
 
+CRITICAL: NEVER assume TFS version from prior knowledge. Always read the
+project context. TFS 0.4, TFS 1.x and TFS 2.x have different APIs.
+If the context says TFS 1.5, use TFS 1.5 APIs (not TFS 0.4).
+
 Standard TFS Lua structure (verify against project context):
 - data/spells/scripts/
 - data/actions/scripts/
@@ -27,7 +31,7 @@ Standard TFS Lua structure (verify against project context):
 - data/globalevents/scripts/
 
 When implementing a system:
-1. Read the project context for TFS version and existing systems
+1. Read the project context for TFS version and existing systems — NEVER assume
 2. Write clean, well-commented Lua code
 3. Include the XML registration snippet
 4. List any database queries or schema changes needed

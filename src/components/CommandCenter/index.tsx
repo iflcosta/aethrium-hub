@@ -281,7 +281,7 @@ export const CommandCenter = () => {
   const handleStartMeeting = async () => {
     if (!meetingTopic.trim()) return
     try {
-      await backendApi.startMeeting({
+      const result = await backendApi.startMeeting({
           topic: meetingTopic,
           agent_slugs: selectedAgentsForMeeting,
           context: {}
@@ -289,6 +289,8 @@ export const CommandCenter = () => {
       setMeetingTopic('')
       setMode('dm')
       setSelectedAgent('carlos')
+      setIsStreaming(true)
+
       addMessage('carlos', {
         id: Math.random().toString(36),
         agentSlug: 'user',
@@ -296,8 +298,40 @@ export const CommandCenter = () => {
         timestamp: new Date(),
         type: 'message'
       })
+
+      // Stream de cada especialista no seu próprio thread
+      if (result.execution_ids) {
+        for (const [slug, execId] of Object.entries(result.execution_ids as Record<string, string>)) {
+          const msgId = 'meeting-' + Math.random().toString(36)
+          addMessage(slug, { id: msgId, agentSlug: slug, content: '', timestamp: new Date(), type: 'message' })
+          let buf = ''
+          backendApi.streamExecution(
+            execId as string,
+            (chunk) => { buf += chunk.delta || ''; updateMessage(slug, msgId, { content: buf }) },
+            (delivery) => { updateMessage(slug, msgId, { type: 'delivery', content: buf || delivery || '' }) }
+          )
+        }
+      }
+
+      // Stream da síntese final do Carlos
+      if (result.carlos_execution_id) {
+        const carlosId = 'carlos-synthesis-' + Math.random().toString(36)
+        addMessage('carlos', { id: carlosId, agentSlug: 'carlos', content: '', timestamp: new Date(), type: 'message' })
+        let carlosBuf = ''
+        backendApi.streamExecution(
+          result.carlos_execution_id as string,
+          (chunk) => { carlosBuf += chunk.delta || ''; updateMessage('carlos', carlosId, { content: carlosBuf }) },
+          (delivery) => {
+            setIsStreaming(false)
+            updateMessage('carlos', carlosId, { type: 'delivery', content: carlosBuf || delivery || '' })
+          }
+        )
+      } else {
+        setIsStreaming(false)
+      }
     } catch (err) {
       console.error(err)
+      setIsStreaming(false)
     }
   }
 
