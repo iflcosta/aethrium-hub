@@ -3,7 +3,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 class LucasAgent(BaseAgent):
     slug = "lucas"
     display_name = "Lucas"
-    model = "gemini-3-flash-preview"
+    model = "gemini-1.5-flash"
     role = "CM"
 
     @property
