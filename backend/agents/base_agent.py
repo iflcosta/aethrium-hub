@@ -141,11 +141,11 @@ class BaseAgent:
             messages.append(HumanMessage(content=full_content))
             
             chunks = []
-            
+
             # Try primary model
             active_model = self.model
             print(f"[MODEL_RUN] Attempting {self.slug} with model {active_model}")
-            
+
             try:
                 llm = ChatGoogleGenerativeAI(
                     model=active_model,
@@ -159,25 +159,32 @@ class BaseAgent:
                         content = chunk.content
                         if isinstance(content, list):
                             content = "".join([c.get("text", "") for c in content if isinstance(c, dict) and "text" in c])
-                        
+
                         chunks.append(str(content))
-                        data = {"seq": len(chunks), "chunk": str(content), "ts": ""} 
+                        print(f"[AGENT] Chunk received: {str(content)[:50]}")
+                        data = {"seq": len(chunks), "chunk": str(content), "ts": ""}
                         yield f"data: {json.dumps(data)}\n\n"
+
+                        # Write chunks to DB every 5 so stream.py polling sees real-time updates
+                        if len(chunks) % 5 == 0:
+                            await prisma.execution.update(
+                                where={"id": execution.id},
+                                data={"thoughtChunks": Json(chunks)}
+                            )
             except Exception as e:
                 print(f"[ERROR] Gemini run failed for {self.slug} using {active_model}:")
                 traceback.print_exc()
                 raise e
 
             full_response = "".join(chunks)
-            print(f"[DEBUG] Gemini response received: {len(full_response)} chars")
+            print(f"[DEBUG] Gemini response received: {len(full_response)} chars, {len(chunks)} chunks")
 
-            # Streaming delta to DB in realtime (for SSE poll to pick up)
-            # Store as flat list of plain-text strings so stream.py can send each
-            # item directly as {"delta": chunks[i]} without further parsing.
-            await prisma.execution.update(
-                where={"id": execution.id},
-                data={"thoughtChunks": Json(chunks)}
-            )
+            # Flush any remaining chunks not yet written (total may not be a multiple of 5)
+            if chunks:
+                await prisma.execution.update(
+                    where={"id": execution.id},
+                    data={"thoughtChunks": Json(chunks)}
+                )
 
             # E2B Sandbox Hook (Sophia)
             if self.slug == "sophia" and "```lua" in full_response:
