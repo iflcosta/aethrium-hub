@@ -1,6 +1,58 @@
 from pinecone import Pinecone
-import google.generativeai as genai
+import requests
 import os
+
+EMBED_MODEL = "models/text-embedding-004"
+GOOGLE_EMBED_URL = f"https://generativelanguage.googleapis.com/v1/{EMBED_MODEL}"
+INDEX_DIM = 1024  # Pinecone index was created with 1024 dimensions
+
+
+def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
+    """Call Google's batchEmbedContents v1 API directly."""
+    api_key = os.getenv("GOOGLE_API_KEY")
+    payload = {
+        "requests": [
+            {
+                "model": EMBED_MODEL,
+                "content": {"parts": [{"text": t[:1500]}]},
+                "taskType": task_type,
+            }
+            for t in texts
+        ]
+    }
+    resp = requests.post(
+        f"{GOOGLE_EMBED_URL}:batchEmbedContents",
+        json=payload,
+        params={"key": api_key},
+        timeout=60,
+    )
+    resp.raise_for_status()
+    return [e["values"] for e in resp.json()["embeddings"]]
+
+
+def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[float]:
+    """Call Google's embedContent v1 API for a single text."""
+    api_key = os.getenv("GOOGLE_API_KEY")
+    payload = {
+        "model": EMBED_MODEL,
+        "content": {"parts": [{"text": text[:1500]}]},
+        "taskType": task_type,
+    }
+    resp = requests.post(
+        f"{GOOGLE_EMBED_URL}:embedContent",
+        json=payload,
+        params={"key": api_key},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json()["embedding"]["values"]
+
+
+def _pad(vector: list[float]) -> list[float]:
+    """Pad or truncate to INDEX_DIM (1024)."""
+    if len(vector) < INDEX_DIM:
+        return vector + [0.0] * (INDEX_DIM - len(vector))
+    return vector[:INDEX_DIM]
 
 
 class PineconeClient:
@@ -10,58 +62,27 @@ class PineconeClient:
         if host:
             self.index = self.pc.Index(host=host)
         else:
-            index_name = os.getenv("PINECONE_INDEX", "aethrium-studio")
-            self.index = self.pc.Index(index_name)
-
-        genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-        self._embed_model = "models/text-embedding-004"
-
-    def _embed_texts(self, texts: list[str]) -> list[list[float]]:
-        """Embed a list of texts using Google's embedding API directly."""
-        result = genai.embed_content(
-            model=self._embed_model,
-            content=texts,
-            task_type="retrieval_document",
-        )
-        # Returns {"embedding": [vec1, vec2, ...]} for lists
-        embeddings = result.get("embedding", [])
-        # If single text was passed, wrap it
-        if embeddings and not isinstance(embeddings[0], list):
-            embeddings = [embeddings]
-        return embeddings
-
-    def _embed_query(self, text: str) -> list[float]:
-        """Embed a single query string."""
-        result = genai.embed_content(
-            model=self._embed_model,
-            content=text,
-            task_type="retrieval_query",
-        )
-        return result.get("embedding", [])
-
-    def _pad(self, vector: list[float], target: int = 768) -> list[float]:
-        """Pad or truncate vector to target dimension."""
-        if len(vector) < target:
-            return vector + [0.0] * (target - len(vector))
-        return vector[:target]
+            self.index = self.pc.Index(os.getenv("PINECONE_INDEX", "aethrium-studio"))
 
     def upsert_chunks(self, chunks: list[dict]):
-        texts = [chunk["text"] for chunk in chunks]
-        embeddings = self._embed_texts(texts)
+        texts = [c["text"] for c in chunks]
+        embeddings = _google_embed_batch(texts)
 
-        vectors = []
-        for i, chunk in enumerate(chunks):
-            vec = self._pad(embeddings[i])
-            metadata = {**chunk.get("metadata", {}), "text": chunk["text"][:500]}
-            vectors.append((chunk["id"], vec, metadata))
-
+        vectors = [
+            (
+                c["id"],
+                _pad(embeddings[i]),
+                {**c.get("metadata", {}), "text": c["text"][:500]},
+            )
+            for i, c in enumerate(chunks)
+        ]
         self.index.upsert(vectors=vectors)
 
     def query(self, text: str, top_k: int = 5, filter: dict = None) -> list[dict]:
-        query_vec = self._pad(self._embed_query(text))
         try:
+            vec = _pad(_google_embed_one(text))
             results = self.index.query(
-                vector=query_vec,
+                vector=vec,
                 top_k=top_k,
                 filter=filter,
                 include_metadata=True,
@@ -82,3 +103,7 @@ class PineconeClient:
 
     def delete_project(self, project_slug: str):
         self.index.delete(filter={"project": {"$eq": project_slug}})
+
+    # Expose for diagnostic endpoint
+    def _embed_query(self, text: str) -> list[float]:
+        return _google_embed_one(text, task_type="RETRIEVAL_QUERY")
