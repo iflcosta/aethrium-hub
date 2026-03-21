@@ -14,7 +14,7 @@ class PineconeClient:
             self.index = self.pc.Index(index_name)
 
         genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-        self._embed_model = "models/embedding-001"
+        self._embed_model = "models/text-embedding-004"
 
     def _embed_texts(self, texts: list[str]) -> list[list[float]]:
         """Embed a list of texts using Google's embedding API directly."""
