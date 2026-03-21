@@ -73,4 +73,4 @@ async def stream_execution(execution_id: str, request: Request):
                 
             await asyncio.sleep(0.5)
 
-    return EventSourceResponse(event_generator(), headers={"Access-Control-Allow-Origin": "http://localhost:3000"})
+    return EventSourceResponse(event_generator(), headers={"Access-Control-Allow-Origin": "*"})
