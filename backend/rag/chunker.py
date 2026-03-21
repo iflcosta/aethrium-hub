@@ -61,19 +61,19 @@ def chunk_file(file_path: str, project_slug: str) -> list[dict]:
 
     return chunks
 
-def chunk_project(project_path: str,
-                  project_slug: str) -> list[dict]:
+def chunk_project(project_path: str, project_slug: str) -> list[dict]:
+    """Retorna todos os chunks de uma vez (usado apenas para diagnóstico)."""
     all_chunks = []
+    for chunk in stream_project_chunks(project_path, project_slug):
+        all_chunks.append(chunk)
+    return all_chunks
+
+
+def stream_project_chunks(project_path: str, project_slug: str):
+    """Gera chunks arquivo por arquivo sem carregar tudo na memória."""
     project_dir = Path(project_path)
-
     if not project_dir.exists():
-        raise FileNotFoundError(
-            f"Project path not found: {project_path}"
-        )
-
+        raise FileNotFoundError(f"Project path not found: {project_path}")
     for file_path in project_dir.rglob("*"):
         if file_path.is_file():
-            chunks = chunk_file(str(file_path), project_slug)
-            all_chunks.extend(chunks)
-
-    return all_chunks
+            yield from chunk_file(str(file_path), project_slug)

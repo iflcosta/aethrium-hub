@@ -1,54 +1,85 @@
 import asyncio
-from rag.chunker import chunk_project
+from rag.chunker import stream_project_chunks
 from rag.pinecone_client import PineconeClient
 from db import prisma
 
 async def index_project(project_slug: str, project_path: str) -> dict:
+    """
+    Indexa o projeto em streaming: nunca carrega mais de BATCH_SIZE chunks
+    na memória ao mesmo tempo, evitando OOM no Render 512MB.
+    """
     try:
         client = PineconeClient()
         print(f"[INDEXER] Starting walk: {project_slug} at {project_path}")
-        chunks = chunk_project(project_path, project_slug)
-        print(f"[INDEXER] Extracted {len(chunks)} chunks from {project_path}")
 
-        if not chunks:
-            return {"status": "error", "message": "No files found"}
+        BATCH_SIZE = 25
+        batch = []
+        total = 0
+        batch_num = 0
 
-        batch_size = 100
-        print(f"[INDEXER] Beginning Pinecone upsert in batches of {batch_size}")
-        for i in range(0, len(chunks), batch_size):
-            batch = chunks[i:i + batch_size]
-            try:
-                # Run in thread — sentence-transformers encode is CPU-bound
-                await asyncio.to_thread(client.upsert_chunks, batch)
-                print(f"[INDEXER] Batch {i//batch_size + 1}/{-(-len(chunks)//batch_size)} synced")
-            except Exception as e:
-                print(f"[INDEXER] ERROR in batch {i//batch_size + 1}: {e}")
-                raise
+        for chunk in stream_project_chunks(project_path, project_slug):
+            batch.append(chunk)
 
-        print(f"[INDEXER] Storing metadata in Prisma...")
-        for chunk in chunks:
-            try:
-                await prisma.knowledgechunk.upsert(
-                    where={"pineconeVecId": chunk["id"]},
-                    data={
-                        "create": {
-                            "source": chunk["metadata"]["source"],
-                            "chunkIndex": chunk["metadata"]["chunk_index"],
-                            "content": chunk["text"][:500],
-                            "pineconeVecId": chunk["id"],
-                            "metadata": chunk["metadata"],
-                        },
-                        "update": {
-                            "content": chunk["text"][:500],
-                            "metadata": chunk["metadata"],
+            if len(batch) >= BATCH_SIZE:
+                batch_num += 1
+                try:
+                    await asyncio.to_thread(client.upsert_chunks, batch)
+                    for c in batch:
+                        try:
+                            await prisma.knowledgechunk.upsert(
+                                where={"pineconeVecId": c["id"]},
+                                data={
+                                    "create": {
+                                        "source": c["metadata"]["source"],
+                                        "chunkIndex": c["metadata"]["chunk_index"],
+                                        "content": c["text"][:500],
+                                        "pineconeVecId": c["id"],
+                                        "metadata": c["metadata"],
+                                    },
+                                    "update": {
+                                        "content": c["text"][:500],
+                                        "metadata": c["metadata"],
+                                    }
+                                }
+                            )
+                        except Exception as e:
+                            print(f"[INDEXER] Prisma error chunk {c['id']}: {e}")
+                    total += len(batch)
+                    print(f"[INDEXER] Batch {batch_num} done — {total} chunks indexed")
+                except Exception as e:
+                    print(f"[INDEXER] ERROR batch {batch_num}: {e}")
+                    raise
+                finally:
+                    batch = []  # libera memória
+
+        # flush do último batch parcial
+        if batch:
+            batch_num += 1
+            await asyncio.to_thread(client.upsert_chunks, batch)
+            for c in batch:
+                try:
+                    await prisma.knowledgechunk.upsert(
+                        where={"pineconeVecId": c["id"]},
+                        data={
+                            "create": {
+                                "source": c["metadata"]["source"],
+                                "chunkIndex": c["metadata"]["chunk_index"],
+                                "content": c["text"][:500],
+                                "pineconeVecId": c["id"],
+                                "metadata": c["metadata"],
+                            },
+                            "update": {
+                                "content": c["text"][:500],
+                                "metadata": c["metadata"],
+                            }
                         }
-                    }
-                )
-            except Exception as e:
-                print(f"[INDEXER] ERROR saving chunk {chunk['id']} to Prisma: {e}")
+                    )
+                except Exception as e:
+                    print(f"[INDEXER] Prisma error chunk {c['id']}: {e}")
+            total += len(batch)
 
-        print(f"[INDEXER] SUCCESS: Indexed {len(chunks)} chunks for {project_slug}")
-        return {"status": "completed", "chunks_total": len(chunks), "project": project_slug}
+        print(f"[INDEXER] SUCCESS: Indexed {total} chunks for {project_slug}")
+        return {"status": "completed", "chunks_total": total, "project": project_slug}
 
     except Exception as e:
         import traceback
