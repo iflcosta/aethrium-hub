@@ -82,7 +82,31 @@ async def diagnose_indexing(project_slug: str):
         result["error"] = "No chunks extracted — no supported files found"
         return result
 
-    # 3. Embeddings test (1 chunk) via PineconeClient directly
+    # 3. Embeddings test — probe multiple models to find what works
+    import requests as _req
+    api_key = os.getenv("GOOGLE_API_KEY")
+    probe_models = [
+        "models/text-embedding-004",
+        "models/embedding-001",
+        "models/text-multilingual-embedding-002",
+    ]
+    probe_results = {}
+    working_model = None
+    for m in probe_models:
+        for version in ["v1beta", "v1"]:
+            url = f"https://generativelanguage.googleapis.com/{version}/{m}:batchEmbedContents"
+            try:
+                r = _req.post(url, json={"requests": [{"model": m, "content": {"parts": [{"text": "test"}]}, "taskType": "RETRIEVAL_QUERY"}]}, params={"key": api_key}, timeout=10)
+                probe_results[f"{m}@{version}"] = r.status_code
+                if r.status_code == 200 and working_model is None:
+                    working_model = (m, version)
+            except Exception as ex:
+                probe_results[f"{m}@{version}"] = str(ex)
+    result["embedding_probe"] = probe_results
+    if working_model is None:
+        result["embedding_error"] = "No embedding model returned 200 — see embedding_probe for details"
+        return result
+    result["working_model"] = f"{working_model[0]}@{working_model[1]}"
     try:
         pc = PineconeClient()
         vec = pc._embed_query(chunks[0]["text"][:200])
