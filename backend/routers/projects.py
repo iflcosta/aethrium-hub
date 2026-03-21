@@ -1,4 +1,5 @@
 from fastapi import APIRouter, BackgroundTasks, Query
+import json
 from rag.indexer import index_project, query_rag
 from pydantic import BaseModel
 from db import prisma
@@ -130,7 +131,7 @@ async def diagnose_indexing(project_slug: str):
                     "chunkIndex": c["metadata"]["chunk_index"],
                     "content": c["text"][:100],
                     "pineconeVecId": c["id"] + ":diag",
-                    "metadata": c["metadata"],
+                    "metadata": json.dumps(c["metadata"]),
                 },
                 "update": {"content": c["text"][:100]}
             }
