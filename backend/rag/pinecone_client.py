@@ -31,21 +31,8 @@ def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT")
 
 
 def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[float]:
-    """Call Google's embedContent v1 API for a single text."""
-    api_key = os.getenv("GOOGLE_API_KEY")
-    payload = {
-        "model": EMBED_MODEL,
-        "content": {"parts": [{"text": text[:1500]}]},
-        "taskType": task_type,
-    }
-    resp = requests.post(
-        f"{GOOGLE_EMBED_URL}:embedContent",
-        json=payload,
-        params={"key": api_key},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    return resp.json()["embedding"]["values"]
+    """Embed a single text by reusing the batch endpoint with one item."""
+    return _google_embed_batch([text], task_type=task_type)[0]
 
 
 def _pad(vector: list[float]) -> list[float]:
