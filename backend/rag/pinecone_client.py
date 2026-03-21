@@ -8,8 +8,8 @@ GOOGLE_EMBED_URL = f"https://generativelanguage.googleapis.com/v1beta/{EMBED_MOD
 INDEX_DIM = 1024
 
 
-def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[float]:
-    """Call Google's embedContent API with retry on rate limit."""
+def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY", retries: int = 6) -> list[float]:
+    """Call Google's embedContent API. retries=0 means fail fast on 429 (for live queries)."""
     api_key = os.getenv("GOOGLE_API_KEY")
     payload = {
         "model": EMBED_MODEL,
@@ -17,7 +17,7 @@ def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[flo
         "taskType": task_type,
         "outputDimensionality": INDEX_DIM,
     }
-    for attempt in range(6):
+    for attempt in range(max(retries, 1)):
         resp = requests.post(
             f"{GOOGLE_EMBED_URL}:embedContent",
             json=payload,
@@ -25,13 +25,15 @@ def _google_embed_one(text: str, task_type: str = "RETRIEVAL_QUERY") -> list[flo
             timeout=30,
         )
         if resp.status_code == 429:
-            wait = 2 ** attempt  # 1, 2, 4, 8, 16, 32s
+            if attempt >= retries - 1:
+                raise RuntimeError(f"[EMBED] Rate limited (429) — daily quota likely exhausted")
+            wait = 2 ** attempt
             print(f"[EMBED] Rate limited, retrying in {wait}s...")
             time.sleep(wait)
             continue
         resp.raise_for_status()
         return resp.json()["embedding"]["values"]
-    raise RuntimeError(f"[EMBED] Embedding failed after 6 retries (last status: {resp.status_code})")
+    raise RuntimeError(f"[EMBED] Embedding failed after {retries} retries")
 
 
 def _google_embed_batch(texts: list[str], task_type: str = "RETRIEVAL_DOCUMENT") -> list[list[float]]:
@@ -68,7 +70,7 @@ class PineconeClient:
 
     def query(self, text: str, top_k: int = 5, filter: dict = None) -> list[dict]:
         try:
-            vec = _google_embed_one(text)
+            vec = _google_embed_one(text, retries=1)  # fail fast during live queries
             results = self.index.query(
                 vector=vec,
                 top_k=top_k,
@@ -93,4 +95,5 @@ class PineconeClient:
         self.index.delete(filter={"project": {"$eq": project_slug}})
 
     def _embed_query(self, text: str) -> list[float]:
-        return _google_embed_one(text, task_type="RETRIEVAL_QUERY")
+        # retries=1 = fail fast on 429 — don't block live agent requests
+        return _google_embed_one(text, task_type="RETRIEVAL_QUERY", retries=1)
