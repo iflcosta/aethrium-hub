@@ -172,12 +172,11 @@ class BaseAgent:
             print(f"[DEBUG] Gemini response received: {len(full_response)} chars")
 
             # Streaming delta to DB in realtime (for SSE poll to pick up)
-            from datetime import datetime as _dt
-            _now = _dt.utcnow().isoformat()
-            _live_chunk = {"seq": 0, "delta": full_response, "ts": _now}
+            # Store as flat list of plain-text strings so stream.py can send each
+            # item directly as {"delta": chunks[i]} without further parsing.
             await prisma.execution.update(
                 where={"id": execution.id},
-                data={"thoughtChunks": Json([json.dumps(_live_chunk)])}
+                data={"thoughtChunks": Json(chunks)}
             )
 
             # E2B Sandbox Hook (Sophia)
@@ -223,9 +222,9 @@ class BaseAgent:
                         self._run_sophia_handoff(handoff_info, task_id, full_response, context)
                     )
 
-            # 1. Append full text as a single thoughtChunk
-            thought_chunk = {"seq": 0, "delta": full_response, "ts": now_iso}
-            all_chunks = chunks + [json.dumps(thought_chunk)]
+            # 1. thoughtChunks is already the list of plain-text token strings
+            #    captured during streaming. Use it directly.
+            all_chunks = chunks
 
             # 2. Save result
             result_obj = {"text": full_response}

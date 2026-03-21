@@ -125,7 +125,7 @@ async def start_meeting(body: MeetingRequest):
             "title": body.topic,
             "description": "Meeting task",
             "ownerId": carlos_agent.id,
-            "status": "IN_PROGRESS"
+            "status": "RUNNING"
         }
     )
     
@@ -145,10 +145,10 @@ async def start_meeting(body: MeetingRequest):
                 "title": f"Contribuição de {agent.display_name} para a reunião",
                 "ownerId": agent_db.id if agent_db else carlos_agent.id,
                 "parentTaskId": meeting_task.id,
-                "status": "IN_PROGRESS"
+                "status": "RUNNING"
             }
         )
-        
+
         # Create Execution
         execution = await prisma.execution.create(
             data={
@@ -157,7 +157,7 @@ async def start_meeting(body: MeetingRequest):
                 "model": agent.model,
                 "promptTokens": 0,
                 "compTokens": 0,
-                "thoughtChunks": []
+                "thoughtChunks": Json([])
             }
         )
         execution_ids[slug] = execution.id

@@ -56,7 +56,6 @@ async def create_task(body: CreateTaskRequest):
                 "project": body.context.get("project_slug", "") if body.context else "",
                 "created_via": "command_center"
             }),
-            "pineconeQueryIds": [],
             "owner": {
                 "connect": {"slug": body.owner_slug}
             }
