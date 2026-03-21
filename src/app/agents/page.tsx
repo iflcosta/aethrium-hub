@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
 import { SectionHeader } from "@/components/section-header";
-import { mockAgents } from "@/lib/mock/agents";
 import { backendApi, BACKEND_URL } from "@/lib/api";
 
 interface Agent {
@@ -14,6 +13,8 @@ interface Agent {
   role: string;
   color: string;
   isOnline: boolean;
+  tasksCompleted: number;
+  tokensUsed: number;
 }
 
 function ThoughtStreamPanel({ slug }: { slug: string }) {
@@ -83,7 +84,6 @@ function ThoughtStreamPanel({ slug }: { slug: string }) {
 
 export default function AgentsPage() {
   const [agents, setAgents] = useState<Agent[]>([]);
-  const agentMeta = mockAgents;
 
   useEffect(() => {
     backendApi.getAgents()
@@ -91,8 +91,10 @@ export default function AgentsPage() {
       .catch(() => {});
   }, []);
 
-  const getAgentMeta = (slug: string) =>
-    agentMeta.find((a) => a.slug === slug);
+  const accentColors: Record<string, string> = {
+    purple: "#7F77DD", teal: "#1D9E75", amber: "#EF9F27",
+    coral: "#D85A30", blue: "#378ADD", gray: "#888780",
+  };
 
   return (
     <div>
@@ -103,11 +105,6 @@ export default function AgentsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {agents.map((agent) => {
-          const meta = getAgentMeta(agent.slug);
-          const accentColors: Record<string, string> = {
-            purple: "#7F77DD", teal: "#1D9E75", amber: "#EF9F27",
-            coral: "#D85A30", blue: "#378ADD", gray: "#888780",
-          };
           const accent = accentColors[agent.color] || "#888780";
 
           return (
@@ -159,11 +156,11 @@ export default function AgentsPage() {
               <div className="flex items-center justify-between px-4 py-3 border-t border-[#222222]">
                 <div className="flex gap-4 text-xs text-[#888780]">
                   <span>
-                    <span className="text-white font-medium">{meta?.tasksCompleted || 0}</span> tasks
+                    <span className="text-white font-medium">{agent.tasksCompleted || 0}</span> tasks
                   </span>
                   <span>
                     <span className="text-white font-medium">
-                      {meta ? (meta.tokensUsed / 1000).toFixed(0) + "k" : "0"}
+                      {agent.tokensUsed > 0 ? (agent.tokensUsed / 1000).toFixed(0) + "k" : "0"}
                     </span>{" "}
                     tokens
                   </span>

@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { SectionHeader } from "@/components/section-header";
-import { mockLogs, logTypeColors, type LogEntry, type LogType } from "@/lib/mock/logs";
+import { logTypeColors, type LogEntry, type LogType } from "@/lib/mock/logs";
 import { Download, Pause, Play } from "lucide-react";
 import { BACKEND_URL } from "@/lib/api";
 
 const allTypes: LogType[] = ["LOGIN", "LOGOUT", "COMBAT", "TRADE", "VIP", "RESET", "SYSTEM"];
 
 export default function LogsPage() {
-  const [logs, setLogs] = useState<LogEntry[]>(mockLogs);
+  const [logs, setLogs] = useState<LogEntry[]>([]);
   const [filters, setFilters] = useState<Set<LogType>>(new Set(allTypes));
   const [search, setSearch] = useState("");
   const [autoScroll, setAutoScroll] = useState(true);

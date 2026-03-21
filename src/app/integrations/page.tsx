@@ -75,15 +75,11 @@ export default function IntegrationsPage() {
   const testSandbox = async () => {
     setIsSandboxTesting(true);
     try {
-      // In a real scenario, we'd have a specific test endpoint
-      // For now, let's pretend we're running a simple Lua print
-      setSandboxResult({
-        status: "success",
-        stdout: "Hello from E2B Sandbox!",
-        test_description: "Simple Lua Test"
-      });
+      const res = await fetch(`${BACKEND_URL}/webhooks/test/sandbox`, { method: "POST" });
+      const data = await res.json();
+      setSandboxResult(data);
     } catch (err) {
-      console.error(err);
+      setSandboxResult({ status: "error", stdout: "", stderr: String(err), test_description: "Connectivity Test" });
     } finally {
       setIsSandboxTesting(false);
     }

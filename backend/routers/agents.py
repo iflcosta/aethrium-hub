@@ -260,10 +260,61 @@ async def _synthesis_coordinator(
 async def meeting_message(body: MeetingMessageRequest):
     return {"status": "Message queued to meeting"}
 
+@router.get("/{slug}/executions")
+async def get_agent_executions(slug: str, limit: int = 5):
+    """Returns the most recent completed executions for an agent (for history loading)."""
+    executions = await prisma.execution.find_many(
+        where={"agentSlug": slug, "status": "COMPLETED"},
+        order={"createdAt": "desc"},
+        take=limit,
+        include={"task": True},
+    )
+    results = []
+    for e in executions:
+        result = e.result if isinstance(e.result, dict) else {}
+        text = result.get("text", "").strip() if result else ""
+        if not text and e.thoughtChunks:
+            chunks = e.thoughtChunks if isinstance(e.thoughtChunks, list) else []
+            text = "".join(chunks).strip()
+        if not text:
+            continue
+        results.append({
+            "id": e.id,
+            "task_title": e.task.title if e.task else "",
+            "text": text,
+            "created_at": e.createdAt.isoformat() if e.createdAt else None,
+            "scheduled": "scheduled" in (e.task.description or "") if e.task else False,
+        })
+    return results
+
+
 @router.get("/")
 async def get_agents():
-    # Returns all agents from mock or DB. For now return static definitions
-    return [
-        {"slug": k, "displayName": v.display_name, "model": v.model, "role": v.role}
-        for k, v in agents.items()
-    ]
+    db_agents = await prisma.agent.find_many()
+    agent_map = {a.slug: a for a in db_agents}
+
+    all_tasks = await prisma.task.find_many(where={"status": "COMPLETED"})
+    owner_task_count: dict = {}
+    for t in all_tasks:
+        owner_task_count[t.ownerId] = owner_task_count.get(t.ownerId, 0) + 1
+
+    all_execs = await prisma.execution.find_many(where={"status": "COMPLETED"})
+    slug_token_sum: dict = {}
+    for e in all_execs:
+        slug_token_sum[e.agentSlug] = slug_token_sum.get(e.agentSlug, 0) + e.compTokens
+
+    result = []
+    for k, v in agents.items():
+        db_a = agent_map.get(k)
+        tasks_done = owner_task_count.get(db_a.id, 0) if db_a else 0
+        result.append({
+            "slug": k,
+            "displayName": v.display_name,
+            "model": v.model,
+            "role": v.role,
+            "color": db_a.color if db_a else "gray",
+            "isOnline": db_a.isOnline if db_a else False,
+            "tasksCompleted": tasks_done,
+            "tokensUsed": slug_token_sum.get(k, 0),
+        })
+    return result

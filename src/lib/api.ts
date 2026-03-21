@@ -95,6 +95,20 @@ export const backendApi = {
       method: 'DELETE'
     }).then(r => r.json()),
 
+  getTasks: (params?: { status?: string; agent_slug?: string; limit?: number }) => {
+    const search = new URLSearchParams();
+    if (params?.status) search.set('status', params.status);
+    if (params?.agent_slug) search.set('agent_slug', params.agent_slug);
+    if (params?.limit) search.set('limit', String(params.limit));
+    const qs = search.toString();
+    return fetch(`${BACKEND_URL}/tasks/${qs ? '?' + qs : ''}`)
+      .then(r => r.json());
+  },
+
+  getAgentExecutions: (slug: string, limit = 5) =>
+    fetch(`${BACKEND_URL}/agents/${slug}/executions?limit=${limit}`)
+      .then(r => r.json()),
+
   getAgents: () =>
     fetch(`${BACKEND_URL}/agents/`)
       .then(r => r.json()),

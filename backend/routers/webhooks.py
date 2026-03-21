@@ -46,6 +46,13 @@ async def webhook_vip_activated(request: Request):
     )
     return {"status": "notified"}
 
+@router.post("/test/sandbox")
+async def test_sandbox():
+    """Test E2B Sandbox connectivity"""
+    from integrations.sandbox import run_lua_test
+    result = await run_lua_test('print("Hello from E2B Sandbox!")', "Connectivity Test")
+    return result
+
 @router.post("/test/discord")
 async def test_discord(request: Request):
     """Test Discord notification"""

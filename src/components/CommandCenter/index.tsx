@@ -12,10 +12,37 @@ import {
 } from 'lucide-react'
 import { useCommandStore, CommandMode, Message } from '@/store/useCommandStore'
 import { backendApi } from '@/lib/api'
-import { mockAgents } from "@/lib/mock/agents"
 import { AgentAvatar } from "@/components/agent-avatar"
 import { cn } from '@/lib/utils'
 import ReactMarkdown from 'react-markdown'
+
+interface AgentMeta {
+  slug: string
+  displayName: string
+  model: string
+  role: string
+  color: string
+  isOnline: boolean
+}
+
+const AGENT_COLORS: Record<string, string> = {
+  carlos: "#7F77DD", rafael: "#1D9E75", viktor: "#378ADD",
+  sophia: "#D85A30", thiago: "#888780", beatriz: "#EF9F27",
+  leonardo: "#888780", lucas: "#EF9F27", mariana: "#888780", amanda: "#888780",
+}
+
+const FALLBACK_AGENTS: AgentMeta[] = [
+  { slug: 'carlos',   displayName: 'Carlos',   model: 'gemini-flash-latest',      role: 'CTO',      color: '#7F77DD', isOnline: true  },
+  { slug: 'rafael',   displayName: 'Rafael',   model: 'gemini-flash-latest',      role: 'Lua Dev',  color: '#1D9E75', isOnline: true  },
+  { slug: 'viktor',   displayName: 'Viktor',   model: 'gemini-flash-latest',      role: 'C++ Dev',  color: '#378ADD', isOnline: true  },
+  { slug: 'sophia',   displayName: 'Sophia',   model: 'gemini-flash-lite-latest', role: 'QA',       color: '#D85A30', isOnline: true  },
+  { slug: 'thiago',   displayName: 'Thiago',   model: 'gemini-flash-lite-latest', role: 'Balancer', color: '#888780', isOnline: false },
+  { slug: 'beatriz',  displayName: 'Beatriz',  model: 'gemini-flash-lite-latest', role: 'Mapper',   color: '#EF9F27', isOnline: true  },
+  { slug: 'leonardo', displayName: 'Leonardo', model: 'gemini-flash-lite-latest', role: 'Research', color: '#888780', isOnline: false },
+  { slug: 'lucas',    displayName: 'Lucas',    model: 'gemini-flash-lite-latest', role: 'CM',       color: '#EF9F27', isOnline: false },
+  { slug: 'mariana',  displayName: 'Mariana',  model: 'gemini-flash-lite-latest', role: 'Support',  color: '#888780', isOnline: false },
+  { slug: 'amanda',   displayName: 'Amanda',   model: 'gemini-flash-lite-latest', role: 'DevOps',   color: '#888780', isOnline: true  },
+]
 
 // Removed BoldText and replaced with ReactMarkdown
 
@@ -71,14 +98,53 @@ export const CommandCenter = () => {
     getCurrentThread
   } = useCommandStore()
 
+  const [agents, setAgents] = useState<AgentMeta[]>(FALLBACK_AGENTS)
   const [input, setInput] = useState('')
   const [taskTitle, setTaskTitle] = useState('')
   const [taskDescription, setTaskDescription] = useState('')
   const [taskPriority, setTaskPriority] = useState<'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'>('MEDIUM')
   const [meetingTopic, setMeetingTopic] = useState('')
+  const [meetingStarting, setMeetingStarting] = useState(false)
+  const [meetingError, setMeetingError] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
   const isResizing = useRef(false)
+
+  // Load real agents from backend, fall back to FALLBACK_AGENTS if offline
+  useEffect(() => {
+    backendApi.getAgents().then((res: any) => {
+      if (Array.isArray(res) && res.length > 0) {
+        setAgents(res.map((a: any) => ({
+          slug: a.slug,
+          displayName: a.displayName || a.slug,
+          model: a.model || '',
+          role: a.role || '',
+          color: AGENT_COLORS[a.slug] || '#888780',
+          isOnline: true,
+        })))
+      }
+    }).catch(() => {})
+  }, [])
+
+  // When switching to an agent with an empty thread, load their last scheduler executions
+  useEffect(() => {
+    if (!selectedAgent) return
+    const existing = threads[selectedAgent]
+    if (existing && existing.length > 0) return
+    backendApi.getAgentExecutions(selectedAgent, 3).then((execs: any[]) => {
+      if (!Array.isArray(execs) || execs.length === 0) return
+      ;[...execs].reverse().forEach(ex => {
+        if (!ex.text) return
+        addMessage(selectedAgent, {
+          id: `sched-${ex.id}`,
+          agentSlug: selectedAgent,
+          content: `**[${ex.task_title || 'Tarefa autônoma'}]**\n\n${ex.text}`,
+          timestamp: new Date(ex.created_at || Date.now()),
+          type: 'delivery',
+        })
+      })
+    }).catch(() => {})
+  }, [selectedAgent]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Keyboard Shortcuts
   useEffect(() => {
@@ -315,13 +381,23 @@ export const CommandCenter = () => {
   }
 
   const handleStartMeeting = async () => {
-    if (!meetingTopic.trim()) return
+    if (!meetingTopic.trim()) {
+      setMeetingError('Digite um tema para a reunião.')
+      return
+    }
+    setMeetingError('')
+    setMeetingStarting(true)
     try {
       const result = await backendApi.startMeeting({
           topic: meetingTopic,
           agent_slugs: selectedAgentsForMeeting,
           context: {}
       })
+      if (result?.error) {
+        setMeetingError(`Erro: ${result.error}`)
+        setMeetingStarting(false)
+        return
+      }
       setMeetingTopic('')
       setMode('dm')
       setSelectedAgent('carlos')
@@ -365,9 +441,12 @@ export const CommandCenter = () => {
       } else {
         setIsStreaming(false)
       }
-    } catch (err) {
-      console.error(err)
+    } catch (err: any) {
+      console.error('[MEETING]', err)
+      setMeetingError(`Falha ao conectar com o backend: ${err?.message || 'erro desconhecido'}`)
       setIsStreaming(false)
+    } finally {
+      setMeetingStarting(false)
     }
   }
 
@@ -440,7 +519,7 @@ export const CommandCenter = () => {
                     ref={carouselRef}
                     className="flex overflow-x-auto gap-2 pb-2 scrollbar-none no-scrollbar scroll-smooth snap-x"
                   >
-                    {mockAgents.map(a => (
+                    {agents.map(a => (
                       <button
                         key={a.slug}
                         onClick={() => setSelectedAgent(a.slug)}
@@ -477,7 +556,7 @@ export const CommandCenter = () => {
                 </div>
                 {selectedAgent && (
                   <div className="px-2 pb-2 text-[11px] text-[#444]">
-                    Conversando com <span className="text-purple-400">{mockAgents.find(a => a.slug === selectedAgent)?.displayName}</span>
+                    Conversando com <span className="text-purple-400">{agents.find(a => a.slug === selectedAgent)?.displayName}</span>
                   </div>
                 )}
               </div>
@@ -508,7 +587,7 @@ export const CommandCenter = () => {
                     className="flex-1 bg-[#0a0a0a] border border-[#222] rounded px-2 py-1.5 text-xs text-[#777]"
                   >
                     <option value="">Atribuir a...</option>
-                    {mockAgents.map(a => <option key={a.slug} value={a.slug}>{a.displayName}</option>)}
+                    {agents.map(a => <option key={a.slug} value={a.slug}>{a.displayName}</option>)}
                   </select>
                   {(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'] as const).map(p => (
                     <button
@@ -534,17 +613,26 @@ export const CommandCenter = () => {
 
             {mode === 'meeting' && (
               <div className="p-4 space-y-3">
-                <input 
-                  placeholder="Tema da reunião..."
-                  value={meetingTopic}
-                  onChange={e => setMeetingTopic(e.target.value)}
-                  className="w-full bg-[#0a0a0a] border border-[#222] rounded px-3 py-1.5 text-xs text-[#eee] focus:outline-none focus:border-purple-500"
-                />
+                <div>
+                  <input
+                    placeholder="Tema da reunião... (obrigatório)"
+                    value={meetingTopic}
+                    onChange={e => { setMeetingTopic(e.target.value); setMeetingError('') }}
+                    onKeyDown={e => e.key === 'Enter' && handleStartMeeting()}
+                    className={cn(
+                      "w-full bg-[#0a0a0a] border rounded px-3 py-1.5 text-xs text-[#eee] focus:outline-none transition-colors",
+                      meetingError ? "border-red-500/60 focus:border-red-500" : "border-[#222] focus:border-teal-500"
+                    )}
+                  />
+                  {meetingError && (
+                    <p className="text-[10px] text-red-400 mt-1 px-1">{meetingError}</p>
+                  )}
+                </div>
                 <div className="grid grid-cols-2 gap-2 text-[11px] text-[#555]">
-                  {mockAgents.map(a => (
+                  {agents.map(a => (
                     <label key={a.slug} className="flex items-center gap-2 cursor-pointer">
-                      <input 
-                        type="checkbox" 
+                      <input
+                        type="checkbox"
                         checked={selectedAgentsForMeeting.includes(a.slug)}
                         disabled={a.slug === 'carlos'}
                         onChange={() => toggleAgentForMeeting(a.slug)}
@@ -554,11 +642,21 @@ export const CommandCenter = () => {
                     </label>
                   ))}
                 </div>
-                <button 
+                <button
                    onClick={handleStartMeeting}
-                   className="w-full bg-teal-600 hover:bg-teal-700 text-white rounded py-1.5 text-xs font-bold transition-colors"
+                   disabled={meetingStarting}
+                   className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-teal-900 disabled:cursor-not-allowed text-white rounded py-1.5 text-xs font-bold transition-colors flex items-center justify-center gap-2"
                 >
-                  Iniciar Reunião →
+                  {meetingStarting ? (
+                    <>
+                      <span className="flex gap-0.5">
+                        <span className="animate-bounce">●</span>
+                        <span className="animate-bounce delay-75">●</span>
+                        <span className="animate-bounce delay-150">●</span>
+                      </span>
+                      Iniciando reunião...
+                    </>
+                  ) : 'Iniciar Reunião →'}
                 </button>
               </div>
             )}
@@ -568,7 +666,7 @@ export const CommandCenter = () => {
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
             {thread.map((msg, idx) => {
               const isUser = msg.agentSlug === 'user'
-              const agent = mockAgents.find(a => a.slug === msg.agentSlug)
+              const agent = agents.find(a => a.slug === msg.agentSlug)
               const msgKey = msg.id || `msg-${idx}`
 
               if (msg.type === 'handoff') {
@@ -630,7 +728,7 @@ export const CommandCenter = () => {
             
             {isStreaming && (
               <div className="text-[10px] text-[#444] italic flex items-center gap-2">
-                {mockAgents.find(a => a.slug === selectedAgent)?.displayName} está processando
+                {agents.find(a => a.slug === selectedAgent)?.displayName} está processando
                 <span className="flex gap-0.5">
                   <span className="animate-bounce">●</span>
                   <span className="animate-bounce delay-75">●</span>

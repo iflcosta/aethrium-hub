@@ -3,12 +3,7 @@
 import React from "react";
 import { SectionHeader } from "@/components/section-header";
 import { KpiCard } from "@/components/kpi-card";
-import { playersOnline7d, resetsPerDay, topPlayers, heatmapData, heatmapDays, playerStats } from "@/lib/mock/players";
 import { Users, TrendingUp, UserCheck } from "lucide-react";
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, BarChart, Bar,
-} from "recharts";
 
 export default function PlayersPage() {
   return (
@@ -17,9 +12,9 @@ export default function PlayersPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 opacity-50 grayscale">
-        <KpiCard label="Online Now" value={String(playerStats.onlineNow)} icon={Users} accentColor="#1D9E75" />
-        <KpiCard label="Peak Today" value={String(playerStats.peakToday)} icon={TrendingUp} accentColor="#378ADD" />
-        <KpiCard label="Total Accounts" value={String(playerStats.totalAccounts)} icon={UserCheck} accentColor="#7F77DD" />
+        <KpiCard label="Online Now" value="—" icon={Users} accentColor="#1D9E75" />
+        <KpiCard label="Peak Today" value="—" icon={TrendingUp} accentColor="#378ADD" />
+        <KpiCard label="Total Accounts" value="—" icon={UserCheck} accentColor="#7F77DD" />
       </div>
 
       {/* Offline Placeholder */}

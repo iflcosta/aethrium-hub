@@ -1,27 +1,84 @@
 "use client";
 
-import { useState } from "react";
-import { mockTasks, type MockTask, type MockTaskStatus } from "@/lib/mock/tasks";
+import { useState, useEffect } from "react";
+import { backendApi } from "@/lib/api";
 import { SectionHeader } from "@/components/section-header";
 import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
-import { X, ChevronRight } from "lucide-react";
+import { X, ChevronRight, Loader2 } from "lucide-react";
 
-const columns: { status: MockTaskStatus; label: string; color: string }[] = [
+type TaskStatus = "PENDING" | "RUNNING" | "COMPLETED" | "FAILED";
+
+interface Task {
+  id: string;
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  priority: number;
+  contextSnapshot?: Record<string, unknown>;
+  createdAt: string;
+  owner?: {
+    slug: string;
+    displayName: string;
+    model: string;
+    role: string;
+  };
+}
+
+const columns: { status: TaskStatus; label: string; color: string }[] = [
   { status: "PENDING", label: "Pending", color: "#EF9F27" },
   { status: "RUNNING", label: "In Progress", color: "#378ADD" },
   { status: "COMPLETED", label: "Done", color: "#1D9E75" },
   { status: "FAILED", label: "Failed", color: "#D85A30" },
 ];
 
+const agentColors: Record<string, string> = {
+  carlos: "#7F77DD",
+  rafael: "#1D9E75",
+  viktor: "#378ADD",
+  sophia: "#D85A30",
+  thiago: "#888780",
+  beatriz: "#EF9F27",
+  lucas: "#EF9F27",
+  mariana: "#888780",
+  amanda: "#888780",
+  leonardo: "#888780",
+};
+
 function priorityDot(p: number) {
   const colors = ["#888780", "#378ADD", "#EF9F27", "#D85A30"];
-  return <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: colors[p] || colors[0] }} />;
+  return <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: colors[p - 1] || colors[0] }} />;
 }
 
 export default function TasksPage() {
-  const [selectedTask, setSelectedTask] = useState<MockTask | null>(null);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [jsonOpen, setJsonOpen] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await backendApi.getTasks({ limit: 100 });
+        setTasks(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error("Failed to fetch tasks", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+    const interval = setInterval(load, 30_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="w-6 h-6 animate-spin text-[#7F77DD]" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex gap-0">
@@ -39,7 +96,7 @@ export default function TasksPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {columns.map((col) => {
-            const tasks = mockTasks.filter((t) => t.status === col.status);
+            const colTasks = tasks.filter((t) => t.status === col.status);
             return (
               <div key={col.status}>
                 <div className="flex items-center gap-2 mb-3 px-1">
@@ -47,30 +104,40 @@ export default function TasksPage() {
                   <span className="text-xs font-medium text-[#888780] uppercase tracking-wider">
                     {col.label}
                   </span>
-                  <span className="text-[10px] text-[#888780]/60 ml-auto">{tasks.length}</span>
+                  <span className="text-[10px] text-[#888780]/60 ml-auto">{colTasks.length}</span>
                 </div>
                 <div className="space-y-2">
-                  {tasks.map((task) => (
-                    <div
-                      key={task.id}
-                      onClick={() => setSelectedTask(task)}
-                      className="bg-[#111111] border border-[#222222] rounded-lg p-3 cursor-pointer hover:border-[#333333] transition-colors group"
-                    >
-                      <div className="flex items-start gap-2 mb-2">
-                        {priorityDot(task.priority)}
-                        <span className="text-sm text-white font-medium leading-tight flex-1">
-                          {task.title}
-                        </span>
+                  {colTasks.map((task) => {
+                    const ownerSlug = task.owner?.slug || "";
+                    const ownerName = task.owner?.displayName || ownerSlug;
+                    const ownerColor = agentColors[ownerSlug] || "#888780";
+                    return (
+                      <div
+                        key={task.id}
+                        onClick={() => setSelectedTask(task)}
+                        className="bg-[#111111] border border-[#222222] rounded-lg p-3 cursor-pointer hover:border-[#333333] transition-colors group"
+                      >
+                        <div className="flex items-start gap-2 mb-2">
+                          {priorityDot(task.priority)}
+                          <span className="text-sm text-white font-medium leading-tight flex-1">
+                            {task.title}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <AgentAvatar name={ownerName} color={ownerColor} size="sm" />
+                          <span className="text-[11px] text-[#888780] truncate">{ownerName}</span>
+                          <span className="text-[10px] text-[#888780]/50 ml-auto">
+                            {new Date(task.createdAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "short" })}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <AgentAvatar name={task.ownerName} color={task.ownerColor} size="sm" />
-                        <span className="text-[11px] text-[#888780] truncate">{task.ownerName}</span>
-                        <span className="text-[10px] text-[#888780]/50 ml-auto">
-                          {new Date(task.createdAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "short" })}
-                        </span>
-                      </div>
+                    );
+                  })}
+                  {colTasks.length === 0 && (
+                    <div className="text-[11px] text-[#888780]/40 px-1 py-3 text-center border border-dashed border-[#222222] rounded-lg">
+                      No tasks
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             );
@@ -97,27 +164,24 @@ export default function TasksPage() {
               <StatusBadge variant={selectedTask.status as any} />
             </div>
 
-            <div>
-              <p className="text-xs text-[#888780] uppercase tracking-wider mb-1">Description</p>
-              <p className="text-sm text-[#e5e5e5]/80">{selectedTask.description}</p>
-            </div>
+            {selectedTask.description && (
+              <div>
+                <p className="text-xs text-[#888780] uppercase tracking-wider mb-1">Description</p>
+                <p className="text-sm text-[#e5e5e5]/80">{selectedTask.description}</p>
+              </div>
+            )}
 
             <div>
               <p className="text-xs text-[#888780] uppercase tracking-wider mb-1">Owner</p>
               <div className="flex items-center gap-2">
-                <AgentAvatar name={selectedTask.ownerName} color={selectedTask.ownerColor} size="sm" />
-                <span className="text-sm text-white">{selectedTask.ownerName}</span>
+                <AgentAvatar
+                  name={selectedTask.owner?.displayName || selectedTask.owner?.slug || "?"}
+                  color={agentColors[selectedTask.owner?.slug || ""] || "#888780"}
+                  size="sm"
+                />
+                <span className="text-sm text-white">{selectedTask.owner?.displayName || selectedTask.owner?.slug}</span>
               </div>
             </div>
-
-            {selectedTask.systemTag && (
-              <div>
-                <p className="text-xs text-[#888780] uppercase tracking-wider mb-1">System</p>
-                <span className="text-xs font-mono bg-[#1a1a1a] text-[#888780] px-2 py-1 rounded border border-[#222222]">
-                  {selectedTask.systemTag}
-                </span>
-              </div>
-            )}
 
             {selectedTask.contextSnapshot && (
               <div>
@@ -140,7 +204,7 @@ export default function TasksPage() {
             <div className="border-t border-[#222222] pt-4">
               <p className="text-xs text-[#888780] uppercase tracking-wider mb-2">Handoff</p>
               <div className="flex items-center gap-2 mb-2 text-xs text-[#888780]">
-                <span className="text-white">{selectedTask.ownerName}</span>
+                <span className="text-white">{selectedTask.owner?.displayName || selectedTask.owner?.slug}</span>
                 <ChevronRight className="w-3 h-3" />
                 <select className="bg-[#1a1a1a] border border-[#222222] rounded px-2 py-1 text-xs text-white">
                   <option>Select agent...</option>
@@ -158,16 +222,6 @@ export default function TasksPage() {
               <button className="w-full text-xs px-3 py-1.5 rounded bg-[#7F77DD] text-white hover:bg-[#6b63cc] transition-colors">
                 Initiate Handoff
               </button>
-            </div>
-
-            {/* Log Feed */}
-            <div className="border-t border-[#222222] pt-4">
-              <p className="text-xs text-[#888780] uppercase tracking-wider mb-2">Activity Log</p>
-              <div className="space-y-1.5 font-mono text-[11px] text-[#888780]">
-                <div>[14:30] Task assigned to {selectedTask.ownerName}</div>
-                <div>[14:32] Status changed to {selectedTask.status}</div>
-                <div>[14:35] Context snapshot updated</div>
-              </div>
             </div>
           </div>
         </div>

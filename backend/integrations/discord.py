@@ -1,8 +1,13 @@
 import httpx
 import os
+import time
 from datetime import datetime
 
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
+
+# Simple cooldown: at most 1 Discord message per 10 seconds
+_last_sent_at: float = 0.0
+_COOLDOWN_SECONDS = 10
 
 async def send_discord_notification(
     title: str,
@@ -11,9 +16,16 @@ async def send_discord_notification(
     agent: str = None
 ):
     """Send a rich embed notification to Discord"""
+    global _last_sent_at
     if not DISCORD_WEBHOOK_URL:
         print("[DISCORD] Webhook URL not configured")
         return
+
+    now = time.monotonic()
+    if now - _last_sent_at < _COOLDOWN_SECONDS:
+        print(f"[DISCORD] Cooldown active ({_COOLDOWN_SECONDS}s), skipping: {title}")
+        return
+    _last_sent_at = now
 
     embed = {
         "title": title,

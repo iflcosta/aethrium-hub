@@ -19,7 +19,6 @@ import {
   AlertCircle,
   Loader2
 } from "lucide-react";
-import { mockTasks } from "@/lib/mock/tasks";
 import { cn } from "@/lib/utils";
 
 interface Agent {
@@ -31,6 +30,27 @@ interface Agent {
   isOnline: boolean;
   avatar?: string;
 }
+
+interface Task {
+  id: string;
+  title: string;
+  status: string;
+  createdAt: string;
+  owner?: { slug: string; displayName: string };
+}
+
+const agentColors: Record<string, string> = {
+  carlos: "#7F77DD",
+  rafael: "#1D9E75",
+  viktor: "#378ADD",
+  sophia: "#D85A30",
+  thiago: "#888780",
+  beatriz: "#EF9F27",
+  lucas: "#EF9F27",
+  mariana: "#888780",
+  amanda: "#888780",
+  leonardo: "#888780",
+};
 
 const StatusIndicator = ({ label, status, url, icon: Icon }: { label: string, status: 'healthy' | 'unreachable' | 'not-configured', url?: string, icon: any }) => (
   <div className="flex flex-col gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-all group">
@@ -59,18 +79,21 @@ const StatusIndicator = ({ label, status, url, icon: Icon }: { label: string, st
 
 export default function OverviewPage() {
   const [agents, setAgents] = useState<Agent[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [health, setHealth] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [agentsRes, healthRes] = await Promise.all([
+        const [agentsRes, healthRes, tasksRes] = await Promise.all([
           backendApi.getAgents(),
-          fetch(`${BACKEND_URL}/health`).then(r => r.json()).catch(() => ({ status: "offline" }))
+          fetch(`${BACKEND_URL}/health`).then(r => r.json()).catch(() => ({ status: "offline" })),
+          backendApi.getTasks({ limit: 5 }).catch(() => [])
         ]);
         setAgents(Array.isArray(agentsRes) ? agentsRes : []);
         setHealth(healthRes);
+        setTasks(Array.isArray(tasksRes) ? tasksRes : []);
       } catch (error) {
         console.error("Overview fetch error:", error);
       } finally {
@@ -85,7 +108,8 @@ export default function OverviewPage() {
 
   const isProduction = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
   const onlineAgents = agents.filter((a: Agent) => a.isOnline !== false);
-  const recentTasks = mockTasks.slice(0, 5);
+  const pendingTasks = tasks.filter(t => t.status === "PENDING").length;
+  const recentTasks = tasks.slice(0, 5);
 
   if (loading) {
     return (
@@ -127,9 +151,7 @@ export default function OverviewPage() {
         />
         <KpiCard
           label="Tarefas Pendentes"
-          value="12"
-          trend="3 concluídas hoje"
-          trendUp
+          value={String(pendingTasks)}
           icon={ListTodo}
           accentColor="#378ADD"
         />
@@ -241,31 +263,32 @@ export default function OverviewPage() {
         <div>
           <SectionHeader title="Atividade Recente" subtitle="Últimas 5 interações" />
           <div className="space-y-3">
-            {recentTasks.map((task) => (
-              <div
-                key={task.id}
-                className="bg-black/20 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-all hover:shadow-lg shadow-black/50"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-start gap-3 min-w-0">
-                    <AgentAvatar
-                      name={task.ownerName}
-                      color={task.ownerColor}
-                      size="sm"
-                    />
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-white truncate">
-                        {task.title}
-                      </p>
-                      <p className="text-xs text-zinc-500 mt-0.5">
-                        {task.ownerName} · {new Date(task.createdAt).toLocaleDateString()}
-                      </p>
+            {recentTasks.map((task) => {
+              const ownerName = task.owner?.displayName || task.owner?.slug || "?";
+              const ownerColor = agentColors[task.owner?.slug || ""] || "#888780";
+              return (
+                <div
+                  key={task.id}
+                  className="bg-black/20 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-all hover:shadow-lg shadow-black/50"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3 min-w-0">
+                      <AgentAvatar name={ownerName} color={ownerColor} size="sm" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-white truncate">{task.title}</p>
+                        <p className="text-xs text-zinc-500 mt-0.5">
+                          {ownerName} · {new Date(task.createdAt).toLocaleDateString()}
+                        </p>
+                      </div>
                     </div>
+                    <StatusBadge variant={task.status as any} />
                   </div>
-                  <StatusBadge variant={task.status as any} />
                 </div>
-              </div>
-            ))}
+              );
+            })}
+            {recentTasks.length === 0 && (
+              <p className="text-sm text-zinc-500 text-center py-8">Nenhuma tarefa recente.</p>
+            )}
           </div>
         </div>
       </div>

@@ -15,11 +15,11 @@ def _get_model():
 
 
 def _embed_one(text: str) -> list[float]:
-    return list(list(_get_model().embed([text]))[0])
+    return [float(x) for x in list(_get_model().embed([text]))[0]]
 
 
 def _embed_batch(texts: list[str]) -> list[list[float]]:
-    return [list(v) for v in _get_model().embed(texts)]
+    return [[float(x) for x in v] for v in _get_model().embed(texts)]
 
 
 class PineconeClient:
@@ -53,15 +53,16 @@ class PineconeClient:
                 filter=filter,
                 include_metadata=True,
             )
+            matches = results.matches if hasattr(results, "matches") else results.get("matches", [])
             return [
                 {
-                    "id": m["id"],
-                    "score": m["score"],
-                    "text": m["metadata"].get("text", ""),
-                    "source": m["metadata"].get("source", ""),
-                    "project": m["metadata"].get("project", ""),
+                    "id": m.id if hasattr(m, "id") else m["id"],
+                    "score": m.score if hasattr(m, "score") else m["score"],
+                    "text": (m.metadata if hasattr(m, "metadata") else m.get("metadata", {})).get("text", ""),
+                    "source": (m.metadata if hasattr(m, "metadata") else m.get("metadata", {})).get("source", ""),
+                    "project": (m.metadata if hasattr(m, "metadata") else m.get("metadata", {})).get("project", ""),
                 }
-                for m in results.get("matches", [])
+                for m in matches
             ]
         except Exception as e:
             print(f"[PINECONE] Query error: {e}")

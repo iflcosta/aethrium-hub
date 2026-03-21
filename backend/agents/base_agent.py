@@ -59,10 +59,10 @@ class BaseAgent:
         import traceback
         # Trace agent execution
         print(f"[DEBUG] Starting agent {self.slug} with model {self.model}")
-        print(f"[DEBUG] GOOGLE_API_KEY loaded: {bool(os.getenv('GOOGLE_API_KEY'))}")
+        print(f"[DEBUG] GROQ_API_KEY loaded: {bool(os.getenv('GROQ_API_KEY'))}")
         
-        # Implementation for LangChain / Google Generative AI streaming
-        from langchain_google_genai import ChatGoogleGenerativeAI
+        # Implementation for LangChain / Groq streaming
+        from langchain_groq import ChatGroq
         from langchain_core.messages import SystemMessage, HumanMessage
         
         # 1. Get or Create Execution record
@@ -147,11 +147,11 @@ class BaseAgent:
             print(f"[MODEL_RUN] Attempting {self.slug} with model {active_model}")
 
             try:
-                llm = ChatGoogleGenerativeAI(
+                llm = ChatGroq(
                     model=active_model,
                     temperature=0.7,
+                    api_key=os.getenv("GROQ_API_KEY"),
                     streaming=True,
-                    google_api_key=os.getenv("GOOGLE_API_KEY")
                 )
                 async for chunk in llm.astream(messages):
                     if chunk.content:
@@ -209,9 +209,9 @@ class BaseAgent:
                     # Update data for frontend
                     yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': results_text, 'ts': ''})}\n\n"
 
-            # Discord Hook (Urgent)
-            if "URGENTE" in full_response.upper():
-                await notify_urgent(full_response, self.display_name)
+            # Discord Hook (Urgent) — only when agent explicitly flags [URGENTE] at the start
+            if full_response.strip().upper().startswith("[URGENTE]"):
+                await notify_urgent(full_response[:800], self.display_name)
             from datetime import datetime
             now_iso = datetime.utcnow().isoformat()
 
@@ -289,7 +289,7 @@ class BaseAgent:
         sophia_execution = await prisma.execution.create(data={
             "taskId": sophia_task.id,
             "agentSlug": "sophia",
-            "model": "gemini-3-flash-preview",
+            "model": "llama-3.1-8b-instant",
             "promptTokens": 0,
             "compTokens": 0,
             "thoughtChunks": Json([]),

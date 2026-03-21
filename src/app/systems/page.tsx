@@ -242,7 +242,7 @@ export default function SystemsPage() {
               </div>
               <div className="p-4 rounded-lg bg-[#111] border border-[#222] flex flex-col gap-1">
                 <span className="text-[10px] text-[#555] font-bold uppercase tracking-widest">Last Index</span>
-                <span className="text-[11px] text-[#888] font-mono mt-1">Today, 11:15</span>
+                <span className="text-[11px] text-[#888] font-mono mt-1">{projectStatus?.chunks_indexed ? "—" : "Nunca"}</span>
               </div>
               <div className="p-4 rounded-lg bg-[#111] border border-[#222] flex flex-col gap-1">
                 <span className="text-[10px] text-[#555] font-bold uppercase tracking-widest">Vector Store</span>
