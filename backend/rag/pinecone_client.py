@@ -3,7 +3,7 @@ import requests
 import os
 
 EMBED_MODEL = "models/text-embedding-004"
-GOOGLE_EMBED_URL = f"https://generativelanguage.googleapis.com/v1/{EMBED_MODEL}"
+GOOGLE_EMBED_URL = f"https://generativelanguage.googleapis.com/v1beta/{EMBED_MODEL}"
 INDEX_DIM = 1024  # Pinecone index was created with 1024 dimensions
 
 
