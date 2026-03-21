@@ -252,29 +252,65 @@ export const CommandCenter = () => {
 
   const handleCreateTask = async () => {
     if (!taskTitle.trim() || !selectedAgent) return
-    
+    if (isStreaming) return
+
     try {
-      await backendApi.createTask({
+      const { task_id } = await backendApi.createTask({
         title: taskTitle,
         description: taskDescription,
         owner_slug: selectedAgent,
         priority: taskPriority,
-        context: {}
+        context: { project_slug: 'baiak-thunder-86' }
       })
 
-      const taskMsg: Message = {
+      // Mostra a task criada no thread do agente
+      const prompt = taskDescription.trim()
+        ? `**Task [${taskPriority}]: ${taskTitle}**\n\n${taskDescription}`
+        : `**Task [${taskPriority}]: ${taskTitle}**`
+
+      addMessage(selectedAgent, {
         id: crypto.randomUUID(),
         agentSlug: 'user',
-        content: `/task ${taskTitle} [${taskPriority}]\n${taskDescription}`,
+        content: prompt,
         timestamp: new Date(),
         type: 'message'
-      }
-      addMessage(selectedAgent, taskMsg)
+      })
+
       setTaskTitle('')
       setTaskDescription('')
       setMode('dm')
+      setIsStreaming(true)
+
+      // Dispara o agente para executar a task
+      const { execution_id } = await backendApi.runAgent(selectedAgent, {
+        task_id,
+        prompt,
+        context: { priority: taskPriority, project_slug: 'baiak-thunder-86' }
+      })
+
+      setActiveExecutionId(execution_id)
+      const agentMsgId = 'task-exec-' + Math.random().toString(36)
+      addMessage(selectedAgent, {
+        id: agentMsgId,
+        agentSlug: selectedAgent,
+        content: '',
+        timestamp: new Date(),
+        type: 'message'
+      })
+
+      let buf = ''
+      backendApi.streamExecution(
+        execution_id,
+        (chunk) => { buf += chunk.delta || ''; updateMessage(selectedAgent, agentMsgId, { content: buf }) },
+        (delivery) => {
+          setIsStreaming(false)
+          setActiveExecutionId(null)
+          updateMessage(selectedAgent, agentMsgId, { type: 'delivery', content: buf || delivery || '' })
+        }
+      )
     } catch (err) {
       console.error('Failed to create task:', err)
+      setIsStreaming(false)
     }
   }
 

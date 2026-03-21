@@ -24,7 +24,7 @@ async def get_tasks(
     if status:
         where_clause["status"] = status
     if agent_slug:
-        where_clause["ownerId"] = agent_slug
+        where_clause["owner"] = {"is": {"slug": agent_slug}}
         
     tasks = await prisma.task.find_many(
         where=where_clause,
