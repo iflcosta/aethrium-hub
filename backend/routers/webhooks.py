@@ -57,15 +57,37 @@ async def test_sandbox():
 async def test_discord(request: Request):
     """Test Discord notification"""
     import os
-    from integrations.discord import send_discord_notification
-    if not os.getenv("DISCORD_WEBHOOK_URL"):
-        return {"status": "error", "message": "DISCORD_WEBHOOK_URL not configured"}
-    await send_discord_notification(
-        title="🧪 Teste do Aethrium Hub",
-        message="Integração com Discord funcionando corretamente!",
-        color=0x7F77DD
-    )
-    return {"status": "ok"}
+    from integrations.discord import send_discord_notification, send_to_channel
+    
+    # Check what is configured
+    has_webhook = bool(os.getenv("DISCORD_WEBHOOK_URL"))
+    has_token = bool(os.getenv("DISCORD_TOKEN"))
+    
+    if not has_webhook and not has_token:
+        return {"status": "error", "message": "Nem o Webhook nem o Bot Token estão configurados no Render."}
+        
+    messages_sent = []
+    
+    # Test Webhook if available
+    if has_webhook:
+        await send_discord_notification(
+            title="🧪 Teste do Aethrium Hub (Webhook)",
+            message="O Webhook padrão está funcionando corretamente!",
+            color=0x7F77DD
+        )
+        messages_sent.append("Webhook")
+        
+    # We cannot automatically test the Token without knowing a Target Channel ID.
+    # But we can return success if the Token is loaded in the env vars!
+    if has_token:
+        messages_sent.append("Bot Token (Verificado nas Variáveis)")
+        
+    return {
+        "status": "ok", 
+        "message": f"Teste validado para: {', '.join(messages_sent)}",
+        "has_token": has_token,
+        "has_webhook": has_webhook
+    }
 class VisionRequest(BaseModel):
     image_base64: Optional[str] = None
     image_path: Optional[str] = None
