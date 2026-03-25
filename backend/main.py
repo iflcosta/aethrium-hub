@@ -41,8 +41,7 @@ async def lifespan(app: FastAPI):
 
         # Delete legacy "Chat with X" tasks (created before isChat field)
         legacy_chat = await prisma.task.find_many(
-            where={"title": {"startswith": "Chat with"}},
-            select={"id": True}
+            where={"title": {"startswith": "Chat with"}}
         )
         for t in legacy_chat:
             await prisma.execution.delete_many(where={"taskId": t.id})
@@ -55,7 +54,7 @@ async def lifespan(app: FastAPI):
         # Delete ephemeral chat tasks (isChat=True) — safe after migration
         try:
             chat_tasks = await prisma.task.find_many(
-                where={"isChat": True}, select={"id": True}
+                where={"isChat": True}
             )
             for t in chat_tasks:
                 await prisma.execution.delete_many(where={"taskId": t.id})

@@ -338,7 +338,7 @@ async def get_agent_executions(slug: str, limit: int = 5):
     """Returns the most recent completed executions for an agent (for history loading)."""
     executions = await prisma.execution.find_many(
         where={"agentSlug": slug, "status": "COMPLETED"},
-        order={"createdAt": "desc"},
+        order={"startedAt": "desc"},
         take=limit,
         include={"task": True},
     )
@@ -355,7 +355,7 @@ async def get_agent_executions(slug: str, limit: int = 5):
             "id": e.id,
             "task_title": e.task.title if e.task else "",
             "text": text,
-            "created_at": e.createdAt.isoformat() if e.createdAt else None,
+            "created_at": e.startedAt.isoformat() if e.startedAt else None,
             "scheduled": "scheduled" in (e.task.description or "") if e.task else False,
         })
     return results

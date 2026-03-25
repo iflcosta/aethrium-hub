@@ -2,8 +2,7 @@ import httpx
 import os
 import time
 from datetime import datetime
-
-DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
+from utils import log_event
 
 # Simple cooldown: at most 1 Discord message per 10 seconds
 _last_sent_at: float = 0.0
@@ -17,13 +16,15 @@ async def send_discord_notification(
 ):
     """Send a rich embed notification to Discord"""
     global _last_sent_at
+    # Read URL at call time so Render env vars are always picked up
+    DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
     if not DISCORD_WEBHOOK_URL:
-        print("[DISCORD] Webhook URL not configured")
+        log_event("[DISCORD] Webhook URL not configured")
         return
 
     now = time.monotonic()
     if now - _last_sent_at < _COOLDOWN_SECONDS:
-        print(f"[DISCORD] Cooldown active ({_COOLDOWN_SECONDS}s), skipping: {title}")
+        log_event(f"[DISCORD] Cooldown active ({_COOLDOWN_SECONDS}s), skipping: {title}")
         return
     _last_sent_at = now
 
@@ -45,13 +46,13 @@ async def send_discord_notification(
             response = await client.post(DISCORD_WEBHOOK_URL, json=payload)
             if response.status_code == 429:
                 retry_after = response.headers.get("Retry-After", "unknown")
-                print(f"[DISCORD] Rate limited (429). Retry after {retry_after}s.")
+                log_event(f"[DISCORD] Rate limited (429). Retry after {retry_after}s.")
             elif response.status_code not in [200, 204]:
-                print(f"[DISCORD] Failed to send: {response.status_code}")
+                log_event(f"[DISCORD] Failed to send: {response.status_code} — {response.text[:200]}")
             else:
-                print(f"[DISCORD] Notification sent: {title}")
+                log_event(f"[DISCORD] Notification sent: {title}")
         except Exception as e:
-            print(f"[DISCORD] Connection error: {e}")
+            log_event(f"[DISCORD] Connection error: {e}")
 
 # Predefined notification types
 async def notify_task_completed(task_title: str, agent: str, delivery: str):

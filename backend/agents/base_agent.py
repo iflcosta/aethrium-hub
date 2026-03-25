@@ -9,6 +9,7 @@ from integrations.sandbox import run_lua_test
 from integrations.vision import analyze_map_image, analyze_map_from_base64
 import os
 from dotenv import load_dotenv
+from utils import log_event
 
 load_dotenv()
 
@@ -537,9 +538,24 @@ class BaseAgent:
             result_obj = {"text": full_response}
             if self.slug == "carlos" or "meeting_topic" in context:
                 result_obj["final_delivery"] = full_response
-                await notify_task_completed(context.get("title", "Task"), self.display_name, full_response)
             if handoff_info:
                 result_obj["handoff"] = handoff_info
+
+            # Discord notification — all agents, only for real tasks (not ephemeral chats)
+            try:
+                task_db = await prisma.task.find_unique(
+                    where={"id": task_id},
+                    include={}
+                )
+                is_chat = getattr(task_db, "isChat", False) if task_db else False
+                if task_db and not is_chat:
+                    await notify_task_completed(
+                        task_db.title or context.get("title", "Task"),
+                        self.display_name,
+                        full_response
+                    )
+            except Exception as _discord_err:
+                log_event(f"[DISCORD] Notification failed: {_discord_err}")
 
             await prisma.execution.update(
                 where={"id": execution.id},

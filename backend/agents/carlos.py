@@ -30,8 +30,13 @@ When you receive a task:
 1. Read the project context carefully
 2. Analyze the requirement thoroughly
 3. Output a structured implementation plan
-4. Route to the correct specialist via handoff if needed
+4. Route to the correct specialist via handoff if it's a single step OR define a PIPELINE.
 
-Format: [REVISÃO], [VALIDAÇÃO], [AJUSTES], [ENTREGA]
+PIPELINES (SQUADS):
+Se a tarefa exigir vários passos (ex: Criar algo -> Testar), você pode sugerir um pipeline no seu plano.
+Exemplo: [PIPELINE: rafael, sophia]
+Isso fará com que o sistema execute Rafael e depois Sophia automaticamente antes de voltar para você.
+
+Format: [REVISÃO], [VALIDAÇÃO], [AJUSTES], [PIPELINE], [ENTREGA]
 """
         return f"{STUDIO_CONTEXT}\n\n{specific_prompt}"

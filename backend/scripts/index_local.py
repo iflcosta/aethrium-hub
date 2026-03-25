@@ -71,11 +71,9 @@ def main():
         print(f"ERRO: Pasta não encontrada: {PROJECT_PATH}")
         sys.exit(1)
 
-    print(f"Carregando modelo fastembed...")
-    from fastembed import TextEmbedding
-    model = TextEmbedding("sentence-transformers/all-MiniLM-L6-v2")
-    # warmup
-    list(model.embed(["warmup"]))
+    print(f"Carregando modelo sentence-transformers...")
+    from sentence_transformers import SentenceTransformer
+    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     print("Modelo carregado.")
 
     from pinecone import Pinecone
@@ -90,8 +88,8 @@ def main():
         if len(batch) >= BATCH_SIZE:
             batch_num += 1
             texts = [c["text"] for c in batch]
-            embeddings = list(model.embed(texts))
-            vectors = [(c["id"], list(emb), {**c["metadata"], "text": c["text"][:500]})
+            embeddings = model.encode(texts, normalize_embeddings=True, batch_size=32)
+            vectors = [(c["id"], emb.tolist(), {**c["metadata"], "text": c["text"][:500]})
                        for c, emb in zip(batch, embeddings)]
             index.upsert(vectors=vectors)
             total += len(batch)
@@ -100,8 +98,8 @@ def main():
 
     if batch:
         texts = [c["text"] for c in batch]
-        embeddings = list(model.embed(texts))
-        vectors = [(c["id"], list(emb), {**c["metadata"], "text": c["text"][:500]})
+        embeddings = model.encode(texts, normalize_embeddings=True, batch_size=32)
+        vectors = [(c["id"], emb.tolist(), {**c["metadata"], "text": c["text"][:500]})
                    for c, emb in zip(batch, embeddings)]
         index.upsert(vectors=vectors)
         total += len(batch)

@@ -46,8 +46,7 @@ async def cleanup_tasks():
 
     # 1. Delete chat tasks (ephemeral) — cascade via delete_many on executions first
     chat_tasks = await prisma.task.find_many(
-        where={"isChat": True},
-        select={"id": True}
+        where={"isChat": True}
     )
     chat_deleted = 0
     for t in chat_tasks:
@@ -58,8 +57,7 @@ async def cleanup_tasks():
 
     # 2. Also clean up legacy "Chat with X" tasks (before isChat field existed)
     legacy_tasks = await prisma.task.find_many(
-        where={"title": {"startswith": "Chat with"}},
-        select={"id": True}
+        where={"title": {"startswith": "Chat with"}}
     )
     for t in legacy_tasks:
         await prisma.execution.delete_many(where={"taskId": t.id})
@@ -73,8 +71,7 @@ async def cleanup_tasks():
     # 3. Mark RUNNING tasks older than 30 min as FAILED
     cutoff = datetime.utcnow() - timedelta(minutes=30)
     stuck = await prisma.task.find_many(
-        where={"status": "RUNNING", "updatedAt": {"lt": cutoff}},
-        select={"id": True}
+        where={"status": "RUNNING", "updatedAt": {"lt": cutoff}}
     )
     for t in stuck:
         await prisma.task.update(

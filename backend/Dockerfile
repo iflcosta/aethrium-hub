@@ -31,4 +31,5 @@ EXPOSE 8000
 
 # Honor the PORT environment variable provided by Render, defaulting to 8000.
 # This ensures health checks reach the app on the correct port.
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Also runs prisma db push to sync the schema on startup.
+CMD ["sh", "-c", "python -m prisma db push --schema ./prisma/schema.prisma && uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]

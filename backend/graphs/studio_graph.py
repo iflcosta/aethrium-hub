@@ -34,21 +34,65 @@ class StudioState(TypedDict):
     context_snapshot: dict
     status: str
     handoff_target: Optional[str]
+    pipeline: List[str]  # Lista de agentes para execução sequencial
     urgent: bool
     final_delivery: str
     gatekeeper_validated: bool
 
 def create_agent_node(agent_slug: str):
-    def node(state: StudioState):
+    async def node(state: StudioState):
         state["current_agent"] = agent_slug
+        agent = agents.get(agent_slug)
+        if not agent:
+            return state
+
+        task_id = state.get("task_id")
+        # Snapshot do contexto focado em não perder o histórico
+        context = state.get("context_snapshot", {})
+        context["history"] = state.get("messages", [])
         
-        # In a real implementation we get the agent's actual generated string here
-        # For urgent checks:
-        output_text = " ".join([m for m in state.get("messages", []) if isinstance(m, str)])
+        full_response = ""
+        handoff_suggested = None
+        pipeline_suggested = []
+        
+        try:
+            async for _ in agent.run(task_id, context):
+                pass
+            
+            from db import prisma
+            execution = await prisma.execution.find_first(
+                where={"taskId": task_id, "agentSlug": agent_slug},
+                order={"createdAt": "desc"}
+            )
+            
+            if execution and execution.result:
+                import json
+                res_data = execution.result
+                if isinstance(res_data, str):
+                    res_data = json.loads(res_data)
+                
+                full_response = res_data.get("text", "")
+                handoff_suggested = res_data.get("handoff")
+                # Se o agente sugerir um pipeline (como o Carlos faria)
+                pipeline_suggested = res_data.get("pipeline", [])
+                
+        except Exception as e:
+            print(f"[GRAPH] Error running agent {agent_slug}: {e}")
+            state["status"] = "FAILED"
+            return state
+
+        state["messages"].append({"role": "assistant", "content": full_response, "agent": agent_slug})
+        
+        if handoff_suggested:
+            state["handoff_target"] = handoff_suggested.get("to")
+        
+        if pipeline_suggested:
+            state["pipeline"] = pipeline_suggested
+            
+        # Urgent checks
         urgent_keywords = ["URGENTE", "SERVIDOR CAIU", "EXPLOIT", "VULNERABILIDADE CRÍTICA"]
-        
         if agent_slug in ["amanda", "mariana", "sophia"]:
-            if any(k in output_text.upper() for k in urgent_keywords):
+            if any(k in full_response.upper() for k in urgent_keywords):
                 state["urgent"] = True
                 
         return state
@@ -70,23 +114,36 @@ for slug in agents.keys():
 builder.add_node("handoff_node", handoff_node)
 
 # Edges
-builder.add_edge(START, "carlos_node")
+# Dynamic Entry
+def route_start(state: StudioState) -> str:
+    target = state.get("current_agent", "carlos")
+    return f"{target}_node"
+
+builder.add_conditional_edges(START, route_start)
 
 def route_after_agent(state: StudioState) -> str:
+    # 1. Prioridade para Handoff Explícito
     if state.get("handoff_target"):
+        return "handoff_node"
+    
+    # 2. Resposta Urgente bypass
+    if state.get("urgent"):
+        return END
+
+    # 3. Se houver um Pipeline ativo, pega o próximo
+    pipeline = state.get("pipeline", [])
+    if pipeline:
+        next_agent = pipeline.pop(0)
+        state["pipeline"] = pipeline # atualiza a lista
+        state["handoff_target"] = next_agent
         return "handoff_node"
         
     current = state.get("current_agent")
     
-    # Urgent bypass for specific agents
-    if state.get("urgent") and current in ["amanda", "mariana", "sophia"]:
-        return END
-        
-    # Everyone routes to Carlos to act as gatekeeper
+    # 4. Todos voltam para Carlos para validação final se não houver mais nada
     if current != "carlos":
         return "carlos_node"
         
-    # If it is Carlos, and no handoff, we are done
     return END
 
 # Connect all agents to conditional routing

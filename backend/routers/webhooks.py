@@ -56,8 +56,9 @@ async def test_sandbox():
 @router.post("/test/discord")
 async def test_discord(request: Request):
     """Test Discord notification"""
-    from integrations.discord import send_discord_notification, DISCORD_WEBHOOK_URL
-    if not DISCORD_WEBHOOK_URL:
+    import os
+    from integrations.discord import send_discord_notification
+    if not os.getenv("DISCORD_WEBHOOK_URL"):
         return {"status": "error", "message": "DISCORD_WEBHOOK_URL not configured"}
     await send_discord_notification(
         title="🧪 Teste do Aethrium Hub",
