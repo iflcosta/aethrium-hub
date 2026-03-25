@@ -2,7 +2,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 
 class ViktorAgent(BaseAgent):
     slug = "viktor"
-    display_name = "Viktor"
+    display_name = "[C++] Viktor"
     model = "llama-3.3-70b-versatile"
     role = "ENGINE"
 

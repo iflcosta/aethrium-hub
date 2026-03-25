@@ -2,7 +2,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 
 class CarlosAgent(BaseAgent):
     slug = "carlos"
-    display_name = "Carlos"
+    display_name = "[CTO] Carlos"
     model = "llama-3.3-70b-versatile"
     role = "CTO"
 

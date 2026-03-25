@@ -2,7 +2,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 
 class BeatrizAgent(BaseAgent):
     slug = "beatriz"
-    display_name = "Beatriz"
+    display_name = "[MAP] Beatriz"
     model = "llama-3.1-8b-instant"
     role = "MAPPER"
 

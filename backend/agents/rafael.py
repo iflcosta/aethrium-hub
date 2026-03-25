@@ -2,7 +2,7 @@ from .base_agent import BaseAgent, STUDIO_CONTEXT
 
 class RafaelAgent(BaseAgent):
     slug = "rafael"
-    display_name = "Rafael"
+    display_name = "[LUA] Rafael"
     model = "llama-3.3-70b-versatile"
     role = "SYSTEMS"
 
