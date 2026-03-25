@@ -139,12 +139,13 @@ async def add_cors_headers(request: Request, call_next):
     return response
 
 # Include routers here later
-from routers import agents, stream, tasks, projects, webhooks
+from routers import agents, stream, tasks, projects, webhooks, logs
 app.include_router(agents.router)
 app.include_router(stream.router)
 app.include_router(tasks.router)
 app.include_router(projects.router)
 app.include_router(webhooks.router)
+app.include_router(logs.router)
 
 @app.get("/")
 async def root():

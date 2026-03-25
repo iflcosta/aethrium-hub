@@ -9,6 +9,9 @@ from graphs.studio_graph import agents
 from db import prisma
 from prisma import Json
 
+from sse_starlette.sse import EventSourceResponse
+import json
+
 router = APIRouter(prefix="/agents", tags=["Agents"])
 
 class RunRequest(BaseModel):
@@ -359,6 +362,54 @@ async def get_agent_executions(slug: str, limit: int = 5):
             "scheduled": "scheduled" in (e.task.description or "") if e.task else False,
         })
     return results
+
+
+@router.get("/{slug}/stream")
+async def stream_agent_latest(slug: str, request: Request):
+    """
+    Global stream for an agent's latest execution.
+    Matches the frontend's legacy expectation for a live 'Thought Stream'.
+    """
+    async def event_generator():
+        last_execution_id = None
+        last_chunk_index = 0
+
+        while True:
+            if await request.is_disconnected():
+                break
+
+            # Find latest execution (RUNNING or COMPLETED)
+            exec_db = await prisma.execution.find_first(
+                where={"agentSlug": slug},
+                order={"startedAt": "desc"}
+            )
+
+            if not exec_db:
+                await asyncio.sleep(2)
+                continue
+
+            # If execution changed, reset chunk index
+            if exec_db.id != last_execution_id:
+                last_execution_id = exec_db.id
+                last_chunk_index = 0
+
+            # Parse chunks
+            from routers.stream import _parse_chunks
+            chunks = _parse_chunks(exec_db.thoughtChunks)
+
+            if len(chunks) > last_chunk_index:
+                for i in range(last_chunk_index, len(chunks)):
+                    yield {
+                        "data": json.dumps({
+                            "chunk": chunks[i],
+                            "execution_id": exec_db.id
+                        })
+                    }
+                last_chunk_index = len(chunks)
+
+            await asyncio.sleep(1)
+
+    return EventSourceResponse(event_generator())
 
 
 @router.get("/")
