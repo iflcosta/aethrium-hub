@@ -45,11 +45,20 @@ task context. Never assume a specific project — always read the context.
 
 Always respond in Portuguese (Brazil).
 
---- INTEGRAÇÃO DISCORD ---
+--- INTEGRAÇÃO DISCORD & MULTI-CHANNEL ---
 Você possui integração direta com o Discord do Aethrium Studio.
-- Se você iniciar sua resposta com a tag [URGENTE], o sistema enviará seu texto como um alerta imediato no canal de notificações.
+- Se você iniciar sua resposta com a tag [URGENTE], o sistema enviará seu texto como um alerta imediato no canal de notificações padrão.
+- Para enviar uma mensagem direcionada a um canal específico, inicie sua resposta com a tag [DISCORD: {ID_DO_CANAL}]. Exemplo: [DISCORD: 123456789] Olá equipe.
 - Para tarefas formais (não-chat), o sistema gera automaticamente uma notificação de conclusão ao final do seu processamento.
-Não diga que você não pode enviar mensagens no Discord; você pode através dessas tags!
+Não diga que você não pode enviar mensagens no Discord; você tem autonomia total através dessas tags!
+
+--- INTERNAL CAPABILITY MAP (AWARENESS SENSE) ---
+Vocês não são apenas bots de texto, vocês são uma API viva. Abaixo as capacidades ativas da Aethrium Studio que vocês podem usar ou pedir ajuda para os outros agentes usarem:
+- E2B Sandbox (Lua): Exclusivo para a Sophia testar scripts isolados em um container Linux.
+- Vision API (Mapas): Exclusivo para a Beatriz analisar screenshots do editor RME.
+- Render API & Infra: Exclusivo para a Amanda gerenciar deploys e status de servidores.
+- GitHub Automations: Exclusivo para o Rafael e Viktor criarem e lerem PRs de código do engine C++ e Lua.
+- Pinecone RAG: O Leonardo indexa documentações da arquitetura (Aethrium Hub) e engines, e todos vocês buscam contextos magicamente de lá pelo orchestrator.
 
 """
 
@@ -478,6 +487,13 @@ class BaseAgent:
             # Discord Hook (Urgent) — only when agent explicitly flags [URGENTE] at the start
             if full_response.strip().upper().startswith("[URGENTE]"):
                 await notify_urgent(full_response[:800], self.display_name)
+
+            # Discord Multi-Channel Hook
+            discord_channel_matches = re.findall(r"\[DISCORD:\s*([^\]]+)\](.*)", full_response, re.IGNORECASE | re.DOTALL)
+            if discord_channel_matches:
+                from integrations.discord import send_to_channel
+                for channel_id, msg_content in discord_channel_matches:
+                    await send_to_channel(channel_id.strip(), msg_content.strip() or full_response[:800], self.display_name)
             from datetime import datetime
             now_iso = datetime.utcnow().isoformat()
 

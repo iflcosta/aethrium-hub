@@ -58,6 +58,43 @@ async def send_discord_notification(
         except Exception as e:
             log_event(f"[DISCORD] Connection error: {e}")
 
+async def send_to_channel(channel_identifier: str, message: str, agent: str = None):
+    """Send a message to a specific Discord channel using Bot Token."""
+    DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+    if not DISCORD_TOKEN:
+        log_event("[DISCORD] Bot Token not configured, falling back to webhook.")
+        await send_discord_notification(f"Message from {agent or 'System'}", message, agent=agent)
+        return
+
+    # In a real scenario, you'd map channel_identifier (name) to a numeric ID using DISCORD_GUILD_ID.
+    # For simplicity, if it's not numeric, we log a warning unless we implement the fetch logic.
+    # We will assume channel_identifier is the channel ID for now, or just send to webhook if not.
+    channel_id = channel_identifier.strip().replace("#", "")
+    if not channel_id.isdigit():
+        # Fallback if it's a name and we don't have the mapping yet
+        log_event(f"[DISCORD] Channel name resolution not implemented. Attempting webhook fallback for {channel_identifier}.")
+        await send_discord_notification(f"To #{channel_identifier}", message, agent=agent)
+        return
+
+    url = f"https://discord.com/api/v10/channels/{channel_id}/messages"
+    headers = {
+        "Authorization": f"Bot {DISCORD_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    
+    content = f"**[{agent}]**\n{message}" if agent else message
+    payload = {"content": content}
+
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.post(url, json=payload, headers=headers)
+            if response.status_code not in [200, 204]:
+                log_event(f"[DISCORD] Failed to send to channel {channel_id}: {response.status_code} — {response.text[:200]}")
+            else:
+                log_event(f"[DISCORD] Message sent to channel {channel_id}")
+        except Exception as e:
+            log_event(f"[DISCORD] Connection error: {e}")
+
 # Predefined notification types
 async def notify_task_completed(task_title: str, agent: str, delivery: str):
     await send_discord_notification(
