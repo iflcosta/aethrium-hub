@@ -74,6 +74,7 @@ class BaseAgent:
 
     async def run(self, task_id: str, context: dict) -> AsyncGenerator[str, None]:
         import traceback
+        import re
         # Trace agent execution
         print(f"[DEBUG] Starting agent {self.slug} with model {self.model}")
         print(f"[DEBUG] GROQ_API_KEY loaded: {bool(os.getenv('GROQ_API_KEY'))}")
