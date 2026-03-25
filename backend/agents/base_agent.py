@@ -181,7 +181,45 @@ class BaseAgent:
                             f"Prompt usado: {img_res['prompt']}\n"
                         )
 
-            enhanced_system = self.system_prompt + rag_context + vision_analysis + file_context + image_gen_result
+            # Web Search Hook (Leonardo) — runs before LLM so findings enrich the response
+            web_search_context = ""
+            if self.slug == "leonardo" and prompt:
+                try:
+                    from integrations.web_search import search_otserv_topics
+                    web_search_context = await search_otserv_topics(prompt)
+                    if web_search_context:
+                        print(f"[WEB_SEARCH] Injected {len(web_search_context)} chars for Leonardo")
+                except Exception as e:
+                    print(f"[WEB_SEARCH] Failed: {e}")
+
+            # Procedural Map Generator Hook (Beatriz)
+            map_spec_context = ""
+            if self.slug == "beatriz":
+                map_cfg = context.get("map_config")
+                if map_cfg:
+                    try:
+                        from tools.map_generator import generate_map
+                        spec = generate_map(
+                            width=map_cfg.get("width", 60),
+                            height=map_cfg.get("height", 40),
+                            dungeon_type=map_cfg.get("type", "dungeon"),
+                            floor_z=map_cfg.get("z", 7),
+                            seed=map_cfg.get("seed"),
+                        )
+                        import json as _json
+                        map_spec_context = (
+                            f"\n\n--- MAPA PROCEDURAL GERADO (BSP) ---\n"
+                            f"Tipo: {spec['type']} | Dimensões: {spec['dimensions']['width']}x{spec['dimensions']['height']} | Z: {spec['dimensions']['z']}\n"
+                            f"Quartos: {spec['stats']['total_rooms']} | Corredores: {spec['stats']['total_corridors']} | Spawns: {spec['stats']['total_spawns']}\n\n"
+                            f"ASCII Layout:\n{spec['ascii']}\n\n"
+                            f"Spec JSON (quartos e AIDs):\n{_json.dumps({'rooms': spec['rooms'], 'aids': spec['aids'], 'spawns': spec['spawns'], 'teleports': spec['teleports']}, indent=2)}\n\n"
+                            f"Notas RME: {spec['rme_notes']}\n"
+                        )
+                        print(f"[MAP_GEN] Generated {spec['type']} map with {spec['stats']['total_rooms']} rooms for Beatriz")
+                    except Exception as e:
+                        print(f"[MAP_GEN] Failed: {e}")
+
+            enhanced_system = self.system_prompt + rag_context + vision_analysis + file_context + image_gen_result + web_search_context + map_spec_context
 
             # Prepare messages with history memory (Part 8)
             from langchain_core.messages import AIMessage
@@ -288,6 +326,32 @@ class BaseAgent:
                     
                     full_response += l_text
                     yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': l_text, 'ts': ''})}\n\n"
+
+            # Leonardo RAG Write Hook — index [INDEXAR] block findings into Pinecone
+            if self.slug == "leonardo" and "[INDEXAR]" in full_response:
+                try:
+                    indexar_match = re.search(r"\[INDEXAR\](.*?)(?=\[|$)", full_response, re.DOTALL | re.IGNORECASE)
+                    if indexar_match:
+                        finding_text = indexar_match.group(1).strip()
+                        if finding_text and project_slug:
+                            import time as _time
+                            from rag.pinecone_client import PineconeClient
+                            chunk_id = f"{project_slug}:leonardo:research:{int(_time.time())}"
+                            chunks_to_index = [{
+                                "id": chunk_id,
+                                "text": finding_text,
+                                "metadata": {
+                                    "source": f"research/{task_id}",
+                                    "project": project_slug,
+                                    "agent": "leonardo",
+                                    "type": "research_finding",
+                                    "chunk_index": 0,
+                                },
+                            }]
+                            await asyncio.to_thread(PineconeClient().upsert_chunks, chunks_to_index)
+                            print(f"[RAG_WRITE] Leonardo indexed finding: {chunk_id}")
+                except Exception as e:
+                    print(f"[RAG_WRITE] Leonardo indexing failed: {e}")
 
             # Discord Hook (Urgent) — only when agent explicitly flags [URGENTE] at the start
             if full_response.strip().upper().startswith("[URGENTE]"):

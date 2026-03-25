@@ -14,14 +14,14 @@ async def run_lua_test(lua_code: str, test_description: str) -> dict:
     try:
         # NOTE: Sandbox is used as a context manager for easy cleanup
         with Sandbox(api_key=E2B_API_KEY) as sandbox:
-            # Install Lua
-            sandbox.commands.run("apt-get update && apt-get install -y lua5.4 2>/dev/null")
+            # Install Lua 5.1 — TFS OTServ uses Lua 5.1 API
+            sandbox.commands.run("apt-get update && apt-get install -y lua5.1 2>/dev/null")
 
             # Write the Lua script
             sandbox.files.write("/tmp/test.lua", lua_code)
 
             # Run it
-            result = sandbox.commands.run("lua5.4 /tmp/test.lua")
+            result = sandbox.commands.run("lua5.1 /tmp/test.lua")
 
             return {
                 "status": "success" if result.exit_code == 0 else "failed",
