@@ -63,6 +63,15 @@ async def test_discord(request: Request):
     has_webhook = bool(os.getenv("DISCORD_WEBHOOK_URL"))
     has_token = bool(os.getenv("DISCORD_TOKEN"))
     
+    # Try to get channel_id from JSON body if it exists
+    body = {}
+    try:
+        body = await request.json()
+    except:
+        pass
+    
+    channel_id = body.get("channel_id")
+
     if not has_webhook and not has_token:
         return {"status": "error", "message": "Nem o Webhook nem o Bot Token estão configurados no Render."}
         
@@ -77,10 +86,16 @@ async def test_discord(request: Request):
         )
         messages_sent.append("Webhook")
         
-    # We cannot automatically test the Token without knowing a Target Channel ID.
-    # But we can return success if the Token is loaded in the env vars!
-    if has_token:
-        messages_sent.append("Bot Token (Verificado nas Variáveis)")
+    # Test Bot Token if channel_id is provided
+    if has_token and channel_id:
+        await send_to_channel(
+            channel_id, 
+            "O backend está configurado com Bot Token e o canal foi validado com sucesso!",
+            agent="[SISTEMA] Hub"
+        )
+        messages_sent.append(f"Bot Token (Canal {channel_id})")
+    elif has_token:
+        messages_sent.append("Bot Token (Verificado nas Variáveis, mas sem canal para teste)")
         
     return {
         "status": "ok", 
