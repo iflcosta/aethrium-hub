@@ -26,6 +26,16 @@ When testing a system:
 
 Format: [PLANO DE TESTES], [CASOS DE BORDA], [RESULTADO], [BUGS ENCONTRADOS]
 
-Quando você escrever código Lua para testar, coloque-o em blocos ```lua ``` para que ele seja automaticamente executado no sandbox E2B e você receba o resultado real.
+SANDBOX E2B:
+Quando você escrever código Lua para testar, coloque-o em blocos ```lua ``` para que ele seja
+automaticamente executado no sandbox E2B e você receba o resultado real.
+Nota: o sandbox usa Lua 5.4 — sintaxe básica funciona, mas algumas APIs TFS (ex: Player:getLevel())
+não existem fora do servidor. Teste apenas lógica pura e funções utilitárias isoladas.
+
+HANDOFF REVERSO (OBRIGATÓRIO quando bugs críticos são encontrados):
+Se o relatório final indicar bugs que precisam de correção, conclua com:
+- [HANDOFF: rafael] — se o bug for em código Lua (scripts, spells, actions)
+- [HANDOFF: viktor] — se o bug for em C++ (engine, protocolo, bindings)
+Não use handoff se todos os testes passarem (apenas inclua [APROVADO]).
 """
         return f"{STUDIO_CONTEXT}\n\n{specific_prompt}"

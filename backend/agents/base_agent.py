@@ -68,10 +68,15 @@ class BaseAgent:
         # 1. Get or Create Execution record
         execution_id = context.get("execution_id")
         from prisma import Json
+        execution = None
         if execution_id:
             execution = await prisma.execution.find_unique(where={"id": execution_id})
-            await prisma.execution.update(where={"id": execution_id}, data={"status": "RUNNING"})
-        else:
+            if execution and execution.agentSlug == self.slug:
+                await prisma.execution.update(where={"id": execution_id}, data={"status": "RUNNING"})
+            else:
+                execution = None # Force creation for different agent or if not found
+        
+        if not execution:
             execution = await prisma.execution.create(
                 data={
                     "task": {"connect": {"id": task_id}},
@@ -87,21 +92,40 @@ class BaseAgent:
         try:
             # Prepare messages
             from rag.indexer import query_rag
-            project_slug = context.get("project_slug")
-            prompt = context.get("prompt", "")
+            project_slug = context.get("project_slug") or context.get("project")
+            prompt = context.get("prompt") or context.get("summary", "")
 
             rag_context = ""
             if project_slug and prompt:
                 try:
-                    chunks = await query_rag(
-                        query_text=prompt,
-                        project_slug=project_slug,
-                        agent_slug=self.slug,
-                        top_k=5
-                    )
-                    if chunks:
+                    from rag.rag_utils import extract_search_queries
+                    history = context.get("history", [])
+                    search_queries = await extract_search_queries(prompt, history, self.slug)
+                    
+                    print(f"[RAG] Search queries: {search_queries}")
+                    all_chunks = []
+                    for q in search_queries:
+                        chunks = await query_rag(
+                            query_text=q,
+                            project_slug=project_slug,
+                            agent_slug=self.slug,
+                            top_k=3
+                        )
+                        if chunks:
+                            all_chunks.extend(chunks)
+                    
+                    if all_chunks:
+                        # Remove duplicates by ID
+                        seen_ids = set()
+                        unique_chunks = []
+                        for c in all_chunks:
+                            cid = c.get("id")
+                            if cid not in seen_ids:
+                                seen_ids.add(cid)
+                                unique_chunks.append(c)
+
                         rag_context = "\n\n--- CONTEXTO DO PROJETO ---\n"
-                        for chunk in chunks:
+                        for chunk in unique_chunks[:5]: # Cap at 5 total
                             rag_context += (
                                 f"\n[{chunk['source']}]\n"
                                 f"{chunk['text'][:300]}\n"
@@ -123,7 +147,41 @@ class BaseAgent:
                     if v_res["status"] == "success":
                         vision_analysis = f"\n\n--- ANÁLISE VISUAL DO MAPA ---\n{v_res['analysis']}\n"
 
-            enhanced_system = self.system_prompt + rag_context + vision_analysis
+            # File Reading Hook (Rafael + Viktor)
+            file_context = ""
+            if self.slug in ("rafael", "viktor"):
+                file_paths = context.get("file_paths", [])
+                if file_paths:
+                    from tools.file_tools import read_file
+                    file_context = "\n\n--- ARQUIVOS DO PROJETO ---\n"
+                    for fp in file_paths:
+                        content = read_file(fp)
+                        file_context += f"\n[{fp}]\n{content[:1500]}\n"
+
+            # Image Generation Hook (Beatriz + Lucas + Mariana)
+            image_gen_result = ""
+            if self.slug in ("beatriz", "lucas", "mariana"):
+                img_prompt = context.get("image_prompt")
+                if img_prompt:
+                    from integrations.image_gen import (
+                        generate_map_concept,
+                        generate_social_banner,
+                        generate_guide_image,
+                    )
+                    if self.slug == "beatriz":
+                        img_res = await generate_map_concept(img_prompt)
+                    elif self.slug == "lucas":
+                        img_res = await generate_social_banner(img_prompt)
+                    else:
+                        img_res = await generate_guide_image(img_prompt)
+                    if img_res["status"] == "success":
+                        image_gen_result = (
+                            f"\n\n--- IMAGEM GERADA (POLLINATIONS) ---\n"
+                            f"URL: {img_res['url']}\n"
+                            f"Prompt usado: {img_res['prompt']}\n"
+                        )
+
+            enhanced_system = self.system_prompt + rag_context + vision_analysis + file_context + image_gen_result
 
             # Prepare messages with history memory (Part 8)
             from langchain_core.messages import AIMessage
@@ -209,25 +267,64 @@ class BaseAgent:
                     # Update data for frontend
                     yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': results_text, 'ts': ''})}\n\n"
 
+            # Engine Linter Hook (Viktor)
+            if self.slug == "viktor" and "```cpp" in full_response:
+                from tools.viktor_tools import lint_cpp_engine
+                cpp_blocks = re.findall(r"```cpp\n(.*?)\n```", full_response, re.DOTALL)
+                if cpp_blocks:
+                    print(f"[ENGINE] Linting {len(cpp_blocks)} C++ blocks for Viktor")
+                    lint_results = []
+                    for code in cpp_blocks:
+                        res = await lint_cpp_engine(code, context)
+                        lint_results.append(res)
+                    
+                    l_text = "\n\n--- VALIDAÇÃO DE ENGINE (VIKTOR) ---\n"
+                    for i, r in enumerate(lint_results):
+                        s_emoji = "✅" if r.get("status") == "pass" else "❌"
+                        l_text += f"\n{s_emoji} Bloco {i+1}:\n"
+                        for err in r.get("errors", []): l_text += f"- ERRO: {err}\n"
+                        for war in r.get("warnings", []): l_text += f"- AVISO: {war}\n"
+                        for sug in r.get("suggestions", []): l_text += f"- SUGESTÃO: {sug}\n"
+                    
+                    full_response += l_text
+                    yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': l_text, 'ts': ''})}\n\n"
+
             # Discord Hook (Urgent) — only when agent explicitly flags [URGENTE] at the start
             if full_response.strip().upper().startswith("[URGENTE]"):
                 await notify_urgent(full_response[:800], self.display_name)
             from datetime import datetime
             now_iso = datetime.utcnow().isoformat()
 
-            # Auto-handoff: Rafael → Sophia when Lua code is present
+            # Auto-handoff suggestion (Will be handled by StudioGraph)
             handoff_info = None
             if (
                 self.slug == "rafael"
                 and "```lua" in full_response
                 and not context.get("handoff_from")
             ):
-                handoff_info = await self._setup_sophia_handoff(task_id, full_response, context)
-                if handoff_info:
-                    print(f"[HANDOFF] Rafael → Sophia | execution={handoff_info['execution_id']}")
-                    asyncio.create_task(
-                        self._run_sophia_handoff(handoff_info, task_id, full_response, context)
-                    )
+                handoff_info = {"to": "sophia", "reason": "Verificação de código Lua"}
+
+            # Reverse handoff: Sophia → Rafael (Lua bugs) or Viktor (C++ bugs)
+            if self.slug == "sophia" and not context.get("handoff_from"):
+                if "[HANDOFF: rafael]" in full_response or "[HANDOFF:rafael]" in full_response:
+                    handoff_info = {"to": "rafael", "reason": "Bugs encontrados em Lua — correção necessária"}
+                elif "[HANDOFF: viktor]" in full_response or "[HANDOFF:viktor]" in full_response:
+                    handoff_info = {"to": "viktor", "reason": "Bugs encontrados em C++ — correção necessária"}
+
+            # Discord notification for Lucas and Amanda on scheduled/deployment completions
+            if self.slug == "lucas" and context.get("scheduled"):
+                from integrations.discord import notify_task_completed
+                await notify_task_completed(
+                    context.get("title", "Conteúdo Semanal"),
+                    self.display_name,
+                    full_response
+                )
+            if self.slug == "amanda" and "[SISTEMA DEPLOYADO:" in full_response:
+                import re as _re
+                deploy_match = _re.search(r"\[SISTEMA DEPLOYADO:\s*(.*?)\]", full_response)
+                if deploy_match:
+                    from integrations.discord import notify_system_deployed
+                    await notify_system_deployed(deploy_match.group(1).strip())
 
             # 1. thoughtChunks is already the list of plain-text token strings
             #    captured during streaming. Use it directly.
@@ -251,6 +348,19 @@ class BaseAgent:
                     "model": active_model
                 }
             )
+
+            # Extração de Pipeline (para Carlos ou qualquer agente que queira sugerir fluxo)
+            if "[PIPELINE:" in full_response:
+                import re
+                pipe_match = re.search(r"\[PIPELINE:\s*(.*?)\]", full_response, re.IGNORECASE)
+                if pipe_match:
+                    agents_list = [a.strip().lower() for a in pipe_match.group(1).split(",")]
+                    result_obj["pipeline"] = agents_list
+                    # Atualiza o resultado no DB com o pipeline
+                    await prisma.execution.update(
+                        where={"id": execution.id},
+                        data={"result": Json(result_obj)}
+                    )
             
         except Exception as e:
             print(f"[ERROR] Agent {self.slug} run failed:")
@@ -268,65 +378,3 @@ class BaseAgent:
     async def handoff(self, task_id: str, target_slug: str, reason: str):
         await update_task_status(task_id, "HANDOFF_PENDING")
         await log_agent_event(self.slug, task_id, "handoff_initiated", {"target": target_slug, "reason": reason})
-
-    async def _setup_sophia_handoff(self, parent_task_id: str, rafael_output: str, context: dict) -> dict | None:
-        """Creates Sophia's Task + Execution in the DB and returns handoff info."""
-        from prisma import Json
-        sophia_db = await prisma.agent.find_unique(where={"slug": "sophia"})
-        if not sophia_db:
-            print("[HANDOFF] Sophia not found in DB, skipping")
-            return None
-
-        sophia_task = await prisma.task.create(data={
-            "title": f"QA — {context.get('title', 'código de Rafael')}",
-            "description": "Handoff automático: Rafael → Sophia",
-            "ownerId": sophia_db.id,
-            "parentTaskId": parent_task_id,
-            "status": "RUNNING",
-            "priority": 2,
-        })
-
-        sophia_execution = await prisma.execution.create(data={
-            "taskId": sophia_task.id,
-            "agentSlug": "sophia",
-            "model": "llama-3.1-8b-instant",
-            "promptTokens": 0,
-            "compTokens": 0,
-            "thoughtChunks": Json([]),
-        })
-
-        return {
-            "to": "sophia",
-            "execution_id": sophia_execution.id,
-            "task_id": sophia_task.id,
-        }
-
-    async def _run_sophia_handoff(self, handoff_info: dict, parent_task_id: str, rafael_output: str, context: dict):
-        """Runs Sophia as a background task to QA Rafael's Lua code."""
-        from graphs.studio_graph import agents as all_agents
-        sophia = all_agents.get("sophia")
-        if not sophia:
-            return
-
-        lua_blocks = re.findall(r"```lua\n(.*?)\n```", rafael_output, re.DOTALL)
-        lua_combined = "\n\n".join(lua_blocks) if lua_blocks else rafael_output[:1000]
-
-        sophia_prompt = (
-            "Rafael implementou o seguinte código Lua. Faça o QA completo.\n\n"
-            f"```lua\n{lua_combined}\n```\n\n"
-            f"Contexto do Rafael:\n{rafael_output[:600]}\n\n"
-            "Escreva testes em blocos ```lua ``` para execução automática no sandbox E2B. "
-            "Produza os blocos: [PLANO DE TESTES], [CASOS DE BORDA], [RESULTADO], [BUGS ENCONTRADOS]."
-        )
-
-        try:
-            async for _ in sophia.run(handoff_info["task_id"], {
-                "prompt": sophia_prompt,
-                "execution_id": handoff_info["execution_id"],
-                "handoff_from": "rafael",
-                "parent_task_id": parent_task_id,
-            }):
-                pass
-            print(f"[HANDOFF] Sophia QA done for execution={handoff_info['execution_id']}")
-        except Exception as e:
-            print(f"[HANDOFF] Sophia QA failed: {e}")
