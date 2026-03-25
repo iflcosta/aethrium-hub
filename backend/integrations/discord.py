@@ -41,7 +41,7 @@ async def send_discord_notification(
 
     payload = {"embeds": [embed]}
     if agent:
-        payload["username"] = f"Aethrium: {agent}"
+        payload["username"] = agent
     else:
         payload["username"] = "Aethrium Studio"
 
