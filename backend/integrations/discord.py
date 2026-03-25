@@ -40,6 +40,10 @@ async def send_discord_notification(
         embed["author"] = {"name": f"Agente: {agent}"}
 
     payload = {"embeds": [embed]}
+    if agent:
+        payload["username"] = f"Aethrium: {agent}"
+    else:
+        payload["username"] = "Aethrium Studio"
 
     async with httpx.AsyncClient() as client:
         try:
