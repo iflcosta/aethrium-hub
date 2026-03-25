@@ -2,6 +2,26 @@ console.log('BACKEND_URL:', process.env.NEXT_PUBLIC_BACKEND_URL)
 export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8001'
 
 export const backendApi = {
+  chatWithAgent: async (slug: string, body: { prompt: string, context: object }) => {
+    const url = `${BACKEND_URL}/agents/${slug}/chat`
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      })
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error(`Backend error (${response.status}):`, errorText)
+        throw new Error(`Chat failed: ${response.statusText}`)
+      }
+      return await response.json()
+    } catch (err) {
+      console.error('Chat fetch error:', err)
+      throw err
+    }
+  },
+
   runAgent: async (slug: string, body: { task_id: string, prompt: string, context: object }) => {
     const url = `${BACKEND_URL}/agents/${slug}/run`
     try {

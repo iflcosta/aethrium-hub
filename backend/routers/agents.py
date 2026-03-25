@@ -28,6 +28,10 @@ class MeetingMessageRequest(BaseModel):
 class ModelUpdateRequest(BaseModel):
     model: str
 
+class ChatRequest(BaseModel):
+    prompt: str
+    context: Dict[str, Any] = {}
+
 @router.put("/{slug}/model")
 async def update_agent_model(slug: str, body: ModelUpdateRequest):
     if slug not in agents:
@@ -43,6 +47,58 @@ async def update_agent_model(slug: str, body: ModelUpdateRequest):
     )
         
     return {"slug": slug, "model": body.model, "updated": True}
+
+@router.post("/{slug}/chat")
+async def chat_with_agent(slug: str, body: ChatRequest):
+    """
+    Ephemeral conversation endpoint.
+    Creates a Task with isChat=True (invisible in Kanban) and runs the agent.
+    The task is cleaned up automatically on the next server startup.
+    """
+    if slug not in agents:
+        return {"error": "Agent not found"}
+
+    agent = agents[slug]
+    agent_db = await prisma.agent.find_unique(where={"slug": slug})
+    if not agent_db:
+        return {"error": "Agent not found in database"}
+
+    task = await prisma.task.create(
+        data={
+            "title": f"Chat com {agent.display_name}",
+            "ownerId": agent_db.id,
+            "status": "RUNNING",
+            "isChat": True,
+        }
+    )
+
+    execution = await prisma.execution.create(
+        data={
+            "taskId": task.id,
+            "agentSlug": slug,
+            "model": agent.model,
+            "promptTokens": 0,
+            "compTokens": 0,
+            "thoughtChunks": Json([]),
+        }
+    )
+
+    context = {
+        **body.context,
+        "prompt": body.prompt,
+        "execution_id": execution.id,
+    }
+
+    async def _run():
+        try:
+            async for _ in agent.run(task.id, context):
+                pass
+        except Exception as e:
+            log_event(f"[CHAT] {slug} error: {e}")
+
+    asyncio.create_task(_run())
+    return {"execution_id": execution.id, "task_id": task.id}
+
 
 @router.post("/{slug}/run")
 async def run_agent(slug: str, body: RunRequest):
@@ -82,7 +138,25 @@ async def run_agent(slug: str, body: RunRequest):
             }
         )
 
-    log_event(f"T2: Creating execution record for {slug}")
+    log_event(f"T2: Starting StudioGraph for {slug}")
+    from graphs.studio_graph import graph
+    
+    # Initial state for the graph
+    initial_state = {
+        "task_id": task.id,
+        "current_agent": slug,
+        "messages": [], # Start fresh or could load previous messages
+        "context_snapshot": {**body.context, "prompt": body.prompt},
+        "status": "RUNNING",
+        "handoff_target": None,
+        "pipeline": [],
+        "urgent": False,
+        "final_delivery": "",
+        "gatekeeper_validated": False
+    }
+
+    # Run graph in background if needed, but we need the FIRST execution_id to return to user
+    # For now, let's create the first execution explicitly so we can return its ID
     execution = await prisma.execution.create(
         data={
             "taskId": task.id,
@@ -93,21 +167,20 @@ async def run_agent(slug: str, body: RunRequest):
             "thoughtChunks": Json([]) 
         }
     )
-    log_event(f"T3: Execution created: {execution.id}")
-    
-    async def process_run(ex_id: str):
+
+    # Inject the execution_id into the context so the first node uses it
+    initial_state["context_snapshot"]["execution_id"] = execution.id
+
+    async def run_graph(state):
         try:
-            log_event(f"BG: Starting agent {slug} run process")
-            # We inject execution_id into context so BaseAgent.run can use/update it 
-            # instead of creating a new one. (Requires small update in base_agent later)
-            async for chunk in agent.run(body.task_id, {**body.context, "prompt": body.prompt, "execution_id": ex_id}):
-                pass 
+            log_event(f"BG: Starting graph execution for task {state['task_id']}")
+            await graph.ainvoke(state)
         except Exception as e:
-            log_event(f"BG: Agent run failed: {e}")
+            log_event(f"BG: Graph execution failed: {e}")
             import traceback
             traceback.print_exc()
 
-    asyncio.create_task(process_run(execution.id))
+    asyncio.create_task(run_graph(initial_state))
     
     return {"execution_id": execution.id}
 

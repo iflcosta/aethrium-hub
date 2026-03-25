@@ -223,8 +223,7 @@ export const CommandCenter = () => {
         content: m.content
       }))
 
-      const { execution_id } = await backendApi.runAgent(selectedAgent, {
-        task_id: taskId,
+      const { execution_id } = await backendApi.chatWithAgent(selectedAgent, {
         prompt: prompt,
         context: {
           history: history,

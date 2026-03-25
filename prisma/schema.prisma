@@ -28,6 +28,7 @@ model Task {
   description     String?
   status          TaskStatus  @default(PENDING)
   priority        Int         @default(0)
+  isChat          Boolean     @default(false) // Ephemeral chat — hidden from Kanban
   contextSnapshot Json?
   pineconeQueryIds String[]    @default([])
   ownerId         String

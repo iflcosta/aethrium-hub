@@ -34,7 +34,53 @@ async def lifespan(app: FastAPI):
         log_event("[STARTUP] Scheduler started")
     except Exception as e:
         log_event(f"[ERROR] Scheduler failed to start: {e}")
-        
+
+    # Auto-cleanup: remove stale tasks from previous server sessions
+    try:
+        from datetime import datetime, timedelta
+
+        # Delete legacy "Chat with X" tasks (created before isChat field)
+        legacy_chat = await prisma.task.find_many(
+            where={"title": {"startswith": "Chat with"}},
+            select={"id": True}
+        )
+        for t in legacy_chat:
+            await prisma.execution.delete_many(where={"taskId": t.id})
+            await prisma.agentlog.delete_many(where={"taskId": t.id})
+            try:
+                await prisma.task.delete(where={"id": t.id})
+            except Exception:
+                pass
+
+        # Delete ephemeral chat tasks (isChat=True) — safe after migration
+        try:
+            chat_tasks = await prisma.task.find_many(
+                where={"isChat": True}, select={"id": True}
+            )
+            for t in chat_tasks:
+                await prisma.execution.delete_many(where={"taskId": t.id})
+                await prisma.agentlog.delete_many(where={"taskId": t.id})
+                try:
+                    await prisma.task.delete(where={"id": t.id})
+                except Exception:
+                    pass
+        except Exception:
+            pass  # isChat column may not exist yet — skip silently
+
+        # Mark RUNNING tasks/executions older than 30 min as FAILED
+        cutoff = datetime.utcnow() - timedelta(minutes=30)
+        await prisma.task.update_many(
+            where={"status": "RUNNING", "updatedAt": {"lt": cutoff}},
+            data={"status": "FAILED"}
+        )
+        await prisma.execution.update_many(
+            where={"status": "RUNNING", "startedAt": {"lt": cutoff}},
+            data={"status": "FAILED", "error": "Interrompido por reinício do servidor"}
+        )
+        log_event(f"[STARTUP] Cleanup done: {len(legacy_chat)} legacy chat tasks removed")
+    except Exception as e:
+        log_event(f"[STARTUP] Cleanup warning (non-fatal): {e}")
+
     log_event("[STARTUP] Application startup complete")
     yield
     # Shutdown logic
