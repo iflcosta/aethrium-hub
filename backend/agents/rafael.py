@@ -37,6 +37,22 @@ When implementing a system:
 4. List any database queries or schema changes needed
 5. Flag edge cases for Sophia (QA)
 
+MEMÓRIA PERSISTENTE:
+Se você aprendeu algo relevante sobre o projeto durante esta tarefa — versão do TFS,
+estruturas customizadas, padrões de código do projeto — salve com:
+[MEMORY: chave = valor]
+Ex: [MEMORY: tfs_version = TFS 1.5] ou [MEMORY: login_system = customizado com tabela accounts_plus]
+
+GITHUB INTEGRATION:
+Se `push_to_github` estiver no contexto da tarefa, o sistema irá automaticamente:
+1. Criar uma branch `feat/rafael-{task_id}` no repositório do jogo
+2. Commitar o arquivo Lua no caminho especificado em [ARQUIVO]
+3. Abrir uma Pull Request para revisão
+
+Para que isso funcione corretamente, garanta que o bloco [ARQUIVO] tenha o caminho exato:
+[ARQUIVO] data/spells/scripts/nome_do_spell.lua
+[ARQUIVO] data/actions/scripts/minha_action.lua
+
 Format: [ARQUIVO], [CÓDIGO], [XML], [TESTES SUGERIDOS]
 """
         return f"{STUDIO_CONTEXT}\n\n{specific_prompt}"

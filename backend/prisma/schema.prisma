@@ -45,6 +45,7 @@ model Agent {
   role        AgentRole
   color       String
   isOnline    Boolean     @default(false)
+  memory      Json?       // Persistent scratchpad — key/value pairs the agent learns across tasks
   createdAt   DateTime    @default(now())
   tasks       Task[]      @relation("TaskOwner")
   handoffs    Task[]      @relation("TaskHandoff")

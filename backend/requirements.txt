@@ -14,3 +14,4 @@ fastembed==0.3.6
 e2b-code-interpreter==1.0.0
 pillow==10.4.0
 duckduckgo-search==6.3.7
+PyGitHub==2.3.0

@@ -133,6 +133,33 @@ class BaseAgent:
                 except Exception as e:
                     print(f"[RAG] Query failed: {e}")
 
+            # Agent Memory Hook (all agents) — load persistent scratchpad before LLM
+            agent_memory_context = ""
+            _agent_db_for_memory = None
+            try:
+                _agent_db_for_memory = await prisma.agent.find_unique(where={"slug": self.slug})
+                if _agent_db_for_memory and getattr(_agent_db_for_memory, "memory", None):
+                    memory_data = _agent_db_for_memory.memory
+                    if isinstance(memory_data, dict) and memory_data:
+                        import json as _jmem
+                        agent_memory_context = (
+                            f"\n\n--- MEMÓRIA PERSISTENTE ({self.display_name}) ---\n"
+                            "Informações que você aprendeu em tarefas anteriores:\n"
+                            f"{_jmem.dumps(memory_data, ensure_ascii=False, indent=2)}\n"
+                            "Use para evitar retrabalho. Adicione novos aprendizados com [MEMORY: chave = valor].\n"
+                        )
+            except Exception as e:
+                print(f"[MEMORY] Load failed for {self.slug}: {e}")
+
+            # Render Status Hook (Amanda) — fetch real infra status before LLM
+            render_status_context = ""
+            if self.slug == "amanda":
+                try:
+                    from integrations.render_api import get_infra_status_report
+                    render_status_context = await get_infra_status_report()
+                except Exception as e:
+                    print(f"[RENDER] Status fetch failed: {e}")
+
             # Vision Hook (Beatriz)
             vision_analysis = ""
             if self.slug == "beatriz":
@@ -219,7 +246,17 @@ class BaseAgent:
                     except Exception as e:
                         print(f"[MAP_GEN] Failed: {e}")
 
-            enhanced_system = self.system_prompt + rag_context + vision_analysis + file_context + image_gen_result + web_search_context + map_spec_context
+            enhanced_system = (
+                self.system_prompt
+                + rag_context
+                + vision_analysis
+                + file_context
+                + image_gen_result
+                + web_search_context
+                + map_spec_context
+                + agent_memory_context
+                + render_status_context
+            )
 
             # Prepare messages with history memory (Part 8)
             from langchain_core.messages import AIMessage
@@ -327,6 +364,83 @@ class BaseAgent:
                     full_response += l_text
                     yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': l_text, 'ts': ''})}\n\n"
 
+            # GitHub Push Hook (Rafael + Viktor) — only when context has push_to_github=True
+            if self.slug in ("rafael", "viktor") and context.get("push_to_github"):
+                task_title = context.get("title", f"Task {task_id[:8]}")
+
+                if self.slug == "rafael" and "```lua" in full_response:
+                    lua_blocks = re.findall(r"```lua\n(.*?)\n```", full_response, re.DOTALL)
+                    file_match = re.search(
+                        r"\[ARQUIVO\]\s*:?\s*`?([^\s`\n]+\.lua)`?", full_response, re.IGNORECASE
+                    )
+                    if lua_blocks:
+                        from integrations.github_tools import push_lua_file
+                        file_path_lua = (
+                            file_match.group(1) if file_match
+                            else f"data/scripts/rafael_{task_id[:8]}.lua"
+                        )
+                        gh_res = await push_lua_file(
+                            file_path=file_path_lua,
+                            lua_code=lua_blocks[0],
+                            task_id=task_id,
+                            task_title=task_title,
+                        )
+                        if gh_res.get("status") == "success":
+                            gh_text = (
+                                f"\n\n--- GITHUB PR CRIADO ---\n"
+                                f"🔗 PR: {gh_res['pr_url']}\n"
+                                f"🌿 Branch: `{gh_res['branch']}`\n"
+                                f"📄 Arquivo: `{gh_res['file_path']}`\n"
+                            )
+                        else:
+                            gh_text = f"\n\n⚠️ GitHub push falhou: {gh_res.get('message')}\n"
+                        full_response += gh_text
+                        yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': gh_text, 'ts': ''})}\n\n"
+
+                elif self.slug == "viktor" and "```cpp" in full_response:
+                    cpp_blocks = re.findall(r"```cpp\n(.*?)\n```", full_response, re.DOTALL)
+                    file_match = re.search(
+                        r"\[ARQUIVO\]\s*:?\s*`?([^\s`\n]+\.(cpp|h|c|hpp))`?", full_response, re.IGNORECASE
+                    )
+                    if cpp_blocks:
+                        from integrations.github_tools import push_cpp_file
+                        file_path_cpp = (
+                            file_match.group(1) if file_match
+                            else f"patches/viktor_{task_id[:8]}.patch"
+                        )
+                        gh_res = await push_cpp_file(
+                            file_path=file_path_cpp,
+                            cpp_code=cpp_blocks[0],
+                            task_id=task_id,
+                            task_title=task_title,
+                        )
+                        if gh_res.get("status") == "success":
+                            gh_text = (
+                                f"\n\n--- GITHUB PR CRIADO ---\n"
+                                f"🔗 PR: {gh_res['pr_url']}\n"
+                                f"🌿 Branch: `{gh_res['branch']}`\n"
+                                f"📄 Arquivo: `{gh_res['file_path']}`\n"
+                            )
+                        else:
+                            gh_text = f"\n\n⚠️ GitHub push falhou: {gh_res.get('message')}\n"
+                        full_response += gh_text
+                        yield f"data: {json.dumps({'seq': len(chunks)+1, 'chunk': gh_text, 'ts': ''})}\n\n"
+
+            # Render Redeploy Hook (Amanda) — fires when she writes [REDEPLOY: <service>]
+            if self.slug == "amanda" and "[REDEPLOY:" in full_response:
+                redeploy_targets = re.findall(r"\[REDEPLOY:\s*([^\]]+?)\]", full_response, re.IGNORECASE)
+                for svc_name in redeploy_targets:
+                    from integrations.render_api import trigger_deploy
+                    rd_res = await trigger_deploy(svc_name.strip())
+                    if rd_res.get("status") == "triggered":
+                        rd_text = f"\n🚀 Redeploy iniciado: **{svc_name.strip()}** (deploy_id: `{rd_res.get('deploy_id', 'N/A')}`)\n"
+                        from integrations.discord import notify_system_deployed
+                        await notify_system_deployed(svc_name.strip())
+                    else:
+                        rd_text = f"\n❌ Redeploy falhou para **{svc_name.strip()}**: {rd_res.get('message')}\n"
+                    full_response += rd_text
+                    yield f"data: {json.dumps({'seq': len(chunks)+2, 'chunk': rd_text, 'ts': ''})}\n\n"
+
             # Leonardo RAG Write Hook — index [INDEXAR] block findings into Pinecone
             if self.slug == "leonardo" and "[INDEXAR]" in full_response:
                 try:
@@ -389,6 +503,31 @@ class BaseAgent:
                 if deploy_match:
                     from integrations.discord import notify_system_deployed
                     await notify_system_deployed(deploy_match.group(1).strip())
+
+            # Agent Memory Update Hook (all agents) — persist [MEMORY: key = value] blocks
+            if "[MEMORY:" in full_response:
+                try:
+                    memory_updates = re.findall(
+                        r"\[MEMORY:\s*([^=\]\n]+?)\s*=\s*([^\]\n]+?)\]",
+                        full_response,
+                        re.IGNORECASE,
+                    )
+                    if memory_updates:
+                        agent_db_mem = _agent_db_for_memory or await prisma.agent.find_unique(where={"slug": self.slug})
+                        if agent_db_mem:
+                            current_memory = {}
+                            raw_mem = getattr(agent_db_mem, "memory", None)
+                            if isinstance(raw_mem, dict):
+                                current_memory = raw_mem
+                            for key, value in memory_updates:
+                                current_memory[key.strip()] = value.strip()
+                            await prisma.agent.update(
+                                where={"slug": self.slug},
+                                data={"memory": Json(current_memory)},
+                            )
+                            print(f"[MEMORY] {self.slug} updated: {[k for k, _ in memory_updates]}")
+                except Exception as e:
+                    print(f"[MEMORY] Update failed for {self.slug}: {e}")
 
             # 1. thoughtChunks is already the list of plain-text token strings
             #    captured during streaming. Use it directly.
