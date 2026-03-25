@@ -44,6 +44,13 @@ pending features, monetization model) will always be provided in the
 task context. Never assume a specific project — always read the context.
 
 Always respond in Portuguese (Brazil).
+
+--- INTEGRAÇÃO DISCORD ---
+Você possui integração direta com o Discord do Aethrium Studio.
+- Se você iniciar sua resposta com a tag [URGENTE], o sistema enviará seu texto como um alerta imediato no canal de notificações.
+- Para tarefas formais (não-chat), o sistema gera automaticamente uma notificação de conclusão ao final do seu processamento.
+Não diga que você não pode enviar mensagens no Discord; você pode através dessas tags!
+
 """
 
 class BaseAgent:
