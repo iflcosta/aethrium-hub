@@ -52,6 +52,53 @@ PROJECTS = [
         },
     },
     {
+        "slug": "tibia-global",
+        "displayName": "Tibia Global 15+",
+        "gameType": "OTSERV",
+        "division": "STUDIO",
+        "engine": "Canary",
+        "language": "Lua/C++",
+        "isActive": False,
+        "metadata": {
+            "client": "OTClient (protocolo 12+)",
+            "protocol": "1281",
+            "status": "em_desenvolvimento",
+            "description": "Servidor estilo Tibia Global com protocolo 15+, Canary engine"
+        },
+    },
+    {
+        "slug": "moba-otserv",
+        "displayName": "MOBA OTServ",
+        "gameType": "OTSERV",
+        "division": "STUDIO",
+        "engine": "Canary",
+        "language": "Lua/C++",
+        "isActive": False,
+        "metadata": {
+            "client": "OTClient",
+            "protocol": "custom",
+            "status": "em_desenvolvimento",
+            "game_mode": "MOBA",
+            "description": "Servidor OTServ com mecânicas MOBA: lanes, torres, heróis, objetivos"
+        },
+    },
+    {
+        "slug": "pvp-enforced",
+        "displayName": "PvP Enforced",
+        "gameType": "OTSERV",
+        "division": "STUDIO",
+        "engine": "TFS 1.5",
+        "language": "Lua/C++",
+        "isActive": False,
+        "metadata": {
+            "client": "Tibia 8.60",
+            "protocol": "860",
+            "status": "em_desenvolvimento",
+            "pvp_type": "enforced",
+            "description": "Servidor OTServ PvP Enforced — mundo sem proteção, full loot, pvp livre"
+        },
+    },
+    {
         "slug": "cs2-aethrium",
         "displayName": "CS2 Aethrium",
         "gameType": "CS2",
