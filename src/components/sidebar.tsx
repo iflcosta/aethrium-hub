@@ -44,13 +44,9 @@ const navItems = [
   { href: "/agents", label: "Agents", icon: Bot },
   { href: "/tasks", label: "Tasks", icon: ListTodo },
   { href: "/projects", label: "Projects", icon: FolderOpen },
-  { href: "/publisher", label: "Publisher", icon: Server },
-  { href: "/revenue", label: "Revenue", icon: DollarSign },
-  { href: "/players", label: "Players", icon: Users },
-  { href: "/systems", label: "Systems", icon: Cpu },
-  { href: "/roadmap", label: "Roadmap", icon: Map },
-  { href: "/integrations", label: "Integrations", icon: Zap },
+  { href: "/knowledge-base", label: "Knowledge Base", icon: Cpu },
   { href: "/logs", label: "Logs", icon: ScrollText },
+  { href: "/integrations", label: "Integrations", icon: Zap },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
