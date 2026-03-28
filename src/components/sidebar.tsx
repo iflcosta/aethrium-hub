@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard, Bot, ListTodo, DollarSign, Users, Cpu,
-  Map, Sword, Bug, ScrollText, Settings, Zap
+  Map, Sword, Bug, ScrollText, Settings, Zap, FolderOpen, Server
 } from "lucide-react";
 import { backendApi } from "@/lib/api";
 
@@ -31,12 +31,16 @@ const roleLabels: Record<string, string> = {
   BALANCER: "Balancer",
   DEVOPS: "DevOps",
   RESEARCH: "Research",
+  DESIGNER: "Designer",
+  LORE_WRITER: "Lore Writer",
 };
 
 const navItems = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/agents", label: "Agents", icon: Bot },
   { href: "/tasks", label: "Tasks", icon: ListTodo },
+  { href: "/projects", label: "Projects", icon: FolderOpen },
+  { href: "/publisher", label: "Publisher", icon: Server },
   { href: "/revenue", label: "Revenue", icon: DollarSign },
   { href: "/players", label: "Players", icon: Users },
   { href: "/systems", label: "Systems", icon: Cpu },
@@ -67,7 +71,7 @@ export function Sidebar() {
           AETHRIUM
         </h1>
         <p className="text-[10px] text-[#888780] uppercase tracking-[0.2em] mt-0.5">
-          OTServ Studio
+          Game Studio
         </p>
       </div>
 

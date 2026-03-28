@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aethrium Hub — OTServ Studio",
-  description: "AI-powered OTServ development studio dashboard",
+  title: "Aethrium Hub — Game Studio",
+  description: "AI-powered game development studio & publisher",
   icons: {
     icon: "/favicon.png",
   },
