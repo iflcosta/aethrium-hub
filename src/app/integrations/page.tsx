@@ -92,7 +92,7 @@ export default function IntegrationsPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          image_path: "C:/Users/Iago Lopes/.gemini/antigravity/scratch/aethrium-hub/projects/baiak-thunder-86/map_sample.png"
+          image_path: ""
         })
       });
       const data = await res.json();

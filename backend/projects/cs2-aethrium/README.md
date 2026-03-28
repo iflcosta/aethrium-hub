@@ -1,0 +1,22 @@
+# CS2 Aethrium
+
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
+**Game Type:** CS2
+**Engine:** CS2 Dedicated Server
+**Language:** C#
+**Status:** Em Desenvolvimento
+
+## Description
+Servidor Counter-Strike 2 competitivo operado pela Aethrium Hub.
+
+## Configuração Planejada
+- Tickrate: 128
+- Max Players: 64
+- Modo: Competitivo (5v5)
+- Mods: MatchZy / Get5 para matchmaking
+
+## Time de Agentes
+- **Amanda (DevOps)** — provisionamento e monitoramento do servidor
+- **Carlos (CTO)** — decisões de configuração e roadmap
+- **Leonardo (Research)** — pesquisa de meta, settings populares
+- **Lucas (CM)** — comunidade e recrutamento de jogadores
