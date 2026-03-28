@@ -1,10 +1,10 @@
 # Ragnarok Aethrium
 
-**Division:** PUBLISHER
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
 **Game Type:** RAGNAROK
 **Engine:** rAthena
 **Language:** C/C++
-**Status:** Aguardando Provisionamento
+**Status:** Em Desenvolvimento
 
 ## Description
 Servidor Ragnarok Online private server operado pela Aethrium Hub.

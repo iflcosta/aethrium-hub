@@ -1,10 +1,10 @@
 # CS2 Aethrium
 
-**Division:** PUBLISHER
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
 **Game Type:** CS2
 **Engine:** CS2 Dedicated Server
 **Language:** C#
-**Status:** Aguardando Provisionamento
+**Status:** Em Desenvolvimento
 
 ## Description
 Servidor Counter-Strike 2 competitivo operado pela Aethrium Hub.

@@ -196,8 +196,12 @@ export default function PublisherPage() {
 
       {/* Server Grid */}
       {projects.length === 0 ? (
-        <div className="text-center py-16 text-[#555555] text-sm">
-          Nenhum servidor Publisher encontrado.
+        <div className="flex flex-col items-center justify-center py-16 gap-3">
+          <Server className="w-10 h-10 text-[#333333]" />
+          <p className="text-sm text-[#555555] text-center max-w-sm">
+            Nenhum servidor ao vivo ainda. Os servidores estão em desenvolvimento no Studio
+            e serão publicados aqui quando estiverem prontos para produção.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

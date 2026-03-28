@@ -1,10 +1,10 @@
 # MU Online Aethrium
 
-**Division:** PUBLISHER
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
 **Game Type:** MU_ONLINE
 **Engine:** MuEmu
 **Language:** C++
-**Status:** Aguardando Provisionamento
+**Status:** Em Desenvolvimento
 
 ## Description
 Servidor MU Online private server operado pela Aethrium Hub.

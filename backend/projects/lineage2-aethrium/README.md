@@ -1,10 +1,10 @@
 # Lineage II Aethrium
 
-**Division:** PUBLISHER
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
 **Game Type:** LINEAGE2
 **Engine:** L2J
 **Language:** Java
-**Status:** Aguardando Provisionamento
+**Status:** Em Desenvolvimento
 
 ## Description
 Servidor Lineage II private server operado pela Aethrium Hub.

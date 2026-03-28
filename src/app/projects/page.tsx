@@ -69,15 +69,22 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex items-center justify-between pt-1 border-t border-[#1a1a1a]">
         <span className="text-[10px] text-[#555555] font-mono">{project.slug}</span>
-        <div className="flex items-center gap-1">
-          <Circle
-            className="w-2 h-2"
-            fill={project.isActive ? "#1D9E75" : "#555555"}
-            stroke="none"
-          />
-          <span className={`text-[10px] ${project.isActive ? "text-[#1D9E75]" : "text-[#555555]"}`}>
-            {project.isActive ? "Ativo" : "Provisionando"}
-          </span>
+        <div className="flex items-center gap-2">
+          {(project.metadata as { targetDivision?: string })?.targetDivision === "PUBLISHER" && (
+            <span className="text-[9px] text-[#888780] bg-[#1a1a1a] px-1.5 py-0.5 rounded">
+              → Publisher
+            </span>
+          )}
+          <div className="flex items-center gap-1">
+            <Circle
+              className="w-2 h-2"
+              fill={project.isActive ? "#1D9E75" : "#555555"}
+              stroke="none"
+            />
+            <span className={`text-[10px] ${project.isActive ? "text-[#1D9E75]" : "text-[#555555]"}`}>
+              {project.isActive ? "Ativo" : "Em dev"}
+            </span>
+          </div>
         </div>
       </div>
     </div>

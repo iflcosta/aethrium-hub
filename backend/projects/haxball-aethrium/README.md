@@ -1,10 +1,10 @@
 # HaxBall Aethrium
 
-**Division:** PUBLISHER
+**Division:** STUDIO (fase de desenvolvimento → Publisher quando lançado)
 **Game Type:** HAXBALL
 **Engine:** HaxBall Headless
 **Language:** JavaScript
-**Status:** Aguardando Provisionamento
+**Status:** Em Desenvolvimento
 
 ## Description
 Servidor HaxBall com modos de jogo customizados, operado pela Aethrium Hub.
