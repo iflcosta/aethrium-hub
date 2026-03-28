@@ -11,6 +11,7 @@ import {
   X
 } from 'lucide-react'
 import { useCommandStore, CommandMode, Message } from '@/store/useCommandStore'
+import { useProjectStore } from '@/store/useProjectStore'
 import { backendApi } from '@/lib/api'
 import { AgentAvatar } from "@/components/agent-avatar"
 import { cn } from '@/lib/utils'
@@ -97,6 +98,9 @@ export const CommandCenter = () => {
     setIsStreaming,
     getCurrentThread
   } = useCommandStore()
+
+  const { activeProject } = useProjectStore()
+  const activeProjectSlug = activeProject?.slug ?? 'baiak-thunder-86'
 
   const [agents, setAgents] = useState<AgentMeta[]>(FALLBACK_AGENTS)
   const [input, setInput] = useState('')
@@ -227,7 +231,7 @@ export const CommandCenter = () => {
         prompt: prompt,
         context: {
           history: history,
-          project_slug: "baiak-thunder-86",
+          project_slug: activeProjectSlug,
         }
       })
 
@@ -325,7 +329,7 @@ export const CommandCenter = () => {
         description: taskDescription,
         owner_slug: selectedAgent,
         priority: taskPriority,
-        context: { project_slug: 'baiak-thunder-86' }
+        context: { project_slug: activeProjectSlug }
       })
 
       // Mostra a task criada no thread do agente
@@ -350,7 +354,7 @@ export const CommandCenter = () => {
       const { execution_id } = await backendApi.runAgent(selectedAgent, {
         task_id,
         prompt,
-        context: { priority: taskPriority, project_slug: 'baiak-thunder-86' }
+        context: { priority: taskPriority, project_slug: activeProjectSlug }
       })
 
       setActiveExecutionId(execution_id)
@@ -390,7 +394,7 @@ export const CommandCenter = () => {
       const result = await backendApi.startMeeting({
           topic: meetingTopic,
           agent_slugs: selectedAgentsForMeeting,
-          context: {}
+          context: { project_slug: activeProjectSlug }
       })
       if (result?.error) {
         setMeetingError(`Erro: ${result.error}`)
