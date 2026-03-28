@@ -6,6 +6,7 @@ import { StatusBadge } from "@/components/status-badge";
 import Link from "next/link";
 import { ExternalLink, Database, Search, FileText, CheckCircle2, Loader2, RefreshCcw } from "lucide-react";
 import { backendApi } from '@/lib/api';
+import { useProjectStore } from '@/store/useProjectStore';
 
 interface SystemCard {
   name: string;
@@ -80,6 +81,9 @@ const statusColors: Record<string, string> = {
 };
 
 export default function SystemsPage() {
+  const { activeProject } = useProjectStore();
+  const projectSlug = activeProject?.slug ?? 'baiak-thunder-86';
+
   const [projectStatus, setProjectStatus] = useState<{chunks_indexed: number} | null>(null);
   const [query, setQuery] = useState("");
   const [queryResults, setQueryResults] = useState<any[]>([]);
@@ -88,7 +92,7 @@ export default function SystemsPage() {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const data = await backendApi.getProjectStatus("baiak-thunder-86");
+        const data = await backendApi.getProjectStatus(projectSlug);
         setProjectStatus(data);
       } catch (err) {
         console.error("Failed to fetch status", err);
@@ -97,13 +101,13 @@ export default function SystemsPage() {
     fetchStatus();
     const interval = setInterval(fetchStatus, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [projectSlug]);
 
   const handleSearch = async () => {
     if (!query.trim()) return;
     setIsSearching(true);
     try {
-      const data = await backendApi.queryRAG(query, "baiak-thunder-86");
+      const data = await backendApi.queryRAG(query, projectSlug);
       setQueryResults(data.results || []);
     } catch (err) {
       console.error(err);

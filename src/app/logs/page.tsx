@@ -2,7 +2,25 @@
 
 import { useState, useEffect, useRef } from "react";
 import { SectionHeader } from "@/components/section-header";
-import { logTypeColors, type LogEntry, type LogType } from "@/lib/mock/logs";
+type LogType = "LOGIN" | "LOGOUT" | "COMBAT" | "TRADE" | "VIP" | "RESET" | "SYSTEM";
+
+interface LogEntry {
+  id: string;
+  timestamp: string;
+  type: LogType;
+  message: string;
+  player?: string;
+}
+
+const logTypeColors: Record<LogType, string> = {
+  LOGIN: "#378ADD",
+  LOGOUT: "#378ADD",
+  COMBAT: "#D85A30",
+  TRADE: "#1D9E75",
+  VIP: "#EF9F27",
+  RESET: "#7F77DD",
+  SYSTEM: "#888780",
+};
 import { Download, Pause, Play } from "lucide-react";
 import { BACKEND_URL } from "@/lib/api";
 

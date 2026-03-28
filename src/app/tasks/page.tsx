@@ -52,6 +52,7 @@ function priorityDot(p: number) {
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [agents, setAgents] = useState<{slug: string; displayName: string}[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [jsonOpen, setJsonOpen] = useState(false);
@@ -61,8 +62,12 @@ export default function TasksPage() {
   useEffect(() => {
     const load = async () => {
       try {
-        const data = await backendApi.getTasks({ limit: 100 });
-        setTasks(Array.isArray(data) ? data : []);
+        const [taskData, agentData] = await Promise.all([
+          backendApi.getTasks({ limit: 100 }),
+          backendApi.getAgents(),
+        ]);
+        setTasks(Array.isArray(taskData) ? taskData : []);
+        setAgents(Array.isArray(agentData) ? agentData : []);
       } catch (err) {
         console.error("Failed to fetch tasks", err);
       } finally {
@@ -256,11 +261,13 @@ export default function TasksPage() {
                 <span className="text-white">{selectedTask.owner?.displayName || selectedTask.owner?.slug}</span>
                 <ChevronRight className="w-3 h-3" />
                 <select className="bg-[#1a1a1a] border border-[#222222] rounded px-2 py-1 text-xs text-white">
-                  <option>Select agent...</option>
-                  <option>Carlos</option>
-                  <option>Rafael</option>
-                  <option>Sophia</option>
-                  <option>Beatriz</option>
+                  <option value="">Select agent...</option>
+                  {agents
+                    .filter(a => a.slug !== selectedTask.owner?.slug)
+                    .map(a => (
+                      <option key={a.slug} value={a.slug}>{a.displayName}</option>
+                    ))
+                  }
                 </select>
               </div>
               <input

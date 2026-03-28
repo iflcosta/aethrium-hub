@@ -135,9 +135,7 @@ export default function OverviewPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <KpiCard
           label="Receita Mensal"
-          value="R$ 1.240"
-          trend="+12%"
-          trendUp
+          value="—"
           icon={DollarSign}
           accentColor="#EF9F27"
         />
@@ -157,10 +155,9 @@ export default function OverviewPage() {
         />
         <KpiCard
           label="Sistemas Onboarding"
-          value="3 / 6"
+          value="—"
           icon={Cpu}
           accentColor="#D85A30"
-          progress={50}
         />
       </div>
 

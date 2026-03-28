@@ -33,16 +33,18 @@ const AGENT_COLORS: Record<string, string> = {
 }
 
 const FALLBACK_AGENTS: AgentMeta[] = [
-  { slug: 'carlos',   displayName: 'Carlos',   model: 'gemini-flash-latest',      role: 'CTO',      color: '#7F77DD', isOnline: true  },
-  { slug: 'rafael',   displayName: 'Rafael',   model: 'gemini-flash-latest',      role: 'Lua Dev',  color: '#1D9E75', isOnline: true  },
-  { slug: 'viktor',   displayName: 'Viktor',   model: 'gemini-flash-latest',      role: 'C++ Dev',  color: '#378ADD', isOnline: true  },
-  { slug: 'sophia',   displayName: 'Sophia',   model: 'gemini-flash-lite-latest', role: 'QA',       color: '#D85A30', isOnline: true  },
-  { slug: 'thiago',   displayName: 'Thiago',   model: 'gemini-flash-lite-latest', role: 'Balancer', color: '#888780', isOnline: false },
-  { slug: 'beatriz',  displayName: 'Beatriz',  model: 'gemini-flash-lite-latest', role: 'Mapper',   color: '#EF9F27', isOnline: true  },
-  { slug: 'leonardo', displayName: 'Leonardo', model: 'gemini-flash-lite-latest', role: 'Research', color: '#888780', isOnline: false },
-  { slug: 'lucas',    displayName: 'Lucas',    model: 'gemini-flash-lite-latest', role: 'CM',       color: '#EF9F27', isOnline: false },
-  { slug: 'mariana',  displayName: 'Mariana',  model: 'gemini-flash-lite-latest', role: 'Support',  color: '#888780', isOnline: false },
-  { slug: 'amanda',   displayName: 'Amanda',   model: 'gemini-flash-lite-latest', role: 'DevOps',   color: '#888780', isOnline: true  },
+  { slug: 'carlos',   displayName: '[CTO] Carlos',    model: 'llama-3.3-70b-versatile', role: 'CTO',        color: '#7F77DD', isOnline: true  },
+  { slug: 'rafael',   displayName: '[LUA] Rafael',    model: 'llama-3.3-70b-versatile', role: 'LUA_DEV',    color: '#1D9E75', isOnline: true  },
+  { slug: 'viktor',   displayName: '[C++] Viktor',    model: 'llama-3.3-70b-versatile', role: 'CPP_DEV',    color: '#378ADD', isOnline: true  },
+  { slug: 'sophia',   displayName: '[QA] Sophia',     model: 'llama-3.1-8b-instant',    role: 'QA',         color: '#D85A30', isOnline: true  },
+  { slug: 'thiago',   displayName: '[BAL] Thiago',    model: 'llama-3.1-8b-instant',    role: 'BALANCER',   color: '#888780', isOnline: false },
+  { slug: 'beatriz',  displayName: '[MAP] Beatriz',   model: 'llama-3.1-8b-instant',    role: 'MAPPER',     color: '#EF9F27', isOnline: true  },
+  { slug: 'leonardo', displayName: '[RES] Leonardo',  model: 'llama-3.1-8b-instant',    role: 'RESEARCH',   color: '#888780', isOnline: false },
+  { slug: 'lucas',    displayName: '[CM] Lucas',      model: 'llama-3.1-8b-instant',    role: 'CM',         color: '#EF9F27', isOnline: false },
+  { slug: 'mariana',  displayName: '[SUP] Mariana',   model: 'llama-3.1-8b-instant',    role: 'SUPPORT',    color: '#888780', isOnline: false },
+  { slug: 'amanda',   displayName: '[OPS] Amanda',    model: 'llama-3.1-8b-instant',    role: 'DEVOPS',     color: '#888780', isOnline: true  },
+  { slug: 'diego',    displayName: '[ART] Diego',     model: 'llama-3.1-8b-instant',    role: 'DESIGNER',   color: '#C084FC', isOnline: false },
+  { slug: 'ana',      displayName: '[LORE] Ana',      model: 'llama-3.1-8b-instant',    role: 'LORE_WRITER',color: '#F472B6', isOnline: false },
 ]
 
 // Removed BoldText and replaced with ReactMarkdown
