@@ -20,6 +20,10 @@ enum AgentRole {
   BALANCER
   DEVOPS
   RESEARCH
+  LUA_DEV
+  CPP_DEV
+  DESIGNER
+  LORE_WRITER
 }
 
 enum TaskStatus {
@@ -98,6 +102,20 @@ model AgentLog {
   event   String
   payload Json?
   ts      DateTime @default(now())
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  displayName String
+  gameType    String
+  division    String
+  engine      String
+  language    String
+  isActive    Boolean  @default(false)
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model KnowledgeChunk {

@@ -66,18 +66,17 @@ async def lifespan(app: FastAPI):
         project_count = await prisma.project.count()
         if project_count == 0:
             log_event("[STARTUP] No projects found — seeding projects...")
-            from prisma import Json as PrismaJson
             projects_data = [
                 {"slug": "aethrium-mmorpg",    "displayName": "Aethrium MMORPG",      "gameType": "CANARY_MMORPG", "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": True},
                 {"slug": "baiak-thunder-86",   "displayName": "Baiak Thunder 8.6",    "gameType": "OTSERV",       "division": "STUDIO",    "engine": "TFS 1.5",             "language": "Lua/C++",    "isActive": True},
                 {"slug": "tibia-global",       "displayName": "Tibia Global 15+",     "gameType": "OTSERV",       "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": False},
                 {"slug": "moba-otserv",        "displayName": "MOBA OTServ",          "gameType": "OTSERV",       "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": False},
                 {"slug": "pvp-enforced",       "displayName": "PvP Enforced",         "gameType": "OTSERV",       "division": "STUDIO",    "engine": "TFS 1.5",             "language": "Lua/C++",    "isActive": False},
-                {"slug": "cs2-aethrium",       "displayName": "CS2 Aethrium",         "gameType": "CS2",          "division": "PUBLISHER", "engine": "CS2 Dedicated Server","language": "C#",         "isActive": False},
-                {"slug": "lineage2-aethrium",  "displayName": "Lineage II Aethrium",  "gameType": "LINEAGE2",     "division": "PUBLISHER", "engine": "L2J",                 "language": "Java",       "isActive": False},
-                {"slug": "mu-online-aethrium", "displayName": "MU Online Aethrium",   "gameType": "MU_ONLINE",    "division": "PUBLISHER", "engine": "MuEmu",               "language": "C++",        "isActive": False},
-                {"slug": "ragnarok-aethrium",  "displayName": "Ragnarok Aethrium",    "gameType": "RAGNAROK",     "division": "PUBLISHER", "engine": "rAthena",             "language": "C/C++",      "isActive": False},
-                {"slug": "haxball-aethrium",   "displayName": "HaxBall Aethrium",     "gameType": "HAXBALL",      "division": "PUBLISHER", "engine": "HaxBall Headless",    "language": "JavaScript", "isActive": False},
+                {"slug": "cs2-aethrium",       "displayName": "CS2 Aethrium",         "gameType": "CS2",          "division": "STUDIO",    "engine": "CS2 Dedicated Server","language": "C#",         "isActive": False},
+                {"slug": "lineage2-aethrium",  "displayName": "Lineage II Aethrium",  "gameType": "LINEAGE2",     "division": "STUDIO",    "engine": "L2J",                 "language": "Java",       "isActive": False},
+                {"slug": "mu-online-aethrium", "displayName": "MU Online Aethrium",   "gameType": "MU_ONLINE",    "division": "STUDIO",    "engine": "MuEmu",               "language": "C++",        "isActive": False},
+                {"slug": "ragnarok-aethrium",  "displayName": "Ragnarok Aethrium",    "gameType": "RAGNAROK",     "division": "STUDIO",    "engine": "rAthena",             "language": "C/C++",      "isActive": False},
+                {"slug": "haxball-aethrium",   "displayName": "HaxBall Aethrium",     "gameType": "HAXBALL",      "division": "STUDIO",    "engine": "HaxBall Headless",    "language": "JavaScript", "isActive": False},
             ]
             for p in projects_data:
                 try:
