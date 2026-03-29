@@ -462,7 +462,7 @@ export const CommandCenter = () => {
       <div 
         key="cc-trigger"
         onClick={toggle}
-        className="fixed right-0 top-1/2 -translate-y-1/2 w-6 h-20 bg-[#1a1a1a] border-l border-[#222] border-y rounded-l-md cursor-pointer z-[45] flex flex-col items-center justify-center hover:bg-[#222] transition-colors group"
+        className="fixed right-0 top-[calc(50%+28px)] md:top-1/2 -translate-y-1/2 w-6 h-20 bg-[#1a1a1a] border-l border-[#222] border-y rounded-l-md cursor-pointer z-[45] flex flex-col items-center justify-center hover:bg-[#222] transition-colors group"
       >
         <MessageSquare size={14} className="text-[#555] group-hover:text-purple-400" />
         <span className="text-[9px] font-mono text-[#555] group-hover:text-purple-400 rotate-90 mt-2">CC</span>
@@ -476,7 +476,7 @@ export const CommandCenter = () => {
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           style={{ width: `${width}px` }}
-          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl"
+          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl max-w-full"
         >
           {/* Resize Handle */}
           <div 
