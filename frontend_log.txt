@@ -8,7 +8,43 @@
 - Environments: .env.local, .env
 
 ✓ Starting...
-✓ Ready in 1417ms
- GET /api/agents 200 in 548ms (compile: 284ms, render: 264ms)
-Deseja finalizar o arquivo em lotes (S/N)? [?25h
-Deseja finalizar o arquivo em lotes (S/N)? 
+✓ Ready in 1956ms
+○ Compiling / ...
+BACKEND_URL: http://localhost:8002
+ GET / 200 in 4.4s (compile: 4.2s, render: 247ms)
+ GET /favicon.png 404 in 915ms (compile: 840ms, render: 74ms)
+ GET /sw.js 404 in 47ms (compile: 5ms, render: 42ms)
+ GET /integrations 200 in 588ms (compile: 566ms, render: 22ms)
+ GET /systems 200 in 793ms (compile: 776ms, render: 17ms)
+ GET / 200 in 18ms (compile: 4ms, render: 14ms)
+ GET /sw.js 404 in 46ms (compile: 6ms, render: 40ms)
+ GET /sw.js 404 in 67ms (compile: 9ms, render: 58ms)
+ GET /sw.js 404 in 75ms (compile: 10ms, render: 65ms)
+ GET /sw.js 404 in 56ms (compile: 7ms, render: 49ms)
+ GET /sw.js 404 in 46ms (compile: 6ms, render: 40ms)
+ GET /sw.js 404 in 69ms (compile: 7ms, render: 61ms)
+ GET /sw.js 404 in 52ms (compile: 6ms, render: 46ms)
+ GET /sw.js 404 in 46ms (compile: 6ms, render: 41ms)
+ GET /sw.js 404 in 59ms (compile: 8ms, render: 51ms)
+ GET /sw.js 404 in 55ms (compile: 8ms, render: 48ms)
+ GET /sw.js 404 in 43ms (compile: 6ms, render: 37ms)
+ GET /sw.js 404 in 59ms (compile: 6ms, render: 53ms)
+ GET /systems 200 in 576ms (compile: 248ms, render: 328ms)
+ GET /sw.js 404 in 44ms (compile: 5ms, render: 39ms)
+ GET /sw.js 404 in 53ms (compile: 9ms, render: 44ms)
+ GET /systems 200 in 73ms (compile: 5ms, render: 68ms)
+ GET /sw.js 404 in 46ms (compile: 6ms, render: 41ms)
+ GET /systems 200 in 64ms (compile: 5ms, render: 60ms)
+ GET /sw.js 404 in 41ms (compile: 5ms, render: 36ms)
+ GET /sw.js 404 in 54ms (compile: 8ms, render: 46ms)
+ GET / 200 in 51ms (compile: 6ms, render: 45ms)
+ GET /sw.js 404 in 49ms (compile: 5ms, render: 44ms)
+ GET / 200 in 44ms (compile: 4ms, render: 40ms)
+ GET /sw.js 404 in 45ms (compile: 5ms, render: 40ms)
+  Reload env: .env.local
+BACKEND_URL: https://aethrium-hub.onrender.com
+ GET / 200 in 4.1s (compile: 3.2s, render: 837ms)
+BACKEND_URL: https://aethrium-hub.onrender.com
+ GET /favicon.png 404 in 562ms (compile: 321ms, render: 242ms)
+ GET /sw.js 404 in 56ms (compile: 9ms, render: 47ms)
+ GET /sw.js 404 in 65ms (compile: 7ms, render: 58ms)

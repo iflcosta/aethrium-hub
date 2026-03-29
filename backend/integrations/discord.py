@@ -6,6 +6,7 @@ from utils import log_event
 
 # Simple cooldown: at most 1 Discord message per 10 seconds
 _last_sent_at: float = 0.0
+_last_sent_to_channel_at: float = 0.0
 _COOLDOWN_SECONDS = 10
 
 async def send_discord_notification(
@@ -52,28 +53,39 @@ async def send_discord_notification(
                 retry_after = response.headers.get("Retry-After", "unknown")
                 log_event(f"[DISCORD] Rate limited (429). Retry after {retry_after}s.")
             elif response.status_code not in [200, 204]:
-                log_event(f"[DISCORD] Failed to send: {response.status_code} — {response.text[:200]}")
+                log_event(f"[DISCORD] Webhook delivery failed: {response.status_code} — {response.text[:200]}")
             else:
-                log_event(f"[DISCORD] Notification sent: {title}")
+                log_event(f"[DISCORD] Notification sent (Webhook): {title}")
         except Exception as e:
-            log_event(f"[DISCORD] Connection error: {e}")
+            log_event(f"[DISCORD] Webhook connection error: {e}")
 
-async def send_to_channel(channel_identifier: str, message: str, agent: str = None):
+async def send_to_channel(channel_identifier: str, message: str, agent_slug: str = None, task_id: str = None):
     """Send a message to a specific Discord channel using Bot Token."""
+    global _last_sent_to_channel_at
+    from tools.prisma_tools import log_agent_event
+    
     DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
     if not DISCORD_TOKEN:
         log_event("[DISCORD] Bot Token not configured, falling back to webhook.")
-        await send_discord_notification(f"Message from {agent or 'System'}", message, agent=agent)
+        await send_discord_notification(f"Message from {agent_slug or 'System'}", message, agent=agent_slug)
         return
 
-    # In a real scenario, you'd map channel_identifier (name) to a numeric ID using DISCORD_GUILD_ID.
-    # For simplicity, if it's not numeric, we log a warning unless we implement the fetch logic.
-    # We will assume channel_identifier is the channel ID for now, or just send to webhook if not.
+    now = time.monotonic()
+    if now - _last_sent_to_channel_at < _COOLDOWN_SECONDS:
+        warn_msg = f"[DISCORD] Bot Cooldown active ({_COOLDOWN_SECONDS}s), skipping message to {channel_identifier}"
+        log_event(warn_msg)
+        if task_id and agent_slug:
+            await log_agent_event(agent_slug, task_id, "discord_cooldown_skipped", {"channel": channel_identifier})
+        return
+    _last_sent_to_channel_at = now
+
     channel_id = channel_identifier.strip().replace("#", "")
     if not channel_id.isdigit():
-        # Fallback if it's a name and we don't have the mapping yet
-        log_event(f"[DISCORD] Channel name resolution not implemented. Attempting webhook fallback for {channel_identifier}.")
-        await send_discord_notification(f"To #{channel_identifier}", message, agent=agent)
+        err_msg = f"[DISCORD] Channel ID invalid: '{channel_identifier}'. Attempting webhook fallback."
+        log_event(err_msg)
+        if task_id and agent_slug:
+            await log_agent_event(agent_slug, task_id, "discord_invalid_channel", {"channel": channel_identifier})
+        await send_discord_notification(f"To #{channel_identifier}", message, agent=agent_slug)
         return
 
     url = f"https://discord.com/api/v10/channels/{channel_id}/messages"
@@ -82,18 +94,33 @@ async def send_to_channel(channel_identifier: str, message: str, agent: str = No
         "Content-Type": "application/json"
     }
     
-    content = f"**[{agent}]**\n{message}" if agent else message
+    agent_name = agent_slug # Fallback to slug if name not provided
+    content = f"**[{agent_name}]**\n{message}" if agent_name else message
     payload = {"content": content}
 
     async with httpx.AsyncClient() as client:
         try:
             response = await client.post(url, json=payload, headers=headers)
-            if response.status_code not in [200, 204]:
-                log_event(f"[DISCORD] Failed to send to channel {channel_id}: {response.status_code} — {response.text[:200]}")
+            if response.status_code == 429:
+                retry_after = response.headers.get("Retry-After", "unknown")
+                err_log = f"[DISCORD] Bot Rate limited (429) for channel {channel_id}. Retry after {retry_after}s. Response: {response.text[:100]}"
+                log_event(err_log)
+                if task_id and agent_slug:
+                    await log_agent_event(agent_slug, task_id, "discord_rate_limited", {"channel": channel_id, "retry_after": retry_after})
+            elif response.status_code not in [200, 204]:
+                err_log = f"[DISCORD] Bot delivery failed for channel {channel_id}: {response.status_code} — {response.text[:200]}"
+                log_event(err_log)
+                if task_id and agent_slug:
+                    await log_agent_event(agent_slug, task_id, "discord_delivery_failed", {"channel": channel_id, "status": response.status_code, "error": response.text[:200]})
             else:
                 log_event(f"[DISCORD] Message sent to channel {channel_id}")
+                if task_id and agent_slug:
+                    await log_agent_event(agent_slug, task_id, "discord_sent", {"channel": channel_id})
         except Exception as e:
-            log_event(f"[DISCORD] Connection error: {e}")
+            err_log = f"[DISCORD] Bot connection error for channel {channel_id}: {e}"
+            log_event(err_log)
+            if task_id and agent_slug:
+                await log_agent_event(agent_slug, task_id, "discord_connection_error", {"channel": channel_id, "error": str(e)})
 
 # Predefined notification types
 async def notify_task_completed(task_title: str, agent: str, delivery: str):

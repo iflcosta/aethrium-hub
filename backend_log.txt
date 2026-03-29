@@ -1,1 +1,913 @@
- 
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Iago Lopes\\.gemini\\antigravity\\scratch\\aethrium-hub\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+INFO:     Started reloader process [25392] using WatchFiles
+C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\_compat.py:149: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1 import Extra as Extra
+C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\integrations\vision.py:1: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [33712]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[INFO] PINECONE_API_KEY loaded successfully.
+[STARTUP] Initializing ecosystem...
+[STARTUP] Connecting to database...
+[DB] Attempting to connect to Prisma... (URL: postgresql://postgres:***@db.wpoqimsahieymjcrxgdj.supabase.co:6543/postgres)
+[ERROR] Prisma connection failed: [WinError 193] %1 não é um aplicativo Win32 válido
+[STARTUP] Starting scheduler...
+[STARTUP] Scheduler started
+[STARTUP] Application startup complete
+[SCHEDULER] Started — checking jobs every 60s
+INFO:     127.0.0.1:53098 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53099 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53100 - "GET /scheduler/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53100 - "GET /scheduler/status HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53100 - "OPTIONS /projects/index HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53100 - "POST /projects/index HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\indexer.py", line 8, in index_project
+    client = PineconeClient()
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\pinecone_client.py", line 52, in __init__
+    self.index = self.pc.Index(os.getenv("PINECONE_INDEX", "aethrium-studio"))
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\pinecone.py", line 1387, in Index
+    index_host = self.db.index._get_host(name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\resources\sync\index.py", line 292, in _get_host
+    return self._index_host_store.get_host(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api=self._index_api, config=self.config, index_name=name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\index_host_store.py", line 47, in get_host
+    description = api.describe_index(index_name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\core\openapi\db_control\api\manage_indexes_api.py", line 1027, in __describe_index
+    return cast(IndexModel | ApplyResult[IndexModel], self.call_with_http_info(**kwargs))
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 374, in request
+    return self.rest_client.GET(
+           ~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<3 lines>...
+        headers=headers,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 75, in GET
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<4 lines>...
+        query_params=query_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 38, in raise_exceptions_or_return
+    raise UnauthorizedException(http_resp=r)
+pinecone.exceptions.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': 'a75ea10c7ef65025b08091975f970b98', 'date': 'Sat, 21 Mar 2026 02:02:17 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[INDEXER] FATAL ERROR during indexing: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': 'a75ea10c7ef65025b08091975f970b98', 'date': 'Sat, 21 Mar 2026 02:02:17 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53100 - "OPTIONS /projects/query HTTP/1.1" 200 OK
+Unhandled server error: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '163d145cf2faa096d0982ef4501604d6', 'date': 'Sat, 21 Mar 2026 02:02:24 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+INFO:     127.0.0.1:53100 - "POST /projects/query HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53100 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53118 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53118 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53118 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53118 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53118 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53170 - "GET /projects/index/baiak-thunder-86/diagnose HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53170 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  WatchFiles detected changes in 'routers\projects.py'. Reloading...
+ INFO:     127.0.0.1:53150 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53151 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53171 - "GET /projects/embedding-test HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53152 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53152 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53186 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53186 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53212 - "GET /projects/embedding-test HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53202 - "OPTIONS /agents/carlos/run HTTP/1.1" 200 OK
+Request: POST /agents/carlos/run - task_id: chat-7c60de9b-4f1e-41f3-a111-108f5b5ac490
+T1: Finding task chat-7c60de9b-4f1e-41f3-a111-108f5b5ac490
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53202 - "POST /agents/carlos/run HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53225 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53226 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53227 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53227 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53233 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53233 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53247 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53248 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53249 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53249 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53281 - "GET /projects/embedding-test HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53274 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53274 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53286 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53286 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53299 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53299 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53319 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53319 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53322 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53322 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53334 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53334 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53364 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53364 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53382 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53382 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53396 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53396 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53404 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53404 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53423 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53482 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53482 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53483 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53483 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53483 - "POST /projects/index HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\indexer.py", line 8, in index_project
+    client = PineconeClient()
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\pinecone_client.py", line 52, in __init__
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\pinecone.py", line 1387, in Index
+    index_host = self.db.index._get_host(name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\resources\sync\index.py", line 292, in _get_host
+    return self._index_host_store.get_host(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api=self._index_api, config=self.config, index_name=name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\index_host_store.py", line 47, in get_host
+    description = api.describe_index(index_name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\core\openapi\db_control\api\manage_indexes_api.py", line 1027, in __describe_index
+    return cast(IndexModel | ApplyResult[IndexModel], self.call_with_http_info(**kwargs))
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 374, in request
+    return self.rest_client.GET(
+           ~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<3 lines>...
+        headers=headers,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 75, in GET
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<4 lines>...
+        query_params=query_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 38, in raise_exceptions_or_return
+    raise UnauthorizedException(http_resp=r)
+pinecone.exceptions.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '08b07ee5b8f25ee2aa4b272596127de2', 'date': 'Sat, 21 Mar 2026 02:17:06 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[INDEXER] FATAL ERROR during indexing: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '08b07ee5b8f25ee2aa4b272596127de2', 'date': 'Sat, 21 Mar 2026 02:17:06 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53483 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53483 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53483 - "POST /projects/index HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\indexer.py", line 8, in index_project
+    client = PineconeClient()
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\pinecone_client.py", line 52, in __init__
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\pinecone.py", line 1387, in Index
+    index_host = self.db.index._get_host(name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\resources\sync\index.py", line 292, in _get_host
+    return self._index_host_store.get_host(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api=self._index_api, config=self.config, index_name=name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\index_host_store.py", line 47, in get_host
+    description = api.describe_index(index_name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\core\openapi\db_control\api\manage_indexes_api.py", line 1027, in __describe_index
+    return cast(IndexModel | ApplyResult[IndexModel], self.call_with_http_info(**kwargs))
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 374, in request
+    return self.rest_client.GET(
+           ~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<3 lines>...
+        headers=headers,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 75, in GET
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<4 lines>...
+        query_params=query_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 38, in raise_exceptions_or_return
+    raise UnauthorizedException(http_resp=r)
+pinecone.exceptions.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '593afd6f4789fc3338f66d07a5b4589e', 'date': 'Sat, 21 Mar 2026 02:17:18 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[INDEXER] FATAL ERROR during indexing: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '593afd6f4789fc3338f66d07a5b4589e', 'date': 'Sat, 21 Mar 2026 02:17:18 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53483 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53521 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53521 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53521 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53522 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53522 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53522 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53522 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53567 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53567 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53568 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53568 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53585 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53585 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53594 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53594 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53594 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53594 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53595 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53636 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53636 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53636 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53637 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53637 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53637 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53667 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53667 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53670 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53691 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53691 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53692 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53692 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53692 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53711 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53754 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53756 - "POST /projects/index HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\indexer.py", line 8, in index_project
+    client = PineconeClient()
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\pinecone_client.py", line 52, in __init__
+    else:
+    
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\pinecone.py", line 1387, in Index
+    index_host = self.db.index._get_host(name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\resources\sync\index.py", line 292, in _get_host
+    return self._index_host_store.get_host(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api=self._index_api, config=self.config, index_name=name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\index_host_store.py", line 47, in get_host
+    description = api.describe_index(index_name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\core\openapi\db_control\api\manage_indexes_api.py", line 1027, in __describe_index
+    return cast(IndexModel | ApplyResult[IndexModel], self.call_with_http_info(**kwargs))
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 374, in request
+    return self.rest_client.GET(
+           ~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<3 lines>...
+        headers=headers,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 75, in GET
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<4 lines>...
+        query_params=query_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 38, in raise_exceptions_or_return
+    raise UnauthorizedException(http_resp=r)
+pinecone.exceptions.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': 'e2707cce2f208eaa9b89a17d06f1954d', 'date': 'Sat, 21 Mar 2026 02:23:00 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[INDEXER] FATAL ERROR during indexing: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': 'e2707cce2f208eaa9b89a17d06f1954d', 'date': 'Sat, 21 Mar 2026 02:23:00 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53756 - "POST /projects/index HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\indexer.py", line 8, in index_project
+    client = PineconeClient()
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\rag\pinecone_client.py", line 52, in __init__
+    else:
+    
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\pinecone.py", line 1387, in Index
+    index_host = self.db.index._get_host(name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\resources\sync\index.py", line 292, in _get_host
+    return self._index_host_store.get_host(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api=self._index_api, config=self.config, index_name=name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\db_control\index_host_store.py", line 47, in get_host
+    description = api.describe_index(index_name)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\core\openapi\db_control\api\manage_indexes_api.py", line 1027, in __describe_index
+    return cast(IndexModel | ApplyResult[IndexModel], self.call_with_http_info(**kwargs))
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\api_client.py", line 374, in request
+    return self.rest_client.GET(
+           ~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<3 lines>...
+        headers=headers,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 75, in GET
+    return self.request(
+           ~~~~~~~~~~~~^
+        "GET",
+        ^^^^^^
+    ...<4 lines>...
+        query_params=query_params,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 38, in raise_exceptions_or_return
+    raise UnauthorizedException(http_resp=r)
+pinecone.exceptions.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '5687e504551c0f88e74792d1f06e5d16', 'date': 'Sat, 21 Mar 2026 02:23:04 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[INDEXER] FATAL ERROR during indexing: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2025-10', 'x-cloud-trace-context': '5687e504551c0f88e74792d1f06e5d16', 'date': 'Sat, 21 Mar 2026 02:23:04 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53756 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53876 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53876 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53876 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53876 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53878 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53900 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53900 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53901 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53901 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53901 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53901 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53901 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53922 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53923 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53923 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53965 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53965 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53966 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53966 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53966 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53985 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53985 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53987 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:53987 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54000 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54000 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54000 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54000 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54000 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54000 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54002 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54002 - "GET /agents/ HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54002 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54002 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54019 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54002 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54020 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54020 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54078 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54079 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54080 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54078 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54078 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54081 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54081 - "GET /agents/ HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54081 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54081 - "GET /health HTTP/1.1" 200 OK
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54081 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54128 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54128 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54129 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54130 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54130 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54130 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+Unhandled server error: Not connected to the query engine
+INFO:     127.0.0.1:54130 - "GET /projects/index/baiak-thunder-86/status HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54130 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54131 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54308 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54309 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54367 - "GET /agents/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54368 - "GET /health HTTP/1.1" 200 OK
+Task exception was never retrieved
+future: <Task finished name='Task-1420' coro=<_job_amanda_infra_check() done, defined at C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\scheduler.py:127> exception=NotConnectedError('Not connected to the query engine')>
+Traceback (most recent call last):
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\scheduler.py", line 134, in _job_amanda_infra_check
+    await _run_agent_job(
+    ...<16 lines>...
+    )
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\backend\scheduler.py", line 22, in _run_agent_job
+    agent_db = await prisma.agent.find_unique(where={"slug": slug})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\actions.py", line 360, in find_unique
+    resp = await self._client._execute(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\_base_client.py", line 543, in _execute
+    return await self._engine.query(builder.build(), tx_id=self._tx_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\engine\_query.py", line 402, in query
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\engine\_http.py", line 209, in request
+    url, kwargs = self._build_request(
+                  ~~~~~~~~~~~~~~~~~~~^
+        path=path,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        parse_response=parse_response,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Iago Lopes\.gemini\antigravity\scratch\aethrium-hub\.venv\Lib\site-packages\prisma\engine\_http.py", line 48, in _build_request
+    raise errors.NotConnectedError('Not connected to the query engine')
+prisma.engine.errors.NotConnectedError: Not connected to the query engine

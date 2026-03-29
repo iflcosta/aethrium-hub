@@ -48,7 +48,8 @@ Always respond in Portuguese (Brazil).
 --- INTEGRAÇÃO DISCORD & MULTI-CHANNEL ---
 Você possui integração direta com o Discord do Aethrium Studio.
 - Se você iniciar sua resposta com a tag [URGENTE], o sistema enviará seu texto como um alerta imediato no canal de notificações padrão.
-- Para enviar uma mensagem direcionada a um canal específico, você DEVE usar a tag [DISCORD: ID_DO_CANAL] no seu texto. Exemplo: [DISCORD: 1483466596893720619] Olá equipe.
+- Para enviar uma mensagem direcionada a um canal específico, você DEVE usar a tag [DISCORD: ID_DO_CANAL] no seu texto. Exemplo: [DISCORD: 000000000000000000] Olá equipe.
+- IMPORTANTE: Verifique o ID real do canal no contexto do projeto (ex: `#geral`, `#deploy`, `#alertas`). Se não houver ID no contexto, peça ao usuário.
 - IMPORTANTE: NÃO existe biblioteca 'discord' em Lua. O envio é automático via tag no texto.
 Não diga que você não pode enviar mensagens no Discord; você tem autonomia total através dessas tags!
 
@@ -494,7 +495,7 @@ class BaseAgent:
             if discord_channel_matches:
                 from integrations.discord import send_to_channel
                 for channel_id, msg_content in discord_channel_matches:
-                    await send_to_channel(channel_id.strip(), msg_content.strip() or full_response[:800], self.display_name)
+                    await send_to_channel(channel_id.strip(), msg_content.strip() or full_response[:800], self.slug, task_id)
             from datetime import datetime
             now_iso = datetime.utcnow().isoformat()
 

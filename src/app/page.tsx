@@ -6,18 +6,17 @@ import { SectionHeader } from "@/components/section-header";
 import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
 import { backendApi, BACKEND_URL } from "@/lib/api";
-import { 
-  DollarSign, 
-  Bot, 
-  ListTodo, 
-  Cpu, 
-  Globe, 
-  Server, 
-  Database, 
+import { systems } from "@/lib/systems";
+import {
+  DollarSign,
+  Bot,
+  ListTodo,
+  Cpu,
+  Globe,
+  Server,
+  Database,
   Cloud,
-  CheckCircle2,
   AlertCircle,
-  Loader2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -110,6 +109,7 @@ export default function OverviewPage() {
   const onlineAgents = agents.filter((a: Agent) => a.isOnline !== false);
   const pendingTasks = tasks.filter(t => t.status === "PENDING").length;
   const recentTasks = tasks.slice(0, 5);
+  const implementedSystems = systems.filter(s => s.status === "implemented").length;
 
   if (loading) {
     return (
@@ -135,9 +135,8 @@ export default function OverviewPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <KpiCard
           label="Receita Mensal"
-          value="R$ 1.240"
-          trend="+12%"
-          trendUp
+          value="R$ —"
+          trend="Servidor offline"
           icon={DollarSign}
           accentColor="#EF9F27"
         />
@@ -157,10 +156,10 @@ export default function OverviewPage() {
         />
         <KpiCard
           label="Sistemas Onboarding"
-          value="3 / 6"
+          value={`${implementedSystems} / ${systems.length}`}
           icon={Cpu}
           accentColor="#D85A30"
-          progress={50}
+          progress={Math.round((implementedSystems / systems.length) * 100)}
         />
       </div>
 

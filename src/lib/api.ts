@@ -132,6 +132,9 @@ export const backendApi = {
   deleteTask: (taskId: string) =>
     fetch(`${BACKEND_URL}/tasks/${taskId}`, { method: 'DELETE' }).then(r => r.json()),
 
+  cleanupTasks: () =>
+    fetch(`${BACKEND_URL}/tasks/cleanup`, { method: 'POST' }).then(r => r.json()),
+
   getAgents: () =>
     fetch(`${BACKEND_URL}/agents/`)
       .then(r => r.json()),

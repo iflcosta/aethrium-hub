@@ -88,6 +88,9 @@ async def test_discord(request: Request):
         
     # Test Bot Token if channel_id is provided
     if has_token and channel_id:
+        if channel_id == "1483466596893720619" or channel_id == "000000000000000000":
+            return {"status": "warning", "message": "O ID do canal fornecido é um PLACEHOLDER. Use um ID real."}
+            
         await send_to_channel(
             channel_id, 
             "O backend está configurado com Bot Token e o canal foi validado com sucesso!",

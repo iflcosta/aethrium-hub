@@ -5,7 +5,7 @@ import { backendApi } from "@/lib/api";
 import { SectionHeader } from "@/components/section-header";
 import { AgentAvatar } from "@/components/agent-avatar";
 import { StatusBadge } from "@/components/status-badge";
-import { X, ChevronRight, Loader2, Trash2 } from "lucide-react";
+import { X, ChevronRight, Loader2, Trash2, Sparkles } from "lucide-react";
 
 type TaskStatus = "PENDING" | "RUNNING" | "COMPLETED" | "FAILED";
 
@@ -57,6 +57,8 @@ export default function TasksPage() {
   const [jsonOpen, setJsonOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [cleaning, setCleaning] = useState(false);
+  const [cleanResult, setCleanResult] = useState<{ chat_tasks_deleted: number; stuck_tasks_failed: number } | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -73,6 +75,21 @@ export default function TasksPage() {
     const interval = setInterval(load, 30_000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleCleanup = async () => {
+    setCleaning(true);
+    setCleanResult(null);
+    try {
+      const result = await backendApi.cleanupTasks();
+      setCleanResult(result);
+      const data = await backendApi.getTasks({ limit: 100 });
+      setTasks(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error("Cleanup failed", err);
+    } finally {
+      setCleaning(false);
+    }
+  };
 
   const handleDelete = async () => {
     if (!selectedTask) return;
@@ -105,9 +122,24 @@ export default function TasksPage() {
           title="Tasks"
           subtitle="Kanban board"
           action={
-            <button className="text-xs px-3 py-1.5 rounded bg-[#7F77DD] text-white hover:bg-[#6b63cc] transition-colors">
-              + New Task
-            </button>
+            <div className="flex items-center gap-2">
+              {cleanResult && (
+                <span className="text-xs text-[#888780]">
+                  {cleanResult.chat_tasks_deleted} removidas · {cleanResult.stuck_tasks_failed} marcadas como failed
+                </span>
+              )}
+              <button
+                onClick={handleCleanup}
+                disabled={cleaning}
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded border border-[#EF9F27]/30 text-[#EF9F27]/70 hover:bg-[#EF9F27]/10 hover:text-[#EF9F27] hover:border-[#EF9F27]/60 transition-colors disabled:opacity-50"
+              >
+                {cleaning ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
+                {cleaning ? "Limpando..." : "Limpar travadas"}
+              </button>
+              <button className="text-xs px-3 py-1.5 rounded bg-[#7F77DD] text-white hover:bg-[#6b63cc] transition-colors">
+                + New Task
+              </button>
+            </div>
           }
         />
 

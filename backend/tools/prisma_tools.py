@@ -1,4 +1,5 @@
 from db import prisma
+from prisma import Json
 
 async def get_task(task_id: str):
     """Fetch task with owner and executions"""
@@ -27,16 +28,29 @@ async def create_subtask(parent_id: str, title: str, description: str, owner_slu
         }
     )
 
-async def log_agent_event(agent_id: str, task_id: str, event: str, payload: dict):
-    """Log an agent event"""
-    return await prisma.agentlog.create(
-        data={
-            "agentId": agent_id,
-            "taskId": task_id,
-            "event": event,
-            "payload": json.dumps(payload)
-        }
-    )
+async def log_agent_event(agent_identifier: str, task_id: str, event: str, payload: dict):
+    """Log an agent event using slug or ID."""
+    import json
+    
+    # Try to find agent by slug if not a CUID/UUID
+    agent_id = agent_identifier
+    if len(agent_identifier) < 20:
+        agent = await prisma.agent.find_unique(where={"slug": agent_identifier})
+        if agent:
+            agent_id = agent.id
+
+    try:
+        return await prisma.agentLog.create(
+            data={
+                "agentId": agent_id,
+                "taskId": task_id,
+                "event": event,
+                "payload": Json(payload)
+            }
+        )
+    except Exception as e:
+        print(f"[LOG_ERROR] Failed to log event '{event}': {e}")
+        return None
 
 async def initiate_handoff(task_id: str, target_slug: str, reason: str):
     """Initiate a handoff"""
