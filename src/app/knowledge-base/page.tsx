@@ -45,7 +45,7 @@ export default function KnowledgeBasePage() {
         subtitle={`Base de conhecimento do projeto: ${activeProject?.displayName ?? projectSlug}`}
       />
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         {/* Project RAG Card */}
         <div className="xl:col-span-2 bg-[#0d0d0d] border border-[#222] rounded-xl overflow-hidden flex flex-col">
           <div className="p-6 border-b border-[#222] bg-gradient-to-r from-purple-500/5 to-transparent flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function KnowledgeBasePage() {
             <span className="text-[10px] text-[#555] italic">Indexação via CLI</span>
           </div>
 
-          <div className="p-6 grid grid-cols-3 gap-4 bg-[#0a0a0a]/50">
+          <div className="p-4 md:p-6 grid grid-cols-3 gap-3 md:gap-4 bg-[#0a0a0a]/50">
             <div className="p-4 rounded-lg bg-[#111] border border-[#222] flex flex-col gap-1">
               <span className="text-[10px] text-[#555] font-bold uppercase tracking-widest">Knowledge Chunks</span>
               <span className="text-xl font-mono text-white tabular-nums">{projectStatus?.chunks_indexed || 0}</span>

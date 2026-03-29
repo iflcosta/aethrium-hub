@@ -141,8 +141,16 @@ export default function TasksPage() {
 
   return (
     <div className="flex gap-0">
+      {/* Mobile overlay backdrop */}
+      {(showNew || selectedTask) && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/60 z-30"
+          onClick={() => { setShowNew(false); setSelectedTask(null); }}
+        />
+      )}
+
       {/* Main Content */}
-      <div className={selectedTask || showNew ? "flex-1 pr-4" : "flex-1"}>
+      <div className={selectedTask || showNew ? "flex-1 md:pr-4" : "flex-1"}>
         <SectionHeader
           title="Tasks"
           subtitle="Kanban board"
@@ -205,7 +213,7 @@ export default function TasksPage() {
 
       {/* New Task Panel */}
       {showNew && (
-        <div className="w-80 shrink-0 bg-[#111111] border-l border-[#222222] p-4 overflow-y-auto animate-in slide-in-from-right-4 duration-200">
+        <div className="fixed inset-0 md:relative md:inset-auto w-full md:w-80 md:shrink-0 bg-[#111111] md:border-l border-[#222222] p-4 overflow-y-auto animate-in slide-in-from-right-4 duration-200 z-40 md:z-auto mt-14 md:mt-0">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-white">Nova Tarefa</h3>
             <button onClick={() => setShowNew(false)} className="p-1 rounded hover:bg-[#1a1a1a] text-[#888780] hover:text-white">
@@ -288,7 +296,7 @@ export default function TasksPage() {
 
       {/* Task Detail Panel */}
       {selectedTask && !showNew && (
-        <div className="w-80 shrink-0 bg-[#111111] border-l border-[#222222] p-4 overflow-y-auto animate-in slide-in-from-right-4 duration-200">
+        <div className="fixed inset-0 md:relative md:inset-auto w-full md:w-80 md:shrink-0 bg-[#111111] md:border-l border-[#222222] p-4 overflow-y-auto animate-in slide-in-from-right-4 duration-200 z-40 md:z-auto mt-14 md:mt-0">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-white">Task Details</h3>
             <button

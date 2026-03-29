@@ -475,8 +475,8 @@ export const CommandCenter = () => {
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          style={{ width: `${width}px` }}
-          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl max-w-full"
+          style={{ '--cc-w': `${width}px` } as React.CSSProperties}
+          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl w-full md:w-[var(--cc-w)]"
         >
           {/* Resize Handle */}
           <div 
