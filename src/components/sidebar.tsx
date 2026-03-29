@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import {
   LayoutDashboard, Bot, ListTodo, DollarSign, Users, Cpu,
   Map, ScrollText, Settings, Zap, FolderOpen, Server,
-  ChevronDown, Check
+  ChevronDown, Check, Menu, X
 } from "lucide-react";
 import { backendApi } from "@/lib/api";
 import { useProjectStore, ActiveProject } from "@/store/useProjectStore";
@@ -134,22 +134,27 @@ function ProjectSelector() {
 
 export function Sidebar() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
 
-  return (
-    <aside className="fixed left-0 top-0 bottom-0 w-60 bg-[#0a0a0a] border-r border-[#222222] flex flex-col z-50">
+  const navContent = (
+    <>
       {/* Logo */}
-      <div className="px-5 py-5 border-b border-[#222222]">
-        <h1 className="text-base font-bold tracking-widest text-white">
-          AETHRIUM
-        </h1>
-        <p className="text-[10px] text-[#888780] uppercase tracking-[0.2em] mt-0.5">
-          Game Studio
-        </p>
+      <div className="px-5 py-5 border-b border-[#222222] flex items-center justify-between">
+        <div>
+          <h1 className="text-base font-bold tracking-widest text-white">AETHRIUM</h1>
+          <p className="text-[10px] text-[#888780] uppercase tracking-[0.2em] mt-0.5">Game Studio</p>
+        </div>
+        <button
+          onClick={() => setMobileOpen(false)}
+          className="md:hidden p-1 rounded text-[#888780] hover:text-white"
+        >
+          <X className="w-4 h-4" />
+        </button>
       </div>
 
       {/* Active Project Selector */}
@@ -165,6 +170,7 @@ export function Sidebar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={() => setMobileOpen(false)}
                   className={cn(
                     "flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors",
                     active
@@ -174,15 +180,45 @@ export function Sidebar() {
                 >
                   <Icon className="w-4 h-4 shrink-0" />
                   <span>{item.label}</span>
-                  {active && (
-                    <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#7F77DD]" />
-                  )}
+                  {active && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#7F77DD]" />}
                 </Link>
               </li>
             );
           })}
         </ul>
       </nav>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-[#0a0a0a] border-b border-[#222222] flex items-center px-4 z-40">
+        <button
+          onClick={() => setMobileOpen(true)}
+          className="p-2 rounded text-[#888780] hover:text-white hover:bg-[#1a1a1a] transition-colors"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+        <span className="ml-3 text-sm font-bold tracking-widest text-white">AETHRIUM</span>
+      </div>
+
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/60 z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Sidebar — desktop: fixed; mobile: drawer */}
+      <aside className={cn(
+        "fixed left-0 top-0 bottom-0 w-60 bg-[#0a0a0a] border-r border-[#222222] flex flex-col z-50 transition-transform duration-300",
+        "md:translate-x-0",
+        mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+      )}>
+        {navContent}
+      </aside>
+    </>
   );
 }
