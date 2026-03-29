@@ -11,6 +11,7 @@ import {
   X
 } from 'lucide-react'
 import { useCommandStore, CommandMode, Message } from '@/store/useCommandStore'
+import { useProjectStore } from '@/store/useProjectStore'
 import { backendApi } from '@/lib/api'
 import { AgentAvatar } from "@/components/agent-avatar"
 import { cn } from '@/lib/utils'
@@ -32,16 +33,18 @@ const AGENT_COLORS: Record<string, string> = {
 }
 
 const FALLBACK_AGENTS: AgentMeta[] = [
-  { slug: 'carlos',   displayName: 'Carlos',   model: 'gemini-flash-latest',      role: 'CTO',      color: '#7F77DD', isOnline: true  },
-  { slug: 'rafael',   displayName: 'Rafael',   model: 'gemini-flash-latest',      role: 'Lua Dev',  color: '#1D9E75', isOnline: true  },
-  { slug: 'viktor',   displayName: 'Viktor',   model: 'gemini-flash-latest',      role: 'C++ Dev',  color: '#378ADD', isOnline: true  },
-  { slug: 'sophia',   displayName: 'Sophia',   model: 'gemini-flash-lite-latest', role: 'QA',       color: '#D85A30', isOnline: true  },
-  { slug: 'thiago',   displayName: 'Thiago',   model: 'gemini-flash-lite-latest', role: 'Balancer', color: '#888780', isOnline: false },
-  { slug: 'beatriz',  displayName: 'Beatriz',  model: 'gemini-flash-lite-latest', role: 'Mapper',   color: '#EF9F27', isOnline: true  },
-  { slug: 'leonardo', displayName: 'Leonardo', model: 'gemini-flash-lite-latest', role: 'Research', color: '#888780', isOnline: false },
-  { slug: 'lucas',    displayName: 'Lucas',    model: 'gemini-flash-lite-latest', role: 'CM',       color: '#EF9F27', isOnline: false },
-  { slug: 'mariana',  displayName: 'Mariana',  model: 'gemini-flash-lite-latest', role: 'Support',  color: '#888780', isOnline: false },
-  { slug: 'amanda',   displayName: 'Amanda',   model: 'gemini-flash-lite-latest', role: 'DevOps',   color: '#888780', isOnline: true  },
+  { slug: 'carlos',   displayName: '[CTO] Carlos',    model: 'llama-3.3-70b-versatile', role: 'CTO',        color: '#7F77DD', isOnline: true  },
+  { slug: 'rafael',   displayName: '[LUA] Rafael',    model: 'llama-3.3-70b-versatile', role: 'LUA_DEV',    color: '#1D9E75', isOnline: true  },
+  { slug: 'viktor',   displayName: '[C++] Viktor',    model: 'llama-3.3-70b-versatile', role: 'CPP_DEV',    color: '#378ADD', isOnline: true  },
+  { slug: 'sophia',   displayName: '[QA] Sophia',     model: 'llama-3.1-8b-instant',    role: 'QA',         color: '#D85A30', isOnline: true  },
+  { slug: 'thiago',   displayName: '[BAL] Thiago',    model: 'llama-3.1-8b-instant',    role: 'BALANCER',   color: '#888780', isOnline: false },
+  { slug: 'beatriz',  displayName: '[MAP] Beatriz',   model: 'llama-3.1-8b-instant',    role: 'MAPPER',     color: '#EF9F27', isOnline: true  },
+  { slug: 'leonardo', displayName: '[RES] Leonardo',  model: 'llama-3.1-8b-instant',    role: 'RESEARCH',   color: '#888780', isOnline: false },
+  { slug: 'lucas',    displayName: '[CM] Lucas',      model: 'llama-3.1-8b-instant',    role: 'CM',         color: '#EF9F27', isOnline: false },
+  { slug: 'mariana',  displayName: '[SUP] Mariana',   model: 'llama-3.1-8b-instant',    role: 'SUPPORT',    color: '#888780', isOnline: false },
+  { slug: 'amanda',   displayName: '[OPS] Amanda',    model: 'llama-3.1-8b-instant',    role: 'DEVOPS',     color: '#888780', isOnline: true  },
+  { slug: 'diego',    displayName: '[ART] Diego',     model: 'llama-3.1-8b-instant',    role: 'DESIGNER',   color: '#C084FC', isOnline: false },
+  { slug: 'ana',      displayName: '[LORE] Ana',      model: 'llama-3.1-8b-instant',    role: 'LORE_WRITER',color: '#F472B6', isOnline: false },
 ]
 
 // Removed BoldText and replaced with ReactMarkdown
@@ -97,6 +100,9 @@ export const CommandCenter = () => {
     setIsStreaming,
     getCurrentThread
   } = useCommandStore()
+
+  const { activeProject } = useProjectStore()
+  const activeProjectSlug = activeProject?.slug ?? 'baiak-thunder-86'
 
   const [agents, setAgents] = useState<AgentMeta[]>(FALLBACK_AGENTS)
   const [input, setInput] = useState('')
@@ -227,7 +233,7 @@ export const CommandCenter = () => {
         prompt: prompt,
         context: {
           history: history,
-          project_slug: "baiak-thunder-86",
+          project_slug: activeProjectSlug,
         }
       })
 
@@ -325,7 +331,7 @@ export const CommandCenter = () => {
         description: taskDescription,
         owner_slug: selectedAgent,
         priority: taskPriority,
-        context: { project_slug: 'baiak-thunder-86' }
+        context: { project_slug: activeProjectSlug }
       })
 
       // Mostra a task criada no thread do agente
@@ -350,7 +356,7 @@ export const CommandCenter = () => {
       const { execution_id } = await backendApi.runAgent(selectedAgent, {
         task_id,
         prompt,
-        context: { priority: taskPriority, project_slug: 'baiak-thunder-86' }
+        context: { priority: taskPriority, project_slug: activeProjectSlug }
       })
 
       setActiveExecutionId(execution_id)
@@ -390,7 +396,7 @@ export const CommandCenter = () => {
       const result = await backendApi.startMeeting({
           topic: meetingTopic,
           agent_slugs: selectedAgentsForMeeting,
-          context: {}
+          context: { project_slug: activeProjectSlug }
       })
       if (result?.error) {
         setMeetingError(`Erro: ${result.error}`)
@@ -456,7 +462,7 @@ export const CommandCenter = () => {
       <div 
         key="cc-trigger"
         onClick={toggle}
-        className="fixed right-0 top-1/2 -translate-y-1/2 w-6 h-20 bg-[#1a1a1a] border-l border-[#222] border-y rounded-l-md cursor-pointer z-[45] flex flex-col items-center justify-center hover:bg-[#222] transition-colors group"
+        className="fixed right-0 top-[calc(50%+28px)] md:top-1/2 -translate-y-1/2 w-6 h-20 bg-[#1a1a1a] border-l border-[#222] border-y rounded-l-md cursor-pointer z-[45] flex flex-col items-center justify-center hover:bg-[#222] transition-colors group"
       >
         <MessageSquare size={14} className="text-[#555] group-hover:text-purple-400" />
         <span className="text-[9px] font-mono text-[#555] group-hover:text-purple-400 rotate-90 mt-2">CC</span>
@@ -469,8 +475,8 @@ export const CommandCenter = () => {
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          style={{ width: `${width}px` }}
-          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl"
+          style={{ '--cc-w': `${width}px` } as React.CSSProperties}
+          className="fixed right-0 top-0 h-screen bg-[#111111] border-l border-[#222222] z-50 flex flex-col shadow-2xl w-full md:w-[var(--cc-w)]"
         >
           {/* Resize Handle */}
           <div 

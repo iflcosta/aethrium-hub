@@ -12,6 +12,8 @@ from agents.beatriz import BeatrizAgent
 from agents.thiago import ThiagoAgent
 from agents.amanda import AmandaAgent
 from agents.leonardo import LeonardoAgent
+from agents.diego import DiegoAgent
+from agents.ana import AnaAgent
 
 # Instantiate agents
 agents = {
@@ -25,6 +27,8 @@ agents = {
     "thiago": ThiagoAgent(),
     "amanda": AmandaAgent(),
     "leonardo": LeonardoAgent(),
+    "diego": DiegoAgent(),
+    "ana": AnaAgent(),
 }
 
 class StudioState(TypedDict):

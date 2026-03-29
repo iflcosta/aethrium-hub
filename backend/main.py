@@ -28,6 +28,71 @@ async def lifespan(app: FastAPI):
     log_event("[STARTUP] Connecting to database...")
     await connect_db()
     
+    # Auto-seed agents on first deploy (only if table is empty)
+    try:
+        agent_count = await prisma.agent.count()
+        if agent_count == 0:
+            log_event("[STARTUP] No agents found — seeding 12 agents...")
+            agents_data = [
+                {"slug": "carlos",   "displayName": "[CTO] Carlos",   "model": "llama-3.3-70b-versatile", "role": "CTO",        "color": "purple", "isOnline": True},
+                {"slug": "rafael",   "displayName": "[LUA] Rafael",   "model": "llama-3.3-70b-versatile", "role": "LUA_DEV",    "color": "teal",   "isOnline": True},
+                {"slug": "viktor",   "displayName": "[C++] Viktor",   "model": "llama-3.3-70b-versatile", "role": "CPP_DEV",    "color": "blue",   "isOnline": True},
+                {"slug": "sophia",   "displayName": "[QA] Sophia",    "model": "llama-3.1-8b-instant",    "role": "QA",         "color": "coral",  "isOnline": True},
+                {"slug": "beatriz",  "displayName": "[MAP] Beatriz",  "model": "llama-3.1-8b-instant",    "role": "MAPPER",     "color": "amber",  "isOnline": True},
+                {"slug": "thiago",   "displayName": "[BAL] Thiago",   "model": "llama-3.1-8b-instant",    "role": "BALANCER",   "color": "gray",   "isOnline": False},
+                {"slug": "amanda",   "displayName": "[OPS] Amanda",   "model": "llama-3.1-8b-instant",    "role": "DEVOPS",     "color": "gray",   "isOnline": True},
+                {"slug": "leonardo", "displayName": "[RES] Leonardo", "model": "llama-3.1-8b-instant",    "role": "RESEARCH",   "color": "gray",   "isOnline": False},
+                {"slug": "lucas",    "displayName": "[CM] Lucas",     "model": "llama-3.1-8b-instant",    "role": "CM",         "color": "amber",  "isOnline": False},
+                {"slug": "mariana",  "displayName": "[SUP] Mariana",  "model": "llama-3.1-8b-instant",    "role": "SUPPORT",    "color": "amber",  "isOnline": False},
+                {"slug": "diego",    "displayName": "[ART] Diego",    "model": "llama-3.1-8b-instant",    "role": "DESIGNER",   "color": "purple", "isOnline": False},
+                {"slug": "ana",      "displayName": "[LORE] Ana",     "model": "llama-3.1-8b-instant",    "role": "LORE_WRITER","color": "purple", "isOnline": False},
+            ]
+            for agent in agents_data:
+                try:
+                    await prisma.agent.upsert(
+                        where={"slug": agent["slug"]},
+                        data={"create": agent, "update": agent}
+                    )
+                except Exception as e:
+                    log_event(f"[STARTUP] Agent seed warning ({agent['slug']}): {e}")
+            log_event(f"[STARTUP] Agents seeded: {len(agents_data)}")
+        else:
+            log_event(f"[STARTUP] Agents already exist ({agent_count}) — skipping agent seed")
+    except Exception as e:
+        log_event(f"[STARTUP] Agent seed error (non-fatal): {e}")
+
+    # Auto-seed projects on first deploy (only if table is empty)
+    try:
+        project_count = await prisma.project.count()
+        if project_count == 0:
+            log_event("[STARTUP] No projects found — seeding projects...")
+            from prisma import Json as PrismaJson
+            projects_data = [
+                {"slug": "aethrium-mmorpg",    "displayName": "Aethrium MMORPG",      "gameType": "CANARY_MMORPG", "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": True},
+                {"slug": "baiak-thunder-86",   "displayName": "Baiak Thunder 8.6",    "gameType": "OTSERV",       "division": "STUDIO",    "engine": "TFS 1.5",             "language": "Lua/C++",    "isActive": True},
+                {"slug": "tibia-global",       "displayName": "Tibia Global 15+",     "gameType": "OTSERV",       "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": False},
+                {"slug": "moba-otserv",        "displayName": "MOBA OTServ",          "gameType": "OTSERV",       "division": "STUDIO",    "engine": "Canary",              "language": "Lua/C++",    "isActive": False},
+                {"slug": "pvp-enforced",       "displayName": "PvP Enforced",         "gameType": "OTSERV",       "division": "STUDIO",    "engine": "TFS 1.5",             "language": "Lua/C++",    "isActive": False},
+                {"slug": "cs2-aethrium",       "displayName": "CS2 Aethrium",         "gameType": "CS2",          "division": "PUBLISHER", "engine": "CS2 Dedicated Server","language": "C#",         "isActive": False},
+                {"slug": "lineage2-aethrium",  "displayName": "Lineage II Aethrium",  "gameType": "LINEAGE2",     "division": "PUBLISHER", "engine": "L2J",                 "language": "Java",       "isActive": False},
+                {"slug": "mu-online-aethrium", "displayName": "MU Online Aethrium",   "gameType": "MU_ONLINE",    "division": "PUBLISHER", "engine": "MuEmu",               "language": "C++",        "isActive": False},
+                {"slug": "ragnarok-aethrium",  "displayName": "Ragnarok Aethrium",    "gameType": "RAGNAROK",     "division": "PUBLISHER", "engine": "rAthena",             "language": "C/C++",      "isActive": False},
+                {"slug": "haxball-aethrium",   "displayName": "HaxBall Aethrium",     "gameType": "HAXBALL",      "division": "PUBLISHER", "engine": "HaxBall Headless",    "language": "JavaScript", "isActive": False},
+            ]
+            for p in projects_data:
+                try:
+                    await prisma.project.upsert(
+                        where={"slug": p["slug"]},
+                        data={"create": p, "update": p}
+                    )
+                except Exception as e:
+                    log_event(f"[STARTUP] Project seed warning ({p['slug']}): {e}")
+            log_event(f"[STARTUP] Projects seeded: {len(projects_data)}")
+        else:
+            log_event(f"[STARTUP] Projects already exist ({project_count}) — skipping project seed")
+    except Exception as e:
+        log_event(f"[STARTUP] Project seed error (non-fatal): {e}")
+
     try:
         log_event("[STARTUP] Starting scheduler...")
         start_scheduler()

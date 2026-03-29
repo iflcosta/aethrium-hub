@@ -94,7 +94,7 @@ async def test_discord(request: Request):
         await send_to_channel(
             channel_id, 
             "O backend está configurado com Bot Token e o canal foi validado com sucesso!",
-            agent="[SISTEMA] Hub"
+            agent_slug="[SISTEMA] Hub"
         )
         messages_sent.append(f"Bot Token (Canal {channel_id})")
     elif has_token:

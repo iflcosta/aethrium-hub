@@ -129,6 +129,13 @@ export const backendApi = {
     fetch(`${BACKEND_URL}/agents/${slug}/executions?limit=${limit}`)
       .then(r => r.json()),
 
+  handoffTask: (taskId: string, body: { new_owner_slug: string; reason: string }) =>
+    fetch(`${BACKEND_URL}/tasks/${taskId}/handoff`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }).then(r => r.json()),
+
   deleteTask: (taskId: string) =>
     fetch(`${BACKEND_URL}/tasks/${taskId}`, { method: 'DELETE' }).then(r => r.json()),
 

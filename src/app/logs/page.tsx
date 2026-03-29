@@ -2,7 +2,25 @@
 
 import { useState, useEffect, useRef } from "react";
 import { SectionHeader } from "@/components/section-header";
-import { logTypeColors, type LogEntry, type LogType } from "@/lib/mock/logs";
+type LogType = "LOGIN" | "LOGOUT" | "COMBAT" | "TRADE" | "VIP" | "RESET" | "SYSTEM";
+
+interface LogEntry {
+  id: string;
+  timestamp: string;
+  type: LogType;
+  message: string;
+  player?: string;
+}
+
+const logTypeColors: Record<LogType, string> = {
+  LOGIN: "#378ADD",
+  LOGOUT: "#378ADD",
+  COMBAT: "#D85A30",
+  TRADE: "#1D9E75",
+  VIP: "#EF9F27",
+  RESET: "#7F77DD",
+  SYSTEM: "#888780",
+};
 import { Download, Pause, Play } from "lucide-react";
 import { BACKEND_URL } from "@/lib/api";
 
@@ -84,7 +102,7 @@ export default function LogsPage() {
       />
 
       {/* Filter Bar */}
-      <div className="flex flex-wrap items-center gap-3 mb-4">
+      <div className="flex flex-wrap items-center gap-2 mb-3">
         {allTypes.map((type) => (
           <label key={type} className="flex items-center gap-1.5 text-xs cursor-pointer select-none">
             <input
@@ -109,7 +127,7 @@ export default function LogsPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search logs..."
-          className="ml-auto bg-[#0a0a0a] border border-[#222222] rounded px-3 py-1 text-xs text-white placeholder:text-[#888780]/40 w-48"
+          className="mt-2 sm:mt-0 sm:ml-auto bg-[#0a0a0a] border border-[#222222] rounded px-3 py-1 text-xs text-white placeholder:text-[#888780]/40 w-full sm:w-48"
         />
       </div>
 

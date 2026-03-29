@@ -92,7 +92,7 @@ export default function IntegrationsPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          image_path: "C:/Users/Iago Lopes/.gemini/antigravity/scratch/aethrium-hub/projects/baiak-thunder-86/map_sample.png"
+          image_path: ""
         })
       });
       const data = await res.json();
@@ -218,7 +218,7 @@ export default function IntegrationsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {schedulerJobs.length === 0 ? (
               <p className="text-xs text-[#444] col-span-3 italic">Carregando jobs...</p>
             ) : schedulerJobs.map((job) => (

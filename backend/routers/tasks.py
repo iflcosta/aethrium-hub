@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from db import prisma
 from prisma import Json
+from utils import log_event
 import json
 
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
@@ -13,6 +14,10 @@ class CreateTaskRequest(BaseModel):
     owner_slug: str
     priority: str = "MEDIUM"
     context: Optional[Dict[str, Any]] = None
+
+class HandoffRequest(BaseModel):
+    new_owner_slug: str
+    reason: str = ""
 
 @router.get("/")
 async def get_tasks(
@@ -87,6 +92,38 @@ async def cleanup_tasks():
         "chat_tasks_deleted": chat_deleted,
         "stuck_tasks_failed": len(stuck),
     }
+
+@router.post("/{task_id}/handoff")
+async def handoff_task(task_id: str, body: HandoffRequest):
+    """Transfer a task to another agent."""
+    task = await prisma.task.find_unique(where={"id": task_id}, include={"owner": True})
+    if not task:
+        return {"error": "Task not found"}
+
+    new_owner = await prisma.agent.find_unique(where={"slug": body.new_owner_slug})
+    if not new_owner:
+        return {"error": f"Agent '{body.new_owner_slug}' not found"}
+
+    old_slug = task.owner.slug if task.owner else "unknown"
+
+    updated = await prisma.task.update(
+        where={"id": task_id},
+        data={
+            "ownerId": new_owner.id,
+            "status": "PENDING",
+            "contextSnapshot": Json({
+                **(task.contextSnapshot if isinstance(task.contextSnapshot, dict) else {}),
+                "handoff_from": old_slug,
+                "handoff_to": body.new_owner_slug,
+                "handoff_reason": body.reason,
+            }),
+        },
+        include={"owner": True},
+    )
+
+    log_event(f"[HANDOFF] Task '{task.title}' transferred {old_slug} → {body.new_owner_slug}. Reason: {body.reason or '—'}")
+    return {"task_id": task_id, "from": old_slug, "to": body.new_owner_slug, "status": updated.status}
+
 
 @router.delete("/{task_id}")
 async def delete_task(task_id: str):

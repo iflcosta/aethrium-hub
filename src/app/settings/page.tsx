@@ -95,20 +95,20 @@ export default function SettingsPage() {
           <Bot size={20} className="text-blue-400" />
           <h2>Modelos dos Agentes</h2>
         </div>
-        <div className="bg-black/40 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm shadow-xl">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-black/40 border border-white/10 rounded-2xl overflow-x-auto backdrop-blur-sm shadow-xl">
+          <table className="w-full text-left border-collapse min-w-[500px]">
             <thead>
               <tr className="bg-white/5 text-zinc-400 text-xs font-semibold uppercase tracking-wider">
-                <th className="px-6 py-4">Agente</th>
-                <th className="px-6 py-4">Papel</th>
-                <th className="px-6 py-4">Modelo Atual</th>
-                <th className="px-6 py-4 text-right">Ação</th>
+                <th className="px-3 md:px-6 py-3 md:py-4">Agente</th>
+                <th className="px-3 md:px-6 py-3 md:py-4 hidden sm:table-cell">Papel</th>
+                <th className="px-3 md:px-6 py-3 md:py-4">Modelo</th>
+                <th className="px-3 md:px-6 py-3 md:py-4 text-right">Ação</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
               {agents.map((agent) => (
                 <tr key={agent.slug} className="group hover:bg-white/[0.02] transition-colors">
-                  <td className="px-6 py-4 flex items-center gap-3">
+                  <td className="px-3 md:px-6 py-3 md:py-4 flex items-center gap-2 md:gap-3">
                     <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-white/10 flex items-center justify-center text-lg shadow-inner overflow-hidden">
                        {agent.avatar || "🤖"}
                     </div>
@@ -117,13 +117,13 @@ export default function SettingsPage() {
                       <div className="text-xs text-zinc-500">{agent.slug}</div>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className="text-sm text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-white/5">
+                  <td className="px-3 md:px-6 py-3 md:py-4 hidden sm:table-cell">
+                    <span className="text-xs md:text-sm text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-white/5">
                       {agent.role || "Especialista"}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
-                    <select 
+                  <td className="px-3 md:px-6 py-3 md:py-4">
+                    <select
                       value={agent.model} 
                       onChange={(e) => handleUpdateModel(agent.slug, e.target.value)}
                       disabled={saving === agent.slug}
@@ -134,7 +134,7 @@ export default function SettingsPage() {
                       ))}
                     </select>
                   </td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-3 md:px-6 py-3 md:py-4 text-right">
                     {saving === agent.slug ? (
                       <Loader2 className="w-5 h-5 animate-spin text-purple-400 ml-auto" />
                     ) : (

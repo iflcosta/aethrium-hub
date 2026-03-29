@@ -2,9 +2,62 @@ from fastapi import APIRouter, BackgroundTasks, Query
 import json
 from rag.indexer import index_project, query_rag
 from pydantic import BaseModel
+from typing import Optional, Any, Dict
 from db import prisma
 
 router = APIRouter(prefix="/projects", tags=["Projects"])
+
+# ── Project CRUD ─────────────────────────────────────────────────────────────
+
+class ProjectCreateRequest(BaseModel):
+    slug: str
+    displayName: str
+    gameType: str
+    division: str
+    engine: str
+    language: str
+    isActive: bool = True
+    metadata: Optional[Dict[str, Any]] = None
+
+class ProjectUpdateRequest(BaseModel):
+    displayName: Optional[str] = None
+    isActive: Optional[bool] = None
+    metadata: Optional[Dict[str, Any]] = None
+
+@router.get("")
+async def list_projects(division: Optional[str] = Query(None)):
+    where = {}
+    if division:
+        where["division"] = division
+    projects = await prisma.project.find_many(where=where, order={"createdAt": "asc"})
+    return projects
+
+@router.get("/{slug}")
+async def get_project(slug: str):
+    project = await prisma.project.find_unique(where={"slug": slug})
+    if not project:
+        return {"error": "Project not found"}, 404
+    return project
+
+@router.post("")
+async def create_project(req: ProjectCreateRequest):
+    project = await prisma.project.create(data={
+        "slug": req.slug,
+        "displayName": req.displayName,
+        "gameType": req.gameType,
+        "division": req.division,
+        "engine": req.engine,
+        "language": req.language,
+        "isActive": req.isActive,
+        "metadata": req.metadata,
+    })
+    return project
+
+@router.patch("/{slug}")
+async def update_project(slug: str, req: ProjectUpdateRequest):
+    data = {k: v for k, v in req.dict().items() if v is not None}
+    project = await prisma.project.update(where={"slug": slug}, data=data)
+    return project
 
 @router.get("/embedding-test")
 async def embedding_test():
