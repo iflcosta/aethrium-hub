@@ -60,6 +60,10 @@ export default function TasksPage() {
   const [jsonOpen, setJsonOpen]         = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [handoffTarget, setHandoffTarget] = useState("");
+  const [handoffReason, setHandoffReason] = useState("");
+  const [handoffing, setHandoffing] = useState(false);
+  const [handoffDone, setHandoffDone] = useState(false);
 
   // New task form
   const [showNew, setShowNew]     = useState(false);
@@ -103,6 +107,22 @@ export default function TasksPage() {
       console.error("Failed to delete task", err);
     } finally {
       setDeleting(false);
+    }
+  };
+
+  const handleHandoff = async () => {
+    if (!selectedTask || !handoffTarget) return;
+    setHandoffing(true);
+    try {
+      await backendApi.handoffTask(selectedTask.id, { new_owner_slug: handoffTarget, reason: handoffReason });
+      setHandoffDone(true);
+      setHandoffTarget(""); setHandoffReason("");
+      await loadData();
+      setTimeout(() => { setHandoffDone(false); setSelectedTask(null); }, 1200);
+    } catch (err) {
+      console.error("Handoff failed", err);
+    } finally {
+      setHandoffing(false);
     }
   };
 
@@ -387,7 +407,11 @@ export default function TasksPage() {
               <div className="flex items-center gap-2 mb-2 text-xs text-[#888780]">
                 <span className="text-white">{selectedTask.owner?.displayName || selectedTask.owner?.slug}</span>
                 <ChevronRight className="w-3 h-3" />
-                <select className="bg-[#1a1a1a] border border-[#222222] rounded px-2 py-1 text-xs text-white">
+                <select
+                  value={handoffTarget}
+                  onChange={e => setHandoffTarget(e.target.value)}
+                  className="bg-[#1a1a1a] border border-[#222222] rounded px-2 py-1 text-xs text-white"
+                >
                   <option value="">Selecionar agente...</option>
                   {agents
                     .filter(a => a.slug !== selectedTask.owner?.slug)
@@ -398,11 +422,18 @@ export default function TasksPage() {
               </div>
               <input
                 type="text"
+                value={handoffReason}
+                onChange={e => setHandoffReason(e.target.value)}
                 placeholder="Motivo do handoff..."
                 className="w-full bg-[#1a1a1a] border border-[#222222] rounded px-3 py-1.5 text-xs text-white placeholder:text-[#888780]/40 mb-2"
               />
-              <button className="w-full text-xs px-3 py-1.5 rounded bg-[#7F77DD] text-white hover:bg-[#6b63cc] transition-colors">
-                Iniciar Handoff
+              <button
+                onClick={handleHandoff}
+                disabled={!handoffTarget || handoffing || handoffDone}
+                className="w-full text-xs px-3 py-1.5 rounded bg-[#7F77DD] text-white hover:bg-[#6b63cc] disabled:opacity-50 transition-colors flex items-center justify-center gap-1"
+              >
+                {handoffing ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
+                {handoffDone ? "Transferido!" : handoffing ? "Transferindo..." : "Iniciar Handoff"}
               </button>
             </div>
           </div>
